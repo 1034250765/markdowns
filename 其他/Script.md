@@ -17,7 +17,7 @@ Python3 中可以使用 json 模块来对 JSON 数据进行编解码，它包含
 - **json.dumps():** 对数据进行编码。
 - **json.loads():** 对数据进行解码。
 
-![image-20260112142956771](C:\Users\LYX10\AppData\Roaming\Typora\typora-user-images\image-20260112142956771.png)
+![image-20260112142956771](../images/image-20260112142956771.png)
 
 ```python
 #!/usr/bin/python3

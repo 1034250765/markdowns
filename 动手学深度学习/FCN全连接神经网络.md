@@ -2,7 +2,7 @@
 
 使用一个转置的卷积层替换最后的全连接层
 
-![image-20260115144151158](C:\Users\LYX10\AppData\Roaming\Typora\typora-user-images\image-20260115144151158.png)
+![image-20260115144151158](../images/image-20260115144151158.png)
 
 ```python
 num_classes = 21
@@ -18,17 +18,17 @@ net.add_module('transpose_conv', nn.ConvTranspose2d(num_classes, num_classes,
 **单线性插值**
 已知中P1点和P2点，坐标分别为(x1, y1)、(x2, y2)，要计算 [x1, x2] 区间内某一位置 x 在直线上的y值
 
-![image-20260115161205484](C:\Users\LYX10\AppData\Roaming\Typora\typora-user-images\image-20260115161205484.png)
+![image-20260115161205484](../images/image-20260115161205484.png)
 
 双线性插值
 
-![image-20260115162004674](C:\Users\LYX10\AppData\Roaming\Typora\typora-user-images\image-20260115162004674.png)
+![image-20260115162004674](../images/image-20260115162004674.png)
 
 双线性插值是分别在两个方向计算了共3次单线性插值，如图所示，先在x方向求2次单线性插值，获得R1(x, y1)、R2(x, y2)两个临时点，再在y方向计算1次单线性插值得出P(x, y)（实际上调换2次轴的方向先y后x也是一样的结果）。
 
 ***f*(*x*,*y*)=(*x*2−*x*1)(*y*2−*y*1)*f*(*Q*11)(*x*2−*x*)(*y*2−*y*)+(*x*2−*x*1)(*y*2−*y*1)*f*(*Q*21)(*x*−*x*1)(*y*2−*y*)+(*x*2−*x*1)(*y*2−*y*1)*f*(*Q*12)(*x*2−*x*)(*y*−*y*1)**
 
-![image-20260115162523444](C:\Users\LYX10\AppData\Roaming\Typora\typora-user-images\image-20260115162523444.png)
+![image-20260115162523444](../images/image-20260115162523444.png)
 
 **初始化卷积层**
 

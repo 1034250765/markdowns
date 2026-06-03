@@ -407,7 +407,7 @@ TypeError: can only concatenate str (not "int") to str
 
 异常捕捉可以使用 **try/except** 语句。
 
-![image-20260330193846864](C:\Users\LYX10\AppData\Roaming\Typora\typora-user-images\image-20260330193846864.png)
+![image-20260330193846864](../images/image-20260330193846864.png)
 
 ```python
 while True:

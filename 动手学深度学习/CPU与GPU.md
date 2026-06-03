@@ -10,14 +10,14 @@
 
 如果一个矩阵是按行存储，访问一行要比访问一列要快
 
-![image-20260106210827144](C:\Users\LYX10\AppData\Roaming\Typora\typora-user-images\image-20260106210827144.png)
+![image-20260106210827144](../images/image-20260106210827144.png)
 
 提升CPU利用率也可以依靠并行，高端的CPU有几十个核心
 
 超线程不一定可以提升性能，因为它们共享寄存器
 
-![image-20260106211414738](C:\Users\LYX10\AppData\Roaming\Typora\typora-user-images\image-20260106211414738.png)
+![image-20260106211414738](../images/image-20260106211414738.png)
 
-![image-20260106211952766](C:\Users\LYX10\AppData\Roaming\Typora\typora-user-images\image-20260106211952766.png)
+![image-20260106211952766](../images/image-20260106211952766.png)
 
 ​                                                                                          
