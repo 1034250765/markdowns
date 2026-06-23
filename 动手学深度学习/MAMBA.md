@@ -6,7 +6,7 @@
 
 ![5598ffd3909a269241a28854a1dfe59e.png](https://i-blog.csdnimg.cn/blog_migrate/479cda5b046b116860e18e5c82c77124.png)
 
-  ![c4b0f7ddf2af681e5c5b8078db03afd5](../images/c4b0f7ddf2af681e5c5b8078db03afd5.png)
+  ![c4b0f7ddf2af681e5c5b8078db03afd5](images/c4b0f7ddf2af681e5c5b8078db03afd5.png)
 
 Mamba比差不多大小的Transformer性能要更好。
 
@@ -36,13 +36,13 @@ ssm是用于描述这些状态表示的模型，并根据某些输入预测其�
 
 SSM不是使用离散序列(如向左移动一次)，而是将*连续序列作为输入*，并预测输出序列。
 
-![image-20260103193453758](../images/image-20260103193453758.png)
+![image-20260103193453758](images/image-20260103193453758.png)
 
 将上述的两个方程整合在一起，得到了如下的结构：
 
 *输出方程*描述了当前状态如何通过矩阵 C 影响输出，以及输入如何通过矩阵 D 直接影响输出。由于矩阵 D 本质上独立于h(t)自身的建模过程，在 SSM 的图示和讨论中通常被省略，以聚焦于核心矩阵 A、B 和 C。
 
-![image-20260103193826134](../images/image-20260103193826134.png)
+![image-20260103193826134](images/image-20260103193826134.png)
 
 ## 线性状态空间层 (Linear State-Space Layer, LSSL)
 
@@ -58,7 +58,7 @@ LSSL[[a.2\]](https://maartengrootendorst.substack.com/p/a-visual-guide-to-mamba-
 
 从数学的角度而言，我们可以按照如下的方式应用零阶保持技术
 
-![image-20260103194108235](../images/image-20260103194108235.png)
+![image-20260103194108235](images/image-20260103194108235.png)
 
 离散化 SSM 使其能像 RNN 一样用于序列到序列任务。离散化 SSM 的参数和方程通常经过改写，采用 RNN 常用的下标表示法以区别于连续时间模型。该表示法中，*ht* 代表模型将生成的新状态空间，*h*t-1 则代表前一时刻的状态——即当前的状态空间。
 
@@ -68,11 +68,11 @@ LSSL[[a.2\]](https://maartengrootendorst.substack.com/p/a-visual-guide-to-mamba-
 
 在每个时间步长，我们计算当前输入如何影响前一个状态然后计算预测输出
 
-![image-20260103200147320](../images/image-20260103200147320.png)
+![image-20260103200147320](images/image-20260103200147320.png)
 
 我们可以发现这种循环的SSM结构和RNN非常的类似。
 
-![image-20260103200504909](../images/image-20260103200504909.png)
+![image-20260103200504909](images/image-20260103200504909.png)
 
 **卷积表示（Convolution Representation）**
 

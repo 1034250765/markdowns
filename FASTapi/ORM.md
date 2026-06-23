@@ -3,7 +3,7 @@
 - 安装sqlalchemy[async]
 - 安装aiomysql异步数据库驱动
 
-![image-20260318201721504](../images/image-20260318201721504.png)
+![image-20260318201721504](images/image-20260318201721504.png)
 
 **SQLAlchemy 的优势**
 SQLAlchemy 是 Python 社区中最成熟的 ORM 框架之一，它提供了两种主要的 API：
@@ -236,7 +236,7 @@ async def get_book(user_id: int, db: AsyncSession = Depends(get_database)):
     return books
 ```
 
-![image-20260325151503571](../images/image-20260325151503571.png)
+![image-20260325151503571](images/image-20260325151503571.png)
 
 ```python
 #比较判断
@@ -294,7 +294,7 @@ async def get_book_name(book_name: str, db: AsyncSession = Depends(get_database)
     return books
 ```
 
-![image-20260325171240863](../images/image-20260325171240863.png)
+![image-20260325171240863](images/image-20260325171240863.png)
 
 ### 更新数据
 

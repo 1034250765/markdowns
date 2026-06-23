@@ -62,6 +62,76 @@ from parent_module import some_function
 - `sys.path` 中的每一个条目都是 Python 搜索模块的**根目录**。
 - 当你添加 `"./chapter_linear_networks"` 后，Python 会在该目录下查找 **模块或包**。
 
+
+
+## setuptools import find_packages, setup
+
+**打包分发工具，一般打包的结果是zip文件，可以是二进制或者源码包的形式发布**
+
+```powershell
+$ python setup.py sdist --formats=gztar
+# 打包命令
+
+$ pip install  xxx.zip 
+# 安装
+```
+
+上面我们讲述了python打包分发的方法，很容易发现整个打包过程最重要的就是`setup.py`，它`指定了重要的配置信息`。setup.py的内容如下：
+
+```python
+from setuptools import setup
+
+def readme():
+    with open('README.md', encoding='utf-8') as f:
+        content = f.read()
+    return content
+
+setup(
+    name = 'myapp', # 包名称
+    version = '1.0', # 版本
+    author = 'xxx', # 作者
+    author_email = 'xxx@163.com', # 作者邮箱
+    description='a example for pack python', # 描述
+    long_description=readme(), # 长文描述
+    long_description_content_type='text/markdown', # 长文描述的文本格式
+    keywords='pack', # 关键词
+    url='https://github.com/lihua/myapp', # 项目主页
+    classifiers=[ # 包的分类信息，见https://pypi.org/pypi?%3Aaction=list_classifiers
+            'Development Status :: 5 - Production/Stable',
+            'License :: OSI Approved :: Apache Software License',
+            'Operating System :: OS Independent',
+            'Programming Language :: Python :: 3',
+            'Programming Language :: Python :: 3.6',
+            'Programming Language :: Python :: 3.7',
+            'Programming Language :: Python :: 3.8',
+            'Programming Language :: Python :: 3.9',
+        ],
+    packages=find_packages(), # packages参数就是用来指示打包分发时需要包含的package，type为list[str]。
+    include_package_data=True,
+    license='Apache License 2.0', # 许可证
+)
+
+```
+
+setuptools提供了两个函数`find_namespace_packages`, `find_packages`来**快速找到所有的package**。
+
+首先明白一点，python中的packages有两种，
+
+- 一种是`包含__init__.py的文件夹`（姑且叫做`普通package`），
+- 一种是`不含__init__.py的文件夹`（这是python3引入的`Namespace Packages命名空间包`）。
+
+针对**依赖包安装与版本管理**这项功能，setup函数提供了一些参数`install_requires`、 `setup_requires`、`tests_require` 、`extras_require` 。
+
+
+
+
+
+
+
+
+
+
+
 ## f-string
 
 **f-string** 格式化字符串以 **f** 开头，后面跟着字符串，字符串中的表达式用大括号 {} 包起来，它会将变量或表达式计算后的值替换进去，实例如下：
@@ -407,7 +477,7 @@ TypeError: can only concatenate str (not "int") to str
 
 异常捕捉可以使用 **try/except** 语句。
 
-![image-20260330193846864](../images/image-20260330193846864.png)
+![image-20260330193846864](images/image-20260330193846864.png)
 
 ```python
 while True:

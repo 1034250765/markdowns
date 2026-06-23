@@ -88,7 +88,7 @@ sudo docker run hello-world
 
 
 
-![image-20260513163957980](../images/image-20260513163957980.png)
+![image-20260513163957980](images/image-20260513163957980.png)
 
 官方仓库可以省略仓库地址
 
@@ -129,7 +129,7 @@ docker creat 仅创建不启动容器
 
 **sudo docker ps** 查看运行中容器
 
-![image-20260513165611238](../images/image-20260513165611238.png)
+![image-20260513165611238](images/image-20260513165611238.png)
 
 - id就是容器的id
 - image是基于哪个镜像创建的
@@ -139,11 +139,11 @@ docker creat 仅创建不启动容器
 
 **sudo docker run -d nginx ** 分离模式后台执行
 
-![image-20260513165930044](../images/image-20260513165930044.png)
+![image-20260513165930044](images/image-20260513165930044.png)
 
 
 
-![image-20260513165948745](../images/image-20260513165948745.png)
+![image-20260513165948745](images/image-20260513165948745.png)
 
 -p进行端口映射，**容器的网络与宿主机是隔离的**
 
@@ -164,6 +164,8 @@ docker creat 仅创建不启动容器
 使用绑定挂载时，宿主机的目录会覆盖掉容器内的目录。
 
 > docker run -d -p80:80 -vD:/docker/nginx:usr/share/nginx/html 5aca99593157 **绑定挂载**
+
+
 
 **创建挂载卷**
 
@@ -247,7 +249,7 @@ docker push space:name
 
 
 
-![image-20260527205847290](../images/image-20260527205847290.png)
+![image-20260527205847290](images/image-20260527205847290.png)
 
 但容器网络和宿主机网络是隔离的
 
@@ -255,7 +257,7 @@ docker push space:name
 
 docker network creat name 创建子网
 
-![image-20260527205959056](../images/image-20260527205959056.png)
+![image-20260527205959056](images/image-20260527205959056.png)
 
 同一个子网可以互相访问，且可以使用名字，而不必使用内部IP
 

@@ -72,10 +72,10 @@ where FN is the number of false negatives.
 
 where TN is the number of true negatives.
 
-![image-20260308160108831](../images/image-20260308160108831.png)
+![image-20260308160108831](images/image-20260308160108831.png)
 
-![image-20260308160121632](../images/image-20260308160121632.png)
+![image-20260308160121632](images/image-20260308160121632.png)
 
-![image-20260308160132326](../images/image-20260308160132326.png)
+![image-20260308160132326](images/image-20260308160132326.png)
 
 `还有很多类似的评价标准`

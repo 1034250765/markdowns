@@ -6,6 +6,8 @@
 
 可以把自己的模型**Deep seek**接入到claude code
 
+**每次启动Claude之前记得启动**
+
 
 
 
@@ -36,11 +38,11 @@ claude
 - 清楚描述你所需要的功能和特性
 - 正确使用mcp服务器，和工具
 
-![image-20260605212119986](C:\Users\LYX10\AppData\Roaming\Typora\typora-user-images\image-20260605212119986.png)
+![image-20260605212119986](images/image-20260605212119986.png)
 
 
 
-![image-20260605212158020](C:\Users\LYX10\AppData\Roaming\Typora\typora-user-images\image-20260605212158020.png)![image-20260605212238280](C:\Users\LYX10\AppData\Roaming\Typora\typora-user-images\image-20260605212238280.png)
+![image-20260605212158020](images/image-20260605212158020.png)![image-20260605212238280](images/image-20260605212238280.png)
 
 **这些工具让Claude能够收集所需的上下文信息**
 
@@ -253,7 +255,7 @@ Memory 分两层，各自有独立的 `MEMORY.md` 做索引：
 - 长任务中途主动让 AI 总结关键进展（显式写入对话，压缩后保留在摘要中）
 - 把真正重要的信息写入 CLAUDE.md 或 Memory（持久化到磁盘，不依赖对话上下文）
 
-### Hook（钩子）
+### Hook（钩子/hooks）
 
 钩子非常重要。个人项目用得不多，但在复杂企业仓库中，它们对引导 Claude 至关重要——钩子与 CLAUDE.md 的"建议"互补，是"必须执行"的确定性规则。
 
@@ -270,6 +272,50 @@ Memory 分两层，各自有独立的 `MEMORY.md` 做索引：
 
 **建议在编码过程中至少运行一次 `/context`**，观察你的 20 万 Token 上下文窗口是如何被使用的。新会话的基础开销约 2 万 Token（约 10%），剩余约 18 万用于具体改动——很快就会被占满。
 
+
+
+
+
+### Git Worktree
+
+一句话：**分支是 git 里的逻辑指针，worktree 是磁盘上的物理目录。**
+
+```
+分支（Branch）   →  "这个代码版本叫什么名字"
+Worktree         →  "这个代码版本放在哪个文件夹里"
+```
+
+#### 为什么需要 Worktree
+
+没有 worktree 时，只有一个文件夹，切分支就得 `git checkout`：
+
+```
+master ──→ 唯一的工作目录
+           切到 copyMD → 未保存改动得先 commit/stash
+```
+
+有了 worktree 后，每个分支有独立文件夹，**永远不用切换**：
+
+```
+master    ──→ 主目录（始终在 master）
+copyMD    ──→ .claude/worktrees/copyMD/
+remindMD  ──→ .claude/worktrees/remindMD/
+modifyMD  ──→ .claude/worktrees/modifyMD/
+```
+
+三个目录同时存在，各管各分支，互不干扰。
+
+#### 常用命令
+
+```bash
+git worktree add <路径> -b <分支名>    # 创建新 worktree
+git worktree list                       # 列出所有 worktree
+git worktree remove <路径>              # 删除 worktree
+```
+
+#### 在 Claude Code 中的用法
+
+Agent 的 `isolation: "worktree"` 参数就是利用这个机制——并行启动多个 Agent 同时改代码时，每个 Agent 在独立 worktree 中操作，互不覆盖。
 
 
 
@@ -294,7 +340,7 @@ Claude.md文件对于cc引入记忆至关重要
 
 /ide 可以在IED工具中连接cc
 
-![image-20260607163652330](C:\Users\LYX10\AppData\Roaming\Typora\typora-user-images\image-20260607163652330.png)
+![image-20260607163652330](images/image-20260607163652330.png)
 
 
 
@@ -487,6 +533,22 @@ def read_report() -> dict:
 ```
 
 **一句话**：MCP Server 需要的是「任何能程序化操控目标应用的方式」，SDK 只是其中最方便的一种，而不是唯一的一种。
+
+
+
+**Claude Code 有时找不到 MCP 服务器**，因为它只从项目目录读取 .mcp.json，而你的 MCP 配置在 ~/.mcp.json。
+
+操作：把 C:\Users\LYX10\.mcp.json 复制一份到 D:\autodl\.mcp.json。
+
+用 PowerShell 执行：
+
+Copy-Item C:\Users\LYX10\.mcp.json D:\autodl\.mcp.json
+
+然后重启 Claude Code 即可加载 ssh-server 和 playwriter 的 MCP 工具。
+
+
+
+
 
 
 
