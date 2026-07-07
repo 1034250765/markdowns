@@ -275,6 +275,45 @@ run**`--network host`**
 
 compose可以自定义容器启动顺序。
 
+``` 
+docker compose build 构建镜像
+```
+
+``` 
+docker compose up -d 启动服务
+```
+
+```
+docker compose ps 查看运行状态
+```
+
+
+
+```
+docker compose logs -f 查看日志
+```
+
+
+
+
+
 docker compose up  -d  （自动识别当前目录下docker-compose）
 
 docker compose stop start  down(停止且删除)
+
+
+
+
+
+## Docker 上传镜像
+
+
+
+```
+docker login
+
+docker tag cowcv_web-backend:latest chuxiao103425/cowcv_web-backend:latest
+docker push chuxiao103425/cowcv_web-backend:latest
+```
+
+**先绑定tag，再上传。**

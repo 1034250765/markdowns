@@ -168,3 +168,17 @@ MCP 工具在**会话启动时一次性加载**，中途安装的不会热加载
 - `/ide` — 连接 IDE（如 VS Code）
 - `/plugin marketplace add anthropics/skills` — 添加技能市场
 - 权限模式 6 种：default / plan / acceptEdits / auto / dontAsk / bypassPermissions
+
+
+使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑
+
+
+```mermaid
+graph TD
+    A[开始] --> B{条件判断}
+    B -->|Yes| C[执行操作A]
+    B -->|No| D[执行操作B]
+    C --> E[结束]
+    D --> E
+```
+
