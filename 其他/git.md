@@ -82,3 +82,36 @@ git clone --branch <branch_name> --depth 1 <repo_url>
 
 ```
 
+
+
+
+
+
+
+
+
+### 几种后悔药
+
+![image-20260707225513323](images/image-20260707225513323.png)
+
+
+
+
+
+### git worktree
+
+
+
+![image-20260707232254435](images/image-20260707232254435.png)
+
+
+
+
+
+![image-20260707232427976](images/image-20260707232427976.png)
+
+**origin/main 是指远端仓库，而mian是本地仓库。**
+
+
+
+### 变基
