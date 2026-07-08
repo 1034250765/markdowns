@@ -1,0 +1,439 @@
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster1.xml","name":"","type":"master","placeholders":[{"name":"title","type":"title","textPreview":"单击此处编辑母版标题样式"},{"name":"body","type":"body","textPreview":"编辑母版文本样式 | 第二级 | 第三级 | 第四级 | 第五级"},{"name":"dateTime","type":"dateTime"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout1.xml","name":"标题幻灯片","type":"title","placeholders":[{"name":"title","type":"title","textPreview":"单击此处编辑母版标题样式"},{"name":"subtitle","type":"subtitle","textPreview":"单击此处编辑母版副标题样式"},{"name":"dateTime","type":"dateTime"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout2.xml","name":"标题和内容","type":"obj","placeholders":[{"name":"title","type":"title","textPreview":"单击此处编辑母版标题样式"},{"name":"2","textPreview":"编辑母版文本样式 | 第二级 | 第三级 | 第四级 | 第五级"},{"name":"dateTime","type":"dateTime"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout3.xml","name":"节标题","type":"secHead","placeholders":[{"name":"title","type":"title","textPreview":"单击此处编辑母版标题样式"},{"name":"body","type":"body","textPreview":"编辑母版文本样式"},{"name":"dateTime","type":"dateTime"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout4.xml","name":"两栏内容","type":"twoObj","placeholders":[{"name":"title","type":"title","textPreview":"单击此处编辑母版标题样式"},{"name":"2","textPreview":"编辑母版文本样式 | 第二级 | 第三级 | 第四级 | 第五级"},{"name":"3","textPreview":"编辑母版文本样式 | 第二级 | 第三级 | 第四级 | 第五级"},{"name":"dateTime","type":"dateTime"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout5.xml","name":"比较","type":"twoTxTwoObj","placeholders":[{"name":"title","type":"title","textPreview":"单击此处编辑母版标题样式"},{"name":"body","type":"body","textPreview":"编辑母版文本样式"},{"name":"3","textPreview":"编辑母版文本样式 | 第二级 | 第三级 | 第四级 | 第五级"},{"name":"body","type":"body","textPreview":"编辑母版文本样式"},{"name":"5","textPreview":"编辑母版文本样式 | 第二级 | 第三级 | 第四级 | 第五级"},{"name":"dateTime","type":"dateTime"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout6.xml","name":"仅标题","placeholders":[{"name":"slideNumber","type":"slideNumber"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout7.xml","name":"空白","type":"blank","placeholders":[{"name":"dateTime","type":"dateTime"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout8.xml","name":"内容与标题","type":"objTx","placeholders":[{"name":"title","type":"title","textPreview":"单击此处编辑母版标题样式"},{"name":"2","textPreview":"编辑母版文本样式 | 第二级 | 第三级 | 第四级 | 第五级"},{"name":"body","type":"body","textPreview":"编辑母版文本样式"},{"name":"dateTime","type":"dateTime"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout9.xml","name":"图片与标题","type":"picTx","placeholders":[{"name":"title","type":"title","textPreview":"单击此处编辑母版标题样式"},{"name":"picture","type":"picture"},{"name":"body","type":"body","textPreview":"编辑母版文本样式"},{"name":"dateTime","type":"dateTime"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout10.xml","name":"标题和竖排文字","type":"vertTx","placeholders":[{"name":"title","type":"title","textPreview":"单击此处编辑母版标题样式"},{"name":"body","type":"body","textPreview":"编辑母版文本样式 | 第二级 | 第三级 | 第四级 | 第五级"},{"name":"dateTime","type":"dateTime"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout11.xml","name":"竖排标题与文本","type":"vertTitleAndTx","placeholders":[{"name":"title","type":"title","textPreview":"单击此处编辑母版标题样式"},{"name":"body","type":"body","textPreview":"编辑母版文本样式 | 第二级 | 第三级 | 第四级 | 第五级"},{"name":"dateTime","type":"dateTime"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout12.xml","name":"1_内容与标题"}
+{"kind":"slide","id":"sl/2x4nap4r","slide":1,"title":"牛只目标检测科研工作进展","textShapes":2}
+{"kind":"textbox","id":"sh/nyd0z610","slide":1,"name":"文本框 4","text":"牛只目标检测科研工作进展","textPreview":"牛只目标检测科研工作进展","textChars":12,"textLines":1,"bbox":[218.84,414.32,842.32,184.07]}
+{"kind":"shape","id":"sh/cj6tovah","slide":1,"name":"矩形 5","bbox":[0,350.65,1280,13.55]}
+{"kind":"shape","id":"sh/54zidony","slide":1,"name":"矩形 6","bbox":[0,343.31,1280,13.55]}
+{"kind":"textbox","id":"sh/5gbq1ory","slide":1,"name":"文本框 15","text":"李宇骁 | 2026/7","textPreview":"李宇骁 | 2026/7","textChars":12,"textLines":1,"bbox":[387.44,604.96,505.11,38.67]}
+{"kind":"image","id":"im/jm1cfa9w","slide":1,"name":"图片 3","bbox":[0,0,1280,351.66]}
+{"kind":"notes","id":"nt/2x4nap4r","slide":1,"text":"各位老师、同学好，今天汇报近期围绕牛只目标检测数据集、CowCV 平台和跨域泛化实验的科研工作进展。"}
+{"kind":"slide","id":"sl/pg3ex0nu","slide":2,"title":"目录","textShapes":3}
+{"kind":"shape","id":"sh/r65wjudg","slide":2,"name":"圆角矩形 1","bbox":[40.78,0,421.16,720]}
+{"kind":"shape","id":"sh/lkjm1cfa","slide":2,"name":"圆角矩形 1","bbox":[0,0,442.58,720]}
+{"kind":"textbox","id":"sh/byhgn29g","slide":2,"name":"文本框 104","text":"目录","textPreview":"目录","textChars":2,"textLines":1,"bbox":[129.67,295.9,193.5,106.63]}
+{"kind":"textbox","id":"sh/0je9cvix","slide":2,"name":"文本框 105","text":"CONTENTS","textPreview":"CONTENTS","textChars":8,"textLines":1,"bbox":[142.22,388.55,161.29,35.54]}
+{"kind":"shape","id":"sh/w3m94fu1","slide":2,"name":"直接连接符 13","bbox":[303.46,225.71,88.65,66.18]}
+{"kind":"shape","id":"sh/7u54zido","slide":2,"name":"直接连接符 25","bbox":[52.18,445.66,59.77,44.62]}
+{"kind":"shape","id":"sh/ed8bat47","slide":2,"name":"直接连接符 26","bbox":[109.01,426.82,47.51,35.47]}
+{"kind":"shape","id":"sh/zqtcj6to","slide":2,"name":"直接连接符 30","bbox":[308.99,267.05,47.51,35.47]}
+{"kind":"textbox","id":"sh/5o7qpg3e","slide":2,"name":"矩形 1","text":"第一部分    研究背景与阶段目标\n\n第二部分    数据整理、标注与平台建设\n\n第三部分    Benchmark 设计与实验结果\n\n第四部分    方法储备、问题与下一步计划","textPreview":"第一部分    研究背景与阶段目标 |  | 第二部分    数据整理、标注与平台建设 |  | 第三部分    Benchmark 设计与实验结果 |  | 第四部分    方法储备、问题与下一步计划","textChars":89,"textLines":7,"bbox":[535.82,151.58,677.9,232.53]}
+{"kind":"image","id":"im/cfa9w3m9","slide":2,"name":"图片 15","bbox":[0,0,442.58,720]}
+{"kind":"notes","id":"nt/pg3ex0nu","slide":2,"text":"汇报分为四部分：背景目标、数据和平台、实验结果、方法储备与计划。"}
+{"kind":"slide","id":"sl/s72x4nap","slide":3,"title":"背景与阶段目标","textShapes":3}
+{"kind":"shape","id":"sh/oj2t83it","slide":3,"name":"矩形 5","bbox":[0,0,1280,720]}
+{"kind":"textbox","id":"sh/6hcrmhk3","slide":3,"name":"文本框 7","text":"背景与阶段目标","textPreview":"背景与阶段目标","textChars":7,"textLines":1,"bbox":[289.74,247.6,700.52,106.63]}
+{"kind":"textbox","id":"sh/z25kb6xk","slide":3,"name":"文本框 8","text":"为什么要把牛只数据整理推进到跨域 benchmark","textPreview":"为什么要把牛只数据整理推进到跨域 benchmark","textChars":26,"textLines":1,"bbox":[338.19,352,603.63,33.8]}
+{"kind":"textbox","id":"sh/vy90je9c","slide":3,"name":"文本框 9","text":"PART 01","textPreview":"PART 01","textChars":7,"textLines":1,"bbox":[516.46,151.6,247.09,61.39]}
+{"kind":"shape","id":"sh/6dcbulwv","slide":3,"name":"直接连接符 3","bbox":[622,228,36,0]}
+{"kind":"image","id":"im/d8v6psfi","slide":3,"name":"图片 4","bbox":[0,68,1280,652]}
+{"kind":"notes","id":"nt/s72x4nap","slide":3,"text":"第一部分说明为什么当前阶段不只做数据收集，而要推进到跨数据集泛化评测。"}
+{"kind":"slide","id":"sl/val87ed8","slide":4,"title":"研究动机：真实养殖场景需要跨域稳定的牛只检测","textShapes":10}
+{"kind":"shape","id":"sh/a9w3m94f","slide":4,"name":"文本框 21","bbox":[78.45,25.39,337.55,54.93]}
+{"kind":"textbox","id":"sh/orytsvu9","slide":4,"name":"slide-title","text":"研究动机：真实养殖场景需要跨域稳定的牛只检测","textPreview":"研究动机：真实养殖场景需要跨域稳定的牛只检测","textChars":22,"textLines":1,"bbox":[78,25,930,56]}
+{"kind":"shape","id":"sh/hcrmhk3q","slide":4,"name":"title-rule","bbox":[78,86,1120,3]}
+{"kind":"textbox","id":"sh/al87ed8b","slide":4,"name":"body-text","text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1168,650,46,28]}
+{"kind":"shape","id":"sh/z61032ls","slide":4,"name":"bullet-dot","bbox":[92,140,10,10]}
+{"kind":"textbox","id":"sh/oza1gvy9","slide":4,"name":"body-text","text":"牛只检测可支撑定位、计数、行为分析、健康监测和精准管理。","textPreview":"牛只检测可支撑定位、计数、行为分析、健康监测和精准管理。","textChars":28,"textLines":1,"bbox":[116,132,726,54]}
+{"kind":"shape","id":"sh/hk3q5o7q","slide":4,"name":"bullet-dot","bbox":[92,210,10,10]}
+{"kind":"textbox","id":"sh/7mp0bi9s","slide":4,"name":"body-text","text":"公开数据来源分散，采集设备、光照、视角和场景差异明显。","textPreview":"公开数据来源分散，采集设备、光照、视角和场景差异明显。","textChars":27,"textLines":1,"bbox":[116,202,726,54]}
+{"kind":"shape","id":"sh/e1w7mp0b","slide":4,"name":"bullet-dot","bbox":[92,280,10,10]}
+{"kind":"textbox","id":"sh/psfil0rq","slide":4,"name":"body-text","text":"标注格式不统一，VOC、COCO、CSV、CVAT XML 与 YOLO 并存。","textPreview":"标注格式不统一，VOC、COCO、CSV、CVAT XML 与 YOLO 并存。","textChars":40,"textLines":1,"bbox":[116,272,726,54]}
+{"kind":"shape","id":"sh/w7mp0bi9","slide":4,"name":"bullet-dot","bbox":[92,350,10,10]}
+{"kind":"textbox","id":"sh/7adsji5s","slide":4,"name":"body-text","text":"多数已有实验偏单一数据集，难以判断模型真实泛化能力。","textPreview":"多数已有实验偏单一数据集，难以判断模型真实泛化能力。","textChars":26,"textLines":1,"bbox":[116,342,726,54]}
+{"kind":"shape","id":"sh/epkzupwb","slide":4,"name":"content-box","bbox":[875,165,275,225]}
+{"kind":"textbox","id":"sh/pg3ex0nu","slide":4,"name":"body-text","text":"本阶段切入点","textPreview":"本阶段切入点","textChars":6,"textLines":1,"bbox":[893,179,239,30]}
+{"kind":"textbox","id":"sh/wval87ed","slide":4,"name":"body-text","text":"把数据整理、统一标注、平台建设和跨数据集评测整合为 CowCV 工作流。","textPreview":"把数据整理、统一标注、平台建设和跨数据集评测整合为 CowCV 工作流。","textChars":36,"textLines":1,"bbox":[893,217,239,163]}
+{"kind":"shape","id":"sh/36hcrmhk","slide":4,"name":"content-box","bbox":[875,420,275,150]}
+{"kind":"textbox","id":"sh/eloj2t83","slide":4,"name":"body-text","text":"核心问题","textPreview":"核心问题","textChars":4,"textLines":1,"bbox":[893,434,239,30]}
+{"kind":"textbox","id":"sh/yhgn29gr","slide":4,"name":"body-text","text":"模型在熟悉场景上高分，是否能稳定迁移到未见养殖环境？","textPreview":"模型在熟悉场景上高分，是否能稳定迁移到未见养殖环境？","textChars":26,"textLines":1,"bbox":[893,472,239,88]}
+{"kind":"notes","id":"nt/val87ed8","slide":4,"text":"牛只目标检测是智慧畜牧的基础任务，但真实部署中的域差异非常明显。当前要让整理好的数据支撑可比较的泛化实验。"}
+{"kind":"slide","id":"sl/mlkjm1cf","slide":5,"title":"阶段性工作：已经形成数据、平台和实验三条主线","textShapes":21}
+{"kind":"shape","id":"sh/k3q5o7qp","slide":5,"name":"文本框 21","bbox":[78.45,25.39,337.55,54.93]}
+{"kind":"textbox","id":"sh/6psfil0r","slide":5,"name":"slide-title","text":"阶段性工作：已经形成数据、平台和实验三条主线","textPreview":"阶段性工作：已经形成数据、平台和实验三条主线","textChars":22,"textLines":1,"bbox":[78,25,930,56]}
+{"kind":"shape","id":"sh/val87ed8","slide":5,"name":"title-rule","bbox":[78,86,1120,3]}
+{"kind":"textbox","id":"sh/kre1w7mp","slide":5,"name":"body-text","text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1168,650,46,28]}
+{"kind":"shape","id":"sh/dcbulwva","slide":5,"name":"content-box","bbox":[80,135,340,170]}
+{"kind":"textbox","id":"sh/2lszqtcj","slide":5,"name":"body-text","text":"数据资源","textPreview":"数据资源","textChars":4,"textLines":1,"bbox":[98,149,304,30]}
+{"kind":"textbox","id":"sh/v6psfil0","slide":5,"name":"body-text","text":"完成牛只检测、识别、姿态和行为相关数据集调研，形成候选库。","textPreview":"完成牛只检测、识别、姿态和行为相关数据集调研，形成候选库。","textChars":29,"textLines":1,"bbox":[98,187,304,108]}
+{"kind":"shape","id":"sh/h4byhgn2","slide":5,"name":"content-box","bbox":[470,135,340,170]}
+{"kind":"textbox","id":"sh/sji5snel","slide":5,"name":"body-text","text":"平台建设","textPreview":"平台建设","textChars":4,"textLines":1,"bbox":[488,149,304,30]}
+{"kind":"textbox","id":"sh/3ylc7u54","slide":5,"name":"body-text","text":"修复 CowCV 前后端配置、路径解析和 Docker 构建流程。","textPreview":"修复 CowCV 前后端配置、路径解析和 Docker 构建流程。","textChars":33,"textLines":1,"bbox":[488,187,304,108]}
+{"kind":"shape","id":"sh/adsji5sn","slide":5,"name":"content-box","bbox":[860,135,340,170]}
+{"kind":"textbox","id":"sh/lszqtcj6","slide":5,"name":"body-text","text":"模型实验","textPreview":"模型实验","textChars":4,"textLines":1,"bbox":[878,149,304,30]}
+{"kind":"textbox","id":"sh/s72x4nap","slide":5,"name":"body-text","text":"完成 YOLOv8n/v8m 的单数据集、混合训练和跨域测试。","textPreview":"完成 YOLOv8n/v8m 的单数据集、混合训练和跨域测试。","textChars":31,"textLines":1,"bbox":[878,187,304,108]}
+{"kind":"textbox","id":"sh/3m94fu18","slide":5,"name":"body-text","text":"阶段目标：从“数据可用”推进到“结果可比较、问题可解释”。","textPreview":"阶段目标：从“数据可用”推进到“结果可比较、问题可解释”。","textChars":29,"textLines":1,"bbox":[130,392,1020,70]}
+{"kind":"shape","id":"sh/a5gbq1or","slide":5,"name":"table-cell","bbox":[170,485,313.33,37.5]}
+{"kind":"textbox","id":"sh/hoza1gvy","slide":5,"name":"body-text","text":"模块","textPreview":"模块","textChars":2,"textLines":1,"bbox":[178,493,297.33,25.5]}
+{"kind":"shape","id":"sh/s36hcrmh","slide":5,"name":"table-cell","bbox":[483.33,485,313.33,37.5]}
+{"kind":"textbox","id":"sh/wval87ed","slide":5,"name":"body-text","text":"已完成内容","textPreview":"已完成内容","textChars":5,"textLines":1,"bbox":[491.33,493,297.33,25.5]}
+{"kind":"shape","id":"sh/pg3ex0nu","slide":5,"name":"table-cell","bbox":[796.67,485,313.33,37.5]}
+{"kind":"textbox","id":"sh/epkzupwb","slide":5,"name":"body-text","text":"当前状态","textPreview":"当前状态","textChars":4,"textLines":1,"bbox":[804.67,493,297.33,25.5]}
+{"kind":"shape","id":"sh/7adsji5s","slide":5,"name":"table-cell","bbox":[170,522.5,313.33,37.5]}
+{"kind":"textbox","id":"sh/w7mp0bi9","slide":5,"name":"body-text","text":"数据下载","textPreview":"数据下载","textChars":4,"textLines":1,"bbox":[178,530.5,297.33,25.5]}
+{"kind":"shape","id":"sh/psfil0rq","slide":5,"name":"table-cell","bbox":[483.33,522.5,313.33,37.5]}
+{"kind":"textbox","id":"sh/e1w7mp0b","slide":5,"name":"body-text","text":"8-Calves、XGain、COLO、MooTrack360","textPreview":"8-Calves、XGain、COLO、MooTrack360","textChars":31,"textLines":1,"bbox":[491.33,530.5,297.33,25.5]}
+{"kind":"shape","id":"sh/7mp0bi9s","slide":5,"name":"table-cell","bbox":[796.67,522.5,313.33,37.5]}
+{"kind":"textbox","id":"sh/wfyxobm5","slide":5,"name":"body-text","text":"已整理","textPreview":"已整理","textChars":3,"textLines":1,"bbox":[804.67,530.5,297.33,25.5]}
+{"kind":"shape","id":"sh/l0rqd4vm","slide":5,"name":"table-cell","bbox":[170,560,313.33,37.5]}
+{"kind":"textbox","id":"sh/b2hwfyxo","slide":5,"name":"body-text","text":"标注处理","textPreview":"标注处理","textChars":4,"textLines":1,"bbox":[178,568,297.33,25.5]}
+{"kind":"shape","id":"sh/mhk3q5o7","slide":5,"name":"table-cell","bbox":[483.33,560,313.33,37.5]}
+{"kind":"textbox","id":"sh/t83itgfm","slide":5,"name":"body-text","text":"多格式统一为 YOLO class 0","textPreview":"多格式统一为 YOLO class 0","textChars":19,"textLines":1,"bbox":[491.33,568,297.33,25.5]}
+{"kind":"shape","id":"sh/4nap4r65","slide":5,"name":"table-cell","bbox":[796.67,560,313.33,37.5]}
+{"kind":"textbox","id":"sh/bq1oryts","slide":5,"name":"body-text","text":"已训练","textPreview":"已训练","textChars":3,"textLines":1,"bbox":[804.67,568,297.33,25.5]}
+{"kind":"shape","id":"sh/m58z25kb","slide":5,"name":"table-cell","bbox":[170,597.5,313.33,37.5]}
+{"kind":"textbox","id":"sh/twra5gbq","slide":5,"name":"body-text","text":"实验设计","textPreview":"实验设计","textChars":4,"textLines":1,"bbox":[178,605.5,297.33,25.5]}
+{"kind":"shape","id":"sh/4byhgn29","slide":5,"name":"table-cell","bbox":[483.33,597.5,313.33,37.5]}
+{"kind":"textbox","id":"sh/bm58z25k","slide":5,"name":"body-text","text":"N×M 矩阵、自测、未见域测试","textPreview":"N×M 矩阵、自测、未见域测试","textChars":15,"textLines":1,"bbox":[491.33,605.5,297.33,25.5]}
+{"kind":"shape","id":"sh/m1cfa9w3","slide":5,"name":"table-cell","bbox":[796.67,597.5,313.33,37.5]}
+{"kind":"textbox","id":"sh/q5o7qpg3","slide":5,"name":"body-text","text":"第一轮完成","textPreview":"第一轮完成","textChars":5,"textLines":1,"bbox":[804.67,605.5,297.33,25.5]}
+{"kind":"notes","id":"nt/mlkjm1cf","slide":5,"text":"阶段性工作可以概括成三条线：数据、平台和实验。"}
+{"kind":"slide","id":"sl/58z25kb6","slide":6,"title":"数据整理与平台建设","textShapes":3}
+{"kind":"shape","id":"sh/yxobm58z","slide":6,"name":"矩形 5","bbox":[0,0,1280,720]}
+{"kind":"textbox","id":"sh/g7adsji5","slide":6,"name":"文本框 7","text":"数据整理与平台建设","textPreview":"数据整理与平台建设","textChars":9,"textLines":1,"bbox":[289.74,247.6,700.52,201.6]}
+{"kind":"textbox","id":"sh/9s36hcrm","slide":6,"name":"文本框 8","text":"统一数据结构、标注格式与 CowCV 访问入口","textPreview":"统一数据结构、标注格式与 CowCV 访问入口","textChars":23,"textLines":1,"bbox":[338.19,352,603.63,38.78]}
+{"kind":"textbox","id":"sh/d8v6psfi","slide":6,"name":"文本框 9","text":"PART 02","textPreview":"PART 02","textChars":7,"textLines":1,"bbox":[516.46,151.6,247.09,61.39]}
+{"kind":"shape","id":"sh/g3ex0nux","slide":6,"name":"直接连接符 3","bbox":[622,228,36,0]}
+{"kind":"image","id":"im/fil0rqd4","slide":6,"name":"图片 4","bbox":[0,68,1280,652]}
+{"kind":"notes","id":"nt/58z25kb6","slide":6,"text":"第二部分进入数据整理和平台建设。"}
+{"kind":"slide","id":"sl/0z61032l","slide":7,"title":"核心新增数据集：覆盖多种牛只视觉域","textShapes":10}
+{"kind":"shape","id":"sh/7adsji5s","slide":7,"name":"文本框 21","bbox":[78.45,25.39,337.55,54.93]}
+{"kind":"textbox","id":"sh/psfil0rq","slide":7,"name":"slide-title","text":"核心新增数据集：覆盖多种牛只视觉域","textPreview":"核心新增数据集：覆盖多种牛只视觉域","textChars":17,"textLines":1,"bbox":[78,25,930,56]}
+{"kind":"shape","id":"sh/w7mp0bi9","slide":7,"name":"title-rule","bbox":[78,86,1120,3]}
+{"kind":"textbox","id":"sh/7mp0bi9s","slide":7,"name":"body-text","text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1168,650,46,28]}
+{"kind":"shape","id":"sh/e1w7mp0b","slide":7,"name":"content-box","bbox":[70,125,260,230]}
+{"kind":"textbox","id":"sh/l0rqd4vm","slide":7,"name":"body-text","text":"新增规模","textPreview":"新增规模","textChars":4,"textLines":1,"bbox":[88,139,224,30]}
+{"kind":"textbox","id":"sh/wfyxobm5","slide":7,"name":"body-text","text":"8-Calves：901 图，约 4K bbox\nXGain：1,657 图，7,652 bbox\nCOLO：1,004 图，9,846 bbox\nMooTrack360：1,500 图，98,917 bbox","textPreview":"8-Calves：901 图，约 4K bbox | XGain：1,657 图，7,652 bbox | COLO：1,004 图，9,846 bbox | MooTrack360：1,500 图，98,917 bbox","textChars":105,"textLines":4,"bbox":[88,177,224,168]}
+{"kind":"shape","id":"sh/a9w3m94f","slide":7,"name":"content-box","bbox":[365,125,390,230]}
+{"kind":"textbox","id":"sh/zupwb2hw","slide":7,"name":"body-text","text":"场景覆盖","textPreview":"场景覆盖","textChars":4,"textLines":1,"bbox":[383,139,354,30]}
+{"kind":"textbox","id":"sh/sfil0rqd","slide":7,"name":"body-text","text":"室内犊牛、户外牧场俯拍、室内多角度、多光照、鱼眼俯拍、红外/夜间、密集目标","textPreview":"室内犊牛、户外牧场俯拍、室内多角度、多光照、鱼眼俯拍、红外/夜间、密集目标","textChars":37,"textLines":1,"bbox":[383,177,354,168]}
+{"kind":"textbox","id":"sh/al87ed8b","slide":7,"name":"body-text","text":"关键价值：这批数据让 CowCV 从单一数据整理推进到跨室内/室外/鱼眼/多光照的统一 benchmark。","textPreview":"关键价值：这批数据让 CowCV 从单一数据整理推进到跨室内/室外/鱼眼/多光照的统一 benchmark。","textChars":54,"textLines":1,"bbox":[90,420,1080,60]}
+{"kind":"shape","id":"sh/z61032ls","slide":7,"name":"bullet-dot","bbox":[135,523,10,10]}
+{"kind":"textbox","id":"sh/orytsvu9","slide":7,"name":"body-text","text":"8-Calves 适合快速 sanity check；XGain 补充户外牧场行为场景。","textPreview":"8-Calves 适合快速 sanity check；XGain 补充户外牧场行为场景。","textChars":44,"textLines":1,"bbox":[159,515,956,34]}
+{"kind":"shape","id":"sh/hcrmhk3q","slide":7,"name":"bullet-dot","bbox":[135,565,10,10]}
+{"kind":"textbox","id":"sh/6xkf6dcb","slide":7,"name":"body-text","text":"COLO 的多角度、多光照特征适合分析泛化能力。","textPreview":"COLO 的多角度、多光照特征适合分析泛化能力。","textChars":24,"textLines":1,"bbox":[159,557,956,34]}
+{"kind":"shape","id":"sh/zed8v6ps","slide":7,"name":"bullet-dot","bbox":[135,607,10,10]}
+{"kind":"textbox","id":"sh/jqh0fepk","slide":7,"name":"body-text","text":"MooTrack360 提供大实例量和独特鱼眼畸变场景。","textPreview":"MooTrack360 提供大实例量和独特鱼眼畸变场景。","textChars":28,"textLines":1,"bbox":[159,599,956,34]}
+{"kind":"image","id":"im/xs72x4na","slide":7,"name":"图片 51","bbox":[774.67,163.47,493.2,160.13]}
+{"kind":"notes","id":"nt/0z61032l","slide":7,"text":"新数据集覆盖的视觉域差异比较明显，为后续跨域泛化实验提供基础。"}
+{"kind":"slide","id":"sl/fu18jqh0","slide":8,"title":"数据处理流程：先统一格式，再验证是否可学","textShapes":17}
+{"kind":"shape","id":"sh/al87ed8b","slide":8,"name":"文本框 21","bbox":[78.45,25.39,337.55,54.93]}
+{"kind":"textbox","id":"sh/sfil0rqd","slide":8,"name":"slide-title","text":"数据处理流程：先统一格式，再验证是否可学","textPreview":"数据处理流程：先统一格式，再验证是否可学","textChars":20,"textLines":1,"bbox":[78,25,930,56]}
+{"kind":"shape","id":"sh/h0fepkzu","slide":8,"name":"title-rule","bbox":[78,86,1120,3]}
+{"kind":"textbox","id":"sh/a9w3m94f","slide":8,"name":"body-text","text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[1168,650,46,28]}
+{"kind":"shape","id":"sh/zupwb2hw","slide":8,"name":"content-box","bbox":[90,145,330,190]}
+{"kind":"textbox","id":"sh/obm58z25","slide":8,"name":"body-text","text":"1. 数据筛选与下载","textPreview":"1. 数据筛选与下载","textChars":10,"textLines":1,"bbox":[108,159,294,30]}
+{"kind":"textbox","id":"sh/hwfyxobm","slide":8,"name":"body-text","text":"优先选择有检测框、场景互补、许可可用的数据集；对不可用或格式冲突的数据记录原因。","textPreview":"优先选择有检测框、场景互补、许可可用的数据集；对不可用或格式冲突的数据记录原因。","textChars":40,"textLines":1,"bbox":[108,197,294,128]}
+{"kind":"shape","id":"sh/7u54zido","slide":8,"name":"content-box","bbox":[475,145,330,190]}
+{"kind":"textbox","id":"sh/ed8bat47","slide":8,"name":"body-text","text":"2. 标注转换与复查","textPreview":"2. 标注转换与复查","textChars":10,"textLines":1,"bbox":[493,159,294,30]}
+{"kind":"textbox","id":"sh/l0rqd4vm","slide":8,"name":"body-text","text":"将 VOC、COCO、CSV、CVAT XML 等上游格式转换为 YOLO；统一为 class 0 = cow。","textPreview":"将 VOC、COCO、CSV、CVAT XML 等上游格式转换为 YOLO；统一为 class 0 = cow。","textChars":56,"textLines":1,"bbox":[493,197,294,128]}
+{"kind":"shape","id":"sh/wfyxobm5","slide":8,"name":"content-box","bbox":[860,145,330,190]}
+{"kind":"textbox","id":"sh/36hcrmhk","slide":8,"name":"body-text","text":"3. 自测与跨域验证","textPreview":"3. 自测与跨域验证","textChars":10,"textLines":1,"bbox":[878,159,294,30]}
+{"kind":"textbox","id":"sh/eloj2t83","slide":8,"name":"body-text","text":"通过单数据集自训练验证标注质量，再用跨数据集测试定位 domain gap。","textPreview":"通过单数据集自训练验证标注质量，再用跨数据集测试定位 domain gap。","textChars":38,"textLines":1,"bbox":[878,197,294,128]}
+{"kind":"textbox","id":"sh/lc7u54zi","slide":8,"name":"body-text","text":"为什么要先自测？同域训练都学不好时，低分可能是标注或转换问题；同域高分而跨域低分，才更能说明域差异。","textPreview":"为什么要先自测？同域训练都学不好时，低分可能是标注或转换问题；同域高分而跨域低分，才更能说明域差异。","textChars":50,"textLines":1,"bbox":[120,410,1040,66]}
+{"kind":"shape","id":"sh/wra5gbq1","slide":8,"name":"table-cell","bbox":[220,510,420,31.25]}
+{"kind":"textbox","id":"sh/7adsji5s","slide":8,"name":"body-text","text":"处理对象","textPreview":"处理对象","textChars":4,"textLines":1,"bbox":[228,518,404,19.25]}
+{"kind":"shape","id":"sh/epkzupwb","slide":8,"name":"table-cell","bbox":[640,510,420,31.25]}
+{"kind":"textbox","id":"sh/ex0nuxc3","slide":8,"name":"body-text","text":"处理结果","textPreview":"处理结果","textChars":4,"textLines":1,"bbox":[648,518,404,19.25]}
+{"kind":"shape","id":"sh/3itgfmlk","slide":8,"name":"table-cell","bbox":[220,541.25,420,31.25]}
+{"kind":"textbox","id":"sh/w3m94fu1","slide":8,"name":"body-text","text":"行为标签","textPreview":"行为标签","textChars":4,"textLines":1,"bbox":[228,549.25,404,19.25]}
+{"kind":"shape","id":"sh/loj2t83i","slide":8,"name":"table-cell","bbox":[640,541.25,420,31.25]}
+{"kind":"textbox","id":"sh/e9cvixcz","slide":8,"name":"body-text","text":"统一为检测类，原始行为标签保留备用","textPreview":"统一为检测类，原始行为标签保留备用","textChars":17,"textLines":1,"bbox":[648,549.25,404,19.25]}
+{"kind":"shape","id":"sh/3q5o7qpg","slide":8,"name":"table-cell","bbox":[220,572.5,420,31.25]}
+{"kind":"textbox","id":"sh/wb2hwfyx","slide":8,"name":"body-text","text":"无标注图片","textPreview":"无标注图片","textChars":5,"textLines":1,"bbox":[228,580.5,404,19.25]}
+{"kind":"shape","id":"sh/lwval87e","slide":8,"name":"table-cell","bbox":[640,572.5,420,31.25]}
+{"kind":"textbox","id":"sh/ahoza1gv","slide":8,"name":"body-text","text":"后续采用预标注 + 人工复查","textPreview":"后续采用预标注 + 人工复查","textChars":14,"textLines":1,"bbox":[648,580.5,404,19.25]}
+{"kind":"shape","id":"sh/32lszqtc","slide":8,"name":"table-cell","bbox":[220,603.75,420,31.25]}
+{"kind":"textbox","id":"sh/t47y1kre","slide":8,"name":"body-text","text":"旧数据集","textPreview":"旧数据集","textChars":4,"textLines":1,"bbox":[228,611.75,404,19.25]}
+{"kind":"shape","id":"sh/0je9cvix","slide":8,"name":"table-cell","bbox":[640,603.75,420,31.25]}
+{"kind":"textbox","id":"sh/byhgn29g","slide":8,"name":"body-text","text":"作为未见域测试，检查泛化边界","textPreview":"作为未见域测试，检查泛化边界","textChars":14,"textLines":1,"bbox":[648,611.75,404,19.25]}
+{"kind":"notes","id":"nt/fu18jqh0","slide":8,"text":"处理流程的重点是先统一格式和验证可学性，再进入跨域分析。"}
+{"kind":"slide","id":"sl/qh0fepkz","slide":9,"title":"Benchmark 设计：同训练量下比较专精与多样性","textShapes":21}
+{"kind":"shape","id":"sh/k3q5o7qp","slide":9,"name":"文本框 21","bbox":[78.45,25.39,337.55,54.93]}
+{"kind":"textbox","id":"sh/6psfil0r","slide":9,"name":"slide-title","text":"Benchmark 设计：同训练量下比较专精与多样性","textPreview":"Benchmark 设计：同训练量下比较专精与多样性","textChars":26,"textLines":1,"bbox":[78,25,930,56]}
+{"kind":"shape","id":"sh/val87ed8","slide":9,"name":"title-rule","bbox":[78,86,1120,3]}
+{"kind":"textbox","id":"sh/kre1w7mp","slide":9,"name":"body-text","text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[1168,650,46,28]}
+{"kind":"shape","id":"sh/dcbulwva","slide":9,"name":"bullet-dot","bbox":[90,138,10,10]}
+{"kind":"textbox","id":"sh/2lszqtcj","slide":9,"name":"body-text","text":"目标：评估单数据集专精训练和多源混合训练对牛只检测泛化性的影响。","textPreview":"目标：评估单数据集专精训练和多源混合训练对牛只检测泛化性的影响。","textChars":32,"textLines":1,"bbox":[114,130,696,48]}
+{"kind":"shape","id":"sh/v6psfil0","slide":9,"name":"bullet-dot","bbox":[90,201,10,10]}
+{"kind":"textbox","id":"sh/h4byhgn2","slide":9,"name":"body-text","text":"训练规模保持公平：单数据集训练 600 张，混合训练为 4 × 150 张。","textPreview":"训练规模保持公平：单数据集训练 600 张，混合训练为 4 × 150 张。","textChars":38,"textLines":1,"bbox":[114,193,696,48]}
+{"kind":"shape","id":"sh/sji5snel","slide":9,"name":"bullet-dot","bbox":[90,264,10,10]}
+{"kind":"textbox","id":"sh/3ylc7u54","slide":9,"name":"body-text","text":"测试方式采用全矩阵：每个模型在 8-Calves、XGain、COLO、MooTrack360 等测试集上评估。","textPreview":"测试方式采用全矩阵：每个模型在 8-Calves、XGain、COLO、MooTrack360 等测试集上评估。","textChars":56,"textLines":1,"bbox":[114,256,696,48]}
+{"kind":"shape","id":"sh/adsji5sn","slide":9,"name":"bullet-dot","bbox":[90,327,10,10]}
+{"kind":"textbox","id":"sh/lszqtcj6","slide":9,"name":"body-text","text":"主指标：mAP@50、mAP@50-95；辅助关注训练耗时、显存和模型参数量。","textPreview":"主指标：mAP@50、mAP@50-95；辅助关注训练耗时、显存和模型参数量。","textChars":39,"textLines":1,"bbox":[114,319,696,48]}
+{"kind":"textbox","id":"sh/s72x4nap","slide":9,"name":"body-text","text":"核心数据集","textPreview":"核心数据集","textChars":5,"textLines":1,"bbox":[850,145,340,28]}
+{"kind":"textbox","id":"sh/3m94fu18","slide":9,"name":"body-text","text":"8-Calves","textPreview":"8-Calves","textChars":8,"textLines":1,"bbox":[850,189,155,30]}
+{"kind":"shape","id":"sh/a5gbq1or","slide":9,"name":"矩形 36","bbox":[1015,191,95,26]}
+{"kind":"shape","id":"sh/hoza1gvy","slide":9,"name":"矩形 37","bbox":[1015,191,95,26]}
+{"kind":"textbox","id":"sh/s36hcrmh","slide":9,"name":"body-text","text":"150","textPreview":"150","textChars":3,"textLines":1,"bbox":[1120,189,70,30]}
+{"kind":"textbox","id":"sh/wval87ed","slide":9,"name":"body-text","text":"XGain","textPreview":"XGain","textChars":5,"textLines":1,"bbox":[850,234.67,155,30]}
+{"kind":"shape","id":"sh/pg3ex0nu","slide":9,"name":"矩形 40","bbox":[1015,236.67,95,26]}
+{"kind":"shape","id":"sh/epkzupwb","slide":9,"name":"矩形 41","bbox":[1015,236.67,95,26]}
+{"kind":"textbox","id":"sh/7adsji5s","slide":9,"name":"body-text","text":"6","textPreview":"6","textChars":1,"textLines":1,"bbox":[1120,234.67,70,30]}
+{"kind":"textbox","id":"sh/w7mp0bi9","slide":9,"name":"body-text","text":"COLO","textPreview":"COLO","textChars":4,"textLines":1,"bbox":[850,280.33,155,30]}
+{"kind":"shape","id":"sh/psfil0rq","slide":9,"name":"矩形 44","bbox":[1015,282.33,95,26]}
+{"kind":"shape","id":"sh/e1w7mp0b","slide":9,"name":"矩形 45","bbox":[1015,282.33,79.17,26]}
+{"kind":"textbox","id":"sh/7mp0bi9s","slide":9,"name":"body-text","text":"178","textPreview":"178","textChars":3,"textLines":1,"bbox":[1120,280.33,70,30]}
+{"kind":"textbox","id":"sh/wfyxobm5","slide":9,"name":"body-text","text":"MooTrack360","textPreview":"MooTrack360","textChars":11,"textLines":1,"bbox":[850,326,155,30]}
+{"kind":"shape","id":"sh/l0rqd4vm","slide":9,"name":"矩形 48","bbox":[1015,328,95,26]}
+{"kind":"shape","id":"sh/b2hwfyxo","slide":9,"name":"矩形 49","bbox":[1015,328,79.17,26]}
+{"kind":"textbox","id":"sh/mhk3q5o7","slide":9,"name":"body-text","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[1120,326,70,30]}
+{"kind":"textbox","id":"sh/t83itgfm","slide":9,"name":"body-text","text":"dairy-cow","textPreview":"dairy-cow","textChars":9,"textLines":1,"bbox":[850,371.67,155,30]}
+{"kind":"shape","id":"sh/4nap4r65","slide":9,"name":"矩形 52","bbox":[1015,373.67,95,26]}
+{"kind":"shape","id":"sh/bq1oryts","slide":9,"name":"矩形 53","bbox":[1015,375.67,63.33,26]}
+{"kind":"textbox","id":"sh/m58z25kb","slide":9,"name":"body-text","text":"200","textPreview":"200","textChars":3,"textLines":1,"bbox":[1120,371.67,70,30]}
+{"kind":"textbox","id":"sh/twra5gbq","slide":9,"name":"body-text","text":"AP-10K / Animal-Pose","textPreview":"AP-10K / Animal-Pose","textChars":20,"textLines":1,"bbox":[850,417.33,155,30]}
+{"kind":"shape","id":"sh/4byhgn29","slide":9,"name":"矩形 56","bbox":[1015,419.33,95,26]}
+{"kind":"shape","id":"sh/bm58z25k","slide":9,"name":"矩形 57","bbox":[1015,419.33,63.33,26]}
+{"kind":"textbox","id":"sh/m1cfa9w3","slide":9,"name":"body-text","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[1120,417.33,70,30]}
+{"kind":"shape","id":"sh/q5o7qpg3","slide":9,"name":"content-box","bbox":[230,565,820,113]}
+{"kind":"textbox","id":"sh/jqh0fepk","slide":9,"name":"body-text","text":"评测对象","textPreview":"评测对象","textChars":4,"textLines":1,"bbox":[248,579,784,30]}
+{"kind":"textbox","id":"sh/8bat47y1","slide":9,"name":"body-text","text":"YOLOv8n 与 YOLOv8m；后续可扩展 YOLOv9-v12、RT-DETR、Faster R-CNN。","textPreview":"YOLOv8n 与 YOLOv8m；后续可扩展 YOLOv9-v12、RT-DETR、Faster R-CNN。","textChars":56,"textLines":1,"bbox":[248,617,784,24]}
+{"kind":"notes","id":"nt/qh0fepkz","slide":9,"text":"实验设计的核心公平性是训练图片总量相同，用来比较数据多样性和单域专精训练哪个更重要。"}
+{"kind":"slide","id":"sl/29gr2p8n","slide":10,"title":"CowCV 平台：本地前后端服务已可访问","textShapes":21}
+{"kind":"shape","id":"sh/fa9w3m94","slide":10,"name":"文本框 21","bbox":[78.45,25.39,337.55,54.93]}
+{"kind":"textbox","id":"sh/x4nap4r6","slide":10,"name":"slide-title","text":"CowCV 平台：本地前后端服务已可访问","textPreview":"CowCV 平台：本地前后端服务已可访问","textChars":20,"textLines":1,"bbox":[78,25,930,56]}
+{"kind":"shape","id":"sh/8jqh0fep","slide":10,"name":"title-rule","bbox":[78,86,1120,3]}
+{"kind":"textbox","id":"sh/fyxobm58","slide":10,"name":"body-text","text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1168,650,46,28]}
+{"kind":"textbox","id":"sh/qd4vmtwr","slide":10,"name":"body-text","text":"平台目标：提供数据检索、样本浏览、元信息管理、下载申请和 benchmark 展示入口；当前前端与接口文档均已在本机访问。","textPreview":"平台目标：提供数据检索、样本浏览、元信息管理、下载申请和 benchmark 展示入口；当前前端与接口文档均已在本机访问。","textChars":61,"textLines":1,"bbox":[90,120,1080,45]}
+{"kind":"shape","id":"sh/xs72x4na","slide":10,"name":"content-box","bbox":[110,210,260,135]}
+{"kind":"textbox","id":"sh/87ed8bat","slide":10,"name":"body-text","text":"前端","textPreview":"前端","textChars":2,"textLines":1,"bbox":[128,224,224,30]}
+{"kind":"textbox","id":"sh/2p8nqxs7","slide":10,"name":"body-text","text":"React + Vite；前端 Dockerfile 改为 npm ci，提高构建可复现性。","textPreview":"React + Vite；前端 Dockerfile 改为 npm ci，提高构建可复现性。","textChars":46,"textLines":1,"bbox":[128,262,224,73]}
+{"kind":"shape","id":"sh/ra5gbq1o","slide":10,"name":"content-box","bbox":[510,210,260,135]}
+{"kind":"textbox","id":"sh/gvy90je9","slide":10,"name":"body-text","text":"后端","textPreview":"后端","textChars":2,"textLines":1,"bbox":[528,224,224,30]}
+{"kind":"textbox","id":"sh/9gr2p8nq","slide":10,"name":"body-text","text":"FastAPI + Uvicorn；配置改为环境变量，补齐 MySQL 8 认证依赖。","textPreview":"FastAPI + Uvicorn；配置改为环境变量，补齐 MySQL 8 认证依赖。","textChars":43,"textLines":1,"bbox":[528,262,224,73]}
+{"kind":"shape","id":"sh/2hwfyxob","slide":10,"name":"content-box","bbox":[910,210,260,135]}
+{"kind":"textbox","id":"sh/r2p8nqxs","slide":10,"name":"body-text","text":"部署","textPreview":"部署","textChars":2,"textLines":1,"bbox":[928,224,224,30]}
+{"kind":"textbox","id":"sh/kjm1cfa9","slide":10,"name":"body-text","text":"本地访问：前端 http://localhost:8080/；后端 Swagger http://localhost:8000/docs。","textPreview":"本地访问：前端 http://localhost:8080/；后端 Swagger http://localhost:8000/docs。","textChars":69,"textLines":1,"bbox":[928,262,224,73]}
+{"kind":"shape","id":"sh/94fu18jq","slide":10,"name":"table-cell","bbox":[160,410,480,34.17]}
+{"kind":"textbox","id":"sh/25kb6xkf","slide":10,"name":"body-text","text":"已完成修复","textPreview":"已完成修复","textChars":5,"textLines":1,"bbox":[168,418,464,22.17]}
+{"kind":"shape","id":"sh/rqd4vmtw","slide":10,"name":"table-cell","bbox":[640,410,480,34.17]}
+{"kind":"textbox","id":"sh/bulwval8","slide":10,"name":"body-text","text":"说明","textPreview":"说明","textChars":2,"textLines":1,"bbox":[648,418,464,22.17]}
+{"kind":"shape","id":"sh/i9s36hcr","slide":10,"name":"table-cell","bbox":[160,444.17,480,34.17]}
+{"kind":"textbox","id":"sh/p0bi9s36","slide":10,"name":"body-text","text":"路径解析","textPreview":"路径解析","textChars":4,"textLines":1,"bbox":[168,452.17,464,22.17]}
+{"kind":"shape","id":"sh/0fepkzup","slide":10,"name":"table-cell","bbox":[640,444.17,480,34.17]}
+{"kind":"textbox","id":"sh/bi9s36hc","slide":10,"name":"body-text","text":"兼容旧 app 路径与新 storage 目录","textPreview":"兼容旧 app 路径与新 storage 目录","textChars":23,"textLines":1,"bbox":[648,452.17,464,22.17]}
+{"kind":"shape","id":"sh/ixczed8v","slide":10,"name":"table-cell","bbox":[160,478.33,480,34.17]}
+{"kind":"textbox","id":"sh/tovahoza","slide":10,"name":"body-text","text":"启动命令","textPreview":"启动命令","textChars":4,"textLines":1,"bbox":[168,486.33,464,22.17]}
+{"kind":"shape","id":"sh/032lszqt","slide":10,"name":"table-cell","bbox":[640,478.33,480,34.17]}
+{"kind":"textbox","id":"sh/b6xkf6dc","slide":10,"name":"body-text","text":"后端默认使用 uvicorn app.main:app","textPreview":"后端默认使用 uvicorn app.main:app","textChars":27,"textLines":1,"bbox":[648,486.33,464,22.17]}
+{"kind":"shape","id":"sh/il0rqd4v","slide":10,"name":"table-cell","bbox":[160,512.5,480,34.17]}
+{"kind":"textbox","id":"sh/sneloj2t","slide":10,"name":"body-text","text":"镜像上下文","textPreview":"镜像上下文","textChars":5,"textLines":1,"bbox":[168,520.5,464,22.17]}
+{"kind":"shape","id":"sh/l87ed8ba","slide":10,"name":"table-cell","bbox":[640,512.5,480,34.17]}
+{"kind":"textbox","id":"sh/ahoza1gv","slide":10,"name":"body-text","text":"增加 .dockerignore，避免带入运行时目录","textPreview":"增加 .dockerignore，避免带入运行时目录","textChars":26,"textLines":1,"bbox":[648,520.5,464,22.17]}
+{"kind":"shape","id":"sh/32lszqtc","slide":10,"name":"table-cell","bbox":[160,546.67,480,34.17]}
+{"kind":"textbox","id":"sh/szqtcj6t","slide":10,"name":"body-text","text":"待验证项","textPreview":"待验证项","textChars":4,"textLines":1,"bbox":[168,554.67,464,22.17]}
+{"kind":"shape","id":"sh/lkjm1cfa","slide":10,"name":"table-cell","bbox":[640,546.67,480,34.17]}
+{"kind":"textbox","id":"sh/at47y1kr","slide":10,"name":"body-text","text":"真实媒体挂载路径、反向代理和下载申请流程","textPreview":"真实媒体挂载路径、反向代理和下载申请流程","textChars":20,"textLines":1,"bbox":[648,554.67,464,22.17]}
+{"kind":"shape","id":"sh/3ex0nuxc","slide":10,"name":"table-cell","bbox":[160,580.83,480,34.17]}
+{"kind":"textbox","id":"sh/w3m94fu1","slide":10,"name":"body-text","text":"下一步","textPreview":"下一步","textChars":3,"textLines":1,"bbox":[168,588.83,464,22.17]}
+{"kind":"shape","id":"sh/loj2t83i","slide":10,"name":"table-cell","bbox":[640,580.83,480,34.17]}
+{"kind":"textbox","id":"sh/p8nqxs72","slide":10,"name":"body-text","text":"已补充前端页面与后端接口文档截图","textPreview":"已补充前端页面与后端接口文档截图","textChars":16,"textLines":1,"bbox":[648,588.83,464,22.17]}
+{"kind":"notes","id":"nt/29gr2p8n","slide":10,"text":"CowCV 平台现在不仅完成镜像构建，也已经能在本机访问前端页面和 FastAPI Swagger 文档。下一页展示实际运行截图。"}
+{"kind":"slide","id":"sl/re1w7mp0","slide":11,"title":"COWCV PLATFORM SNAPSHOT","textShapes":9}
+{"kind":"shape","id":"sh/dg7adsji","slide":11,"name":"background-fill","bbox":[0,0,1280,720]}
+{"kind":"shape","id":"sh/6tovahoz","slide":11,"name":"top-accent","bbox":[0,0,1280,9]}
+{"kind":"textbox","id":"sh/vahoza1g","slide":11,"name":"eyebrow","text":"COWCV PLATFORM SNAPSHOT","textPreview":"COWCV PLATFORM SNAPSHOT","textChars":23,"textLines":1,"bbox":[72,42,360,28]}
+{"kind":"textbox","id":"sh/onyd0z61","slide":11,"name":"title","text":"CowCV 平台运行效果：前端展示与后端接口已经连通","textPreview":"CowCV 平台运行效果：前端展示与后端接口已经连通","textChars":26,"textLines":1,"bbox":[72,78,1030,58]}
+{"kind":"textbox","id":"sh/d8v6psfi","slide":11,"name":"subtitle","text":"页面截图来自本机服务：前端 http://localhost:8080/，后端 Swagger http://localhost:8000/docs。","textPreview":"页面截图来自本机服务：前端 http://localhost:8080/，后端 Swagger http://localhost:8000/docs。","textChars":75,"textLines":1,"bbox":[72,132,980,34]}
+{"kind":"shape","id":"sh/6hcrmhk3","slide":11,"name":"frontend-frame","bbox":[72,198,548,308]}
+{"kind":"textbox","id":"sh/oj2t83it","slide":11,"name":"frontend-caption-title","text":"前端页面","textPreview":"前端页面","textChars":4,"textLines":1,"bbox":[72,526,220,28]}
+{"kind":"textbox","id":"sh/d4vmtwra","slide":11,"name":"frontend-caption","text":"Open Cow Image Archive 已可访问，展示数据集浏览、工具处理、下载和提交入口。","textPreview":"Open Cow Image Archive 已可访问，展示数据集浏览、工具处理、下载和提交入口。","textChars":49,"textLines":1,"bbox":[72,558,548,56]}
+{"kind":"shape","id":"sh/h4byhgn2","slide":11,"name":"backend-frame","bbox":[660,198,548,308]}
+{"kind":"textbox","id":"sh/3ylc7u54","slide":11,"name":"backend-caption-title","text":"后端接口文档","textPreview":"后端接口文档","textChars":6,"textLines":1,"bbox":[660,526,260,28]}
+{"kind":"textbox","id":"sh/adsji5sn","slide":11,"name":"backend-caption","text":"FastAPI Swagger 文档可访问，覆盖 portal、search、upload、download、tools 和 submit 等接口。","textPreview":"FastAPI Swagger 文档可访问，覆盖 portal、search、upload、download、tools 和 submit 等接口。","textChars":74,"textLines":1,"bbox":[660,558,548,56]}
+{"kind":"textbox","id":"sh/lszqtcj6","slide":11,"name":"bottom-note","text":"意义：平台已经具备面向组内展示和后续真实部署验证的可视化入口。","textPreview":"意义：平台已经具备面向组内展示和后续真实部署验证的可视化入口。","textChars":31,"textLines":1,"bbox":[72,646,960,32]}
+{"kind":"textbox","id":"sh/s72x4nap","slide":11,"name":"slide-number","text":"11","textPreview":"11","textChars":2,"textLines":1,"bbox":[1148,644,60,30]}
+{"kind":"image","id":"im/kf6dcbul","slide":11,"name":"","geometry":"roundRect","bbox":[86.6,206,518.79,292]}
+{"kind":"image","id":"im/d0z61032","slide":11,"name":"","geometry":"roundRect","bbox":[677.69,206,512.62,292]}
+{"kind":"notes","id":"nt/re1w7mp0","slide":11,"text":"这一页展示当前 CowCV 平台的实际访问效果。左侧是前端页面，右侧是 FastAPI 的 Swagger 接口文档，说明平台前后端已经具备基本演示条件。"}
+{"kind":"slide","id":"sl/4fu18jqh","slide":12,"title":"实验结果与关键发现","textShapes":3}
+{"kind":"shape","id":"sh/sji5snel","slide":12,"name":"矩形 5","bbox":[0,0,1280,720]}
+{"kind":"textbox","id":"sh/ap4r65wj","slide":12,"name":"文本框 7","text":"实验结果与关键发现","textPreview":"实验结果与关键发现","textChars":9,"textLines":1,"bbox":[289.74,247.6,700.52,106.63]}
+{"kind":"textbox","id":"sh/za1gvy90","slide":12,"name":"文本框 8","text":"多源训练有效，但未见域仍然暴露 domain gap","textPreview":"多源训练有效，但未见域仍然暴露 domain gap","textChars":26,"textLines":1,"bbox":[338.19,352,603.63,38.78]}
+{"kind":"textbox","id":"sh/z61032ls","slide":12,"name":"文本框 9","text":"PART 03","textPreview":"PART 03","textChars":7,"textLines":1,"bbox":[516.46,151.6,247.09,61.39]}
+{"kind":"shape","id":"sh/adsji5sn","slide":12,"name":"直接连接符 3","bbox":[622,228,36,0]}
+{"kind":"image","id":"im/1cfa9w3m","slide":12,"name":"图片 4","bbox":[0,68,1280,652]}
+{"kind":"notes","id":"nt/4fu18jqh","slide":12,"text":"第三部分进入实验结果。核心结论是混合训练在已覆盖域上效果很好，但面对完全未见域仍然不够。"}
+{"kind":"slide","id":"sl/lwval87e","slide":13,"title":"YOLOv8n 实验：混合训练显著提升四个核心域泛化","textShapes":17}
+{"kind":"shape","id":"sh/3itgfmlk","slide":13,"name":"文本框 21","bbox":[78.45,25.39,337.55,54.93]}
+{"kind":"textbox","id":"sh/lwval87e","slide":13,"name":"slide-title","text":"YOLOv8n 实验：混合训练显著提升四个核心域泛化","textPreview":"YOLOv8n 实验：混合训练显著提升四个核心域泛化","textChars":26,"textLines":1,"bbox":[78,25,930,56]}
+{"kind":"shape","id":"sh/wb2hwfyx","slide":13,"name":"title-rule","bbox":[78,86,1120,3]}
+{"kind":"textbox","id":"sh/3q5o7qpg","slide":13,"name":"body-text","text":"12","textPreview":"12","textChars":2,"textLines":1,"bbox":[1168,650,46,28]}
+{"kind":"textbox","id":"sh/e9cvixcz","slide":13,"name":"body-text","text":"在训练总量同为 600 张的条件下，Merged 模型平均 mAP@50 达到 0.9230，明显高于各单域模型。","textPreview":"在训练总量同为 600 张的条件下，Merged 模型平均 mAP@50 达到 0.9230，明显高于各单域模型。","textChars":57,"textLines":1,"bbox":[90,115,1080,54]}
+{"kind":"textbox","id":"sh/l87ed8ba","slide":13,"name":"body-text","text":"模型平均 mAP@50","textPreview":"模型平均 mAP@50","textChars":11,"textLines":1,"bbox":[95,205,510,28]}
+{"kind":"textbox","id":"sh/sneloj2t","slide":13,"name":"body-text","text":"8-Calves single","textPreview":"8-Calves single","textChars":15,"textLines":1,"bbox":[95,249,155,30]}
+{"kind":"shape","id":"sh/6hcrmhk3","slide":13,"name":"矩形 29","bbox":[260,251,265,26]}
+{"kind":"shape","id":"sh/z25kb6xk","slide":13,"name":"矩形 30","bbox":[260,251,201.55,26]}
+{"kind":"textbox","id":"sh/onyd0z61","slide":13,"name":"body-text","text":"0.4665","textPreview":"0.4665","textChars":6,"textLines":1,"bbox":[535,249,70,30]}
+{"kind":"textbox","id":"sh/d8v6psfi","slide":13,"name":"body-text","text":"XGain single","textPreview":"XGain single","textChars":12,"textLines":1,"bbox":[95,301.8,155,30]}
+{"kind":"shape","id":"sh/6tovahoz","slide":13,"name":"矩形 33","bbox":[260,303.8,265,26]}
+{"kind":"shape","id":"sh/vahoza1g","slide":13,"name":"矩形 34","bbox":[260,303.8,201.55,26]}
+{"kind":"textbox","id":"sh/ovahoza1","slide":13,"name":"body-text","text":"0.162","textPreview":"0.162","textChars":5,"textLines":1,"bbox":[535,301.8,70,30]}
+{"kind":"textbox","id":"sh/dg7adsji","slide":13,"name":"body-text","text":"COLO single","textPreview":"COLO single","textChars":11,"textLines":1,"bbox":[95,354.6,155,30]}
+{"kind":"shape","id":"sh/61032lsz","slide":13,"name":"矩形 37","bbox":[260,356.6,265,26]}
+{"kind":"shape","id":"sh/vmtwra5g","slide":13,"name":"矩形 38","bbox":[260,356.6,186.62,26]}
+{"kind":"textbox","id":"sh/zed8v6ps","slide":13,"name":"body-text","text":"0.4845","textPreview":"0.4845","textChars":6,"textLines":1,"bbox":[535,354.6,70,30]}
+{"kind":"textbox","id":"sh/6xkf6dcb","slide":13,"name":"body-text","text":"MooTrack360 single","textPreview":"MooTrack360 single","textChars":18,"textLines":1,"bbox":[95,407.4,155,30]}
+{"kind":"shape","id":"sh/hk3q5o7q","slide":13,"name":"矩形 41","bbox":[260,409.4,265,26]}
+{"kind":"shape","id":"sh/oza1gvy9","slide":13,"name":"矩形 42","bbox":[260,409.4,209.01,26]}
+{"kind":"textbox","id":"sh/zqtcj6to","slide":13,"name":"body-text","text":"0.6233","textPreview":"0.6233","textChars":6,"textLines":1,"bbox":[535,407.4,70,30]}
+{"kind":"textbox","id":"sh/65wjudg7","slide":13,"name":"body-text","text":"Merged train","textPreview":"Merged train","textChars":12,"textLines":1,"bbox":[95,460.2,155,30]}
+{"kind":"shape","id":"sh/hwfyxobm","slide":13,"name":"矩形 45","bbox":[260,462.2,265,26]}
+{"kind":"shape","id":"sh/obm58z25","slide":13,"name":"矩形 46","bbox":[260,462.2,265,26]}
+{"kind":"textbox","id":"sh/zupwb2hw","slide":13,"name":"body-text","text":"0.9230","textPreview":"0.9230","textChars":6,"textLines":1,"bbox":[535,460.2,70,30]}
+{"kind":"shape","id":"sh/0rqd4vmt","slide":13,"name":"bullet-dot","bbox":[130,573,10,10]}
+{"kind":"textbox","id":"sh/tcj6tova","slide":13,"name":"body-text","text":"单数据集模型在本域高分，但跨域时快速下降。","textPreview":"单数据集模型在本域高分，但跨域时快速下降。","textChars":21,"textLines":1,"bbox":[154,565,936,28]}
+{"kind":"shape","id":"sh/il0rqd4v","slide":13,"name":"bullet-dot","bbox":[130,605,10,10]}
+{"kind":"textbox","id":"sh/b6xkf6dc","slide":13,"name":"body-text","text":"Merged 在 4 个测试集上都保持 0.89 以上 mAP@50。","textPreview":"Merged 在 4 个测试集上都保持 0.89 以上 mAP@50。","textChars":35,"textLines":1,"bbox":[154,597,936,28]}
+{"kind":"shape","id":"sh/0je9cvix","slide":13,"name":"bullet-dot","bbox":[130,637,10,10]}
+{"kind":"textbox","id":"sh/t47y1kre","slide":13,"name":"body-text","text":"结论：同样训练量下，数据多样性比单域同质样本更关键。","textPreview":"结论：同样训练量下，数据多样性比单域同质样本更关键。","textChars":26,"textLines":1,"bbox":[154,629,936,28]}
+{"kind":"image","id":"im/hk3q5o7q","slide":13,"name":"图片 82","bbox":[712.13,185,524.87,449]}
+{"kind":"notes","id":"nt/lwval87e","slide":13,"text":"单数据集模型有明显本域优势，但跨域平均表现不稳定。Merged 模型只用了每个数据集 150 张，却在四个测试集上保持高分。"}
+{"kind":"slide","id":"sl/25kb6xkf","slide":14,"title":"低分主要来自 domain gap","textShapes":9}
+{"kind":"shape","id":"sh/gr2p8nqx","slide":14,"name":"文本框 21","bbox":[78.45,25.39,337.55,54.93]}
+{"kind":"textbox","id":"sh/yxobm58z","slide":14,"name":"slide-title","text":"低分主要来自 domain gap","textPreview":"低分主要来自 domain gap","textChars":17,"textLines":1,"bbox":[78,25,930,56]}
+{"kind":"shape","id":"sh/nih4byhg","slide":14,"name":"title-rule","bbox":[78,86,1120,3]}
+{"kind":"textbox","id":"sh/g3ex0nux","slide":14,"name":"body-text","text":"13","textPreview":"13","textChars":2,"textLines":1,"bbox":[1168,650,46,28]}
+{"kind":"shape","id":"sh/5o7qpg3e","slide":14,"name":"content-box","bbox":[85,135,335,170]}
+{"kind":"textbox","id":"sh/y1kre1w7","slide":14,"name":"body-text","text":"dairy-cow","textPreview":"dairy-cow","textChars":9,"textLines":1,"bbox":[103,149,299,30]}
+{"kind":"textbox","id":"sh/rmhk3q5o","slide":14,"name":"body-text","text":"Merged 模型 mAP@50=0.3203；旧数据集自训练测试可达 0.820，说明标注不是主要问题。","textPreview":"Merged 模型 mAP@50=0.3203；旧数据集自训练测试可达 0.820，说明标注不是主要问题。","textChars":53,"textLines":1,"bbox":[103,187,299,108]}
+{"kind":"shape","id":"sh/dsji5sne","slide":14,"name":"content-box","bbox":[472,135,335,170]}
+{"kind":"textbox","id":"sh/o7qpg3ex","slide":14,"name":"body-text","text":"AP-10K cow","textPreview":"AP-10K cow","textChars":10,"textLines":1,"bbox":[490,149,299,30]}
+{"kind":"textbox","id":"sh/vmtwra5g","slide":14,"name":"body-text","text":"COLO 单模型表现较强，mAP@50=0.2412；多角度、多光照数据对网络图片有帮助。","textPreview":"COLO 单模型表现较强，mAP@50=0.2412；多角度、多光照数据对网络图片有帮助。","textChars":45,"textLines":1,"bbox":[490,187,299,108]}
+{"kind":"shape","id":"sh/61032lsz","slide":14,"name":"content-box","bbox":[858,135,335,170]}
+{"kind":"textbox","id":"sh/d4vmtwra","slide":14,"name":"body-text","text":"Animal-Pose cow","textPreview":"Animal-Pose cow","textChars":15,"textLines":1,"bbox":[876,149,299,30]}
+{"kind":"textbox","id":"sh/oj2t83it","slide":14,"name":"body-text","text":"所有模型几乎失效，最高 mAP@50 仅 0.0247，复杂互联网图像域仍未覆盖。","textPreview":"所有模型几乎失效，最高 mAP@50 仅 0.0247，复杂互联网图像域仍未覆盖。","textChars":41,"textLines":1,"bbox":[876,187,299,108]}
+{"kind":"textbox","id":"sh/6dcbulwv","slide":14,"name":"body-text","text":"验证结论：旧数据集同域自训练 mAP@50 可达 0.99+，前期跨域低分主要是域差异，而不是标注质量问题。","textPreview":"验证结论：旧数据集同域自训练 mAP@50 可达 0.99+，前期跨域低分主要是域差异，而不是标注质量问题。","textChars":54,"textLines":1,"bbox":[662.67,420.47,470,125]}
+{"kind":"image","id":"im/mlkjm1cf","slide":14,"name":"图片 51","bbox":[19.13,374.27,575.87,208.93]}
+{"kind":"notes","id":"nt/25kb6xkf","slide":14,"text":"旧数据集自训练验证显示这些数据本身可学，所以跨域低分主要来自没有覆盖到的场景分布。"}
+{"kind":"slide","id":"sl/7y1kre1w","slide":15,"title":"YOLOv8m 对比：大模型提升域内精度，但不能根治未见域","textShapes":7}
+{"kind":"shape","id":"sh/65wjudg7","slide":15,"name":"文本框 21","bbox":[78.45,25.39,337.55,54.93]}
+{"kind":"textbox","id":"sh/oza1gvy9","slide":15,"name":"slide-title","text":"YOLOv8m 对比：大模型提升域内精度，但不能根治未见域","textPreview":"YOLOv8m 对比：大模型提升域内精度，但不能根治未见域","textChars":29,"textLines":1,"bbox":[78,25,930,56]}
+{"kind":"shape","id":"sh/hk3q5o7q","slide":15,"name":"title-rule","bbox":[78,86,1120,3]}
+{"kind":"textbox","id":"sh/6xkf6dcb","slide":15,"name":"body-text","text":"14","textPreview":"14","textChars":2,"textLines":1,"bbox":[1168,650,46,28]}
+{"kind":"shape","id":"sh/orytsvu9","slide":15,"name":"content-box","bbox":[745,135,380,155]}
+{"kind":"textbox","id":"sh/hcrmhk3q","slide":15,"name":"body-text","text":"域内与已覆盖域","textPreview":"域内与已覆盖域","textChars":7,"textLines":1,"bbox":[763,149,344,30]}
+{"kind":"textbox","id":"sh/72x4nap4","slide":15,"name":"body-text","text":"Merged v8m 自测 mAP@50=0.966，mAP@50-95=0.708；四核心测试集平均 mAP@50=0.9413。","textPreview":"Merged v8m 自测 mAP@50=0.966，mAP@50-95=0.708；四核心测试集平均 mAP@50=0.9413。","textChars":66,"textLines":1,"bbox":[763,187,344,93]}
+{"kind":"shape","id":"sh/ih4byhgn","slide":15,"name":"content-box","bbox":[745,325,380,135]}
+{"kind":"textbox","id":"sh/p8nqxs72","slide":15,"name":"body-text","text":"资源代价","textPreview":"资源代价","textChars":4,"textLines":1,"bbox":[763,339,344,30]}
+{"kind":"textbox","id":"sh/0nuxc3yl","slide":15,"name":"body-text","text":"参数量 25.9M，约为 v8n 的 8.6 倍；24GB 显存下 batch 降至 32。","textPreview":"参数量 25.9M，约为 v8n 的 8.6 倍；24GB 显存下 batch 降至 32。","textChars":46,"textLines":1,"bbox":[763,377,344,73]}
+{"kind":"textbox","id":"sh/itgfmlkj","slide":15,"name":"body-text","text":"关键判断：v8m 在 XGain、COLO、MooTrack360 上有提升，但在 dairy-cow、AP-10K、Animal-Pose 等未见域上提升很小。","textPreview":"关键判断：v8m 在 XGain、COLO、MooTrack360 上有提升，但在 dairy-cow、AP-10K、Animal-Pose 等未见域上提升很小。","textChars":81,"textLines":1,"bbox":[615,505,500,82]}
+{"kind":"image","id":"im/6tovahoz","slide":15,"name":"图片 40","bbox":[80,121.69,620,322.62]}
+{"kind":"image","id":"im/vahoza1g","slide":15,"name":"图片 47","bbox":[185.12,485,349.76,130]}
+{"kind":"notes","id":"nt/7y1kre1w","slide":15,"text":"YOLOv8m 能提升已覆盖域和定位精度，但面对没见过的域提升有限。"}
+{"kind":"slide","id":"sl/8z25kb6x","slide":16,"title":"方法储备：已能完成目标检测实验闭环","textShapes":16}
+{"kind":"shape","id":"sh/zed8v6ps","slide":16,"name":"文本框 21","bbox":[78.45,25.39,337.55,54.93]}
+{"kind":"textbox","id":"sh/hwfyxobm","slide":16,"name":"slide-title","text":"方法储备：已能完成目标检测实验闭环","textPreview":"方法储备：已能完成目标检测实验闭环","textChars":17,"textLines":1,"bbox":[78,25,930,56]}
+{"kind":"shape","id":"sh/obm58z25","slide":16,"name":"title-rule","bbox":[78,86,1120,3]}
+{"kind":"textbox","id":"sh/zqtcj6to","slide":16,"name":"body-text","text":"15","textPreview":"15","textChars":2,"textLines":1,"bbox":[1168,650,46,28]}
+{"kind":"textbox","id":"sh/65wjudg7","slide":16,"name":"body-text","text":"深度学习与视觉方法","textPreview":"深度学习与视觉方法","textChars":9,"textLines":1,"bbox":[100,145,520,28]}
+{"kind":"textbox","id":"sh/h0fepkzu","slide":16,"name":"body-text","text":"CNN / ResNet","textPreview":"CNN / ResNet","textChars":12,"textLines":1,"bbox":[100,189,155,30]}
+{"kind":"shape","id":"sh/sfil0rqd","slide":16,"name":"矩形 28","bbox":[265,191,275,26]}
+{"kind":"shape","id":"sh/ixczed8v","slide":16,"name":"矩形 29","bbox":[265,191,235.89,26]}
+{"kind":"textbox","id":"sh/bi9s36hc","slide":16,"name":"body-text","text":"已学习","textPreview":"已学习","textChars":3,"textLines":1,"bbox":[550,189,70,30]}
+{"kind":"textbox","id":"sh/032lszqt","slide":16,"name":"body-text","text":"目标检测 / YOLO","textPreview":"目标检测 / YOLO","textChars":11,"textLines":1,"bbox":[100,250,155,30]}
+{"kind":"shape","id":"sh/tovahoza","slide":16,"name":"矩形 32","bbox":[265,252,275,26]}
+{"kind":"shape","id":"sh/i9s36hcr","slide":16,"name":"矩形 33","bbox":[265,252,275,26]}
+{"kind":"textbox","id":"sh/bulwval8","slide":16,"name":"body-text","text":"已实践","textPreview":"已实践","textChars":3,"textLines":1,"bbox":[550,250,70,30]}
+{"kind":"textbox","id":"sh/0fepkzup","slide":16,"name":"body-text","text":"Transformer / 注意力","textPreview":"Transformer / 注意力","textChars":17,"textLines":1,"bbox":[100,311,155,30]}
+{"kind":"shape","id":"sh/p0bi9s36","slide":16,"name":"矩形 36","bbox":[265,313,275,26]}
+{"kind":"shape","id":"sh/idonyd0z","slide":16,"name":"矩形 37","bbox":[265,313,138.1,26]}
+{"kind":"textbox","id":"sh/byhgn29g","slide":16,"name":"body-text","text":"已掌握基础","textPreview":"已掌握基础","textChars":5,"textLines":1,"bbox":[550,311,70,30]}
+{"kind":"textbox","id":"sh/fil0rqd4","slide":16,"name":"body-text","text":"Mamba / BERT","textPreview":"Mamba / BERT","textChars":12,"textLines":1,"bbox":[100,372,155,30]}
+{"kind":"shape","id":"sh/qxs72x4n","slide":16,"name":"矩形 40","bbox":[265,374,275,26]}
+{"kind":"shape","id":"sh/xobm58z2","slide":16,"name":"矩形 41","bbox":[265,374,118.54,26]}
+{"kind":"textbox","id":"sh/83itgfml","slide":16,"name":"body-text","text":"阅读储备","textPreview":"阅读储备","textChars":4,"textLines":1,"bbox":[550,372,70,30]}
+{"kind":"shape","id":"sh/fu18jqh0","slide":16,"name":"content-box","bbox":[700,155,390,145]}
+{"kind":"textbox","id":"sh/m94fu18j","slide":16,"name":"body-text","text":"框架使用","textPreview":"框架使用","textChars":4,"textLines":1,"bbox":[718,169,354,30]}
+{"kind":"textbox","id":"sh/x0nuxc3y","slide":16,"name":"body-text","text":"PyTorch：Dataset、DataLoader、torch.nn、GPU 训练、模型保存加载与基础训练流程。","textPreview":"PyTorch：Dataset、DataLoader、torch.nn、GPU 训练、模型保存加载与基础训练流程。","textChars":57,"textLines":1,"bbox":[718,207,354,83]}
+{"kind":"shape","id":"sh/4fu18jqh","slide":16,"name":"content-box","bbox":[700,330,390,145]}
+{"kind":"textbox","id":"sh/f6dcbulw","slide":16,"name":"body-text","text":"Ultralytics","textPreview":"Ultralytics","textChars":11,"textLines":1,"bbox":[718,344,354,30]}
+{"kind":"textbox","id":"sh/mlkjm1cf","slide":16,"name":"body-text","text":"已记录 YOLO 的 train、val、predict、export、track、benchmark、数据 YAML 和指标读取。","textPreview":"已记录 YOLO 的 train、val、predict、export、track、benchmark、数据 YAML 和指标读取。","textChars":66,"textLines":1,"bbox":[718,382,354,83]}
+{"kind":"textbox","id":"sh/wra5gbq1","slide":16,"name":"body-text","text":"当前能力：能够围绕牛只目标检测完成数据准备、模型训练、指标评估和跨域分析。","textPreview":"当前能力：能够围绕牛只目标检测完成数据准备、模型训练、指标评估和跨域分析。","textChars":37,"textLines":1,"bbox":[145,555,990,62]}
+{"kind":"notes","id":"nt/8z25kb6x","slide":16,"text":"这页补充方法和框架掌握情况，说明目前已经具备完成目标检测实验闭环的基础能力。"}
+{"kind":"slide","id":"sl/54zidony","slide":17,"title":"LEARNING & METHOD RESERVE","textShapes":18}
+{"kind":"shape","id":"sh/m94fu18j","slide":17,"name":"background-fill","bbox":[0,0,1280,720]}
+{"kind":"shape","id":"sh/x0nuxc3y","slide":17,"name":"top-accent","bbox":[0,0,1280,9]}
+{"kind":"textbox","id":"sh/4fu18jqh","slide":17,"name":"eyebrow","text":"LEARNING & METHOD RESERVE","textPreview":"LEARNING & METHOD RESERVE","textChars":25,"textLines":1,"bbox":[72,42,420,28]}
+{"kind":"textbox","id":"sh/fil0rqd4","slide":17,"name":"title","text":"学习与能力储备：已形成从模型理解到实验落地的基础","textPreview":"学习与能力储备：已形成从模型理解到实验落地的基础","textChars":24,"textLines":1,"bbox":[72,78,1080,58]}
+{"kind":"textbox","id":"sh/qxs72x4n","slide":17,"name":"subtitle","text":"当前掌握的内容能够支撑牛只目标检测数据处理、训练评估和平台展示的完整闭环。","textPreview":"当前掌握的内容能够支撑牛只目标检测数据处理、训练评估和平台展示的完整闭环。","textChars":37,"textLines":1,"bbox":[72,132,1020,34]}
+{"kind":"shape","id":"sh/xobm58z2","slide":17,"name":"深度学习基础-card","bbox":[72,188,350,138]}
+{"kind":"shape","id":"sh/83itgfml","slide":17,"name":"深度学习基础-bar","bbox":[72,188,8,138]}
+{"kind":"textbox","id":"sh/fepkzupw","slide":17,"name":"深度学习基础-title","text":"深度学习基础","textPreview":"深度学习基础","textChars":6,"textLines":1,"bbox":[96,206,304,30]}
+{"kind":"textbox","id":"sh/mtwra5gb","slide":17,"name":"深度学习基础-body","text":"张量与计算图、自动求导、损失函数、优化器、学习率策略、数据增强、迁移学习与微调。","textPreview":"张量与计算图、自动求导、损失函数、优化器、学习率策略、数据增强、迁移学习与微调。","textChars":40,"textLines":1,"bbox":[96,244,306,68]}
+{"kind":"shape","id":"sh/oj2t83it","slide":17,"name":"视觉模型与检测任务-card","bbox":[466,188,350,138]}
+{"kind":"shape","id":"sh/d4vmtwra","slide":17,"name":"视觉模型与检测任务-bar","bbox":[466,188,8,138]}
+{"kind":"textbox","id":"sh/6dcbulwv","slide":17,"name":"视觉模型与检测任务-title","text":"视觉模型与检测任务","textPreview":"视觉模型与检测任务","textChars":9,"textLines":1,"bbox":[490,206,304,30]}
+{"kind":"textbox","id":"sh/vy90je9c","slide":17,"name":"视觉模型与检测任务-body","text":"CNN / ResNet、目标检测框架、YOLO 系列、bbox 标注、mAP 指标、语义分割与转置卷积基础。","textPreview":"CNN / ResNet、目标检测框架、YOLO 系列、bbox 标注、mAP 指标、语义分割与转置卷积基础。","textChars":55,"textLines":1,"bbox":[490,244,306,68]}
+{"kind":"shape","id":"sh/o7qpg3ex","slide":17,"name":"序列模型与大模型基础-card","bbox":[860,188,348,138]}
+{"kind":"shape","id":"sh/dsji5sne","slide":17,"name":"序列模型与大模型基础-bar","bbox":[860,188,8,138]}
+{"kind":"textbox","id":"sh/61032lsz","slide":17,"name":"序列模型与大模型基础-title","text":"序列模型与大模型基础","textPreview":"序列模型与大模型基础","textChars":10,"textLines":1,"bbox":[884,206,302,30]}
+{"kind":"textbox","id":"sh/vmtwra5g","slide":17,"name":"序列模型与大模型基础-body","text":"RNN、GRU、LSTM、Attention、Transformer、BERT 与 Mamba，理解特征建模和上下文建模思路。","textPreview":"RNN、GRU、LSTM、Attention、Transformer、BERT 与 Mamba，理解特征建模和上下文建模思路。","textChars":63,"textLines":1,"bbox":[884,244,304,68]}
+{"kind":"shape","id":"sh/ovahoza1","slide":17,"name":"框架与工具使用-card","bbox":[72,370,350,146]}
+{"kind":"shape","id":"sh/dg7adsji","slide":17,"name":"框架与工具使用-bar","bbox":[72,370,8,146]}
+{"kind":"textbox","id":"sh/1kre1w7m","slide":17,"name":"框架与工具使用-title","text":"框架与工具使用","textPreview":"框架与工具使用","textChars":7,"textLines":1,"bbox":[96,388,304,30]}
+{"kind":"textbox","id":"sh/c3ylc7u5","slide":17,"name":"框架与工具使用-body","text":"PyTorch、Torchvision、Ultralytics、AutoDL、Docker、FastAPI、React/Vite；能完成训练、验证和页面联调。","textPreview":"PyTorch、Torchvision、Ultralytics、AutoDL、Docker、FastAPI、React/Vite；能完成训练、验证和页面联调。","textChars":79,"textLines":1,"bbox":[96,426,306,76]}
+{"kind":"shape","id":"sh/ji5snelo","slide":17,"name":"实验与数据能力-card","bbox":[466,370,350,146]}
+{"kind":"shape","id":"sh/uxc3ylc7","slide":17,"name":"实验与数据能力-bar","bbox":[466,370,8,146]}
+{"kind":"textbox","id":"sh/1cfa9w3m","slide":17,"name":"实验与数据能力-title","text":"实验与数据能力","textPreview":"实验与数据能力","textChars":7,"textLines":1,"bbox":[490,388,304,30]}
+{"kind":"textbox","id":"sh/crmhk3q5","slide":17,"name":"实验与数据能力-body","text":"多格式标注转换、YOLO 数据 YAML、训练日志读取、结果矩阵整理、未见域测试和 domain gap 解释。","textPreview":"多格式标注转换、YOLO 数据 YAML、训练日志读取、结果矩阵整理、未见域测试和 domain gap 解释。","textChars":56,"textLines":1,"bbox":[490,426,306,76]}
+{"kind":"shape","id":"sh/j6tovaho","slide":17,"name":"current-output-card","bbox":[860,370,348,146]}
+{"kind":"textbox","id":"sh/ulwval87","slide":17,"name":"current-output-title","text":"当前可独立完成的闭环","textPreview":"当前可独立完成的闭环","textChars":10,"textLines":1,"bbox":[884,390,300,30]}
+{"kind":"textbox","id":"sh/18jqh0fe","slide":17,"name":"current-output-body","text":"数据整理 -> 标注转换 -> 模型训练\n指标评估 -> 跨域分析 -> 平台展示","textPreview":"数据整理 -> 标注转换 -> 模型训练 | 指标评估 -> 跨域分析 -> 平台展示","textChars":41,"textLines":2,"bbox":[884,430,294,44]}
+{"kind":"textbox","id":"sh/8nqxs72x","slide":17,"name":"current-output-foot","text":"支撑后续论文实验与 CowCV 平台迭代。","textPreview":"支撑后续论文实验与 CowCV 平台迭代。","textChars":21,"textLines":1,"bbox":[884,494,294,44]}
+{"kind":"textbox","id":"sh/mhk3q5o7","slide":17,"name":"bottom-note","text":"下一步学习重点：补齐更系统的检测器对比、LODO 评估、错误案例分析和可复现实验记录。","textPreview":"下一步学习重点：补齐更系统的检测器对比、LODO 评估、错误案例分析和可复现实验记录。","textChars":43,"textLines":1,"bbox":[72,622,1030,34]}
+{"kind":"textbox","id":"sh/b2hwfyxo","slide":17,"name":"slide-number","text":"16","textPreview":"16","textChars":2,"textLines":1,"bbox":[1148,644,60,30]}
+{"kind":"notes","id":"nt/54zidony","slide":17,"text":"这一页简单说明目前已经掌握的方法和技能。重点不是罗列名词，而是说明这些知识已经能支撑从数据到模型再到平台展示的工作闭环。"}
+{"kind":"slide","id":"sl/m58z25kb","slide":18,"title":"当前问题与下一步计划","textShapes":10}
+{"kind":"shape","id":"sh/rytsvu9k","slide":18,"name":"文本框 21","bbox":[78.45,25.39,337.55,54.93]}
+{"kind":"textbox","id":"sh/9s36hcrm","slide":18,"name":"slide-title","text":"当前问题与下一步计划","textPreview":"当前问题与下一步计划","textChars":10,"textLines":1,"bbox":[78,25,930,56]}
+{"kind":"shape","id":"sh/g7adsji5","slide":18,"name":"title-rule","bbox":[78,86,1120,3]}
+{"kind":"textbox","id":"sh/rmhk3q5o","slide":18,"name":"body-text","text":"16","textPreview":"16","textChars":2,"textLines":1,"bbox":[1168,650,46,28]}
+{"kind":"shape","id":"sh/y1kre1w7","slide":18,"name":"content-box","bbox":[95,140,500,175]}
+{"kind":"textbox","id":"sh/5o7qpg3e","slide":18,"name":"body-text","text":"问题 1：数据域覆盖仍不充分","textPreview":"问题 1：数据域覆盖仍不充分","textChars":14,"textLines":1,"bbox":[113,154,464,30]}
+{"kind":"textbox","id":"sh/g3ex0nux","slide":18,"name":"body-text","text":"互联网图片、复杂野外场景、夜间低照度、不同品种和不同设备还需要继续补充。","textPreview":"互联网图片、复杂野外场景、夜间低照度、不同品种和不同设备还需要继续补充。","textChars":36,"textLines":1,"bbox":[113,192,464,113]}
+{"kind":"shape","id":"sh/adsji5sn","slide":18,"name":"content-box","bbox":[675,140,500,175]}
+{"kind":"textbox","id":"sh/3ylc7u54","slide":18,"name":"body-text","text":"问题 2：Benchmark 还需深化","textPreview":"问题 2：Benchmark 还需深化","textChars":19,"textLines":1,"bbox":[693,154,464,30]}
+{"kind":"textbox","id":"sh/sji5snel","slide":18,"name":"body-text","text":"目前已有 N×M 矩阵、自测和未见域测试，但 LODO 与数据亲缘性分析尚未完成。","textPreview":"目前已有 N×M 矩阵、自测和未见域测试，但 LODO 与数据亲缘性分析尚未完成。","textChars":41,"textLines":1,"bbox":[693,192,464,113]}
+{"kind":"shape","id":"sh/h4byhgn2","slide":18,"name":"content-box","bbox":[95,385,500,155]}
+{"kind":"textbox","id":"sh/a5gbq1or","slide":18,"name":"body-text","text":"短期计划","textPreview":"短期计划","textChars":4,"textLines":1,"bbox":[113,399,464,30]}
+{"kind":"textbox","id":"sh/3m94fu18","slide":18,"name":"body-text","text":"完善 CowCV 部署记录与页面截图；整理论文可用图表；加入 LODO 实验。","textPreview":"完善 CowCV 部署记录与页面截图；整理论文可用图表；加入 LODO 实验。","textChars":39,"textLines":1,"bbox":[113,437,464,93]}
+{"kind":"shape","id":"sh/s72x4nap","slide":18,"name":"content-box","bbox":[675,385,500,155]}
+{"kind":"textbox","id":"sh/lszqtcj6","slide":18,"name":"body-text","text":"中期计划","textPreview":"中期计划","textChars":4,"textLines":1,"bbox":[693,399,464,30]}
+{"kind":"textbox","id":"sh/a1gvy90j","slide":18,"name":"body-text","text":"纳入更多未见域，计算 performance drop，对比 YOLOv9-v12、RT-DETR 等模型。","textPreview":"纳入更多未见域，计算 performance drop，对比 YOLOv9-v12、RT-DETR 等模型。","textChars":54,"textLines":1,"bbox":[693,437,464,93]}
+{"kind":"notes","id":"nt/m58z25kb","slide":18,"text":"当前问题主要是数据域覆盖和 benchmark 深度。下一步可以先完成平台部署和 LODO 实验，再扩展更多模型。"}
+{"kind":"slide","id":"sl/bat47y1k","slide":19,"title":"汇报总结：当前工作已经从数据整理走向可验证实验","textShapes":10}
+{"kind":"shape","id":"sh/a9w3m94f","slide":19,"name":"文本框 21","bbox":[78.45,25.39,337.55,54.93]}
+{"kind":"textbox","id":"sh/orytsvu9","slide":19,"name":"slide-title","text":"汇报总结：当前工作已经从数据整理走向可验证实验","textPreview":"汇报总结：当前工作已经从数据整理走向可验证实验","textChars":23,"textLines":1,"bbox":[78,25,930,56]}
+{"kind":"shape","id":"sh/hcrmhk3q","slide":19,"name":"title-rule","bbox":[78,86,1120,3]}
+{"kind":"textbox","id":"sh/al87ed8b","slide":19,"name":"body-text","text":"17","textPreview":"17","textChars":2,"textLines":1,"bbox":[1168,650,46,28]}
+{"kind":"shape","id":"sh/z61032ls","slide":19,"name":"content-box","bbox":[90,145,330,145]}
+{"kind":"textbox","id":"sh/oza1gvy9","slide":19,"name":"body-text","text":"1. 数据层面","textPreview":"1. 数据层面","textChars":7,"textLines":1,"bbox":[108,159,294,30]}
+{"kind":"textbox","id":"sh/hk3q5o7q","slide":19,"name":"body-text","text":"已整理多源牛只检测数据，并统一标注格式和训练结构。","textPreview":"已整理多源牛只检测数据，并统一标注格式和训练结构。","textChars":25,"textLines":1,"bbox":[108,197,294,83]}
+{"kind":"shape","id":"sh/7mp0bi9s","slide":19,"name":"content-box","bbox":[475,145,330,145]}
+{"kind":"textbox","id":"sh/e1w7mp0b","slide":19,"name":"body-text","text":"2. 实验层面","textPreview":"2. 实验层面","textChars":7,"textLines":1,"bbox":[493,159,294,30]}
+{"kind":"textbox","id":"sh/psfil0rq","slide":19,"name":"body-text","text":"混合训练在四个核心域上显著提升泛化，但未见域仍有明显差距。","textPreview":"混合训练在四个核心域上显著提升泛化，但未见域仍有明显差距。","textChars":29,"textLines":1,"bbox":[493,197,294,83]}
+{"kind":"shape","id":"sh/w7mp0bi9","slide":19,"name":"content-box","bbox":[860,145,330,145]}
+{"kind":"textbox","id":"sh/7adsji5s","slide":19,"name":"body-text","text":"3. 研究层面","textPreview":"3. 研究层面","textChars":7,"textLines":1,"bbox":[878,159,294,30]}
+{"kind":"textbox","id":"sh/epkzupwb","slide":19,"name":"body-text","text":"结果支撑 CowCV 作为跨场景牛只检测 benchmark 的论文主线。","textPreview":"结果支撑 CowCV 作为跨场景牛只检测 benchmark 的论文主线。","textChars":37,"textLines":1,"bbox":[878,197,294,83]}
+{"kind":"textbox","id":"sh/pg3ex0nu","slide":19,"name":"body-text","text":"一句话：牛只检测模型的瓶颈不只是结构大小，而是训练数据是否覆盖真实养殖场景中的分布变化。","textPreview":"一句话：牛只检测模型的瓶颈不只是结构大小，而是训练数据是否覆盖真实养殖场景中的分布变化。","textChars":44,"textLines":1,"bbox":[155,405,970,95]}
+{"kind":"textbox","id":"sh/wval87ed","slide":19,"name":"body-text","text":"可讨论问题：后续论文主线更适合突出“数据平台”，还是突出“跨域 benchmark”？","textPreview":"可讨论问题：后续论文主线更适合突出“数据平台”，还是突出“跨域 benchmark”？","textChars":43,"textLines":1,"bbox":[195,550,890,50]}
+{"kind":"notes","id":"nt/bat47y1k","slide":19,"text":"总结来说，当前工作已经从数据整理推进到了可验证的实验阶段。关键发现是数据多样性很重要，但未知域泛化仍然是下一步要解决的问题。"}
+{"kind":"slide","id":"sl/j2t83itg","slide":20,"title":"恳请各位老师和同学批评指正","textShapes":2}
+{"kind":"shape","id":"sh/4byhgn29","slide":20,"name":"矩形 3","bbox":[0,159.12,1280,401.77]}
+{"kind":"shape","id":"sh/m58z25kb","slide":20,"name":"椭圆 5","bbox":[544.11,63.22,191.79,191.79]}
+{"kind":"textbox","id":"sh/47y1kre1","slide":20,"name":"文本框 7","text":"恳请各位老师和同学批评指正","textPreview":"恳请各位老师和同学批评指正","textChars":13,"textLines":1,"bbox":[278.7,322.91,732.43,72.96]}
+{"kind":"textbox","id":"sh/90je9cvi","slide":20,"name":"body-text","text":"CowCV：牛只目标检测数据集整理、平台建设与跨域泛化实验","textPreview":"CowCV：牛只目标检测数据集整理、平台建设与跨域泛化实验","textChars":29,"textLines":1,"bbox":[170,480,940,36]}
+{"kind":"image","id":"im/f6dcbulw","slide":20,"name":"图片 2","bbox":[545.9,60.54,198.03,194.88]}
+{"kind":"notes","id":"nt/j2t83itg","slide":20,"text":"以上是本阶段科研工作进展汇报，请各位老师和同学批评指正。"}
