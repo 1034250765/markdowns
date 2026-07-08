@@ -361,11 +361,44 @@ git worktree remove <路径>              # 删除 worktree
 
 #### 在 Claude Code 中的用法
 
-Agent 的 `isolation: "worktree"` 参数就是利用这个机制——并行启动多个 Agent 同时改代码时，每个 Agent 在独立 worktree 中操作，互不覆盖。
+Claude Code 里有三种方式用 worktree：
 
+| 方式 | 谁创建 | 工作目录切换 | 适用 |
+|------|--------|--------------|------|
+| 自带工具（EnterWorktree） | 我自动 | ✅ 自动切到 worktree | 单人新功能开发 |
+| Agent `isolation: "worktree"` | 子代理自动 | ❌ 代理隔离 | 多任务并行重构 |
+| 纯 git 命令 | 手动 | ❌ 需手动 cd | 完全掌控 |
 
+**方式一：自带工具**
 
+```
+"帮我开个 worktree 开发 X"
+-> EnterWorktree(name="X")        自动创建目录+分支，会话切过去
+"改完了，退出"
+-> ExitWorktree(action="keep" | "remove")
+```
 
+**方式二：Agent isolation**
+
+派多个子代理并行改代码，每个在独立 worktree，互不覆盖：
+
+```
+Agent(description="重构登录", prompt="...", isolation="worktree")
+Agent(description="重构注册", prompt="...", isolation="worktree")
+```
+
+**方式三：纯 git 命令（本次演示使用）**
+
+当会话所在目录不是 git 仓库时，自带工具用不了，用 git 命令同样能完成：
+
+```bash
+git worktree add .claude/worktrees/<名> -b <分支>   # 1. 创建
+# 2. 在 worktree 目录里改代码、commit
+git merge <分支>                                      # 3. 回主分支合并
+git worktree remove .claude/worktrees/<名>            # 4. 清理
+```
+
+**实战流程**：开 worktree -> 隔离目录改代码 -> commit -> 回主分支 merge -> 删 worktree。
 
 ## 六、子代理与工作流
 
