@@ -1,3 +1,11 @@
+## Github
+
+**使用 。可以打开网页vscode**
+
+
+
+
+
 ## 集成git
 
 通过git官网下载git，选择自己的系统下载即可
@@ -275,3 +283,4 @@ git worktree add 如果指定的分支不存在，会自动基于当前 HEAD 新
 并行处理多个分支：比如同时修复 bug（hotfix）和开发新功能（feature）。
 CI/CD 脚本中快速切换分支构建，避免重复 clone。
 文档构建：主分支写代码，gh-pages 分支生成文档，用 worktree 同时维护。
+
