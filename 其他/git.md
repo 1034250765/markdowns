@@ -248,6 +248,10 @@ git merge feature/awesome-feature
 
 ## worktree
 
+**worktree 在目录下新建了 /worktree 复制了一份目录**
+
+
+
 
 
 Git Worktree 详解：高效管理多分支的终极方案
