@@ -149,6 +149,36 @@ results[0].save('result.jpg')
 
 ```
 
+### Ultralytics 的 `model.predict()` 支持一次传入多张图片组成的列表。
+
+```python
+imgs = [c[0] for c in chunk]
+results = model.predict(
+    imgs,
+    conf=CONF,
+    imgsz=IMGSZ,
+    device=DEVICE,
+    batch=len(imgs),
+    stream=False,
+)
+```
+
+这里的 `imgs` 是图片路径列表：
+
+```python
+[
+    "/path/0001.jpg",
+    "/path/0002.jpg",
+    "/path/0003.jpg",
+]
+```
+
+`model.predict()` 会对列表里的所有图片进行批量推理，并返回与输入顺序对应的结果列表：
+
+`stream=False` 表示：等待这一批图片全部推理完成，并把全部结果一次性返回为列表。
+
+`outs` 是当前这一批图片对应的标签输出路径列表。
+
 **训练自定义模型 **
 
 ```python
