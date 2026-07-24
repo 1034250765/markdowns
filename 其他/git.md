@@ -200,7 +200,7 @@ Git 会：
 
 
 
-![image-20260707232427976](C:\Users\LYX10\Downloads\Typora-md-new\其他\images\image-20260707232427976.png)
+![image-20260707232427976](images/image-20260707232427976.png)
 
 **origin/main 是指远端仓库，而mian是本地仓库。**
 
