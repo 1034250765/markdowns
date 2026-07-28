@@ -786,5 +786,7 @@ Playwright ──→ 打开 Chromium ──→ 加载页面 ──→ 截图/点
 
 搜东西用 WebSearch 更轻量，但要看真实页面、交互操作就得 Playwright。
 
+**ssh-manger**
 
+**github CLI**
 
