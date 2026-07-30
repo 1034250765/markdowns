@@ -761,6 +761,36 @@ Copy-Item C:\Users\LYX10\.mcp.json D:\autodl\.mcp.json
 
 
 
+**配置专属 Chrome（推荐）**
+
+基础装法用默认配置，浏览器是临时环境、不保留登录态。实际使用推荐配置**专属 Chrome**：独立于日常浏览器、持久保留 cookie/登录。我的 WSL2 环境最终配置（User 作用域，所有项目可用）：
+
+```bash
+# 1. 下载专属浏览器（Playwright 自带，独立二进制，不碰系统浏览器）
+npx playwright install chromium
+# -> 装到 ~/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome
+
+# 2. 注册 MCP，带三个关键参数（-s user = 全局所有项目可用）
+claude mcp add playwright -s user -- node ~/.nvm/versions/node/v24.16.0/lib/node_modules/@playwright/mcp/cli.js \
+  --headless \
+  --user-data-dir ~/.cache/playwright-mcp-profile \
+  --executable-path ~/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome
+```
+
+三个参数含义：
+
+| 参数 | 作用 |
+|------|------|
+| `--headless` | 无界面运行。AI 靠 accessibility snapshot + 截图 + JS 读 DOM 感知页面，headless 不影响操作 |
+| `--user-data-dir <path>` | 持久配置目录（`~/.cache/playwright-mcp-profile`），保留 cookie/登录态 |
+| `--executable-path <path>` | 直接指向完整 chromium 二进制，绕开 headless-shell（见下方坑） |
+
+**坑：chrome-headless-shell 下载失败（WSL2）**
+
+`npx playwright install chromium` 会下两个包：完整 `chromium`（能下好）和精简 `chrome-headless-shell`（~90% 时连接被断，一直失败）。WSL2 大文件传输易断，和 WebFetch 抓大文件失败同一类问题。解法就是上面的 `--executable-path`：直接用完整 chromium 跑 headless（new headless 模式），不依赖精简包，实测可正常启动加载页面。
+
+**系统依赖**：`ldd` 检查无缺失库，无需 `sudo npx playwright install --with-deps`。若你的环境报缺 libnss3 等，再跑带 `--with-deps` 的命令（需 sudo）。
+
 **只有新对话才能使用新加载的插件**
 
 **Playwright** 常用浏览器插件
