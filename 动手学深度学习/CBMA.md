@@ -12,15 +12,15 @@
 
 如下图所示，在输入SE注意力机制之前（左侧白图C2），特征图的每个通道的重要程度都是一样的，通过SENet之后（右侧彩图C2），不同颜色代表不同的权重，使每个特征通道的重要性变得不一样了
 
-![img](https://i-blog.csdnimg.cn/blog_migrate/491b809945bd60ce11501f815fd5ae2c.png)
+![img](images/491b809945bd60ce11501f815fd5ae2c.png)
 
 ECA在SE模块的基础上，把SE中使用全连接层FC学习通道注意信息，改为1*1卷积学习通道注意信息；使用1*1卷积捕获不同通道之间的信息，避免在学习通道注意力信息时，通道维度减缩；降低参数量；（FC具有较大参数量；1*1卷积只有较小的参数量）
 
-![img](https://i-blog.csdnimg.cn/blog_migrate/eda5b4bace60213c04dde7a571b79c46.png)
+![img](images/eda5b4bace60213c04dde7a571b79c46.png)
 
 CBAM全称Convolutional Block Attention Module，这是一种用于前馈卷积神经网络的简单而有效的注意模块。是传统的通道注意力机制+空间注意力机制，是 channel(通道) + spatial(空间) 的统一。即对两个Attention进行串联，channel 在前，spatial在后。
 
 给定一个中间特征图，我们的模块会沿着两个独立的维度（通道和空间）依次推断注意力图，然后将注意力图乘以输入特征图以进行自适应特征修饰。 由于CBAM是轻量级的通用模块，因此可以以可忽略的开销将其无缝集成到任何CNN架构中，并且可以与基础CNN一起进行端到端训练。
-![img](https://i-blog.csdnimg.cn/blog_migrate/d9f032a994f0dae287df4d418e407153.png)
+![img](images/d9f032a994f0dae287df4d418e407153.png)
 
 **不是图像中所有的区域对任务的贡献都是同样重要的，只有任务相关的区域才是需要关心的**，比如分类任务的主体，空间注意力模型就是寻找网络中最重要的部位进行处理。**空间注意力**旨在提升关键区域的特征表达，本质上是将原始图片中的空间信息通过空间转换模块，变换到另一个空间中并保留关键信息

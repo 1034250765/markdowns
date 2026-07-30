@@ -12,7 +12,7 @@
   - Class: Discrete labels (e.g., "car", "pedestrian").
   - Confidence: Probability of the object's presence (used for post-processing filtering).
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/5d1f4b1277e94ace8fc1d9db10fca8c7.png)
+![在这里插入图片描述](images/5d1f4b1277e94ace8fc1d9db10fca8c7.png)
 
 - #### Key Challenges
 
@@ -21,7 +21,7 @@
   - **Class Imbalance**: Scarce samples for minority classes in datasets.
   - **Real-time Requirement**: Applications like autonomous driving demand millisecond-level response times.
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/c39c98bd8b434bb1b77885c6ba203329.png)
+![在这里插入图片描述](images/c39c98bd8b434bb1b77885c6ba203329.png)
 
 - ### Evolution: From Traditional Methods to Deep Learning
 
@@ -48,7 +48,7 @@
   - **SSD (2016)**: Performed predictions on feature maps at multiple scales, striking a strong balance between speed (59 FPS) and accuracy. It was the first model truly viable for mobile applications.
   - **YOLOv2-v3 (2017)**: Introduced anchor box clustering, multi-scale training, and FPN-like feature fusion. This significantly improved accuracy, bringing it close to that of two-stage detectors while maintaining leading inference speed.
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/c65e4fe3143f798a72448d107a54c15c.png#pic_center)
+![在这里插入图片描述](images/c65e4fe3143f798a72448d107a54c15c.png)
 
 - ### Detailed Explanation of Core Technical Modules
 
@@ -82,5 +82,5 @@
 
       which motivated optimization techniques like Focal Loss.
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/1ee7151433d4f8f0be2afa0548db11fe.png#pic_center)
+![在这里插入图片描述](images/1ee7151433d4f8f0be2afa0548db11fe.png)
 

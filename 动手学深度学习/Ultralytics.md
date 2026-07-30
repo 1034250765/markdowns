@@ -119,7 +119,7 @@ models文件夹中的每个.yaml文件代表了不同的YOLOv8模型配置，具
  **autobackend.py:** 用于自动选择最优的计算后端。
 
  tasks.py: 定义了使用神经网络完成的不同任务的流程，例如分类、检测或分割，所有的流程基本上都定义在这里，定义模型前向传播都在这里。
-![img](https://i-blog.csdnimg.cn/blog_migrate/99c221f3a5077b54b75df26f46cdf1a9.png)
+![img](images/99c221f3a5077b54b75df26f46cdf1a9.png)
 
 
 
