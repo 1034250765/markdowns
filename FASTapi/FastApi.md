@@ -206,7 +206,7 @@ async def get_id_num(user_id: int):
 
 中间件是一个函数，在每次请求进入fastAPI应用时都会执行。
 
-![img](file:///C:/Users/LYX10/AppData/Local/Microsoft/Windows/Clipboard/HistoryData/%7B61E99790-060C-449B-821E-BE1B50102366%7D/%7B6A5B7175-EC03-4A16-B0C0-871DAB59F323%7D/ResourceMap/%7B0A9F0771-88C3-4260-9FA0-9AD5D6218502%7D)
+![在这里插入图片描述](images/cf5ff0a30d766d22859aaace651906b5.png)
 
 ```python
 from fastapi import Request, Response, FastAPI
