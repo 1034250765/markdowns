@@ -100,3 +100,12 @@ Get-ChildItem HKLM:\Software\Microsoft
 ```
 
 就像浏览文件夹一样浏览注册表。
+
+
+
+
+
+
+
+## 常用命令
+
