@@ -3,3 +3,5 @@
 .workbuddy/
 _remote_yolo11s_patch/
 tmp/
+_remote_bench_yolo11.py
+_remote_eff_extract.py
