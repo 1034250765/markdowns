@@ -70,7 +70,7 @@ Claude Code 内置了6种权限模式，每种模式的自主操作权限、适�
 **default（默认模式）**	仅支持读取文件、查看代码，所有编辑、命令操作都需手动批准	初次上手、陌生代码库、生产环境敏感操作，安全性最高
 **plan（规划模式）**	仅读取、分析代码，只会输出优化/开发方案，不会改动任何代码	需求梳理、代码重构规划、方案评估，只看结果不改动项目
 **acceptEdits（编辑自动批准**）	自动执行文件读取、代码编辑、基础文件操作（mkdir、touch、mv、cp等），Shell命令仍需确认	日常开发首选，信任AI代码编辑能力，同时规避高危命令风险
-**auto（智能自动模式）**	支持全部操作，自带后台安全校验机制，自动拦截高危违规操作	长时间迭代开发、批量重构，大幅减少弹窗，兼顾效率与安全
+**auto（智能自动模式）**	支持全部操作，自带后台安全校验机制，自动拦截高危违规操作	长时间迭代开发、批量重构，大幅减少弹窗，兼顾效率与安全  
 **dontAsk（严格受限模式）**	仅允许提前手动配置、预先批准的工具操作，其余全部拦截	CI自动化流程、受限开发环境，极致安全管控
 **bypassPermissions（全权放行模式）**	跳过所有权限校验和安全检查，几乎所有操作自动执行	仅适合隔离沙箱、本地测试环境，生产环境严禁使用
 **shift+tab进行切换**
@@ -136,7 +136,46 @@ claude -p "你的任务描述"
 claude --resume
 ```
 
+**auto 分类器的模型用哪个？**
 
+官方 `permission-modes` 文档的说法：auto mode 分类器默认跑 **Claude Sonnet 5**，与 `/model` 选择无关；Anthropic 服务端配置的分类器模型优先级更高。
+
+**优先级链**（按本机 `claude.exe` v2.1.267 实测还原，非官方文档原文）：
+
+| 顺序 | 来源 | 生效条件 |
+|------|------|----------|
+| 1 | 服务端配置 `tengu_auto_mode_config.model` | 始终最高，用户改不了 |
+| 2 | `ANTHROPIC_DEFAULT_SONNET_MODEL`，未设置则回落到内置 Sonnet 5 | 会话模型不是 4.6 / 4.5 / Haiku 系列，且该值能通过校验 |
+| 3 | `ANTHROPIC_DEFAULT_OPUS_MODEL` | 会话跑 Fable / Mythos 时 |
+| 4 | 会话模型本身 | 以上都不适用 |
+
+**所以想让分类器用指定模型，就设 `ANTHROPIC_DEFAULT_SONNET_MODEL`：**
+
+```json
+{
+  "env": {
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "你的模型ID"
+  }
+}
+```
+
+> Bedrock 写 provider 形态（`us.anthropic.claude-sonnet-5`）；网关 / 中转写网关认的名字。
+
+**三个坑：**
+
+| 坑 | 说明 |
+|----|------|
+| 一值两用 | 这个变量本职是给 `sonnet` 别名用的（主会话选 sonnet、opusplan 执行阶段、subagent 都用它），改它会连带改这些用途，**不是分类器专属开关** |
+| 探针默认值 | 值若等于 `CLAUDE_CODE_3P_PROBE_WROTE_SONNET_DEFAULT`（Claude Code 探针自动写入的默认值），会被当成「未设置」而忽略，必须是你自己显式写的值 |
+| 名字最像的那个变量是死的 | `CLAUDE_CODE_AUTO_MODE_MODEL` 在 v2.1.267 中**没有任何读取点**，设了无效 |
+
+**验证是否生效**：开 debug 日志跑一次 auto mode 会话，抓这行看 `model=` 是不是你设的：
+
+```
+[Stall] classifier_request_started ... model=<实际分类器模型> stage=...
+```
+
+**同一会话内不会变**：会话首个 auto-mode 请求会验证 Sonnet 5 默认值，成功即锁定；模型不可用才降级，之后该会话不再改动。
 
 ### 代码库理解
 

@@ -454,6 +454,122 @@ class VehicleFactory:
     def register(cls, name: str, vehicle_type: Type[Vehicle]):
         cls.registry[name] = vehicle_type
 ```
+
+## Python 的执行模型：编译到字节码 + 解释执行
+
+很多资料说 Python 是「解释型语言，运行时才编译」——**这个说法不准确**。CPython 的真实流程是：
+
+**源码 → 编译成字节码 → 虚拟机解释执行**
+
+```python
+import dis
+
+dis.dis(lambda x: x + 1)
+```
+
+输出：
+
+```
+  1           0 RESUME                   0
+              2 LOAD_FAST                0 (x)
+              4 LOAD_CONST               1 (1)
+              6 BINARY_OP                0 (+)
+             10 RETURN_VALUE
+```
+
+左边是源码行号，中间是字节码偏移，右边是**指令**。CPython 真正执行的是这串中间指令——不是源码，也不是机器码。
+
+**三个阶段**
+
+| 阶段 | 发生什么 | 产物 |
+|---|---|---|
+| 编译期 | `.py` 源码 → AST → 字节码 | code object |
+| 缓存 | 字节码写入 `__pycache__/xxx.cpython-314.pyc` | `.pyc` 文件 |
+| 执行期 | CPython 虚拟机逐条执行字节码 | 运行结果 |
+
+编译是**隐式**的，不需要手动调编译器，发生在**模块首次导入时**；第二次导入直接读 `.pyc`，连编译都跳过。
+
+> CPython 至今是纯解释执行字节码，没有默认开启的 JIT（3.13+ 有实验性 JIT，需要专门编译时开启）。所以它是「编译到字节码 + 解释执行」，两头都占一点。
+
+**`def` 是运行时语句，函数对象是"跑"出来的**
+
+这一点是理解装饰器、类型注解、各类框架魔法的前提：
+
+```python
+if DEBUG:
+    def f(): return 1
+else:
+    def f(): return 2
+```
+
+这段代码合法——`def` 是一个**语句**，可以出现在任何控制流里。模块被导入时，解释器从上往下执行顶层语句，**遇到 `def` 就现场创建一个函数对象**，绑定到同名变量。
+
+所以函数对象在运行时是"活"的，身上挂着一堆元数据：
+
+```python
+def read_item(item_id: int, q: str = 'x') -> bool: ...
+
+read_item.__name__          # 'read_item'
+read_item.__annotations__   # {'item_id': <class 'int'>, 'q': <class 'str'>, 'return': <class 'bool'>}
+read_item.__defaults__      # ('x',)
+read_item.__code__          # <code object read_item at 0x...>
+```
+
+**「编译到字节码 + 解释执行」带来的直接结果就是：函数在运行时仍然携带一份可读的说明书。**
+
+**`__annotations__`：类型注解存在哪**
+
+它是函数对象上的一个普通 dict，**值是真正的类型对象**（不是字符串），可读也可改。
+
+三个容易忽略的细节：
+
+- **返回值注解也在同一个 dict 里**，键名是字符串 `'return'`
+- **注解是表达式，会被求值**：`def g(x: 1 + 2): ...` → `{'x': 3}`（真的算了一遍）
+- 三个作用域各有一份：模块级 `__annotations__`、类级 `C.__annotations__`、函数级 `f.__annotations__`
+
+**PEP 563 会把注解变成字符串**
+
+```python
+from __future__ import annotations      # 必须在文件第一行
+
+def f(a: int) -> bool: ...
+f.__annotations__     # {'a': 'int', 'return': 'bool'}   ← 字符串了
+```
+
+这时要用 `typing.get_type_hints(f)` 才能还原成真类型。FastAPI、Pydantic 这类框架内部都做了这一步；自己写反射代码时忘了它，就会拿到字符串。
+
+> Python 3.14 起注解改为惰性求值（PEP 649），实现方式变了，但 `__annotations__` 的对外行为保持一致。
+
+**对比 C++：类型信息留不留到运行时**
+
+「函数体在定义时不执行」这一点 Python 和 C++ 是一样的。区别在于**编译后还剩下什么**：
+
+| 运行时能否拿到 | Python | C++ |
+|---|---|---|
+| 参数类型 | ✓ `__annotations__` | ✗ 已擦除 |
+| 参数名 | ✓ | ✗ |
+| 默认值 | ✓ `__defaults__` | ✗ 已内联到调用点 |
+
+C++ 编译后只剩机器码和函数地址，运行时**没有说明书可查**。所以 C++ 的 Web 框架只能在**编译期**用宏抢着把信息登记好：
+
+```cpp
+CROW_ROUTE(app, "/items/<int>")     // 宏展开时登记，不是运行时反射
+([](int id) { return "hi"; });
+```
+
+注：Java 虽然也是编译型，但注解和类型信息会写进 class 文件，运行时反射可读——所以 Spring 的注解路由和 FastAPI 是同一个思路。**分水岭不是「脚本语言 vs 编译语言」，而是类型信息有没有留到运行时。**
+
+**实际用处**
+
+注解和默认值都是运行时对象，所以框架可以在导入模块时"读"函数签名，自动生成路由、校验规则和接口文档——FastAPI 的全部魔法都建在这上面。
+
+反过来，因为函数体不执行，错误暴露的时机也不同：
+
+| 错误落在哪 | 什么时候爆 |
+|---|---|
+| 签名 / 注解 / 装饰器参数 | 导入时就报错 |
+| 函数体里的代码 | 调用时才报错 |
+
 ## 异常
 
 即便 Python 程序的语法是正确的，在运行它的时候，也有可能发生错误。运行期检测到的错误被称为异常。
