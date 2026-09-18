@@ -288,3 +288,43 @@ git worktree add 如果指定的分支不存在，会自动基于当前 HEAD 新
 CI/CD 脚本中快速切换分支构建，避免重复 clone。
 文档构建：主分支写代码，gh-pages 分支生成文档，用 worktree 同时维护。
 
+
+
+
+
+## 常见命令
+
+### git checkout
+
+
+
+```python
+git checkout <branch-name>    #切换现有分支
+
+git checkout -b <new-branch-name>  #创建并切换到新分支
+
+
+```
+
+
+
+### git stash
+
+`git stash` 是 Git 中用于**临时保存（贮藏）未提交更改**的命令。
+
+当你在一个分支修改了代码，但功能还没写完、不想草率生成一个 commit，却需要紧急切换到其他分支（如去修复一个紧急线上 bug 或拉取最新代码）时，`git stash` 会把当前工作区和暂存区的修改“压栈”暂存起来，让工作区瞬间变回干净状态。等处理完其他事务后，可以随时取回。
+
+```python
+git stash save "修复登录Bug过程中的半成品" 
+```
+
+
+
+### git restore <file>
+
+git restore <file> 丢弃工作区修改 与 git checkout -- <file> 相同，由于 `git checkout` 既负责“分支管理”，又负责“文件恢复”，职责过于重叠且容易误操作，Git 2.23+ 引入了更专一的命令来逐步替代它。
+
+
+
+
+

@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"6961df11efc018d3","x":-500,"y":-380,"width":400,"height":400,"type":"file","file":"动手学深度学习/动手学深度学习.md"},
+		{"id":"ce8ddc69edd86c33","x":-160,"y":120,"width":250,"height":120,"type":"text","text":"动手学深度学习：\n- 动手学深度学习\n- 注意力"},
+		{"id":"7e5e04352a4eb4d3","x":20,"y":-380,"width":400,"height":400,"type":"file","file":"动手学深度学习/动手学深度学习-注意力.md"}
+	],
+	"edges":[
+		{"id":"579ee6a6cd4f2c66","fromNode":"6961df11efc018d3","fromSide":"bottom","toNode":"ce8ddc69edd86c33","toSide":"left"},
+		{"id":"e29b664c6b5cd8d7","fromNode":"7e5e04352a4eb4d3","fromSide":"bottom","toNode":"ce8ddc69edd86c33","toSide":"right"}
+	]
+}

@@ -1,0 +1,130 @@
+{
+ "benchmark": "YOLO11 s/m/l unified inference benchmark",
+ "date": "2026-09-10 17:58:04",
+ "image": "/data1/yxli/CODE/ultralytics/self_mAP/datasets/HCRD/images/val/FLIR1500- full photo.jpg",
+ "imgsz": 640,
+ "batch": 1,
+ "precision": "FP32 (half=False)",
+ "warmup": {
+  "gpu_pure": 50,
+  "gpu_e2e": 20,
+  "cpu_pure": 10,
+  "cpu_e2e": 5
+ },
+ "env": {
+  "torch": "2.5.1+cu124",
+  "cuda": "12.4",
+  "gpu": "NVIDIA A100-PCIE-40GB",
+  "cpu_threads": 36,
+  "ultralytics": "8.4.92"
+ },
+ "gpu_snapshot_start": "0 %, 7 MiB",
+ "models": {
+  "yolo11s.pt": {
+   "info_layers_params_grads_flops": null,
+   "gpu_pure": {
+    "mean_ms": 12.696,
+    "p50_ms": 12.679,
+    "p95_ms": 12.722,
+    "fps_at_p50": 78.87,
+    "n_iters": 300,
+    "peak_alloc_GB": 0.12,
+    "peak_reserved_GB": 0.168
+   },
+   "gpu_e2e": {
+    "mean_ms": 13.58,
+    "p50_ms": 13.558,
+    "p95_ms": 13.596,
+    "fps_at_p50": 73.76,
+    "n_iters": 200,
+    "peak_alloc_GB": 0.097,
+    "peak_reserved_GB": 0.129
+   },
+   "cpu_pure": {
+    "mean_ms": 87.584,
+    "p50_ms": 85.979,
+    "p95_ms": 95.775,
+    "fps_at_p50": 11.63,
+    "n_iters": 100
+   },
+   "cpu_e2e": {
+    "mean_ms": 80.95,
+    "p50_ms": 78.864,
+    "p95_ms": 91.583,
+    "fps_at_p50": 12.68,
+    "n_iters": 30
+   }
+  },
+  "yolo11m.pt": {
+   "info_layers_params_grads_flops": null,
+   "gpu_pure": {
+    "mean_ms": 13.37,
+    "p50_ms": 13.361,
+    "p95_ms": 13.396,
+    "fps_at_p50": 74.85,
+    "n_iters": 300,
+    "peak_alloc_GB": 0.212,
+    "peak_reserved_GB": 0.277
+   },
+   "gpu_e2e": {
+    "mean_ms": 13.54,
+    "p50_ms": 13.535,
+    "p95_ms": 13.581,
+    "fps_at_p50": 73.88,
+    "n_iters": 200,
+    "peak_alloc_GB": 0.165,
+    "peak_reserved_GB": 0.24
+   },
+   "cpu_pure": {
+    "mean_ms": 220.884,
+    "p50_ms": 218.757,
+    "p95_ms": 230.901,
+    "fps_at_p50": 4.57,
+    "n_iters": 100
+   },
+   "cpu_e2e": {
+    "mean_ms": 169.633,
+    "p50_ms": 166.461,
+    "p95_ms": 189.532,
+    "fps_at_p50": 6.01,
+    "n_iters": 30
+   }
+  },
+  "yolo11l.pt": {
+   "info_layers_params_grads_flops": null,
+   "gpu_pure": {
+    "mean_ms": 20.503,
+    "p50_ms": 20.402,
+    "p95_ms": 20.545,
+    "fps_at_p50": 49.02,
+    "n_iters": 300,
+    "peak_alloc_GB": 0.297,
+    "peak_reserved_GB": 0.354
+   },
+   "gpu_e2e": {
+    "mean_ms": 18.584,
+    "p50_ms": 18.522,
+    "p95_ms": 18.6,
+    "fps_at_p50": 53.99,
+    "n_iters": 200,
+    "peak_alloc_GB": 0.194,
+    "peak_reserved_GB": 0.258
+   },
+   "cpu_pure": {
+    "mean_ms": 266.954,
+    "p50_ms": 264.49,
+    "p95_ms": 282.632,
+    "fps_at_p50": 3.78,
+    "n_iters": 100
+   },
+   "cpu_e2e": {
+    "mean_ms": 190.263,
+    "p50_ms": 190.337,
+    "p95_ms": 191.366,
+    "fps_at_p50": 5.25,
+    "n_iters": 30
+   }
+  }
+ },
+ "gpu_snapshot_end": "0 %, 679 MiB"
+}

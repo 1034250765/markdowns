@@ -739,8 +739,35 @@ Copy-Item C:\Users\LYX10\.mcp.json D:\autodl\.mcp.json
 
 
 
+### skills
 
-### 安装skills
+
+
+技能（Skills）是 Claude Code 的扩展机制，分为内置技能和自定义技能。每个技能是一个可以被 `/skill-name` 调用的功能单元。
+
+最简单的技能就是一个指令模板：
+
+```json
+{
+  "skills": {
+    "test": "Run the project tests. Use: npm test",
+    "deploy-staging": "Deploy to staging. Steps: 1) npm run build 2) npm run deploy:staging 3) Verify at staging.example.com"
+  }
+}
+```
+
+配置在：
+
+- 项目级：`<project>/.claude/settings.local.json`
+- 用户级：`~/.claude/settings.json`
+
+
+
+
+
+
+
+
 
 您可以通过在 Claude Code 中执行以下命令，将本仓库注册为 Claude Code 插件市场：
 
@@ -758,6 +785,14 @@ Copy-Item C:\Users\LYX10\.mcp.json D:\autodl\.mcp.json
 ```
 
 安装插件后，你只需提及这个技能即可使用。
+
+
+
+
+
+
+
+
 
 
 
@@ -859,3 +894,62 @@ Playwright ──→ 打开 Chromium ──→ 加载页面 ──→ 截图/点
 
 **github CLI**
 
+
+
+
+
+
+
+## 八、代码审查
+
+内置审查命令概览
+
+- /code-review     代码质量审查
+- /review           PR 审查
+- /verify              手动验证改动
+- /security-review    安全审查
+
+**`/code-review` 详解**
+
+```python
+/code-review            # 默认审查（中等深度）
+/code-review --fix      # 审查并自动修复发现的问题
+/code-review --comment  # 审查并将发现发布为 PR 内联评论
+```
+
+**审查维度**：
+
+- 🐛 正确性 Bug：逻辑错误、边界情况遗漏、空值处理
+- 🔒 安全性：注入漏洞、敏感信息泄露、权限问题
+- ♻️ 代码复用：重复代码、可以简化的逻辑
+- 📐 代码风格：命名规范、代码结构、可读性
+- ⚡ 性能：不必要的计算、内存泄漏、异步处理
+
+
+
+## 九、对话管理技巧
+
+
+
+#### 任务分解
+
+长任务拆分为多个短对话，每个对话聚焦一个子任务：
+
+```plain
+❌ "重构整个认证模块、数据层、UI 层"
+✅ 对话1："重构认证模块的 token 管理"
+   对话2："重构认证的数据层查询"
+   对话3："重构登录和注册页面 UI"
+```
+
+每次对话结束后，在下一个对话开始时提供上下文摘要。
+
+#### 利用 Plan Mode
+
+在复杂任务开始前进入 Plan Mode 确认方案：
+
+```plain
+这个任务比较复杂，请先进入 Plan Mode 设计方案。
+```
+
+Plan Mode 中 Claude 会探索代码库、设计实施路径，在得到你的确认后再动手写代码。这避免了返工。
