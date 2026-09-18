@@ -8,3 +8,5 @@ _remote_eff_extract.py
 _remote_auto_bench.sh
 _remote_stau_recompute.py
 _remote_step_verify.py
+.obsidian/workspace.json
+.obsidian/workspaces.json
