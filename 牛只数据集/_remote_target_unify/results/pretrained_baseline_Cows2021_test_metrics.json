@@ -1,0 +1,35 @@
+{
+  "signature": {
+    "schema_version": 1,
+    "model": "original_yolo11m_coco_pretrained",
+    "weights": "/data1/yxli/CODE/ultralytics/self_mAP/models/yolo11m.pt",
+    "weights_sha256": "d5ffc1a674953a08e11a8d21e022781b1b23a19b730afc309290bd9fb5305b95",
+    "dataset": "Cows2021",
+    "view": "Cows2021_test_2131",
+    "split": "test",
+    "evaluated_classes": [
+      19
+    ],
+    "imgsz": 640,
+    "batch": 12,
+    "conf": 0.001,
+    "iou": 0.7,
+    "max_det": 300
+  },
+  "model": "original_yolo11m_coco_pretrained",
+  "dataset": "Cows2021",
+  "display_name": "Cows2021",
+  "view": "Cows2021_test_2131",
+  "images": 2131,
+  "precision": 0.44984939637703847,
+  "recall": 0.6726840480649969,
+  "map50": 0.4946293282260122,
+  "map50_95": 0.17772559765780713,
+  "speed_ms_per_image": {
+    "preprocess": 0.5143269501427203,
+    "inference": 1.6136500444254478,
+    "loss": 0.0008074571092270843,
+    "postprocess": 0.9148462694304361
+  },
+  "save_dir": "/data1/yxli/CODE/ultralytics/OOD/TargetUnifyTests/results/yolo11m_pretrained_cows2021_test/val"
+}
