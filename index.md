@@ -4,6 +4,7 @@
 
 ## 来源摘要
 
+- [HumanScore：生成视频人体运动质量基准（arXiv 2604.20157）](wiki/sources/humanscore-benchmark-paper.md) | `source` | `draft` | 更新：2026-09-18 | 来源：1 — arXiv 预印本摘要：生物力学三层六维指标评测 13 个视频生成模型的人体运动质量，含排行榜、人类偏好对齐与指标鲁棒性分析。
 - [黑马Vibe Coding 第19集：Claude Code 子代理（Subagent）开发实战](wiki/sources/heima-vibe-coding-p19-subagent.md) | `source` | `draft` | 更新：2026-09-18 | 来源：1 — 黑马程序员 Vibe Coding 课程第 19 集字幕转写的摘要，记录 Claude Code 子代理的创建、技能配置与实测委派流程，含转写噪音与待核实项说明。
 
 ## 概念与方法
