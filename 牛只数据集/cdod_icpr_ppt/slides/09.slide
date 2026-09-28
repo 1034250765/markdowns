@@ -1,0 +1,78 @@
+<Slide style={{ padding: '32px 60px', background: '#FFFFFF' }}>
+  <Box style={{
+    flexDirection: 'column',
+    width: '100%',
+    height: '100%',
+    gap: 14,
+  }}>
+    {/* 页眉 */}
+    <Box style={{
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      height: 40,
+      borderBottom: '2px solid #1E4FA8',
+    }}>
+      <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#0E3F8C' }}>定量结果 III：Near-miss 诊断</Text>
+      <Text style={{ fontSize: 14, color: '#8B97A8' }}>CLIP-Based Ablation</Text>
+    </Box>
+    {/* 表格 */}
+    <Box style={{ flexDirection: 'column', gap: 6, flex: 1 }}>
+      <Table
+        style={{ width: '100%', height: 240 }}
+        defaultTextStyle={{ fontSize: 15, textAlign: 'center', color: '#1A2230' }}
+        defaultCellStyle={{
+          border: {
+            left: { width: 1, color: '#D6DCE5' },
+            right: { width: 1, color: '#D6DCE5' },
+            top: { width: 1, color: '#D6DCE5' },
+            bottom: { width: 1, color: '#D6DCE5' },
+          },
+        }}
+        cells={[
+          [
+            { text: 'Train→Test', textStyle: { bold: true, color: '#fff' }, cellStyle: { background: { color: '#1E4FA8' } } },
+            { text: 'ΔmAP', textStyle: { bold: true, color: '#fff' }, cellStyle: { background: { color: '#1E4FA8' } } },
+            { text: 'Near-miss ↑', textStyle: { bold: true, color: '#fff' }, cellStyle: { background: { color: '#1E4FA8' } } },
+            { text: 'E[s_tt] ↑', textStyle: { bold: true, color: '#fff' }, cellStyle: { background: { color: '#1E4FA8' } } },
+            { text: 'Med. Rank ↓', textStyle: { bold: true, color: '#fff' }, cellStyle: { background: { color: '#1E4FA8' } } },
+            { text: 'Top-5 ↑', textStyle: { bold: true, color: '#fff' }, cellStyle: { background: { color: '#1E4FA8' } } },
+          ],
+          ['Objects365→BDD', '+0.25', '41%', '0.73', '2', '88%'],
+          ['Objects365→City', '+0.15', '33%', '0.71', '3', '81%'],
+          ['COCO→Objects365', '+0.04', '18%', '0.69', '4', '64%'],
+          ['Objects365→COCO', '+0.04', '17%', '0.70', '4', '66%'],
+          ['Cityscapes→COCO', '+0.01', '4%', '0.58', '14', '21%'],
+        ]}
+      />
+      <Text style={{ fontSize: 14, color: '#4A5568', textAlign: 'center' }}>Table 5: 开标签增益对应的 near-miss 诊断（τ=0.6, K=5）</Text>
+    </Box>
+    {/* 关键发现 */}
+    <Box style={{
+      flexDirection: 'row',
+      gap: 16,
+      flex: 1,
+    }}>
+      <Box style={{
+        flex: 1,
+        background: '#F0F5FC',
+        borderRadius: 8,
+        padding: 16,
+        gap: 10,
+      }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>标签不匹配的结构</Text>
+        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5 }}>Objects365→BDD 的 41% 错配是语义近失：s_tt=0.73、中位排名 2、Top-5 88%。这些错误可通过语义重映射修正。</Text>
+      </Box>
+      <Box style={{
+        flex: 1,
+        background: '#1E4FA8',
+        borderRadius: 8,
+        padding: 16,
+        gap: 10,
+      }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF' }}>真正混淆 vs 语义近失</Text>
+        <Text style={{ fontSize: 15, color: '#FFFFFF', lineHeight: 1.5 }}>Cityscapes→COCO near-miss 仅 4%，相似度 0.58，GT 中位排名 14。剩余错误由域偏移和语义混淆主导，非标签问题。</Text>
+      </Box>
+    </Box>
+  </Box>
+</Slide>

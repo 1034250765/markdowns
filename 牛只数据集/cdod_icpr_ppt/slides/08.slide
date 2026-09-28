@@ -1,0 +1,78 @@
+<Slide style={{ padding: '32px 60px', background: '#FFFFFF' }}>
+  <Box style={{
+    flexDirection: 'column',
+    width: '100%',
+    height: '100%',
+    gap: 14,
+  }}>
+    {/* 页眉 */}
+    <Box style={{
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      height: 40,
+      borderBottom: '2px solid #1E4FA8',
+    }}>
+      <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#0E3F8C' }}>定量结果 II：开标签评估</Text>
+      <Text style={{ fontSize: 14, color: '#8B97A8' }}>Open-label mAP (τ = 0.6)</Text>
+    </Box>
+    {/* 表格 */}
+    <Box style={{ flexDirection: 'column', gap: 6, flex: 1 }}>
+      <Table
+        style={{ width: '100%', height: 320 }}
+        defaultTextStyle={{ fontSize: 15, textAlign: 'center', color: '#1A2230' }}
+        defaultCellStyle={{
+          border: {
+            left: { width: 1, color: '#D6DCE5' },
+            right: { width: 1, color: '#D6DCE5' },
+            top: { width: 1, color: '#D6DCE5' },
+            bottom: { width: 1, color: '#D6DCE5' },
+          },
+        }}
+        cells={[
+          [
+            { text: 'Train \\ Test', textStyle: { bold: true, color: '#fff' }, cellStyle: { background: { color: '#1E4FA8' } } },
+            { text: 'COCO', textStyle: { bold: true, color: '#fff' }, cellStyle: { background: { color: '#1E4FA8' } } },
+            { text: 'Cityscapes', textStyle: { bold: true, color: '#fff' }, cellStyle: { background: { color: '#1E4FA8' } } },
+            { text: 'Objects365', textStyle: { bold: true, color: '#fff' }, cellStyle: { background: { color: '#1E4FA8' } } },
+            { text: 'BDD', textStyle: { bold: true, color: '#fff' }, cellStyle: { background: { color: '#1E4FA8' } } },
+            { text: 'Avg.', textStyle: { bold: true, color: '#fff' }, cellStyle: { background: { color: '#1E4FA8' } } },
+          ],
+          ['COCO', '0.376', '0.030 (+0.015)', '0.322 (+0.036)', '0.038 (+0.019)', '0.192'],
+          ['Cityscapes', '0.235 (+0.029)', '0.402', '0.296 (+0.028)', '0.287 (+0.012)', '0.305'],
+          ['Objects365', '0.082 (+0.036)', '0.032 (+0.012)', '0.198', '0.124 (+0.022)', '0.109'],
+          ['BDD', '0.160 (+0.029)', '0.040 (+0.015)', '0.132 (+0.029)', '0.298', '0.158'],
+          ['Avg.', '0.213', '0.126', '0.237', '0.187', '—'],
+        ]}
+      />
+      <Text style={{ fontSize: 14, color: '#4A5568', textAlign: 'center' }}>Table 4: 4×4 开标签迁移矩阵（括号内为相对闭标签增益）</Text>
+    </Box>
+    {/* 关键发现 */}
+    <Box style={{
+      flexDirection: 'row',
+      gap: 16,
+      flex: 1,
+    }}>
+      <Box style={{
+        flex: 1,
+        background: '#F0F5FC',
+        borderRadius: 8,
+        padding: 16,
+        gap: 10,
+      }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>一致但有界的增益</Text>
+        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5 }}>所有非对角线均有提升，最大增益出现在 agnostic 数据集之间（+0.036）和 driving→通用词汇迁移。</Text>
+      </Box>
+      <Box style={{
+        flex: 1,
+        background: '#1E4FA8',
+        borderRadius: 8,
+        padding: 16,
+        gap: 10,
+      }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF' }}>瓶颈在域偏移</Text>
+        <Text style={{ fontSize: 15, color: '#FFFFFF', lineHeight: 1.5 }}>COCO→Cityscapes 仅 0.030，COCO→BDD 仅 0.038。即使解决标签不匹配，性能仍然很低。</Text>
+      </Box>
+    </Box>
+  </Box>
+</Slide>

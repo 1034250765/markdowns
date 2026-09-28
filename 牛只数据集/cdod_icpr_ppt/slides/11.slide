@@ -1,0 +1,107 @@
+<Slide style={{ padding: '32px 60px', background: '#FFFFFF' }}>
+  <Box style={{
+    flexDirection: 'column',
+    width: '100%',
+    height: '100%',
+    gap: 20,
+  }}>
+    {/* 页眉 */}
+    <Box style={{
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      height: 40,
+      borderBottom: '2px solid #1E4FA8',
+    }}>
+      <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#0E3F8C' }}>讨论：三大核心发现</Text>
+      <Text style={{ fontSize: 14, color: '#8B97A8' }}>Discussion</Text>
+    </Box>
+    {/* 三个发现 */}
+    <Box style={{ flexDirection: 'column', gap: 18, flex: 1 }}>
+      <Box style={{
+        flexDirection: 'row',
+        gap: 18,
+        alignItems: 'center',
+      }}>
+        <Box style={{
+          width: 64,
+          height: 64,
+          background: '#1E4FA8',
+          borderRadius: '50%',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+          <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#FFFFFF' }}>1</Text>
+        </Box>
+        <Box style={{
+          flex: 1,
+          background: '#F0F5FC',
+          borderRadius: 8,
+          padding: 18,
+          gap: 8,
+        }}>
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#0E3F8C' }}>Setting-specific 目标暴露"鲁棒性悬崖"</Text>
+          <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.55 }}>
+            agnostic→specific 在闭标签下崩溃，开标签后仍很低。外观、视角、上下文偏移在最困难情形下压倒标签不匹配——域偏移占主导。
+          </Text>
+        </Box>
+      </Box>
+      <Box style={{
+        flexDirection: 'row',
+        gap: 18,
+        alignItems: 'center',
+      }}>
+        <Box style={{
+          width: 64,
+          height: 64,
+          background: '#1E4FA8',
+          borderRadius: '50%',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+          <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#FFFFFF' }}>2</Text>
+        </Box>
+        <Box style={{
+          flex: 1,
+          background: '#F0F5FC',
+          borderRadius: 8,
+          padding: 18,
+          gap: 8,
+        }}>
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#0E3F8C' }}>跨数据集偏移是方向性的</Text>
+          <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.55 }}>
+            许多迁移对强烈不对称，"domain gap" 不能视为对称。只报单向精选结果会隐藏更难方向、夸大鲁棒性。
+          </Text>
+        </Box>
+      </Box>
+      <Box style={{
+        flexDirection: 'row',
+        gap: 18,
+        alignItems: 'center',
+      }}>
+        <Box style={{
+          width: 64,
+          height: 64,
+          background: '#1E4FA8',
+          borderRadius: '50%',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+          <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#FFFFFF' }}>3</Text>
+        </Box>
+        <Box style={{
+          flex: 1,
+          background: '#F0F5FC',
+          borderRadius: 8,
+          padding: 18,
+          gap: 8,
+        }}>
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#0E3F8C' }}>标签不匹配真实但有界</Text>
+          <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.55 }}>
+            开标签一致但有限的增益 + near-miss 统计可区分语义近失与真正混淆。开标签后的大残余下降指向标签对齐之外的鲁棒性失败。
+          </Text>
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+</Slide>

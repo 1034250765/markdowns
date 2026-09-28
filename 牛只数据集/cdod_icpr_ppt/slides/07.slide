@@ -1,0 +1,75 @@
+<Slide style={{ padding: '32px 60px', background: '#FFFFFF' }}>
+  <Box style={{
+    flexDirection: 'column',
+    width: '100%',
+    height: '100%',
+    gap: 14,
+  }}>
+    {/* 页眉 */}
+    <Box style={{
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      height: 40,
+      borderBottom: '2px solid #1E4FA8',
+    }}>
+      <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#0E3F8C' }}>定量结果 I：闭标签跨数据集泛化</Text>
+      <Text style={{ fontSize: 14, color: '#8B97A8' }}>Closed-label mAP</Text>
+    </Box>
+    {/* 表格 */}
+    <Box style={{ flexDirection: 'column', gap: 6, flex: 1 }}>
+      <Table
+        style={{ width: '100%', height: 320 }}
+        defaultTextStyle={{ fontSize: 15, textAlign: 'center', color: '#1A2230' }}
+        defaultCellStyle={{
+          border: {
+            left: { width: 1, color: '#D6DCE5' },
+            right: { width: 1, color: '#D6DCE5' },
+            top: { width: 1, color: '#D6DCE5' },
+            bottom: { width: 1, color: '#D6DCE5' },
+          },
+        }}
+        cells={[
+          [
+            { text: 'Train \\ Test', textStyle: { bold: true, color: '#fff' }, cellStyle: { background: { color: '#1E4FA8' } } },
+            { text: 'COCO', textStyle: { bold: true, color: '#fff' }, cellStyle: { background: { color: '#1E4FA8' } } },
+            { text: 'Cityscapes', textStyle: { bold: true, color: '#fff' }, cellStyle: { background: { color: '#1E4FA8' } } },
+            { text: 'Objects365', textStyle: { bold: true, color: '#fff' }, cellStyle: { background: { color: '#1E4FA8' } } },
+            { text: 'BDD', textStyle: { bold: true, color: '#fff' }, cellStyle: { background: { color: '#1E4FA8' } } },
+            { text: 'Avg.', textStyle: { bold: true, color: '#fff' }, cellStyle: { background: { color: '#1E4FA8' } } },
+          ],
+          ['COCO', '0.376', '0.015', '0.286', '0.019', '0.174'],
+          ['Cityscapes', '0.206', '0.402', '0.268', '0.275', '0.287'],
+          ['Objects365', '0.046', '0.020', '0.198', '0.102', '0.092'],
+          ['BDD', '0.131', '0.025', '0.103', '0.298', '0.139'],
+          ['Avg.', '0.189', '0.115', '0.213', '0.174', '—'],
+        ]}
+      />
+      <Text style={{ fontSize: 14, color: '#4A5568', textAlign: 'center' }}>Table 3: 4×4 闭标签迁移矩阵（mAP @ 0.50–0.95）</Text>
+    </Box>
+    {/* 关键发现 */}
+    <Box style={{
+      flexDirection: 'row',
+      gap: 16,
+      flex: 1,
+    }}>
+      {[
+        { title: '最可迁移源', desc: 'Cityscapes 平均 0.287，对 driving 和通用目标都强' },
+        { title: '最弱源', desc: 'Objects365 平均 0.092，类别多≠迁移好' },
+        { title: '强烈不对称', desc: 'COCO→Objects365 0.286 ≫ Objects365→COCO 0.046' },
+        { title: '目标难度差异', desc: 'Cityscapes 最难目标 0.115，Objects365 最易 0.213' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{
+          flex: 1,
+          background: '#F0F5FC',
+          borderRadius: 8,
+          padding: 14,
+          gap: 8,
+        }}>
+          <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#0E3F8C' }}>{item.title}</Text>
+          <Text style={{ fontSize: 14, color: '#1A2230', lineHeight: 1.5 }}>{item.desc}</Text>
+        </Box>
+      ))}
+    </Box>
+  </Box>
+</Slide>

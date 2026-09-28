@@ -1,0 +1,83 @@
+<Slide style={{ padding: 0, background: '#FFFFFF' }}>
+  <Box style={{ position: 'relative', width: '100%', height: '100%' }}>
+    {/* 顶部深蓝条 */}
+    <Box style={{
+      position: 'absolute',
+      top: 0, left: 0, right: 0,
+      height: 8,
+      background: '#1E4FA8',
+    }} />
+    {/* 左侧装饰条 */}
+    <Box style={{
+      position: 'absolute',
+      top: 8, left: 0,
+      width: 12,
+      height: 712,
+      background: '#E8EFF8',
+    }} />
+    {/* 主内容区 */}
+    <Box style={{
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100%',
+      height: '100%',
+      padding: '60px 80px',
+      gap: 28,
+    }}>
+      <Text style={{
+        fontSize: 44,
+        fontWeight: 'bold',
+        color: '#0E3F8C',
+        textAlign: 'center',
+        lineHeight: 1.3,
+      }}>
+        面向领域特定性的跨数据集<br />目标检测鲁棒泛化
+      </Text>
+      <Text style={{
+        fontSize: 22,
+        color: '#1E4FA8',
+        textAlign: 'center',
+        lineHeight: 1.4,
+        fontWeight: 500,
+      }}>
+        Towards Robust Cross-Dataset Object Detection Generalization under Domain Specificity
+      </Text>
+      <Box style={{
+        width: 120,
+        height: 3,
+        background: '#1E4FA8',
+        marginTop: 8,
+        marginBottom: 8,
+      }} />
+      <Text style={{
+        fontSize: 18,
+        color: '#4A5568',
+        textAlign: 'center',
+        lineHeight: 1.6,
+      }}>
+        Ritabrata Chakraborty, Hrishit Mitra, Shivakumara Palaiahnakote, Umapada Pal
+      </Text>
+      <Text style={{
+        fontSize: 16,
+        color: '#8B97A8',
+        textAlign: 'center',
+        lineHeight: 1.5,
+      }}>
+        arXiv:2601.09497 ｜ ICPR 方向
+      </Text>
+    </Box>
+    {/* 底部信息 */}
+    <Box style={{
+      position: 'absolute',
+      bottom: 28,
+      left: 80,
+      right: 80,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    }}>
+      <Text style={{ fontSize: 14, color: '#8B97A8' }}>组会汇报</Text>
+      <Text style={{ fontSize: 14, color: '#8B97A8' }}>2026.09.23</Text>
+    </Box>
+  </Box>
+</Slide>

@@ -1,0 +1,64 @@
+<Slide style={{ padding: '32px 60px', background: '#FFFFFF' }}>
+  <Box style={{
+    flexDirection: 'column',
+    width: '100%',
+    height: '100%',
+    gap: 16,
+  }}>
+    {/* 页眉 */}
+    <Box style={{
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      height: 40,
+      borderBottom: '2px solid #1E4FA8',
+    }}>
+      <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#0E3F8C' }}>定性结果</Text>
+      <Text style={{ fontSize: 14, color: '#8B97A8' }}>Qualitative Results</Text>
+    </Box>
+    {/* 图片 */}
+    <Box style={{
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: 8,
+    }}>
+      <Image
+        src="C:/Users/LYX10/Downloads/Typora/牛只数据集/cdod_icpr_ppt/assets/fig4_qualitative_cases.png"
+        style={{
+          width: 1000,
+          height: 333,
+          objectFit: 'contain',
+          border: '1px solid #D6DCE5',
+          borderRadius: 8,
+        }}
+      />
+      <Text style={{ fontSize: 14, color: '#4A5568', textAlign: 'center' }}>
+        Fig.4 跨域检测典型案例：绿色为 GT，红色为预测。从左到右包含成功、失败、夜间/眩光等极端条件。
+      </Text>
+    </Box>
+    {/* 失败模式总结 */}
+    <Box style={{
+      flexDirection: 'row',
+      gap: 16,
+      flex: 1,
+    }}>
+      {[
+        { title: '大域偏移退化', desc: '夜间、眩光、雨雪等条件下检测器严重掉点' },
+        { title: '遮挡与背景 clutter', desc: '重叠物体或杂乱背景导致误检/漏检' },
+        { title: '分布内最稳', desc: 'COCO→COCO、Cityscapes→Cityscapes 始终最可靠' },
+        { title: '特定场景脆弱', desc: 'agnostic→specific 在恶劣视觉条件下性能悬崖式下降' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{
+          flex: 1,
+          background: '#F0F5FC',
+          borderRadius: 8,
+          padding: 14,
+          gap: 8,
+        }}>
+          <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#0E3F8C' }}>{item.title}</Text>
+          <Text style={{ fontSize: 14, color: '#1A2230', lineHeight: 1.5 }}>{item.desc}</Text>
+        </Box>
+      ))}
+    </Box>
+  </Box>
+</Slide>

@@ -1,0 +1,90 @@
+<Slide style={{ padding: '32px 60px', background: '#FFFFFF' }}>
+  <Box style={{
+    flexDirection: 'column',
+    width: '100%',
+    height: '100%',
+    gap: 20,
+  }}>
+    {/* 页眉 */}
+    <Box style={{
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      height: 40,
+      borderBottom: '2px solid #1E4FA8',
+    }}>
+      <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#0E3F8C' }}>研究背景与动机</Text>
+      <Text style={{ fontSize: 14, color: '#8B97A8' }}>Background & Motivation</Text>
+    </Box>
+    {/* 内容 */}
+    <Box style={{ flexDirection: 'row', gap: 24, height: 580 }}>
+      {/* 左侧文字 */}
+      <Box style={{
+        flexDirection: 'column',
+        gap: 16,
+        width: 520,
+        paddingTop: 8,
+      }}>
+        <Box style={{
+          background: '#F0F5FC',
+          borderRadius: 8,
+          padding: 18,
+          gap: 10,
+        }}>
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#0E3F8C' }}>现实痛点</Text>
+          <Text style={{ fontSize: 17, color: '#1A2230', lineHeight: 1.55 }}>
+            现代检测器在分布内表现优异，但跨数据集（不同环境、不同标签体系）时性能急剧下降。Waymo 事故说明真实场景包含罕见遮挡、轨迹与评估集未覆盖的工况。
+          </Text>
+        </Box>
+        <Box style={{
+          background: '#FFFFFF',
+          border: '1px solid #D6DCE5',
+          borderRadius: 8,
+          padding: 18,
+          gap: 10,
+        }}>
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#0E3F8C' }}>两个纠缠的退化因素</Text>
+          <Box style={{ flexDirection: 'column', gap: 8 }}>
+            <Text style={{ fontSize: 17, color: '#1A2230', lineHeight: 1.5 }}>
+              <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>① 视觉分布偏移</span>：图像统计不同导致检测器"看不懂"
+            </Text>
+            <Text style={{ fontSize: 17, color: '#1A2230', lineHeight: 1.5 }}>
+              <span style={{ fontWeight: 'bold', color: '#1E4FA8' }}>② 标签分类法偏移</span>：数据集命名/拆分/合并不同，检测器输出语义合理但在严格目标词汇表下被判错
+            </Text>
+          </Box>
+        </Box>
+        <Box style={{
+          background: '#1E4FA8',
+          borderRadius: 8,
+          padding: 16,
+          marginTop: 4,
+        }}>
+          <Text style={{ fontSize: 17, color: '#FFFFFF', lineHeight: 1.5, fontWeight: 500 }}>
+            核心问题：跨数据集掉点，有多少是"看不懂图"，有多少是"叫不对名字"？
+          </Text>
+        </Box>
+      </Box>
+      {/* 右侧图片 */}
+      <Box style={{
+        flex: 1,
+        flexDirection: 'column',
+        gap: 10,
+        alignItems: 'center',
+      }}>
+        <Image
+          src="C:/Users/LYX10/Downloads/Typora/牛只数据集/cdod_icpr_ppt/assets/fig1_cross_dataset_comparison.png"
+          style={{
+            width: 500,
+            height: 375,
+            objectFit: 'contain',
+            border: '1px solid #D6DCE5',
+            borderRadius: 8,
+          }}
+        />
+        <Text style={{ fontSize: 14, color: '#4A5568', textAlign: 'center' }}>
+          Fig.1 同一张 COCO 图像在四个不同源模型下的检测对比
+        </Text>
+      </Box>
+    </Box>
+  </Box>
+</Slide>

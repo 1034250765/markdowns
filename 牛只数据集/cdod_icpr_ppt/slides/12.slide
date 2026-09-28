@@ -1,0 +1,81 @@
+<Slide style={{ padding: '32px 60px', background: '#FFFFFF' }}>
+  <Box style={{
+    flexDirection: 'column',
+    width: '100%',
+    height: '100%',
+    gap: 18,
+  }}>
+    {/* 页眉 */}
+    <Box style={{
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      height: 40,
+      borderBottom: '2px solid #1E4FA8',
+    }}>
+      <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#0E3F8C' }}>结论、局限与未来工作</Text>
+      <Text style={{ fontSize: 14, color: '#8B97A8' }}>Conclusion</Text>
+    </Box>
+    {/* 贡献 */}
+    <Box style={{
+      background: '#F0F5FC',
+      borderRadius: 8,
+      padding: 18,
+      gap: 12,
+    }}>
+      <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#0E3F8C' }}>主要贡献</Text>
+      <Box style={{ flexDirection: 'column', gap: 8 }}>
+        <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5 }}>• 提出 setting specificity 视角，将跨数据集目标检测的结果按场景特定/无关结构化</Text>
+        <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5 }}>• 在全部训练-测试对上评估，揭示跨数据集迁移的不对称性与"鲁棒性悬崖"</Text>
+        <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5 }}>• 通过闭/开标签协议 + CLIP near-miss 诊断，显式分离语义错位与视觉域偏移</Text>
+      </Box>
+    </Box>
+    {/* 局限与展望 */}
+    <Box style={{
+      flexDirection: 'row',
+      gap: 20,
+      flex: 1,
+    }}>
+      <Box style={{
+        flex: 1,
+        background: '#FFFFFF',
+        border: '1px solid #D6DCE5',
+        borderRadius: 8,
+        padding: 18,
+        gap: 10,
+      }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#D9534F' }}>局限</Text>
+        <Box style={{ flexDirection: 'column', gap: 8 }}>
+          <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5 }}>• 仅标准检测器架构（Faster R-CNN）</Text>
+          <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5 }}>• 固定基准集合，未覆盖所有真实分布偏移形式</Text>
+          <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5 }}>• 未引入域适应或数据增强等缓解策略</Text>
+        </Box>
+      </Box>
+      <Box style={{
+        flex: 1,
+        background: '#FFFFFF',
+        border: '1px solid #D6DCE5',
+        borderRadius: 8,
+        padding: 18,
+        gap: 10,
+      }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#1E4FA8' }}>未来工作</Text>
+        <Box style={{ flexDirection: 'column', gap: 8 }}>
+          <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5 }}>• 探索域适应策略克服视觉域偏移</Text>
+          <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5 }}>• 研究 agnostic 与 specific 数据联合训练的作用</Text>
+          <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5 }}>• 扩展到更多检测架构与更大数据集集合</Text>
+        </Box>
+      </Box>
+    </Box>
+    {/* 底部金句 */}
+    <Box style={{
+      background: '#1E4FA8',
+      borderRadius: 8,
+      padding: 18,
+    }}>
+      <Text style={{ fontSize: 18, color: '#FFFFFF', lineHeight: 1.5, textAlign: 'center', fontWeight: 500 }}>
+        最困难的跨数据集迁移中，域偏移是主导因素；标签对齐只能修复有限部分。
+      </Text>
+    </Box>
+  </Box>
+</Slide>

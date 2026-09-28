@@ -1,0 +1,63 @@
+<Slide style={{ padding: '32px 60px', background: '#FFFFFF' }}>
+  <Box style={{
+    flexDirection: 'column',
+    width: '100%',
+    height: '100%',
+    gap: 24,
+  }}>
+    {/* 页眉 */}
+    <Box style={{
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      height: 40,
+      borderBottom: '2px solid #1E4FA8',
+    }}>
+      <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#0E3F8C' }}>汇报提纲</Text>
+      <Text style={{ fontSize: 14, color: '#8B97A8' }}>Outline</Text>
+    </Box>
+    {/* 目录条目 */}
+    <Box style={{
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      gap: '20px 24px',
+      paddingTop: 12,
+    }}>
+      {[
+        { n: '01', title: '研究背景与动机', desc: '跨数据集退化与两个纠缠因素' },
+        { n: '02', title: '核心概念：Setting Specificity', desc: '场景特定型 vs 场景无关型' },
+        { n: '03', title: '实验设置与评估协议', desc: '数据集、闭/开标签评估' },
+        { n: '04', title: '定量结果', desc: '迁移矩阵、开标签增益、Near-miss' },
+        { n: '05', title: '定性结果与讨论', desc: '典型案例与三大核心发现' },
+        { n: '06', title: '结论与启示', desc: '贡献、局限及对我们研究的启发' },
+      ].map((item, idx) => (
+        <Box key={idx} style={{
+          flexDirection: 'row',
+          width: 548,
+          height: 140,
+          background: '#FFFFFF',
+          border: '1px solid #D6DCE5',
+          borderRadius: 8,
+          padding: '20px 24px',
+          alignItems: 'center',
+          gap: 20,
+        }}>
+          <Box style={{
+            width: 44,
+            height: 44,
+            background: '#1E4FA8',
+            borderRadius: 8,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF' }}>{item.n}</Text>
+          </Box>
+          <Box style={{ flexDirection: 'column', gap: 6, flex: 1 }}>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#1A2230' }}>{item.title}</Text>
+            <Text style={{ fontSize: 15, color: '#4A5568' }}>{item.desc}</Text>
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  </Box>
+</Slide>

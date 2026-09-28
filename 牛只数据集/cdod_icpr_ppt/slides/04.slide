@@ -1,0 +1,143 @@
+<Slide style={{ padding: '32px 60px', background: '#FFFFFF' }}>
+  <Box style={{
+    flexDirection: 'column',
+    width: '100%',
+    height: '100%',
+    gap: 20,
+  }}>
+    {/* 页眉 */}
+    <Box style={{
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      height: 40,
+      borderBottom: '2px solid #1E4FA8',
+    }}>
+      <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#0E3F8C' }}>核心概念：Setting Specificity</Text>
+      <Text style={{ fontSize: 14, color: '#8B97A8' }}>Core Concept</Text>
+    </Box>
+    {/* 内容 */}
+    <Box style={{ flexDirection: 'row', gap: 24, height: 580 }}>
+      {/* 左侧定义 */}
+      <Box style={{
+        flexDirection: 'column',
+        gap: 16,
+        width: 520,
+        paddingTop: 8,
+      }}>
+        <Box style={{
+          background: '#F0F5FC',
+          borderRadius: 8,
+          padding: 18,
+          gap: 10,
+        }}>
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#0E3F8C' }}>什么是 Setting Specificity？</Text>
+          <Text style={{ fontSize: 17, color: '#1A2230', lineHeight: 1.55 }}>
+            按数据收集意图对数据集分类：场景特定型（specific）聚焦单一操作环境，场景无关型（agnostic）覆盖多种日常场景。
+          </Text>
+        </Box>
+        <Box style={{
+          background: '#FFFFFF',
+          border: '1px solid #D6DCE5',
+          borderRadius: 8,
+          padding: 18,
+          gap: 12,
+        }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#1E4FA8' }}>Setting-Specific</Text>
+          <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5 }}>
+            重复场景结构、一致视角、任务聚焦分类法。例如 Cityscapes、BDD100K（驾驶）。
+          </Text>
+        </Box>
+        <Box style={{
+          background: '#FFFFFF',
+          border: '1px solid #D6DCE5',
+          borderRadius: 8,
+          padding: 18,
+          gap: 12,
+        }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#1E4FA8' }}>Setting-Agnostic</Text>
+          <Text style={{ fontSize: 16, color: '#1A2230', lineHeight: 1.5 }}>
+            覆盖多场景、捕获条件变化大、标签空间更广。例如 COCO、Objects365。
+          </Text>
+        </Box>
+        <Box style={{
+          background: '#1E4FA8',
+          borderRadius: 8,
+          padding: 16,
+          marginTop: 4,
+        }}>
+          <Text style={{ fontSize: 16, color: '#FFFFFF', lineHeight: 1.5 }}>
+            人类研究验证：78 名参与者能稳定识别数据集场景签名（Yes/No 准确率 84.0%）
+          </Text>
+        </Box>
+      </Box>
+    {/* 右侧：人类研究 Table 1 */}
+    <Box style={{
+      flex: 1,
+      flexDirection: 'column',
+      gap: 12,
+      paddingTop: 8,
+    }}>
+      <Box style={{
+        background: '#F0F5FC',
+        borderRadius: 8,
+        padding: 14,
+        gap: 6,
+      }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#0E3F8C' }}>人类研究验证（Table 1）</Text>
+        <Text style={{ fontSize: 15, color: '#1A2230', lineHeight: 1.5 }}>
+          78 名参与者对 COCO / Cityscapes / Objects365 / BDD100K 图像进行场景一致性与来源判断，验证 Setting Specificity 的可感知性。
+        </Text>
+      </Box>
+      <Box style={{
+        flex: 1,
+        border: '1px solid #D6DCE5',
+        borderRadius: 8,
+        overflow: 'hidden',
+      }}>
+        <Table
+          style={{ width: '100%', height: '100%' }}
+          defaultTextStyle={{ fontSize: 15, textAlign: 'left', color: '#1A2230' }}
+          defaultCellStyle={{
+            padding: '8px 12px',
+            border: {
+              left: { width: 1, color: '#E8ECEF' },
+              right: { width: 1, color: '#E8ECEF' },
+              top: { width: 1, color: '#E8ECEF' },
+              bottom: { width: 1, color: '#E8ECEF' },
+            },
+          }}
+          cells={[
+            // 表头
+            [
+              { text: 'Metric', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#1E4FA8' }, width: 260 } },
+              { text: 'Value', textStyle: { bold: true, color: '#FFFFFF', textAlign: 'center' }, cellStyle: { background: { color: '#1E4FA8' } } },
+            ],
+            // Likert 分组
+            [
+              { text: 'Likert responses', textStyle: { bold: true, color: '#0E3F8C' }, cellStyle: { background: { color: '#E8F0FA' } } },
+              { text: '', cellStyle: { background: { color: '#E8F0FA' } } },
+            ],
+            ['Mean', { text: '4.83', textStyle: { textAlign: 'center' } }],
+            ['Median [IQR]', { text: '4 [2, 8]', textStyle: { textAlign: 'center' } }],
+            ['Accuracy (exact GT)', { text: '35.3%', textStyle: { textAlign: 'center' } }],
+            ['Agreement (within ±1 of GT)', { text: '65.4%', textStyle: { textAlign: 'center' } }],
+            // Yes/No 分组
+            [
+              { text: 'Yes/No responses', textStyle: { bold: true, color: '#0E3F8C' }, cellStyle: { background: { color: '#E8F0FA' } } },
+              { text: '', cellStyle: { background: { color: '#E8F0FA' } } },
+            ],
+            ['Accuracy', { text: '84.0%', textStyle: { textAlign: 'center', bold: true, color: '#1E4FA8' } }],
+            ['Accuracy (GT = Yes)', { text: '80.3%', textStyle: { textAlign: 'center' } }],
+            ['Accuracy (GT = No)', { text: '89.7%', textStyle: { textAlign: 'center' } }],
+            ['Per-question accuracy range', { text: '66.2–98.7%', textStyle: { textAlign: 'center' } }],
+          ]}
+        />
+      </Box>
+      <Text style={{ fontSize: 13, color: '#4A5568', textAlign: 'center' }}>
+        来源：论文 Table 1 · Human study summary（n = 78）
+      </Text>
+    </Box>
+    </Box>
+  </Box>
+</Slide>
