@@ -241,3 +241,250 @@ print(
 
 )
 ```
+
+
+### Message
+
+
+
+
+### 模型调用
+
+
+在 LangChain 中，模型调用（Invocation）是指通过特定方法触发大语言模型生成输出的过程。根据不同的应用场景和需求，LangChain 提供了几种核心的调用方式，主要是 invoke() 、stream() 和 batch() 方法，以及它们的异步版本 ainvoke() 、astream() 和abatch() ，下面将系统地介绍这些方法。
+
+| 方法 | 特点 | 适用场景 |
+|---|---|---|
+| `invoke()` | 阻塞式，**一次性返回完整结果** | 问答、批处理任务、无需实时反馈的场景 |
+| `ainvoke()` | 非阻塞式，提高系统吞吐量 | 高并发 Web 应用、IO 密集型任务 |
+| `stream()` | 流式输出，**实时返回每个 token** | 聊天机器人、长文本生成、需要提升用户体验的交互应用 |
+| `astream()` | 非阻塞式，提高系统吞吐量 | 高并发 Web 应用、IO 密集型任务 |
+| `batch()` | **批量处理多个输入** | 高并发场景，需要同时处理大量请求 |
+| `abatch()` | 非阻塞式，提高系统吞吐量 | 高并发 Web 应用、IO 密集型任务 |
+
+
+invoke方法非常灵活，支持三种形式的输入：文本输入、字典列表、消息对象列表。
+
+```python
+
+
+## 文本输入
+
+from langchain.chat_models import init_chat_model
+from dotenv import load_dotenv
+import os
+
+# 从.env文件中加载环境变量
+load_dotenv(override=True)
+
+CLOSEAI_API_KEY = os.getenv("CLOSEAI_API_KEY")
+CLOSEAI_BASE_URL = os.getenv("CLOSEAI_BASE_URL")
+
+model = init_chat_model(
+    model="openai:gpt-5.4-mini",
+    api_key=CLOSEAI_API_KEY,
+    base_url=CLOSEAI_BASE_URL
+)
+# 向模型发送单条数据
+prompt = "翻译成英文：你好世界"
+response = model.invoke(prompt)
+
+# 打印响应
+print(response)
+```
+
+
+**字典列表**
+
+```json
+
+messages = [
+    {"role": "system", "content": "系统提示"},
+    {"role": "user", "content": "用户消息"},
+    {"role": "assistant", "content": "AI回复"},  # 可选，用于对话历史
+    {"role": "user", "content": "继续提问"}
+]
+
+```
+
+角色说明：
+
+| 角色        | 英文           | 作用                 | 示例                   |
+| --------- | ------------ | ------------------ | -------------------- |
+| system    | System       | 设定 AI 的行为、角色、规则    | "你是一个专业的 Python 导 师" |
+| user      | Human/User   | 用户的输入/问题           | "什么是装饰器？"            |
+| assistant | AI/Assistant | AI 的历史回复（用于对话上下 文） | "装饰器是一种设计模式..."      |
+
+
+**消息对象列表**
+
+| 消息类           | 对应字典格式                     | 作用    |
+| ------------- | -------------------------- | ----- |
+| SystemMessage | {"role": "system", ...}    | 系统提示  |
+| HumanMessage  | {"role": "user", ...}      | 用户输入  |
+| AIMessage     | {"role": "assistant", ...} | AI 回复 |
+
+
+```python
+
+from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
+
+messages = [
+    SystemMessage(content="你是一个 Python 专家"),
+    HumanMessage(content="什么是生成器？"),
+]
+
+response = model.invoke(messages)
+# print(response)
+
+# 继续对话
+messages.append(AIMessage(content=response.content))
+messages.append(HumanMessage(content="能给个例子吗？"))
+
+response1 = model.invoke(messages)
+print(response1)
+
+```
+
+BaseMessage
+
+```python
+
+class BaseMessage(Serializable):
+    content: str | list[str | dict[Any, Any]]
+    additional_kwargs: dict[Any, Any] = Field(default_factory=dict)
+    response_metadata: dict[Any, Any] = Field(default_factory=dict)
+    type: str
+    name: str | None = None
+    id: str | None = Field(default=None, coerce_numbers_to_str=True)
+    model_config = ConfigDict(extra="allow")
+```
+
+
+
+
+```
+
+
+
+
+invoke 返回一个AIMessage对象，源码如下：
+
+```python
+
+class AIMessage(BaseMessage):
+
+  
+
+    tool_calls: list[ToolCall] = Field(default_factory=list)
+
+    invalid_tool_calls: list[InvalidToolCall] = Field(default_factory=list)
+
+    usage_metadata: UsageMetadata | None = None
+
+
+    type: Literal["ai"] = "ai"
+
+
+    @overload
+
+    def __init__(
+
+        self,
+
+        content: str | list[str | dict[Any, Any]],
+
+        **kwargs: Any,
+
+    ) -> None: ...
+
+  
+
+    @overload
+
+    def __init__(
+
+        self,
+
+        content: str | list[str | dict[Any, Any]] | None = None,
+
+        content_blocks: list[types.ContentBlock] | None = None,
+
+        **kwargs: Any,
+
+    ) -> None: ...
+
+  
+
+    def __init__(
+
+        self,
+
+        content: str | list[str | dict[Any, Any]] | None = None,
+
+        content_blocks: list[types.ContentBlock] | None = None,
+
+        **kwargs: Any,
+
+    ) -> None:
+
+
+        if content_blocks is not None:
+
+            # If there are tool calls in content_blocks, but not in tool_calls, add them
+
+            content_tool_calls = [
+
+                block for block in content_blocks if block.get("type") == "tool_call"
+
+            ]
+
+            if content_tool_calls and "tool_calls" not in kwargs:
+
+                kwargs["tool_calls"] = content_tool_calls
+
+  
+
+            super().__init__(
+
+                content=cast("list[str | dict[Any, Any]]", content_blocks),
+
+                **kwargs,
+
+            )
+
+        else:
+
+            super().__init__(content=content, **kwargs)
+```
+
+**invoke 和 stream 有什么区别？**
+
+- invoke() ：同步调用，在模型输出完成后**一次性获取响应**，对于输出文本很长的场景，用户体验不好。
+- stream() ：流式调用，**实时返回响应片段**。调用后，返回一个迭代器(iterator) ，可以通过循环来实时处理每一个新生成的chunk内容块。
+
+注意：流式输出依赖于模型供应商对于流式输出的支持。
+
+```python
+
+```python
+from langchain.chat_models import init_chat_model
+from dotenv import load_dotenv
+import os
+
+# 从.env文件中加载环境变量
+load_dotenv(override=True)
+
+CLOSEAI_API_KEY = os.getenv("CLOSEAI_API_KEY")
+CLOSEAI_BASE_URL = os.getenv("CLOSEAI_BASE_URL")
+
+model = init_chat_model(
+    model="gpt-5.4-mini",
+    api_key=CLOSEAI_API_KEY,
+    base_url=CLOSEAI_BASE_URL
+)
+
+for chunk in model.stream("写一首七言律诗，总结大模型的发展"):
+    print(chunk.text, end="", flush=True) # 逐token输出
+
+```
