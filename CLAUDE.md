@@ -10,7 +10,7 @@
 
 **每次会话启动时，请先读取以下两个文件以获取完整上下文：**
 
-1. `python/claude.md` — Claude Code 使用笔记（安装、权限、MCP、Memory、Agent、Playwright 等）
+1. `python/claude操作学习.md` — Claude Code 使用笔记（安装、权限、MCP、Memory、Agent、Playwright 等）
 2. `python/Claude操作指南-会话整理.md` — 上次会话整理的 Claude 操作指南精要
 
 这两个文件包含了我的 Claude Code 使用偏好、已安装的工具/插件，以及我对各种功能的理解。在做任何 Claude Code 相关操作前，先参考这些笔记。

@@ -29,8 +29,8 @@ LC_ALL=en_US.UTF-8 grep -rln "typora-user-images" --include="*.md" .
 为每个含绝对路径的笔记文件，提取其引用的图片文件名，按所在目录去重：
 
 ```bash
-# 示例：查看 python/claude.md 引用了哪些图片
-LC_ALL=en_US.UTF-8 grep -o 'image-[0-9]*\.png' python/claude.md | sort -u
+# 示例：查看 python/claude操作学习.md 引用了哪些图片
+LC_ALL=en_US.UTF-8 grep -o 'image-[0-9]*\.png' "python/claude操作学习.md" | sort -u
 ```
 
 ### 3. 复制图片到对应目录的 images/

@@ -3,7 +3,7 @@ id: heima-vibe-coding-p19-subagent
 type: source
 status: draft
 created: 2026-09-18
-updated: 2026-09-18
+updated: 2026-09-30
 sources:
   - Clippings/黑马Vibe Coding零基础入门，vibecoding项目，涵盖Claude Code、Cursor、Codex、SDD、LangChain、Agent开发.md
 ---
@@ -45,4 +45,4 @@ sources:
 ## 关联
 
 - 概念对比页：[Claude Code 中 Skill 与 Subagent 的区别](../comparisons/claude-code-skill-vs-subagent.md)
-- 用户自写笔记 `python/claude.md` 第六节"子代理与工作流"记录了 `/agents` 面板创建自定义 agent 的方式，与本集"让 Claude 代写 MD"互为印证。
+- 用户自写笔记 `python/claude操作学习.md` 第六节"子代理与工作流"记录了 `/agents` 面板创建自定义 agent 的方式，与本集"让 Claude 代写 MD"互为印证。
