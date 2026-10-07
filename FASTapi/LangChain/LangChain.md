@@ -488,3 +488,61 @@ for chunk in model.stream("写一首七言律诗，总结大模型的发展"):
     print(chunk.text, end="", flush=True) # 逐token输出
 
 ```
+
+在调用模型时（如使用 invoke(), ainvoke(), stream(),batch()等方法时），我们可以传入config参数。config参数：**允许在调用模型时，动态地配置和控制模型的行为**，而无需在初始化时就固定所有参数，这为应用带来了极大的灵活性和可维护性。
+
+### 为什么需要结构化响应
+
+LLM 默认输出的是自然语言文本。如果下游业务需要把数据存入数据库、传递给 API、触发特定工作流或供前端组件渲染，非结构化文本通常面临以下痛点：
+
+- **难以解析**：模型可能会附带客套话（如 "Here is your JSON:"）、Markdown 代码块（` ```json `）或错乱的标点。
+    
+- **字段缺失或类型错误**：数值可能变成字符串，布尔值可能变成单词，关键键名拼写飘忽不定。
+    
+- **稳定性差**：纯 Prompt 约束（"请只输出 JSON"）无法百分之百保证格式合法性。
+    
+
+结构化响应将自然语言直接转换成强类型、可预测、易验证的程序对象。
+
+
+**LangChain 中的核心实现方式**
+
+#### 1. 首选方案：`.with_structured_output()`
+
+现代大模型（如 OpenAI、Anthropic、Google Gemini、Mistral 等）大多原生支持 **Tool Calling（工具调用）** 或 **JSON Mode**。LangChain 在 `ChatModel` 上提供了一个通用的 `.with_structured_output()` 方法，这是目前官方最推荐的实践。
+
+它支持传入：
+
+- **Pydantic Model**（推荐，自带数据校验）
+    
+- **TypedDict / Dataclass**
+    
+- **JSON Schema**
+    
+
+**代码示例（基于 Pydantic）：**
+
+```python
+from langchain_openai import ChatOpenAI
+from pydantic import BaseModel, Field
+
+# 1. 定义期望的响应结构
+class UserProfile(BaseModel):
+    name: str = Field(description="用户姓名")
+    age: int = Field(description="用户年龄")
+    interests: list[str] = Field(description="用户的兴趣爱好列表")
+
+# 2. 绑定结构到模型
+llm = ChatOpenAI(model="gpt-4o", temperature=0)
+structured_llm = llm.with_structured_output(UserProfile)
+
+# 3. 调用并直接获得 Pydantic 对象
+result = structured_llm.invoke("张三今年28岁，平时喜欢摄影、徒步和看科幻小说。")
+
+print(type(result))      # <class '__main__.UserProfile'>
+print(result.name)        # 张三
+print(result.age)         # 28
+print(result.interests)   # ['摄影', '徒步', '科幻小说']
+
+
+```
