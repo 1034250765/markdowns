@@ -363,7 +363,6 @@ class BaseMessage(Serializable):
 
 
 
-```
 
 
 
@@ -464,8 +463,6 @@ class AIMessage(BaseMessage):
 - stream() ：流式调用，**实时返回响应片段**。调用后，返回一个迭代器(iterator) ，可以通过循环来实时处理每一个新生成的chunk内容块。
 
 注意：流式输出依赖于模型供应商对于流式输出的支持。
-
-```python
 
 ```python
 from langchain.chat_models import init_chat_model
