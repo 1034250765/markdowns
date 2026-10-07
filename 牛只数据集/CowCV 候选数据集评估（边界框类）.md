@@ -39,14 +39,14 @@ CowCV 当前检测视图的硬约束：
 
 ### 2.1 Cattle-counting — ✅ 强烈推荐
 
-| 项 | 内容 |
-|---|---|
-| 论文 | Soares, V.H.A., Ponti, M.A., Gonçalves, R.A., Campello, R.J.G.B. (2021). *Cattle counting in the wild with geolocated aerial images in large pasture areas.* Comput Electron Agric 189:106354. DOI 10.1016/j.compag.2021.106354 |
-| 获取 | ✅ 官网有效：`vhasoares.github.io/downloads.html`，含 **Whole training dataset** + **BR_set test collection** 两个 Google Drive 链接；另有第三方镜像（Supervisely 格式 3.28 GB） |
-| 规模 | 5,058 张航拍图，6 个牧场，带地理参考信息 |
-| 标注 | LabelImg 边界框，统一标签 `cattle` → 直接映射 `cow` |
-| 采集 | 四旋翼 + 高分辨率相机，5 个高度（80/90/100/110/120 m）× 3 时段（早/午/晚） |
-| 场景多样性 | 3 个干燥沙土场地**仅白牛**；3 个红土绿草场地**多色牛**（白/黑/棕/红/花斑） |
+| 项     | 内容                                                                                                                                                                                                                              |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 论文    | Soares, V.H.A., Ponti, M.A., Gonçalves, R.A., Campello, R.J.G.B. (2021). *Cattle counting in the wild with geolocated aerial images in large pasture areas.* Comput Electron Agric 189:106354. DOI 10.1016/j.compag.2021.106354 |
+| 获取    | ✅ 官网有效：`vhasoares.github.io/downloads.html`，含 **Whole training dataset** + **BR_set test collection** 两个 Google Drive 链接；另有第三方镜像（Supervisely 格式 3.28 GB）                                                                        |
+| 规模    | 5,058 张航拍图，6 个牧场，带地理参考信息                                                                                                                                                                                                        |
+| 标注    | LabelImg 边界框，统一标签 `cattle` → 直接映射 `cow`                                                                                                                                                                                         |
+| 采集    | 四旋翼 + 高分辨率相机，5 个高度（80/90/100/110/120 m）× 3 时段（早/午/晚）                                                                                                                                                                            |
+| 场景多样性 | 3 个干燥沙土场地**仅白牛**；3 个红土绿草场地**多色牛**（白/黑/棕/红/花斑）                                                                                                                                                                                   |
 
 **为什么推荐：**
 
