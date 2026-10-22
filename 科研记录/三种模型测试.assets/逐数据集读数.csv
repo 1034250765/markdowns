@@ -1,0 +1,43 @@
+﻿dataset,model,split,epoch_role,epoch,precision,recall,map50,map5095,final_map5095,source
+8-calves,RetinaNet,val,best val mAP50-95,9,,,0.966,0.536,0.504,牛只数据集/Retinanet测试.md §3
+8-calves,YOLO11s,val,results.csv peak; checkpoint epoch unverified,53,0.952,0.9412,0.9666,0.553,,牛只数据集/yolo11SL.md §4
+8-calves,YOLO11l,val,results.csv peak; checkpoint epoch unverified,68,0.9502,0.9472,0.9711,0.5624,,牛只数据集/yolo11SL.md §5
+animals_10,RetinaNet,val,best val mAP50-95,3,,,0.846,0.597,0.597,牛只数据集/Retinanet测试.md §3
+animals_10,YOLO11s,val,results.csv peak; checkpoint epoch unverified,92,0.8762,0.7945,0.8717,0.6808,,牛只数据集/yolo11SL.md §4
+animals_10,YOLO11l,val,results.csv peak; checkpoint epoch unverified,89,0.8938,0.7795,0.8714,0.6853,,牛只数据集/yolo11SL.md §5
+CBPD_ODD,RetinaNet,val,best val mAP50-95,68,,,0.999,0.947,0.943,牛只数据集/Retinanet测试.md §3
+CBPD_ODD,YOLO11s,val,results.csv peak; checkpoint epoch unverified,79,0.9892,0.9955,0.9948,0.95,,牛只数据集/yolo11SL.md §4
+CBPD_ODD,YOLO11l,val,results.csv peak; checkpoint epoch unverified,89,0.9759,0.9891,0.9927,0.9395,,牛只数据集/yolo11SL.md §5
+CID,RetinaNet,val,best val mAP50-95,11,,,0.975,0.861,0.85,牛只数据集/Retinanet测试.md §3
+CID,YOLO11s,val,results.csv peak; checkpoint epoch unverified,97,0.9507,0.9502,0.9861,0.8764,,牛只数据集/yolo11SL.md §4
+CID,YOLO11l,val,results.csv peak; checkpoint epoch unverified,57,0.9415,0.9486,0.9855,0.8743,,牛只数据集/yolo11SL.md §5
+CImage,RetinaNet,val,best val mAP50-95,3,,,0.946,0.694,0.087,牛只数据集/Retinanet测试.md §3
+CImage,YOLO11s,val,results.csv peak; checkpoint epoch unverified,1,0.9138,0.8839,0.9345,0.7766,,牛只数据集/yolo11SL.md §4
+CImage,YOLO11l,val,results.csv peak; checkpoint epoch unverified,1,0.863,0.9667,0.9463,0.7998,,牛只数据集/yolo11SL.md §5
+COCO,RetinaNet,val,best val mAP50-95,5,,,0.717,0.461,0.457,牛只数据集/Retinanet测试.md §3
+COCO,YOLO11s,val,results.csv peak; checkpoint epoch unverified,77,0.8315,0.6816,0.7805,0.5161,,牛只数据集/yolo11SL.md §4
+COCO,YOLO11l,val,results.csv peak; checkpoint epoch unverified,90,0.8212,0.7067,0.7769,0.5212,,牛只数据集/yolo11SL.md §5
+COLO,RetinaNet,val,best val mAP50-95,16,,,0.922,0.605,0.571,牛只数据集/Retinanet测试.md §3
+COLO,YOLO11s,val,results.csv peak; checkpoint epoch unverified,78,0.9102,0.8886,0.9491,0.6536,,牛只数据集/yolo11SL.md §4
+COLO,YOLO11l,val,results.csv peak; checkpoint epoch unverified,80,0.9185,0.8976,0.9557,0.6532,,牛只数据集/yolo11SL.md §5
+Cows2021,RetinaNet,val,best val mAP50-95,63,,,0.989,0.837,0.833,牛只数据集/Retinanet测试.md §3
+Cows2021,YOLO11s,test,results.csv peak; checkpoint epoch unverified,55,0.9619,0.9854,0.9831,0.8771,,牛只数据集/yolo11SL.md §4
+Cows2021,YOLO11l,test,results.csv peak; checkpoint epoch unverified,42,0.9586,0.9867,0.9821,0.8715,,牛只数据集/yolo11SL.md §5
+diarycow,RetinaNet,val,best val mAP50-95,69,,,0.99,0.86,0.856,牛只数据集/Retinanet测试.md §3
+diarycow,YOLO11s,test,results.csv peak; checkpoint epoch unverified,87,0.9962,0.9847,0.9945,0.8797,,牛只数据集/yolo11SL.md §4
+diarycow,YOLO11l,test,results.csv peak; checkpoint epoch unverified,99,0.9896,0.9889,0.993,0.8838,,牛只数据集/yolo11SL.md §5
+Google Open Image,RetinaNet,val,best val mAP50-95,7,,,0.742,0.449,0.426,牛只数据集/Retinanet测试.md §3
+Google Open Image,YOLO11s,val,results.csv peak; checkpoint epoch unverified,87,0.8267,0.6626,0.7296,0.4541,,牛只数据集/yolo11SL.md §4
+Google Open Image,YOLO11l,val,results.csv peak; checkpoint epoch unverified,76,0.7974,0.6825,0.7337,0.4611,,牛只数据集/yolo11SL.md §5
+HCRD,RetinaNet,val,best val mAP50-95,80,,,0.979,0.919,0.918,牛只数据集/Retinanet测试.md §3
+HCRD,YOLO11s,val,results.csv peak; checkpoint epoch unverified,89,0.9922,0.9724,0.993,0.9373,,牛只数据集/yolo11SL.md §4
+HCRD,YOLO11l,val,results.csv peak; checkpoint epoch unverified,98,0.984,0.9755,0.9922,0.9343,,牛只数据集/yolo11SL.md §5
+MooTrack360,RetinaNet,val,best val mAP50-95,28,,,0.841,0.537,0.515,牛只数据集/Retinanet测试.md §3
+MooTrack360,YOLO11s,val,results.csv peak; checkpoint epoch unverified,96,0.9439,0.8957,0.9612,0.6562,,牛只数据集/yolo11SL.md §4
+MooTrack360,YOLO11l,val,results.csv peak; checkpoint epoch unverified,100,0.951,0.9205,0.9693,0.6758,,牛只数据集/yolo11SL.md §5
+NWAFU_CD,RetinaNet,val,best val mAP50-95,31,,,0.884,0.688,0.676,牛只数据集/Retinanet测试.md §3
+NWAFU_CD,YOLO11s,val,results.csv peak; checkpoint epoch unverified,100,0.8706,0.8371,0.9113,0.7332,,牛只数据集/yolo11SL.md §4
+NWAFU_CD,YOLO11l,val,results.csv peak; checkpoint epoch unverified,98,0.8647,0.8553,0.9161,0.7394,,牛只数据集/yolo11SL.md §5
+XGain,RetinaNet,val,best val mAP50-95,71,,,0.975,0.811,0.809,牛只数据集/Retinanet测试.md §3
+XGain,YOLO11s,val,results.csv peak; checkpoint epoch unverified,99,0.9815,0.982,0.9943,0.8249,,牛只数据集/yolo11SL.md §4
+XGain,YOLO11l,val,results.csv peak; checkpoint epoch unverified,99,0.9886,0.9655,0.9838,0.8257,,牛只数据集/yolo11SL.md §5

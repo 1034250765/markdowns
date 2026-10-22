@@ -1,0 +1,359 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="../"><title>域内重测 · 科研记录</title><style>
+:root{--navy:#173c53;--teal:#348e91;--ink:#243746;--gray:#677b89;}
+*{box-sizing:border-box}
+body{margin:0;background:#eaf0f2;color:var(--ink);font-family:"Microsoft YaHei","Noto Sans CJK SC",sans-serif;font-size:16px;line-height:1.92}
+main{max-width:1000px;margin:36px auto;padding:60px 78px 80px;background:white;box-shadow:0 10px 42px #25404d14}
+h1{font-size:44px;letter-spacing:.12em;margin:0 0 25px;color:var(--navy);border-bottom:4px solid var(--teal);padding-bottom:15px}
+h2{font-size:24px;margin:52px 0 20px;padding:9px 0 9px 18px;border-left:5px solid var(--teal);background:#f3f7f8;color:var(--navy)}
+h3{font-size:19px;margin:28px 0 12px;color:var(--navy)}
+p{margin:14px 0;text-align:justify}
+blockquote{margin:22px 0;padding:15px 22px;background:#f4f8f9;border-left:3px solid #8bb8bd;color:#425b6c}
+blockquote p{margin:4px 0;font-size:14px}
+img{display:block;max-width:100%;height:auto;margin:24px auto 8px}
+img[src*="StudyImage-域内重测"],img[src*="StudyImage-随机性"]{max-width:650px}
+p.caption{font-size:13px;line-height:1.65;color:var(--gray);text-align:left;margin:0 0 24px}
+li{margin:8px 0}
+a{color:#267b8c;text-decoration:none;border-bottom:1px solid #b5d2d7;overflow-wrap:anywhere}
+pre{background:#f1f5f7;border:1px solid #dde6ea;padding:18px 22px;border-radius:4px;overflow-x:auto;line-height:1.6;font-size:13px}
+code{font-family:Consolas,"Microsoft YaHei",monospace;overflow-wrap:anywhere}
+strong{color:var(--navy)}
+hr{border:0;border-top:1px solid #ccdbe1;margin:38px 0}
+.equation{overflow-x:auto;padding:14px 0;margin:16px 0}
+math{font-size:1.05em}
+@media(max-width:800px){main{margin:0;padding:30px 22px}h1{font-size:36px}h2{font-size:21px}}
+@media print{body{background:white;font-size:10pt;line-height:1.72}main{max-width:none;margin:0;padding:0;box-shadow:none}h1{font-size:25pt}h2{font-size:15pt;break-after:avoid}h3{font-size:12pt;break-after:avoid}img{max-height:235mm;object-fit:contain;break-inside:avoid}pre,.equation{break-inside:avoid}a{color:inherit;border:0}blockquote{break-inside:avoid}@page{size:A4;margin:18mm 16mm}}
+</style></head><body><main><h1>域内重测</h1>
+<blockquote>
+<p><strong>实验编号：</strong> EXP-20261005-COWCV-ID-RETEST<br />
+<strong>实验主题：</strong> 统一协议下的 YOLO11m 域内监督参照重建、可复现性审计与 LODO 保持率分析<br />
+<strong>历史执行时段：</strong> 2026-10-05—2026-10-08（主实验与 stock 运行重复）；2026-10-09—2026-10-12（effective-seed 扩展与汇总）<br />
+<strong>整理与方法核查日期：</strong> 2026-10-14，北京时间<br />
+<strong>记录性质：</strong> 既有实验的追溯整理、脚本核查与表格复算；本次未重新训练或远程推理<br />
+<strong>记录人：</strong> 待填写　　<strong>审核人：</strong> 待填写<br />
+<strong>格式依据：</strong> <a href="实验记录格式参考.md">实验记录格式参考</a>的七项结构；将“试剂与耗材”调整为“数据、软件与计算资源”。</p>
+</blockquote>
+<p><img alt="图1：域内重测与冻结测试视图的证据链" src="域内重测.assets/StudyImage-域内重测证据链.png" /></p>
+<p class="caption"><em>图 1　训练负责参数学习，验证负责权重选择，测试负责预定权重的最终评估；保持率分析使用与 LODO 相同的目标 test 视图。场景及流程为 Study Image 方法示意，不是数据集实拍或模型预测结果。</em></p>
+<p>本阶段完成了 <strong>YOLO11m×14 域</strong>的监督参照重建。主方案的 test mAP@0.5:0.95 等权宏平均为 <strong>0.7214</strong>；有效种子扩展的三种子宏平均为 <strong>0.72049±0.00159</strong>（样本 SD，n=3）。同视图 LODO 相对域内监督参照的逐域保持率宏平均约为 <strong>0.7328</strong>。这三组数分别回答“单域监督能达到什么水平”“跨有效种子会怎样波动”“多源零样本保留了多少目标域监督表现”，不能混成一个统计量。（L2 §§4、6、11；本次表格复算）</p>
+<p>本记录的研究重点包括：修正旧验证口径的证据链、冻结可追溯协议、处理误覆盖事件、查明名义 seed 与实际随机流的差异，以及建立监督参照与多源泛化的同视图比较。</p>
+<h2>1. 实验目的（Objective）</h2>
+<h3>1.1 重测所针对的具体问题</h3>
+<p>2026 年 7 月的域内模型比较可用于阶段观察，但不宜直接作为本轮正式 test 参照。重测计划列出了三项需要修正的问题。（L1 §1）</p>
+<ol>
+<li><strong>训练设置不统一。</strong> 历史 YOLO11m 部分数据集使用 batch=16，其余使用 batch=32；跨模型还存在 AMP、自动优化器、有效 batch 和环境变更等差异。</li>
+<li><strong>选模与报告集合未充分分离。</strong> 历史主表以 val 报告，diarycow 的一个名义 test 别名也实际指向 val。以同一集合选出峰值并报告，不能替代独立冻结 test。</li>
+<li><strong>数据版本与新泛化实验不一致。</strong> 旧阶段划分为 23,851/4,971/2,551；新 <code>data/</code> 经 SHA-256 同图同标去重及重切，划分为 25,079/3,142/3,124。两套数据规模与划分均发生变化。</li>
+</ol>
+<p>因此，本轮重测在新的 <code>data/</code> 上重新训练，而非只对旧权重换一个评测路径。所有目标域使用同一检测器、初始化、输入尺度与明确优化协议，构建与 LODO 目标 test 对齐的域内监督参照。（L1 §§1–3；L2 §§1–2）</p>
+<h3>1.2 研究问题与完成判据</h3>
+<p>本阶段围绕四个问题组织证据：</p>
+<ul>
+<li><strong>参照重建：</strong> 本域 train 学习、本域 val 选模、冻结 test 报告后，各域的 <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msub><mi>M</mi><mrow><mi>t</mi><mo>&#x02192;</mo><mi>t</mi></mrow></msub></mrow></math> 是多少？</li>
+<li><strong>选择敏感性：</strong> 按 val 最优轮选择，与预定第 100 轮权重相比，test 结果改变多少？</li>
+<li><strong>复现机制：</strong> 运行名中的 seed=42/43/44 是否真正改变洗牌与增强随机流？重复执行的差异如何报告？</li>
+<li><strong>泛化保持：</strong> 在同一目标 test 上，13 源 LODO 的 <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msub><mi>M</mi><mrow><mo>&#x02212;</mo><mi>t</mi><mo>&#x02192;</mo><mi>t</mi></mrow></msub></mrow></math> 相对本域监督参照保留多少表现？</li>
+</ul>
+<p>验收材料包括 14 域完整训练记录、预选权重及选择依据、每轮 28 条 selected/epoch100 评测结果、test 数量核验、分协议重复结果，以及可定位的事故与恢复记录。这些材料的历史完成状态依据 L2；本次已独立检查本地文档、镜像脚本及汇总算术，未重开服务器原始产物。</p>
+<h3>1.3 范围与研究边界</h3>
+<p>本轮对象固定为 <strong>YOLO11m</strong>。RT-DETR-L、Faster R-CNN、RetinaNet 及 YOLO11s/l 的统一复核另行排期；当前结果不形成四架构的新 test 排名。旧 14×14 单源迁移矩阵的数据与视图也未同步更新，因此本轮不能据此计算同视图 <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msub><mi>&#x00394;</mi><mrow><mi>m</mi><mi>u</mi><mi>l</mi><mi>t</mi><mi>i</mi></mrow></msub></mrow></math>。（L1 §§1、7；L2 §10）</p>
+<p><img alt="表1：实验分工与证据边界" src="域内重测.assets/表1-实验分工.png" /></p>
+<p class="caption"><em>表 1　各阶段的输入、产物与证据约束。可编辑数据见<a href="域内重测.assets/表格可编辑底稿.md">表格底稿</a>。</em></p>
+<h2>2. 实验原理与参考依据（Principle &amp; References）</h2>
+<h3>2.1 域内监督参照与同视图比较</h3>
+<p>设目标域 <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi>t</mi></mrow></math> 的 train、val、test 分别为 <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msubsup><mi>D</mi><mi>t</mi><mrow><mi>t</mi><mi>r</mi><mi>a</mi><mi>i</mi><mi>n</mi></mrow></msubsup></mrow></math>、<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msubsup><mi>D</mi><mi>t</mi><mrow><mi>v</mi><mi>a</mi><mi>l</mi></mrow></msubsup></mrow></math>、<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msubsup><mi>D</mi><mi>t</mi><mrow><mi>t</mi><mi>e</mi><mi>s</mi><mi>t</mi></mrow></msubsup></mrow></math>。对 100 轮训练中的候选权重 <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msub><mi>W</mi><mrow><mi>t</mi><mo>&#x0002C;</mo><mi>e</mi></mrow></msub></mrow></math>，冻结选模规则：</p>
+<div class="equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><msubsup><mi>e</mi><mi>t</mi><mo>&#x0002A;</mo></msubsup><mo>&#x0003D;</mo><mo>min</mo><mo /><msub><mrow><mi>a</mi><mi>r</mi><mi>g</mi><mspace width="0.167em" /><mi>m</mi><mi>a</mi><mi>x</mi></mrow><mrow><mn>1</mn><mo>&#x02264;</mo><mi>e</mi><mo>&#x02264;</mo><mn>100</mn></mrow></msub><msubsup><mrow><mi mathvariant="normal">A</mi><mi mathvariant="normal">P</mi></mrow><mrow><mn>50</mn><mi>:</mi><mn>95</mn></mrow><mrow><mi>v</mi><mi>a</mi><mi>l</mi></mrow></msubsup><mo stretchy="false">&#x00028;</mo><msub><mi>W</mi><mrow><mi>t</mi><mo>&#x0002C;</mo><mi>e</mi></mrow></msub><mo stretchy="false">&#x00029;</mo><mo>&#x0002E;</mo></mrow></math></div>
+
+<div class="equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><msub><mi>M</mi><mrow><mi>t</mi><mo>&#x02192;</mo><mi>t</mi></mrow></msub><mo>&#x0003D;</mo><msubsup><mrow><mi mathvariant="normal">A</mi><mi mathvariant="normal">P</mi></mrow><mrow><mn>50</mn><mi>:</mi><mn>95</mn></mrow><mrow><mi>t</mi><mi>e</mi><mi>s</mi><mi>t</mi></mrow></msubsup><mo stretchy="false">&#x00028;</mo><msub><mi>W</mi><mrow><mi>t</mi><mo>&#x0002C;</mo><msubsup><mi>e</mi><mi>t</mi><mo>&#x0002A;</mo></msubsup></mrow></msub><mi>;</mi><msubsup><mi>D</mi><mi>t</mi><mrow><mi>t</mi><mi>e</mi><mi>s</mi><mi>t</mi></mrow></msubsup><mo stretchy="false">&#x00029;</mo><mo>&#x0002E;</mo></mrow></math></div>
+
+<p>“min”表达并列选较早 epoch。训练、选择和报告依次使用不同数据职责，test 不反馈到权重选择。L1 §4 与本地 <code>indomain_select_checkpoint.py</code> 都以 val AP50–95 为依据；镜像脚本采用严格 <code>&gt;</code> 顺序扫描，并把选择写入 <code>selection.json</code>。</p>
+<p>LODO 的 <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msub><mi>M</mi><mrow><mo>&#x02212;</mo><mi>t</mi><mo>&#x02192;</mo><mi>t</mi></mrow></msub></mrow></math> 来自排除目标域后的 13 源训练；其选模依据为源域 val 的等权宏平均。两类模型在同一目标 test 上评估，构成协议明确的配对比较。训练池、洗牌实现和验证构成仍有声明差异，因此“同视图可比”不等于“训练样本量及优化步数相同”。（L1 §§2–3；L3 §§2、4）</p>
+<p>Gulrajani 与 Lopez-Paz 的 <em>In Search of Lost Domain Generalization</em> 将模型选择列为域泛化评估的重要组成部分。本项目据此将“按什么集合、什么指标选模”与最终分数一起记录；该论文的方法论不直接证明本项目的结果。（R9，摘要）</p>
+<h3>2.2 指标与工作点：AP、NMS 和 P/R 分别说明</h3>
+<p>单类别 <code>cow</code> 下，本文沿用源记录的 mAP 名称；AP50–95 表示 0.50、0.55、…、0.95 共 10 个匹配 IoU 阈值的 AP 均值：</p>
+<div class="equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><msub><mrow><mi mathvariant="normal">A</mi><mi mathvariant="normal">P</mi></mrow><mrow><mn>50</mn><mi>:</mi><mn>95</mn></mrow></msub><mo>&#x0003D;</mo><mfrac><mn>1</mn><mrow><mn>10</mn></mrow></mfrac><munderover><mo>&#x02211;</mo><mrow><mi>k</mi><mo>&#x0003D;</mo><mn>0</mn></mrow><mrow><mn>9</mn></mrow></munderover><msub><mrow><mi mathvariant="normal">A</mi><mi mathvariant="normal">P</mi></mrow><mrow><mn>0.50</mn><mo>&#x0002B;</mo><mn>0.05</mn><mi>k</mi></mrow></msub><mo>&#x0002E;</mo></mrow></math></div>
+
+<p>COCO API 的评估参数明确区分匹配 IoU、召回采样点和每图最大检测数；Ultralytics v8.4.92 检测 validator 也设置了该 10 阈值向量。本轮使用 Ultralytics 默认 evaluator，不能因此声称输出与所有 <code>pycocotools</code> 细节完全等价。（R8、R15）</p>
+<p>三个容易混淆的量需要分别登记：</p>
+<ul>
+<li><strong>置信度预筛选：</strong> v8.4.92 默认配置注释中，val 的默认 <code>conf</code> 为 0.001；这是保留候选预测的门槛。</li>
+<li><strong>NMS IoU：</strong> 版本配置默认 <code>iou=0.7</code>，用于去除重复预测。</li>
+<li><strong>AP 匹配 IoU：</strong> 采用 0.50–0.95 扫描，判断预测框与真值框的匹配质量。</li>
+</ul>
+<p>这些是版本源码的默认设置核查，不代替历史评测的完整生效参数快照；是否有安装补丁或继承参数仍应回到当时源码及运行材料核实。（R13、R15；L2 §2.3）</p>
+<p>本地评测镜像直接读取 <code>m.results_dict</code> 中的 P/R，没有执行另一个固定 conf=0.25 的严格计数函数。v8.4.92 <code>ap_per_class</code> 在平滑 F1 曲线上取峰值索引，再返回 P/R。因此表 4 的 P/R 为<strong>默认汇总工作点指标</strong>，不是统一冻结置信阈值下的 TP/FP/FN；在 test 上从曲线取得峰值也不等于在 val 上冻结阈值后测试部署工作点。AP 为本记录的主分析指标。（L5；R4）</p>
+<h3>2.3 等权宏平均、保持率与不确定性</h3>
+<p>为防止 Cows2021 的 1,040 张 test 图在汇总中主导其他域，主汇总对 14 个数据集等权：</p>
+<div class="equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><msub><mover><mi>M</mi><mo accent="true">&#x02015;</mo></mover><mrow><mrow><mi mathvariant="normal">I</mi><mi mathvariant="normal">D</mi></mrow></mrow></msub><mo>&#x0003D;</mo><mfrac><mn>1</mn><mrow><mn>14</mn></mrow></mfrac><munder><mo>&#x02211;</mo><mi>t</mi></munder><msub><mi>M</mi><mrow><mi>t</mi><mo>&#x02192;</mo><mi>t</mi></mrow></msub><mo>&#x0002E;</mo></mrow></math></div>
+
+<p>保持率采用主方案 stock 分母与 LODO 三种子平均分子：</p>
+<div class="equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><msubsup><mi>R</mi><mrow><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">t</mi></mrow></mrow><mrow><mrow><mi mathvariant="normal">L</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">D</mi><mi mathvariant="normal">O</mi></mrow></mrow></msubsup><mo stretchy="false">&#x00028;</mo><mi>t</mi><mo stretchy="false">&#x00029;</mo><mo>&#x0003D;</mo><mfrac><mrow><msubsup><mover><mi>M</mi><mo accent="true">&#x02015;</mo></mover><mrow><mo>&#x02212;</mo><mi>t</mi><mo>&#x02192;</mo><mi>t</mi></mrow><mrow><mspace width="0.167em" /><mrow><mi mathvariant="normal">L</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">D</mi><mi mathvariant="normal">O</mi></mrow></mrow></msubsup></mrow><mrow><msubsup><mi>M</mi><mrow><mi>t</mi><mo>&#x02192;</mo><mi>t</mi></mrow><mrow><mspace width="0.167em" /><mrow><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">k</mi></mrow></mrow></msubsup></mrow></mfrac><mo>&#x0002C;</mo><mspace width="2em" /><mover><mi>R</mi><mo accent="true">&#x02015;</mo></mover><mo>&#x0003D;</mo><mfrac><mn>1</mn><mrow><mn>14</mn></mrow></mfrac><munder><mo>&#x02211;</mo><mi>t</mi></munder><msubsup><mi>R</mi><mrow><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">t</mi></mrow></mrow><mrow><mrow><mi mathvariant="normal">L</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">D</mi><mi mathvariant="normal">O</mi></mrow></mrow></msubsup><mo stretchy="false">&#x00028;</mo><mi>t</mi><mo stretchy="false">&#x00029;</mo><mo>&#x0002E;</mo></mrow></math></div>
+
+<div class="equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mover><mi>R</mi><mo accent="true">&#x02015;</mo></mover><mo>&#x02260;</mo><mfrac><mrow><msub><mover><mi>M</mi><mo accent="true">&#x02015;</mo></mover><mrow><mrow><mi mathvariant="normal">L</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">D</mi><mi mathvariant="normal">O</mi></mrow></mrow></msub></mrow><mrow><msub><mover><mi>M</mi><mo accent="true">&#x02015;</mo></mover><mrow><mrow><mi mathvariant="normal">I</mi><mi mathvariant="normal">D</mi></mrow></mrow></msub></mrow></mfrac><mspace width="1em" /><mtext>（一般情况下）</mtext><mo>&#x0002E;</mo></mrow></math></div>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msub><mi>M</mi><mrow><mi>t</mi><mo>&#x02192;</mo><mi>t</mi></mrow></msub></mrow></math>
+<p>是此训练预算下的经验监督参照，不是理论上限。因此 
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi>R</mi><mo>&#x0003E;</mo><mn>1</mn></mrow></math></p>
+<p>有明确含义，应保留原值。比值也受分母波动影响，尤其是小样本域和运行噪声域。（L1 §10；L2 §§5–6）</p>
+<p>本记录分别使用：stock 重复的<strong>实际范围与极差</strong>，es 三种子的<strong>样本标准差</strong>。对有效种子 <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi>s</mi></mrow></math>，先算 14 域宏平均 <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msub><mover><mi>M</mi><mo stretchy="true">&#x000AF;</mo></mover><mi>s</mi></msub></mrow></math>，再计算：</p>
+<div class="equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mi>&#x003BC;</mi><mo>&#x0003D;</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><munder><mo>&#x02211;</mo><mi>s</mi></munder><msub><mover><mi>M</mi><mo stretchy="true">&#x000AF;</mo></mover><mi>s</mi></msub><mo>&#x0002C;</mo><mspace width="2em" /><msub><mrow><mi mathvariant="normal">S</mi><mi mathvariant="normal">D</mi></mrow><mrow><mi>s</mi><mi>e</mi><mi>e</mi><mi>d</mi></mrow></msub><mo>&#x0003D;</mo><msqrt><mrow><mfrac><mrow><msub><mo>&#x02211;</mo><mi>s</mi></msub><mo stretchy="false">&#x00028;</mo><msub><mover><mi>M</mi><mo stretchy="true">&#x000AF;</mo></mover><mi>s</mi></msub><mo>&#x02212;</mo><mi>&#x003BC;</mi><msup><mo stretchy="false">&#x00029;</mo><mn>2</mn></msup></mrow><mrow><mn>3</mn><mo>&#x02212;</mo><mn>1</mn></mrow></mfrac></mrow></msqrt><mo>&#x0002E;</mo></mrow></math></div>
+
+<p>不能把 14 个域的分数标准差称为“种子 SD”，也不能把三轮极差写成“±SD”。当前 SD 表示少量重复下的描述性离散度；test 抽样误差、来源簇相关性和置信区间尚未独立量化。（L2 §§5、11；L5 聚合脚本）</p>
+<h3>2.4 固定 seed 的声明需要机制证据</h3>
+<p>PyTorch v2.5.1 可复现性文档说明，固定种子并不保证跨版本、平台或 CPU/GPU 完全复现；数据加载器的 <code>generator</code> 与 <code>worker_init_fn</code> 也参与随机流控制。其 DataLoader 实现将 generator 传给 RandomSampler，并从同一 generator 抽取 worker base seed。（R6、R7）</p>
+<p>因此，本阶段把可复现性拆成“参数写了什么”“随机流实际由什么驱动”“观察到了什么差异”三个层次。seed 空操作及 es 激活机制的具体证据见 §4.6、§5.3，适用范围限定为本地记录所述的 8.4.92、单卡、单类初始化与数据加载配置。</p>
+<h2>3. 数据、软件与计算资源（Materials &amp; Environment）</h2>
+<h3>3.1 数据版本、目标域与实际测试规模</h3>
+<p>本轮权威数据位置为服务器项目根下的 <code>data/</code>；源记录登记 train 25,079、val 3,142、test 3,124，共 <strong>31,345 图</strong>。14 域包括 8-calves、animals_10、CBPD_ODD、CID、CImage、COCO、COLO、Cows2021、diarycow、Google_Open_Images、HCRD、MooTrack360、NWAFU_CD、XGain。（L1 §2；L3 §2.1）</p>
+<p>各域 test 图数见表 4。CImage 仅 17 张，CBPD_ODD 36 张，不能与 1,040 张的 Cows2021 视作等量证据。等权汇总表达的是“每个目标域同等重要”，不代表各域估计精度相同。</p>
+<p>SHA-256 去重与清单匹配支持精确重复审计和数据版本追踪；它们不能自动排除连续帧近重复、同牛身份交叉、相同摄像头来源重叠或预训练接触。Beery 等人的固定机位新环境研究表明，同位置与新位置表现可明显不同，启发本项目继续登记来源和拍摄簇；该研究不证明本项目某域的失败原因。（R10，摘要；本记录的后续建议）</p>
+<h3>3.2 历史运行环境与初始化身份</h3>
+<p>L2 登记的环境为 <strong>NVIDIA A100-PCIE-40GB 单卡、Ultralytics 8.4.92、PyTorch 2.5.1+cu124</strong>；与 LODO 使用同环境。项目根为：</p>
+<pre><code class="language-text">/data1/yxli/LODOANDClassbyDomain/
+</code></pre>
+<p>所有域从 <code>lodo/yolo11m.pt</code> 初始化；执行记录登记其 MD5 为：</p>
+<pre><code class="language-text">2c2bcbb54c3829b20d31a32524ee0f03
+</code></pre>
+<p>这是历史记录中的身份信息，本次未下载权重重算其 hash。训练镜像会在 <code>run_info.json</code> 中登记权重路径及 MD5、Ultralytics/torch/CUDA 版本、GPU、数据规模和理论步数。本次另外对 4 份本地文档与 7 份协议/脚本镜像计算 SHA-256，保存在<a href="域内重测.assets/来源hash.json">来源 hash</a>，用于确认整理期间未改动来源。</p>
+<h3>3.3 冻结配置与预算差异</h3>
+<p><img alt="表2：统一训练与评测协议" src="域内重测.assets/表2-冻结训练协议.png" /></p>
+<p class="caption"><em>表 2　训练规则、核验入口与 LODO 对照；默认增强的确切生效参数仍以历史 <code>args.yaml</code> 为准。</em></p>
+<p>对域 <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi>t</mi></mrow></math>，末批保留且 accumulate=1 时，每轮理论 batch 数为：</p>
+<div class="equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><msub><mi>B</mi><mi>t</mi></msub><mo>&#x0003D;</mo><mrow><mo stretchy="true" fence="true" form="prefix">&#x02308;</mo><mfrac><mrow><msubsup><mi>N</mi><mi>t</mi><mrow><mi>t</mi><mi>r</mi><mi>a</mi><mi>i</mi><mi>n</mi></mrow></msubsup></mrow><mrow><mn>16</mn></mrow></mfrac><mo stretchy="true" fence="true" form="postfix">&#x02309;</mo></mrow><mo>&#x0002E;</mo></mrow></math></div>
+
+<p>100 轮理论训练 batch 数为 <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mn>100</mn><msub><mi>B</mi><mi>t</mi></msub></mrow></math>。该量不应伪装成逐次记录的实际 <code>optimizer.step()</code>：AMP 跳步等运行细节需要额外日志。LODO 每轮 13×500=6,500 张、407 个 batch，末批 4 张；单域全量的预算随规模改变。由此，本实验能评价各自冻结协议下的监督参照和零样本表现，但不能将差异单独归因于域数量或样本多样性。（L1 §3；L5 训练镜像）</p>
+<h3>3.4 资产组织与本次访问边界</h3>
+<p>服务器侧历史产物的定位如下，路径均相对于上述项目根。（L2 §9）</p>
+<pre><code class="language-text">indomain/
+├── protocol.yaml
+├── &lt;域名&gt;/
+│   ├── logs/&lt;run&gt;/run_info.json
+│   ├── logs/&lt;run&gt;/train_stdout.log
+│   └── runs/&lt;run&gt;/
+│       ├── args.yaml / results.csv
+│       ├── weights/epoch0.pt ... epoch99.pt
+│       ├── selected.pt / epoch100_final.pt
+│       └── selection.json
+├── results/
+│   ├── indomain_test_results.{csv,json}
+│   ├── indomain_test_results_train_es{42,43,44}.{csv,json}
+│   ├── indomain_seed_repeats.{csv,json}
+│   └── indomain_vs_lodo.{csv,json}
+└── archive/2026-10_stock_repeats/
+    ├── runs/
+    ├── results/
+    └── _quarantine_s43_20261006/
+</code></pre>
+<p>本次直接检查了 <code>D:\牛只数据集实验\</code> 的训练、选择、评测、聚合、CPU seed 测试、串行驱动器与协议镜像，共 7 份。它们支持核查<strong>当前本地实现</strong>；与历史远程执行源码逐字一致、远程结果文件当前存在、权重身份与全部断言实际输出，本次均未实时复核。</p>
+<h2>4. 实验步骤与过程记录（Procedures）</h2>
+<h3>4.1 准备、冻结与冒烟</h3>
+<p>历史流程先确定 <code>data/&lt;t&gt;/data.yaml</code> 与 <code>splits/&lt;t&gt;/train.txt</code>，使用同一初始化和冻结参数。训练回调在 loader 构建后检查 batch/nbs=16、accumulate=1、AdamW、lr0=0.002、AMP、compile=False、resume=False、drop_last=False，以及 loader 数据规模与清单一致。（L1 §6；L2 §§2.4、3.1；L5）</p>
+<p>正式运行前以 CImage×2 epochs 的 smoke 验证保存、优化器剥离、选择和 test 评测；执行记录报告全链路通过，e*=1 映射到 epoch0.pt，复跑指标一致。这里的冒烟是历史记录，不是本次在本机完成的 GPU 测试。（L2 §3.3）</p>
+<h3>4.2 串行执行与实际时间线</h3>
+<p><code>run_indomain_all.sh</code> 使用 <code>flock</code> 防止同一域内驱动器双开；按域顺序串行训练。CSV 达到 100 行时视为完成并跳过；未完成的运行在下一遍从头重跑，最多三遍，不使用 optimizer resume。历史记录报告六轮完整运行各完成 14/14。（L2 §§1、11.2；L5 驱动器）</p>
+<p><img alt="表3：完整执行时间线" src="域内重测.assets/表3-完整运行时间线.png" /></p>
+<p class="caption"><em>表 3　主方案、两轮 stock 重复与三轮 es 扩展。原文主方案耗时为 11h01m，分钟级起止相减为 11h02m；差 1 分钟予以保留，未猜测秒级时间。</em></p>
+<p>stock 主方案完成于 2026-10-06；es 的最后训练完成于 2026-10-11 21:55，三轮结果聚合记录于 2026-10-12。2026-10-14 是本科研记录的整理日，不能写成训练日。</p>
+<p>Cows2021 的历史训练耗时约 3h26m、diarycow 1h23m、CImage 7m。逐域耗时和六轮时段反映工程规模，但不是完整成本账目：其中未统一计入冒烟、恢复、判别实验及所有评测时间。（L2 §1）</p>
+<h3>4.3 保存权重并按 val 选择</h3>
+<p>每轮保存一次 checkpoint，随后剥离优化器状态。镜像选择脚本读取 <code>metrics/mAP50-95(B)</code> 列，严格 <code>&gt;</code> 扫描保留第一次达到最大值的行；登记源文件、e*、val 分数和并列信息，并输出 <code>selected.pt</code> 与 <code>epoch100_final.pt</code>。（L5 选择脚本）</p>
+<p>映射关系为：</p>
+<pre><code class="language-text">results.csv 的 epoch e（1-based）
+         ↕
+weights/epoch{e-1}.pt（0-based 文件名）
+</code></pre>
+<p>剥离后的内部 <code>epoch</code> 为 −1，不能拿它反推训练轮次；优化器状态移除后的权重也不具备完整 optimizer resume 信息。选择的可追溯性应依靠文件映射、CSV、选择记录及权重身份。（L2 §3.2；R12）</p>
+<p><strong>版本核查修正：</strong> v8.4.92 检测 fitness 权重为 <code>[0,0,0,1]</code>，在该实现中等于 AP50–95，不沿用旧版本 0.1×AP50+0.9×AP50–95 的说法。stock 保存 best 的相等判断仍可能使并列保留较晚轮；本项目独立选模规则更便于审计。全部历史主方案报告无并列，但本次未重新读取逐轮 CSV 验证。（R4、R5；L2 §4.1）</p>
+<h3>4.4 预定 test 评测与字段修正</h3>
+<p>选择完成后，对 selected 与第 100 轮权重各评测一次：</p>
+<pre><code class="language-python">m = YOLO(str(ckpt)).val(
+    data=str(data_yaml),
+    split=&quot;test&quot;,
+    imgsz=640,
+    device=0,
+    plots=False,
+    verbose=False,
+)
+</code></pre>
+<p>这是本地评测镜像核心调用的摘录；历史脚本还设置输出目录与名称。对完整一轮运行预期为 <strong>14×2=28 条</strong>，不因已看过 test 而再选择较高分 checkpoint。不同预先定义的重复轮可以再次评估同一冻结 test，因此“只评测一次”应指<strong>每个预先选定权重的一次计划内评测</strong>，不能描述成整个项目从未重复读取 test。（L1 §§4–5；L5）</p>
+<p>镜像在评测前核对各域 test 图数。实例计数字段也已区分：</p>
+<pre><code class="language-text">nt_per_class.sum() → GT 实例数
+nt_per_image.sum() → 单类别下含 GT 的图像数
+</code></pre>
+<p>L2 §3.2 记载旧 LODO 的 <code>test_instances</code> 曾错误命名为后者；当前域内评测另存 <code>test_images_with_gt</code>，避免继续混用。表 4只列来源明确提供的 test 图数，不补造未提供的实例数。（L5；R4、R15）</p>
+<h3>4.5 排障：误覆盖、隔离、恢复与加固</h3>
+<p>2026-10-06 16:29，seed=43 驱动调用漏传 <code>--run-name</code>，写入主方案 <code>runs/train</code>，覆盖 8-calves 的 100 轮及 animals_10 前 29 轮审计材料；17:04 发现后停止。执行记录称 selected、epoch100_final、selection、run_info 及主结果 CSV 未被该训练调用触碰。（L2 §3.4）</p>
+<p>处理步骤按原记录重建如下：</p>
+<ol>
+<li><strong>界定受影响资产。</strong> 将污染材料隔离，保留事故日志，不把全项目结果笼统宣布为损坏或无影响。</li>
+<li><strong>修正运行命名。</strong> 按 seed 自动派生 <code>train</code>/<code>train_s&lt;N&gt;</code>；显式 <code>train</code> 配非 42 seed 时硬报错；驱动器补传运行名。</li>
+<li><strong>保护结果输出。</strong> 增加 <code>--out-tag</code>，为子集恢复核验生成独立结果文件；es 协议另禁止写入 stock 冻结目录。</li>
+<li><strong>从 seed=42 完整恢复。</strong> 两域重训后核对学习曲线、e* 与 val 峰值、test 全指标三条链。</li>
+</ol>
+<p>L2 §3.5 记载 animals_10 前 29 行学习列与隔离前缀一致（time 列除外）、恢复 e<em>=96/val=0.66209/test AP=0.66643；8-calves 100 轮一致、恢复 e</em>=63/val=0.59602/test AP=0.57732。事故区后于 2026-10-10 归档到表述于 §3.4 的 archive 路径。</p>
+<p><strong>本次核查状态：</strong> 已在本地脚本中看见运行名保护、es 目录隔离及 <code>--out-tag</code>；三重恢复通过是历史执行记录报告，本次没有重新加载远程逐轮材料验证。这一区分保留了排障成果，也保留了证据层级。</p>
+<h3>4.6 源码审计与 effective-seed 扩展</h3>
+<p>stock 重复出现长曲线逐位相同后，原先“换 seed 会改变检测头初始化”的解释被修正。L2 记录该配置下单类头通过 <code>cls_remap</code> 确定性映射，日志为 <code>Transferred 649/649 items</code>；v8.4.92 <code>tasks.py</code> 可核查按规范化类别名称复制头通道的机制。完整历史覆盖情况仍以该运行日志为依据。（L2 §5.1；R11）</p>
+<p>同时，v8.4.92 <code>build_dataloader()</code> 中实际创建的 generator 为：</p>
+<pre><code class="language-python">generator = torch.Generator()
+generator.manual_seed(6148914691236517205 + RANK)
+</code></pre>
+<p>该 generator 不读取用户 seed，并同时参与洗牌和 worker 派生种子。因此在本记录的初始化、单卡及 loader 条件下，仅改名义 seed 的 stock 三轮主要构成<strong>运行间重复</strong>，不能作为有效种子重复的证据。此结论不推广到所有 Ultralytics 模型、DDP 或版本。（R3、R7；L2 §5）</p>
+<p><img alt="图2：stock 与 effective-seed 的随机流审计" src="域内重测.assets/StudyImage-随机性审计.png" /></p>
+<p class="caption"><em>图 2　Study Image 示意：stock 的 loader generator 不由用户 seed 控制；es 覆盖为由 seed 派生的 generator，从而同时控制洗牌及 worker RNG。两套运行都仍可能存在残余执行噪声。</em></p>
+<p>2026-10-09 增补 es 协议。保持训练超参、数据与选模/评测规则不变，唯一明确改动为在进程内以子类替换 <code>InfiniteDataLoader</code>，按 loader 创建顺序生成 seed+0、seed+1、… 的 generator。运行写入 <code>train_es42/43/44</code>，并存 <code>seed_loader_creations.json</code>；默认关闭开关时保持 stock 路径。（L1 §11；L5 <code>make_seed_effective()</code>）</p>
+<p>历史扩展前验证包括同 seed 顺序一致、异 seed 首轮分叉、逐 epoch 洗牌、worker 种子分离、stock 对照不变，以及 CImage 两轮端到冒烟。L2 报告通过；本次读取了 CPU 机制测试脚本，但未在本机或服务器运行该训练环境测试。</p>
+<h3>4.7 可复现操作入口</h3>
+<p>下列为<strong>历史复现命令入口</strong>，本次没有执行。重新运行前须核对远程环境、协议文件和归档状态；不要把已归档 stock 重复的训练命令当成只读分析。</p>
+<pre><code class="language-bash">conda activate ultralytics
+cd /data1/yxli/LODOANDClassbyDomain
+
+# stock 主方案
+bash run_indomain_all.sh
+python3 indomain_select_checkpoint.py --all --run train
+python3 indomain_eval_test.py --run train
+
+# es 扩展示例；42/44 按各自运行名执行
+bash run_indomain_all.sh 43 es
+python3 indomain_select_checkpoint.py --all --run train_es43
+python3 indomain_eval_test.py --run train_es43
+
+# CPU 机制检查与三种子聚合
+python3 indomain_seed_patch_test.py
+python3 indomain_compare_lodo.py --es-runs train_es42,train_es43,train_es44
+</code></pre>
+<p>镜像聚合器扫描活跃及 archive 结果中的 stock 轮次，es 由 <code>--es-runs</code> 显式指定并单独输出。此设计可以防止两种协议静默混入同一方差表。（L5 聚合脚本）</p>
+<h2>5. 原始记录摘录与过程现象（Raw Data &amp; Observations）</h2>
+<h3>5.1 主方案逐域读数与选模轮次</h3>
+<p><img alt="表4：14域主方案test读数" src="域内重测.assets/表4-域内主结果.png" /></p>
+<p class="caption"><em>表 4　L2 §4.2 的逐域值；<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msup><mi>e</mi><mo>&#x0002A;</mo></msup></mrow></math> 来自 §4.1。数字照录或由显示精度复算，不是本次新产生的远程输出。</em></p>
+<p>e* 分别包括 8-calves=63、CID=75、Google=83、diarycow=100；其余域处于 87–97。原记录“除 8-calves 外集中在 83–100”的概括漏掉 CID，本记录按表值修正。diarycow 最优轮为最后一轮，这只说明当前候选预算的 val 最大值位置，不足以证明充分收敛或继续训练无收益。</p>
+<h3>5.2 stock 重复：完全一致域与噪声域</h3>
+<p>三轮 stock 中，L2 §5.2 报告以下 11 域训练曲线、e*、val 峰值及 test 指标逐字段一致：8-calves、animals_10、CID、CImage、COCO、Cows2021、diarycow、Google_Open_Images、MooTrack360、NWAFU_CD、XGain。</p>
+<p><img alt="表5：stock三轮实际读数与极差" src="域内重测.assets/表5-stock运行波动.png" /></p>
+<p class="caption"><em>表 5　三个噪声域的极差分别为 0.00832、0.00311、0.00924；这些是重复运行间范围，不是对称误差棒或置信区间。</em></p>
+<p>原记录报告 COLO 前 48 轮一致、第 49 轮起分叉，HCRD 第 5 轮起分叉；CBPD_ODD 有两轮一致、一轮不同。两轮一致不能独自证明未来运行完全确定。（L2 §5.2）</p>
+<p><img alt="表6：HCRD同seed判别" src="域内重测.assets/表6-HCRD同seed判别.png" /></p>
+<p class="caption"><em>表 6　同 seed=42 的 HCRD 重跑也从首轮与主方案不同。加入该判别运行后，四次 test 结果范围为 0.92850–0.94684，跨度 0.01834。</em></p>
+<p>该结果支持残余运行间非确定性，但不能定位到某个特定 CUDA kernel。v8.4.92 用 <code>torch.use_deterministic_algorithms(True, warn_only=True)</code>；无法确定化的操作可能只发出警告。原记录“三条通道全部关闭”的强表述应收紧为：<strong>本配置下主要 seed 通道未激活，确定性设置限制部分非确定性，但观察到残余运行噪声</strong>。（L2 §5.3；R12）</p>
+<h3>5.3 es 生效的直接现象与结果</h3>
+<p>L2 §11.2 摘录 CImage 首轮 box/cls/dfl loss：</p>
+<pre><code class="language-text">stock : 0.95283 / 2.92736 / 1.41423
+es42  : 0.92338 / 2.95144 / 1.39412
+es43  : 0.89472 / 2.98540 / 1.38925
+es44  : 0.89429 / 2.83650 / 1.36561
+</code></pre>
+<p>es42 与 stock 已不同，符合 generator 随机流被替换；三种子各异则支持有效 seed 生效。选模轮次也变化，例如 8-calves 的 es42/43/44 为 58/63/79，CID 为 80/57/64。最终成绩须继续遵循 val 选模，不能根据 test 再选择 seed。（L2 §11）</p>
+<p><img alt="表7：effective-seed三种子结果" src="域内重测.assets/表7-es三种子.png" /></p>
+<p class="caption"><em>表 7　逐域 mean 和样本 SD 按 L2 §11.3 照录，宏平均汇总为 0.72049±0.00159。完整精度 CSV 未重取；显示精度复算见附录 B。</em></p>
+<h3>5.4 第 100 轮敏感性对照</h3>
+<p>L2 §4.3 报告 selected 与 epoch100 的 AP50–95 平均绝对差为 <strong>0.0089</strong>；除 CImage 差约 0.078 外，其余不超过 0.011。CImage 的 epoch100 AP 约 0.560，高于 selected 的 0.4823，但主结果仍保持按 val 选择的 0.4823，不能事后替换。（L2 §§4.3、7）</p>
+<p>这支持“多数域在这两种预定选择下差异较小”的有限观察。CImage 是必须保留的反例；没有完整逐轮 test 评测，也不应去寻找 test 最优轮或将差异全部归因于测试样本量。</p>
+<h2>6. 结果与数据分析（Results &amp; Analysis）</h2>
+<h3>6.1 同协议域内参照的总体水平</h3>
+<p>从表 4 显示值复算，14 域 AP50、AP50–95、默认 P、默认 R 宏平均分别为 <strong>0.9168、0.7214、0.9169、0.8838</strong>。AP50–95 从 Google_Open_Images 的 0.4564 到 HCRD 的 0.9468，跨域跨度为 0.4904。（L2 §4.2；本次复算）</p>
+<p>该跨度描述统一检测器在这些目标域和当前标注定义下的难度差异，不能据此给数据集“质量”排名。test 图数、来源组成、框语义和目标尺度都可能参与变化；当前没有控制变量实验。</p>
+<p><img alt="图3：AP50与AP50–95的逐域差" src="域内重测.assets/图3-域内检测与定位.png" /></p>
+<p class="caption"><em>图 3　同一权重下 AP50 与 AP50–95 的配对。n 为 test 图数；连线长度是指标差，不等于某一误差原因的贡献。</em></p>
+<p>8-calves 的差为 0.4013、COLO 为 0.3033、MooTrack360 为 0.2965，提示在宽松检出之外优先审核高 IoU 定位、遮挡边界与标注语义。COCO 和 Google_Open_Images 的 AP50 本身也相对较低，需同时检查漏检与定位。这里是<strong>误差审核优先级的综合建议</strong>，不是已完成的逐图错误归因。</p>
+<h3>6.2 跨有效种子的总体稳健性</h3>
+<p>es 三种子宏平均为 0.71865、0.72153、0.72127；跨种子 mean±样本 SD 为 <strong>0.72049±0.00159</strong>。与 stock 主方案 0.7214 的差约为 <strong>0.00091</strong>，即约 <strong>0.091 个百分点</strong>，支持当前总体分数量级对该随机流变化较稳定。（L2 §11.3）</p>
+<p><img alt="图4：逐域种子离散度与宏平均" src="域内重测.assets/图4-es种子离散度.png" /></p>
+<p class="caption"><em>图 4　左图为各域三种子的样本 SD，右图为先逐种子等权汇总后的三个宏平均。二者统计对象不同；未绘制置信区间。</em></p>
+<p>CImage 的 SD=0.0182，为当前 es 表最高，约为总体宏平均 SD 的 11 倍；Google_Open_Images 为 0.0082。原文把这两域都概括为“小样本方差最大”需要区分：CImage 确实只有 17 张 test，Google 为 291 张并非本表最小集合之一。其波动不能仅凭样本量确定原因。</p>
+<p>从显示值复算，逐域 SD 中位数约 0.0033。原表“10/14 域 SD≤0.004”依赖显示舍入：HCRD 的三位读数复算 SD≈0.003934，而 COCO≈0.004012；按显示的四位 SD 判断为 10 域，按显示三值重新计算则为 9 域。完整精度结果未重取，本记录不把临界计数作为主结论。（本次复算；附录 B）</p>
+<p><strong>统计边界：</strong> es 改变了有效种子，但每种子仅一轮，残余执行噪声仍可叠加在跨种子 SD 中。stock 与 es 的设计分别提供两种诊断证据，没有严格分离所有方差分量。若需分离，应增加“每 seed 多次重复”的嵌套实验；当前不作显著性声明。</p>
+<h3>6.3 与 LODO 的同目标配对及保持率</h3>
+<p><img alt="表8：监督参照与LODO保持率" src="域内重测.assets/表8-同视图LODO保持率.png" /></p>
+<p class="caption"><em>表 8　LODO 均值取 L3 §5.3，分母取 L2 §4.2。逐域比值宏平均复算为 0.7327588，约 0.7328；表内三位 R 的末位可能与原表截取精度不同。</em></p>
+<p>域内 AP 宏平均 0.7214，LODO 三种子均值的 AP 宏平均约 <strong>0.5033</strong>。逐域保持率等权平均约 <strong>0.7328</strong>；两个 AP 宏平均相除约 <strong>0.6976</strong>。二者回答不同问题，不能互换。原记录另报告 stock 三轮×LODO 三种子的九组合保持率为 0.7325，该数本次未从完整原始 CSV 独立复算。（L2 §6；L3 §5.3）</p>
+<p><img alt="图5：域内与LODO的逐域配对" src="域内重测.assets/图5-域内与LODO配对.png" /></p>
+<p class="caption"><em>图 5　点对使用同一目标 test 的 AP50–95；右侧为逐域保持率。图中域内分母保持 stock 主方案，不替换成 es 均值。</em></p>
+<p>观察可分为三组：</p>
+<ol>
+<li><strong>接近域内监督的域。</strong> CBPD_ODD 与 animals_10 的 R 约 0.994，COCO 0.970、Google 0.933；CID 为 0.843。不能把 CID 纳入“均≥0.93”的概括。</li>
+<li><strong>保持率明显较低的域。</strong> MooTrack360 约 0.208、Cows2021 0.300、HCRD 0.307，其余若干域约 0.59–0.70。它们指出本轮多源零样本还不能替代目标域监督；原因需要来源与误差分析。</li>
+<li><strong>超过经验监督参照的 CImage。</strong> 域内 0.4823、LODO 0.7169，R≈1.486。域内训练仅 141 图、test 17 图（L2 §8），适合优先研究少样本微调和多源迁移，但当前未证明过拟合或特化是唯一机制。</li>
+</ol>
+<p>Cows2021 域内 AP=0.8881、R≈0.300，而 CBPD_ODD 域内 AP=0.9081、R≈0.994，说明相近的高域内分数可以对应完全不同的保持率。原记录“域内绝对水平与保持率无关”过强；本记录采用<strong>高域内精度不足以保证高泛化保持率</strong>，不宣称统计独立或不存在相关。</p>
+<h3>6.4 与旧记录的描述性对照</h3>
+<p><img alt="表9：新旧协议的历史读数对照" src="域内重测.assets/表9-新旧描述性对照.png" /></p>
+<p class="caption"><em>表 9　旧 val 与新 test 的算术差仅帮助定位历史变化，不解释为净性能增益。</em></p>
+<p>旧均值约 0.7390，新均值 0.7214，差约 −0.0176；CImage 从 0.7586 到 0.4823，差约 −0.2763。（L2 §7；本次复算）</p>
+<p>旧 val 同时承担选模和报告，可能带来选择乐观性；但数据、划分、有效 batch 与报告视图同时变化，不能证明下降由哪一个因素导致。CImage 的 selected/epoch100 差和 es 波动提供了进一步审核入口，未构成因果分解。</p>
+<h2>7. 讨论、后续计划与阶段结论（Discussion &amp; Next Steps）</h2>
+<h3>7.1 本阶段的研究价值</h3>
+<p>本阶段的核心收获是把域内分数放回可追溯的实验流程。统一配置消除了若干明显的协议差异，冻结 test 分离了选模与报告，独立选择脚本避免依赖模糊的 best 文件语义，事故恢复保留了工程审计链，而 seed 机制核查揭示了仅修改参数名称不能保证随机流改变。（L1、L2；本地镜像核查）</p>
+<p>对后续 CowCV 分析，新的 <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msub><mi>M</mi><mrow><mi>t</mi><mo>&#x02192;</mo><mi>t</mi></mrow></msub></mrow></math> 提供目标域监督参照，LODO 保持率补充了单独域内精度不能回答的问题。两者结合可形成更清晰的研究讨论，但不扩大为数据质量排名、环境因果解释或多源训练净收益证明。</p>
+<h3>7.2 来源冲突与采用口径</h3>
+<p><img alt="表10：复核发现与采用口径" src="域内重测.assets/表10-复核与结论边界.png" /></p>
+<p class="caption"><em>表 10　核查保留原始资料，通过本记录说明修正；未回写或覆盖两份实验来源文档。</em></p>
+<p>还需特别保留以下冲突：</p>
+<ul>
+<li><strong>AP 与保持率的混用。</strong> L2 §6 描述分子侧逐种子宏平均为 0.734/0.729/0.735；L3 §5.4 的 AP 三轮为 0.5056/0.5009/0.5034。按 L3 逐域 AP 与 stock 分母复算，前一组三数约对应逐种子保持率，故本文不把它们称为 LODO AP。</li>
+<li><strong>LODO 的 SD 字段不同。</strong> L2 §6 的 CImage SD=0.043、CBPD_ODD=0.013 等，与 L3 §5.3 的总体 SD=0.0207、0.0115 等不一致。镜像聚合器同时计算多个比值 SD，可能存在字段转述差异，但本次没有完整原输出，不能据此确定原因。保持率主表省略争议 SD。</li>
+<li><strong>总体与样本 SD。</strong> L3 的宏平均约 0.5033±0.0019 使用总体 SD（ddof=0）；同三轮改用样本 SD 约为 0.0024。es 扩展使用样本 SD（ddof=1），两者应标明定义后再比较。</li>
+<li><strong>测试隔离声明。</strong> 禁止以 test 选权重及手工调参，与默认 P/R 从当前曲线峰值汇总是两件事。若文章需要固定部署工作点，应在 val 冻结阈值，再对 test 严格计数，单独命名指标。</li>
+</ul>
+<h3>7.3 后续执行与验收</h3>
+<ol>
+<li><strong>补齐远程原始证据身份。</strong> 导出各域的 CSV、selection、run_info、args、代码版本与权重 hash，核对本地镜像；检查评测是否恰有 14 个 selected 与 14 个 epoch100 条目、实例数语义是否正确。</li>
+<li><strong>审核小样本及来源簇。</strong> 对 CImage、CBPD_ODD 优先登记图像来源与标注；按视频、摄像头、身份或采集批次核查近重复和划分关系，必要时再冻结新版本。抽样审阅须留逐图条目及裁决依据。</li>
+<li><strong>嵌套重复量化不确定性。</strong> 在重点噪声域用每有效 seed 多次运行；分别估计 seed 差异、运行噪声与 test 来源簇抽样误差，避免把 n=3 SD 当置信区间。</li>
+<li><strong>统一部署工作点。</strong> 保留 AP 主表；另在 val 选择或直接冻结 conf=0.25，test 上按 IoU≥0.5 一对一匹配输出 TP/FP/FN、P/R/F1，并记录预测数与阈值。</li>
+<li><strong>补做同视图单源与预算对照。</strong> 新 <code>data/</code>、新 test 上复核 14×14 单源迁移，再计算 <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msub><mi>&#x00394;</mi><mrow><mi>m</mi><mi>u</mi><mi>l</mi><mi>t</mi><mi>i</mi></mrow></msub></mrow></math>；研究域多样性效果需匹配样本量、优化更新预算和选模规则。</li>
+<li><strong>论文落点与其他模型复核。</strong> 新 YOLO11m test 结果单独注明协议，衔接目标保持率和随机性声明；不将它直接混进旧四架构 val 表。其他架构需先冻结跨框架 evaluator、输入、训练与选模协议。</li>
+</ol>
+<p>上述为待执行工作，不计入本次完成的训练、评测或错误分析。</p>
+<h3>7.4 可采用的阶段结论</h3>
+<blockquote>
+<p>在去重后的 <code>data/</code> 与冻结 test 视图上，YOLO11m 的 14 域域内监督参照 AP50–95 等权宏平均为 <strong>0.7214</strong>（stock 主方案）。有效种子扩展的三种子宏平均为 <strong>0.72049±0.00159</strong>（样本 SD，n=3），总体分数量级与主方案接近。stock 重复在 11/14 域记录为逐位一致，3 域存在运行间波动；HCRD 同 seed 判别进一步提示残余非确定性。以同目标 test 的 LODO 三种子平均为分子，逐域保持率宏平均约为 <strong>0.7328</strong>，各域差异明显且 CImage 可超过经验监督参照。高域内精度不足以保证高跨域保持率。上述结果支持当前协议下的描述性比较，不构成数据集质量排名、因果解释、理论上限或显著性结论。</p>
+</blockquote>
+<p><strong>本次完成：</strong> 来源阅读、镜像脚本核查、15 项官方/原始研究入口核查、表格复算、图表制作、相对链接与资料身份检查。<br />
+<strong>本次未运行：</strong> 远程训练/推理、逐图误差分析、CPU seed 机制测试、显著性检验、来源簇 bootstrap、SQLite/向量索引同步。</p>
+<hr />
+<p><strong>记录人签字：</strong> <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_　<strong>日期：</strong> </em></strong><strong><em>_</em></strong><strong><em>_</em></strong>_<br />
+<strong>审核人/导师签字：</strong> <strong><em>_</em></strong><strong><em>_</em></strong>　<strong>日期：</strong> <strong><em>_</em></strong><strong><em>_</em></strong>____</p>
+<h2>附录 A. 来源、文献与定位</h2>
+<h3>A.1 本地直接阅读来源</h3>
+<ul>
+<li><strong>L1　<a href="../牛只数据集/10月域内重测计划.md">10月域内重测计划</a>。</strong> 制定 2026-10-05；es 增补 2026-10-09。完整读取；重点定位 §§1–7 的协议、§10 的边界、§11 的种子扩展。</li>
+<li><strong>L2　<a href="../牛只数据集/域内重测-10月.md">域内重测：过程与结果</a>。</strong> 完整读取；§3 排障与恢复、§4 主表、§5 stock 稳定性、§6 保持率、§7 旧对照、§9 资产、§11 es 扩展。历史实验事实的主要本地依据。</li>
+<li><strong>L3　<a href="../牛只数据集/LODO测试-9月.md">LODO测试：过程与结果</a>。</strong> 本次重点读取 §2.1–2.3、§5.3–5.4 及相关结果位置；用于核对新数据规模、三种子分子、SD 与保持率口径。</li>
+<li><strong>L4　<a href="实验记录格式参考.md">实验记录格式参考</a>。</strong> 完整读取；采用实验目的、原理、材料、步骤、观察、结果、讨论七项结构与签字栏。</li>
+<li><strong>L5　本地实现镜像。</strong> 只读检查以下 7 份：<code>D:\牛只数据集实验\indomain_protocol.yaml</code>、<code>indomain_train.py</code>、<code>indomain_select_checkpoint.py</code>、<code>indomain_eval_test.py</code>、<code>indomain_compare_lodo.py</code>、<code>run_indomain_all.sh</code>、<code>indomain_seed_patch_test.py</code>。已记录 SHA-256；路径本次存在，但未确认与远程历史执行代码完全一致。</li>
+</ul>
+<p>背景定位时还查看了已有<a href="多源留一域泛化.md">多源留一域泛化记录</a>及其<a href="../wiki/sources/cowcv-indomain-architecture-evidence.md">来源摘要</a>，用于衔接已有索引与辨识口径；没有用它们替代 L1/L2 原始记录。</p>
+<h3>A.2 本次自行核查的操作指南与原始研究</h3>
+<p>外部入口访问日期统一为 <strong>2026-10-14</strong>。官方滚动文档用于操作概念，历史机制尽量引用固定 <code>v8.4.92</code>/<code>v2.5.1</code> 源码。R9/R10 本次核查论文摘要与元信息，不称为全文精读。具体命中片段、HTTP 状态、访问时间与内容 hash 见<a href="域内重测.assets/外部来源核查.json">外部来源核查</a>。</p>
+<ul>
+<li><strong>R1　<a href="https://docs.ultralytics.com/modes/train/">Ultralytics Model Training</a>。</strong> 定位 Train Settings；核查 optimizer、seed、deterministic、nbs 和 close_mosaic 概念。滚动页面已含其他模型内容，不将其默认值直接冒充历史生效设置。</li>
+<li><strong>R2　<a href="https://docs.ultralytics.com/modes/val/">Ultralytics Model Validation</a>。</strong> 定位 Validation Arguments；核查 split、候选 conf、NMS IoU 与汇总 P/R 工作点。</li>
+<li><strong>R3　<a href="https://github.com/ultralytics/ultralytics/blob/v8.4.92/ultralytics/data/build.py">Ultralytics v8.4.92：data/build.py</a>。</strong> <code>build_dataloader</code>、<code>seed_worker</code>：固定 generator 常数与 worker 派生规则。</li>
+<li><strong>R4　<a href="https://github.com/ultralytics/ultralytics/blob/v8.4.92/ultralytics/utils/metrics.py">Ultralytics v8.4.92：utils/metrics.py</a>。</strong> <code>ap_per_class</code>、<code>Metric.fitness</code>、<code>DetMetrics</code>：平滑 F1 峰值、fitness 权重与计数字段。</li>
+<li><strong>R5　<a href="https://github.com/ultralytics/ultralytics/blob/v8.4.92/ultralytics/engine/trainer.py">Ultralytics v8.4.92：engine/trainer.py</a>。</strong> 累积步数、warmup 更新与 <code>save_model</code> 相等判断。</li>
+<li><strong>R6　<a href="https://github.com/pytorch/pytorch/blob/v2.5.1/docs/source/notes/randomness.rst">PyTorch v2.5.1：Reproducibility</a>。</strong> 复现限制及 DataLoader 的 generator/worker_init_fn 示例。</li>
+<li><strong>R7　<a href="https://github.com/pytorch/pytorch/blob/v2.5.1/torch/utils/data/dataloader.py">PyTorch v2.5.1：DataLoader 源码</a>。</strong> <code>RandomSampler(..., generator=generator)</code> 与 <code>_BaseDataLoaderIter._base_seed</code>。</li>
+<li><strong>R8　<a href="https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocotools/cocoeval.py">COCO API：cocoeval.py</a>。</strong> 10 个 IoU 阈值、101 个召回阈值与 maxDets。访问时记录 hash；用于指标定义，不声称本实验直接使用其全部实现。</li>
+<li><strong>R9　Gulrajani, I.; Lopez-Paz, D. (2020). <a href="https://arxiv.org/abs/2007.01434">In Search of Lost Domain Generalization</a>。</strong> 原论文摘要：域泛化比较中的实验条件与模型选择问题；本项目的协议参考。</li>
+<li><strong>R10　Beery, S.; van Horn, G.; Perona, P. (2018). <a href="https://arxiv.org/abs/1807.04975">Recognition in Terra Incognita</a>，ECCV 2018。</strong> 原论文摘要：固定摄像位置到新环境的识别泛化；启发来源簇审核，非本项目因果证据。</li>
+<li><strong>R11　<a href="https://github.com/ultralytics/ultralytics/blob/v8.4.92/ultralytics/nn/tasks.py">Ultralytics v8.4.92：nn/tasks.py</a>。</strong> <code>_remap_cls_by_names</code>、<code>load</code>：按类别名重映射及 Transferred 计数。</li>
+<li><strong>R12　<a href="https://github.com/ultralytics/ultralytics/blob/v8.4.92/ultralytics/utils/torch_utils.py">Ultralytics v8.4.92：utils/torch_utils.py</a>。</strong> <code>init_seeds</code> 的 warn_only 与 <code>strip_optimizer</code> 的 epoch/optimizer 改写。</li>
+<li><strong>R13　<a href="https://github.com/ultralytics/ultralytics/blob/v8.4.92/ultralytics/cfg/default.yaml">Ultralytics v8.4.92：cfg/default.yaml</a>。</strong> 版本固定的 conf 注释、NMS iou 与 max_det；不代替历史运行参数。</li>
+<li><strong>R14　<a href="https://github.com/ultralytics/ultralytics/blob/v8.4.92/ultralytics/models/yolo/detect/train.py">Ultralytics v8.4.92：detect/train.py</a>。</strong> <code>get_dataloader</code> 中 <code>drop_last=self.args.compile and mode=="train"</code>。</li>
+<li><strong>R15　<a href="https://github.com/ultralytics/ultralytics/blob/v8.4.92/ultralytics/models/yolo/detect/val.py">Ultralytics v8.4.92：detect/val.py</a>。</strong> AP 的 10 阈值向量与 <code>target_img=np.unique(cls)</code> 的计数语义。</li>
+</ul>
+<h2>附录 B. 图表、复算与审核说明</h2>
+<h3>B.1 可编辑与机器可读材料</h3>
+<ul>
+<li><a href="域内重测.assets/表格可编辑底稿.md">表格可编辑底稿</a>：正文 10 张科研表格的 Markdown 数据，便于修改与导出。</li>
+<li><a href="域内重测.assets/逐域指标与种子结果.csv">逐域指标与种子结果 CSV</a>：14 域主结果、e*、es/LODO 三种子及保持率；它是本次从文档摘录的派生表，不是服务器原始 CSV。</li>
+<li><a href="域内重测.assets/数值复算.json">数值复算 JSON</a>：宏平均、SD、极差、保持率、AP 差、选模轮次及显示舍入边界。</li>
+<li><a href="域内重测.assets/来源hash.json">来源 hash</a>与<a href="域内重测.assets/外部来源核查.json">外部来源核查</a>：本地资料身份和外部核查路径。</li>
+<li><a href="域内重测.assets/生成图表与复算.py">图表生成与复算脚本</a>、<a href="域内重测.assets/核查外部来源.py">外部来源核查脚本</a>、<a href="域内重测.assets/复核记录.py">本地复核脚本</a>：重新生成与审核入口。</li>
+<li><a href="域内重测.assets/图表校阅总览.jpg">图表校阅总览</a>及<a href="域内重测.assets/图表版面检查.json">表格版面检查</a>：统一视觉审阅与文字界限检查。</li>
+</ul>
+<h3>B.2 舍入、图像来源与诚实呈现</h3>
+<p>主方案四位逐域 AP 复算宏平均恰为 0.7214。es 四位逐域输入复算均值约 0.72048095、样本 SD≈0.00159702，与原表完整汇总的 0.72049/0.00159 存在末位差；本文保留原报告值，同时在 JSON 留下显示精度复算。完整精度原始 CSV 未重取，不用舍入数据反向覆盖实验结果。</p>
+<p>LODO 三种子逐域表复算 AP 宏平均约 0.50559/0.50085/0.50336；总体 SD≈0.00194，样本 SD≈0.00237。保持率使用原表四位均值和域内四位分母，宏平均≈0.73275884。原表 CImage R=1.486，当前显示精度复算为 1.486419；逐项舍入差不代表实验变化。</p>
+<p><strong>Study Image 产物：</strong> 图 1 证据链、图 2 随机性审计、<a href="域内重测.assets/StudyImage-科研表格视觉母版.png">科研表格视觉母版</a>。场景图为说明性绘制；表格母版只提供设计参考及非数据区的小装饰。10 张表格的全部文字与数字由同一程序数据精确排字；3 张统计图由 Matplotlib 绘制，未让生成模型编造曲线或改写读数。表格为 2,400 像素宽、300 dpi，统计图同为 300 dpi。</p>
+<p>所有正文配图采用同目录 <code>.assets/</code> 相对路径，适配 Typora。图题、表题和说明保留在 Markdown 中；若只移动记录文件而遗漏资源目录，图片将无法显示。未使用伪造预测框、训练截图、签章或实验照片来充当原始证据。</p></main></body></html>

@@ -1,0 +1,391 @@
+{
+  "checked_date": "2026-10-13",
+  "timezone": "Asia/Shanghai",
+  "notes": "只存访问结果与自行撰写核查摘要，不存论文全文。",
+  "sources": [
+    {
+      "id": "W1",
+      "url": "https://arxiv.org/html/2105.01938",
+      "resolved": "https://arxiv.org/html/2105.01938",
+      "status": 200,
+      "error": null,
+      "retrieved_content_characters": 28323,
+      "retrieved_content_sha256": "26eda4cac76da0d9b9f8240c0940614ed5878cc659ab7d62e99020e539e100d6",
+      "evidence_notes": [
+        "全文数据集段记载 D435、4 m 顶视走道、186 牛、10,402 RGB 图与 301 视频。",
+        "标注段明确排除头颈腿尾，围绕可见躯干；水平框派生语义需另核。"
+      ],
+      "access_scope": "readable_full_page",
+      "attempts": [],
+      "successful_access": true,
+      "confirmed_access_url": "https://arxiv.org/html/2105.01938",
+      "confirmed_access_status": 200
+    },
+    {
+      "id": "W2",
+      "url": "https://arxiv.org/html/2503.13777",
+      "method": "curl",
+      "status": "content_loaded_http_status_not_recorded",
+      "error": null,
+      "retrieved_content_characters": 47717,
+      "retrieved_content_sha256": "f13abcc047eeed0cb97554e598cb828913345e20b085e8e7060408bfb11197e3",
+      "evidence_notes": [
+        "全文方法段记录九段一小时视频、600×800、20 fps；900 静态标注帧另于完整跟踪序列。",
+        "公开完整序列为 67,760 帧及 537,908 带身份框；本记录不把这些数当作 CowCV 检测使用规模。"
+      ],
+      "access_scope": "readable_full_page",
+      "attempts": [],
+      "successful_access": true,
+      "confirmed_access_url": "https://arxiv.org/html/2503.13777",
+      "confirmed_access_status": "content_loaded_http_status_not_recorded"
+    },
+    {
+      "id": "W3",
+      "url": "https://arxiv.org/html/2407.20372v1",
+      "method": "curl_with_http_status",
+      "status": 200,
+      "error": null,
+      "retrieved_content_characters": 68888,
+      "retrieved_content_sha256": "cc7c85d5338cd459f5c991e90261e86040a0bed52abc1923fd49317e911a7e8a",
+      "evidence_notes": [
+        "v1 全文摄像机段记录 Top/Side 高 3.25 m、侧视约40度；按30分钟录10秒、14天后筛图。",
+        "全文数量为 Top504、Side500、External250；日光、人工光和 NIR；遮挡框允许推断不可见部分。"
+      ],
+      "access_scope": "readable_full_page",
+      "attempts": [
+        {
+          "id": "W3",
+          "url": "https://arxiv.org/html/2407.20372",
+          "method": "curl",
+          "status": null,
+          "error": "curl: (28) Connection timed out after 25003 milliseconds\r\ncurl: (28) Connection timed out after 25002 milliseconds\r\n"
+        },
+        {
+          "id": "W3",
+          "url": "https://arxiv.org/html/2407.20372v2",
+          "method": "curl_status",
+          "status": 404,
+          "error": null
+        },
+        {
+          "id": "W3",
+          "url": "https://arxiv.org/html/2407.20372v1",
+          "method": "curl_status",
+          "status": null,
+          "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+        }
+      ],
+      "successful_access": true,
+      "confirmed_access_url": "https://arxiv.org/html/2407.20372v1",
+      "confirmed_access_status": 200
+    },
+    {
+      "id": "W4",
+      "url": "https://openaccess.thecvf.com/content/WACV2026/html/Christiansen_MooTrack360_A_Novel_Fisheye_Camera_Dataset_for_Robust_Multi_Diary_WACV_2026_paper.html",
+      "method": "curl",
+      "status": "content_loaded_http_status_not_recorded",
+      "error": null,
+      "retrieved_content_characters": 2907,
+      "retrieved_content_sha256": "36d5a13312d7d9aaf3d160402152b8da24e3adb05c36c3b14a0118ead290d061",
+      "evidence_notes": [
+        "CVF 官方摘要确认顶装鱼眼、商业畜牧环境、密集多相机、日间与近红外辅助资源。",
+        "只读取官方摘要，未独立阅读全文；精确安装高度、机型和检测数量沿用 L1。"
+      ],
+      "access_scope": "abstract_only",
+      "attempts": [],
+      "successful_access": true,
+      "confirmed_access_url": "https://openaccess.thecvf.com/content/WACV2026/html/Christiansen_MooTrack360_A_Novel_Fisheye_Camera_Dataset_for_Robust_Multi_Diary_WACV_2026_paper.html",
+      "confirmed_access_status": "content_loaded_http_status_not_recorded"
+    },
+    {
+      "id": "W5",
+      "url": "https://api.datacite.org/dois/10.5281/zenodo.15688349",
+      "method": "curl_with_http_status",
+      "status": 200,
+      "error": null,
+      "retrieved_content_characters": 11524,
+      "retrieved_content_sha256": "c5caf82881a92955c045838cb2e23de38cfc77d5a9f4fd810f2749a14c51cd20",
+      "evidence_notes": [
+        "Zenodo 直接访问失败；DataCite DOI 元数据确认资源名称、RGB 高位牧场图、YOLOv8 人工行为框及 UUID 配对。",
+        "元数据未支持采集地点、时段、12,578 图、6m 或相机型号，这些保留为 L1 摘录而非本次一手确认。"
+      ],
+      "access_scope": "metadata_only",
+      "attempts": [
+        {
+          "id": "W5",
+          "url": "https://zenodo.org/records/15688349",
+          "method": "curl",
+          "status": null,
+          "error": "curl: (6) Could not resolve host: zenodo.org\r\ncurl: (6) Could not resolve host: zenodo.org\r\n"
+        },
+        {
+          "id": "W5",
+          "url": "https://zenodo.org/api/records/15688349",
+          "method": "curl_status",
+          "status": 0,
+          "error": "curl: (6) Could not resolve host: zenodo.org\r\n"
+        },
+        {
+          "id": "W5",
+          "url": "https://api.datacite.org/dois/10.5281/zenodo.15688349",
+          "method": "curl_status",
+          "status": null,
+          "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+        }
+      ],
+      "successful_access": true,
+      "confirmed_access_url": "https://api.datacite.org/dois/10.5281/zenodo.15688349",
+      "confirmed_access_status": 200
+    },
+    {
+      "id": "W6",
+      "url": "https://api.github.com/repos/ameybhole/IIHC/readme",
+      "method": "curl_status",
+      "status": null,
+      "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>",
+      "retrieved_content_characters": 0,
+      "retrieved_content_sha256": null,
+      "evidence_notes": [
+        "代码页与 README 网络失败；论文和数据 DOI 为本地资料提供的线索，本次未读取全文。",
+        "采集设备、RGB/热图及项目配框数量沿用 L1/L3，证据限制保留。"
+      ],
+      "access_scope": "not_read",
+      "attempts": [
+        {
+          "id": "W6",
+          "url": "https://github.com/ameybhole/IIHC",
+          "method": "curl",
+          "status": null,
+          "error": "curl: (28) Operation timed out after 25010 milliseconds with 0 bytes received\r\ncurl: (28) Failed to connect to github.com:443 after 21020 ms: Could not connect to server\r\n"
+        },
+        {
+          "id": "W6",
+          "url": "https://raw.githubusercontent.com/ameybhole/IIHC/master/README.md",
+          "method": "curl_status",
+          "status": 0,
+          "error": "curl: (28) Connection timed out after 15006 milliseconds\r\n"
+        }
+      ],
+      "successful_access": false
+    },
+    {
+      "id": "W7",
+      "url": "https://api.github.com/repos/bhuiyanmobasshir94/CID/readme",
+      "method": "curl_status",
+      "status": null,
+      "error": "HTTP Error 403: rate limit exceeded",
+      "retrieved_content_characters": 0,
+      "retrieved_content_sha256": null,
+      "evidence_notes": [
+        "作者仓库、README 网络失败，GitHub API 遇到限流。",
+        "514牛、4视图、images/yt_images 边界来自 L1/L3，未伪称本次读取作者 README。"
+      ],
+      "access_scope": "not_read",
+      "attempts": [
+        {
+          "id": "W7",
+          "url": "https://github.com/bhuiyanmobasshir94/CID",
+          "method": "curl",
+          "status": null,
+          "error": "curl: (28) Failed to connect to github.com:443 after 21025 ms: Could not connect to server\r\ncurl: (56) Recv failure: Connection was reset\r\n"
+        },
+        {
+          "id": "W7",
+          "url": "https://raw.githubusercontent.com/bhuiyanmobasshir94/CID/master/README.md",
+          "method": "curl_status",
+          "status": 0,
+          "error": "curl: (28) Operation timed out after 15011 milliseconds with 0 bytes received\r\n"
+        }
+      ],
+      "successful_access": false
+    },
+    {
+      "id": "W8",
+      "url": "https://api.github.com/repos/MicaleLee/Database",
+      "method": "curl_status",
+      "status": 200,
+      "error": null,
+      "retrieved_content_characters": 5272,
+      "retrieved_content_sha256": "dd8dab70bd5302fb790828649d953ff6a03c5dd0b1faf8af527f64786e2d2ee0",
+      "evidence_notes": [
+        "网页加载失败，GitHub 官方仓库 API 简介明确为 cattle pose estimation。",
+        "仅确认原任务，不确认设备、场地与视频来源。"
+      ],
+      "access_scope": "metadata_only",
+      "attempts": [
+        {
+          "id": "W8",
+          "url": "https://github.com/MicaleLee/Database",
+          "method": "curl",
+          "status": null,
+          "error": "curl: (28) Failed to connect to github.com:443 after 21033 ms: Could not connect to server\r\ncurl: (28) Failed to connect to github.com:443 after 21035 ms: Could not connect to server\r\n"
+        }
+      ],
+      "successful_access": true,
+      "confirmed_access_url": "https://api.github.com/repos/MicaleLee/Database",
+      "confirmed_access_status": 200
+    },
+    {
+      "id": "W9",
+      "url": "https://arxiv.org/abs/1405.0312",
+      "resolved": "https://arxiv.org/abs/1405.0312",
+      "status": 200,
+      "error": null,
+      "retrieved_content_characters": 4883,
+      "retrieved_content_sha256": "1cc5059d4b7436bdeecd8fc5f40faa675481451dc623338e24dd6e98aa109c61",
+      "evidence_notes": [
+        "读取原论文摘要，支持复杂日常场景中的通用检测与分割背景。",
+        "Flickr 来源与 CowCV 2017 牛类筛选细节引用 L1；没有读取当前牛类图片包。"
+      ],
+      "access_scope": "abstract_only",
+      "attempts": [],
+      "successful_access": true,
+      "confirmed_access_url": "https://arxiv.org/abs/1405.0312",
+      "confirmed_access_status": 200
+    },
+    {
+      "id": "W10",
+      "url": "https://storage.googleapis.com/openimages/web/factsfigures_v6.html",
+      "resolved": "https://storage.googleapis.com/openimages/web/index.html",
+      "status": 200,
+      "error": null,
+      "method": "curl_with_http_status",
+      "retrieved_content_characters": 22355,
+      "retrieved_content_sha256": "266fe70bb35bfcfce2ca2ee158bf99fff98dba55c3b20c49935eebb01ff49003",
+      "evidence_notes": [
+        "读取官方 V6 facts and figures，确认图像级标签、检测框、实例分割等多任务及版本背景。",
+        "项目实际采用 V6 牛类的判断来自 L1 的元数据记录。"
+      ],
+      "access_scope": "readable_full_page",
+      "attempts": [
+        {
+          "id": "W10",
+          "url": "https://storage.googleapis.com/openimages/web/index.html",
+          "resolved": "https://storage.googleapis.com/openimages/web/index.html",
+          "status": 200,
+          "error": null
+        },
+        {
+          "id": "W10",
+          "url": "https://storage.googleapis.com/openimages/web/factsfigures_v6.html",
+          "resolved": "https://storage.googleapis.com/openimages/web/index.html",
+          "status": null,
+          "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+        }
+      ],
+      "successful_access": true,
+      "confirmed_access_url": "https://storage.googleapis.com/openimages/web/factsfigures_v6.html",
+      "confirmed_access_status": 200
+    },
+    {
+      "id": "W11",
+      "url": "https://arxiv.org/abs/1803.09010",
+      "resolved": "https://arxiv.org/abs/1803.09010",
+      "status": 200,
+      "error": null,
+      "retrieved_content_characters": 4758,
+      "retrieved_content_sha256": "74a0f756f3d2ff9ade9c74834811d53d047a7736fb001988f3c29ca2c1612d58",
+      "evidence_notes": [
+        "读取摘要，支持为数据集记录动机、组成、采集、预处理、用途与维护的思路。",
+        "没有把本文字段方案伪称为该论文原表。"
+      ],
+      "access_scope": "abstract_only",
+      "attempts": [],
+      "successful_access": true,
+      "confirmed_access_url": "https://arxiv.org/abs/1803.09010",
+      "confirmed_access_status": 200
+    },
+    {
+      "id": "W12",
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GroupShuffleSplit.html",
+      "resolved": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GroupShuffleSplit.html",
+      "status": 200,
+      "error": null,
+      "retrieved_content_characters": 18107,
+      "retrieved_content_sha256": "11c505df968d99fe249a27ee78dcdb5a3b163dabe707725b080e1feb5d4346c6",
+      "evidence_notes": [
+        "读取官方 GroupShuffleSplit 文档，按第三方提供的 groups 划分，test_size/train_size 指组数。",
+        "来源组定义和禁止关联由研究问题决定，函数不自动判断泄漏。"
+      ],
+      "access_scope": "readable_full_page",
+      "attempts": [],
+      "successful_access": true,
+      "confirmed_access_url": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GroupShuffleSplit.html",
+      "confirmed_access_status": 200
+    },
+    {
+      "id": "W13",
+      "url": "https://docs.opencv.org/4.x/d4/d15/group__videoio__flags__base.html",
+      "method": "curl_with_http_status",
+      "status": 403,
+      "error": null,
+      "retrieved_content_characters": 60,
+      "retrieved_content_sha256": "0b5346172e9efa2344fdb1a14159af2616323e3b215bb7c3d772fd5434aed8ad",
+      "evidence_notes": [
+        "OpenCV 文档 HTTP403，官方源码入口遇到网络/限流；未取得正文。",
+        "仅作为后续接口核查入口。当前视频 SOP 为本次建议，不是已执行实验。"
+      ],
+      "access_scope": "not_read",
+      "attempts": [
+        {
+          "id": "W13",
+          "url": "https://docs.opencv.org/4.x/d8/dfe/classcv_1_1VideoCapture.html",
+          "method": "curl",
+          "status": null,
+          "error": null
+        },
+        {
+          "id": "W13",
+          "url": "https://raw.githubusercontent.com/opencv/opencv/4.x/modules/videoio/include/opencv2/videoio.hpp",
+          "method": "curl_status",
+          "status": 0,
+          "error": "curl: (28) Operation timed out after 15011 milliseconds with 0 bytes received\r\n"
+        },
+        {
+          "id": "W13",
+          "url": "https://api.github.com/repos/opencv/opencv/contents/modules/videoio/include/opencv2/videoio.hpp?ref=4.x",
+          "method": "curl_status",
+          "status": null,
+          "error": "HTTP Error 403: rate limit exceeded"
+        }
+      ],
+      "successful_access": false
+    },
+    {
+      "id": "W14",
+      "url": "https://docs.ultralytics.com/modes/val/",
+      "method": "curl",
+      "status": "content_loaded_http_status_not_recorded",
+      "error": null,
+      "retrieved_content_characters": 19329,
+      "retrieved_content_sha256": "5b71994592ac9e1300b7e282a3c68d4028a58d1d7857fe873c7c05af4affa6ab",
+      "evidence_notes": [
+        "读取官方验证指南，split 与评估输出、iou 的 NMS 含义明确；当前设置不能证明历史实例采用相同接口。",
+        "本文仅据此提醒匹配阈值、后处理参数与固定工作点分开记录。"
+      ],
+      "access_scope": "readable_full_page",
+      "attempts": [],
+      "successful_access": true,
+      "confirmed_access_url": "https://docs.ultralytics.com/modes/val/",
+      "confirmed_access_status": "content_loaded_http_status_not_recorded"
+    },
+    {
+      "id": "W15",
+      "url": "https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocotools/cocoeval.py",
+      "resolved": "https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocotools/cocoeval.py",
+      "status": 200,
+      "error": null,
+      "retrieved_content_characters": 26861,
+      "retrieved_content_sha256": "1ff35d83bb37173411d03585dab71c6e5e8e1ddbbbe79913fce52b30b6765f93",
+      "evidence_notes": [
+        "读取 COCOeval 官方代码页，找到 IoU 匹配阈值、面积范围与 maxDets 定义。",
+        "用于建议冻结评估设置，没有运行评估或给出新分数。"
+      ],
+      "access_scope": "readable_full_page",
+      "attempts": [],
+      "successful_access": true,
+      "confirmed_access_url": "https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocotools/cocoeval.py",
+      "confirmed_access_status": 200
+    }
+  ]
+}

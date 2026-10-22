@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "date": "2026-10-14",
+  "record_sections": 7,
+  "record_images": 20,
+  "scientific_tables": 14,
+  "local_link_occurrences": 66,
+  "external_reference_urls": 17,
+  "datasets": 14,
+  "model_dataset_rows": 56,
+  "image_counts": [
+    23851,
+    4971,
+    2551,
+    31373
+  ],
+  "sources": 24,
+  "official_sources_opened": 17,
+  "lodo_seed_dataset_rows": 42,
+  "new_test_images": 3124,
+  "lodo_macro_mean": 0.5032666666666666,
+  "holding_ratio_macro": 0.7327669844551272,
+  "source_hashes_unchanged": 7,
+  "wiki_unique_ids_checked": 8,
+  "index_entry": "- [牛只域内模型与架构比较：历史验证记录及方法核查](wiki/sources/cowcv-indomain-architecture-evidence.md) | `source` | `draft` | 更新：2026-10-14 | 来源：24 — 整理四模型14域历史验证及LODO三种子、同视图域内保持率与实施复核，保留协议和统计冲突并关联科研记录。",
+  "source_title_sorting": "passed",
+  "csv_and_table_numeric_consistency": "passed",
+  "python_syntax": "passed",
+  "visual_review": "已查看历史及新增图表总览、Study Image新证据链和新增关键表格与种子图；无裁切或数据区域重叠",
+  "not_run": [
+    "远程训练与推理",
+    "远程产物当前存在性",
+    "历史安装源码与checkpoint身份复核",
+    "逐图误差审核",
+    "显著性检验",
+    "数据库与向量索引同步"
+  ]
+}

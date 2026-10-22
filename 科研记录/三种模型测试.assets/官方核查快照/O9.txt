@@ -1,0 +1,8 @@
+核查摘记（非网页或论文全文）
+来源：COCO evaluation source
+原始URL：https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocotools/cocoeval.py
+本次读取URL：https://raw.githubusercontent.com/cocodataset/cocoapi/master/PythonAPI/pycocotools/cocoeval.py
+核查日期：2026-10-14
+下载内容SHA-256：e514af401848d5a4cc5d3512bd93d2c317f92272c6d30f218e0f00b7b4110534
+定位：Params.setDetParams；IoU与maxDets
+摘记：Params.setDetParams使用IoU 0.50至0.95、步长0.05；recall采样0至1；默认maxDets为1、10、100。项目是否覆盖默认值仍待有效配置。

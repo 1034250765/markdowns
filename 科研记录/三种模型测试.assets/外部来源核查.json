@@ -1,0 +1,168 @@
+[
+  {
+    "id": "O1",
+    "title": "Ultralytics YOLO11",
+    "url": "https://docs.ultralytics.com/models/yolo11/",
+    "locator": "模型系列与官方任务范围",
+    "checked": "2026-10-14",
+    "status": "相关正文与指定版本源码已核对",
+    "http_status": 200,
+    "resolved_url": "https://docs.ultralytics.com/models/yolo11",
+    "snapshot": "官方核查快照/O1.txt",
+    "sha256_download": "29c1ad75f721eca64fe567dca1d4173acc04b4ce0e9d4ce88437812210edc95a",
+    "matched_patterns": [
+      "YOLO11s",
+      "YOLO11l"
+    ]
+  },
+  {
+    "id": "O2",
+    "title": "Ultralytics Model Validation",
+    "url": "https://docs.ultralytics.com/modes/val/",
+    "locator": "model.val、split、conf、iou；当前文档不反证历史默认值",
+    "checked": "2026-10-14",
+    "status": "相关正文与指定版本源码已核对",
+    "http_status": 200,
+    "resolved_url": "https://docs.ultralytics.com/modes/val",
+    "snapshot": "官方核查快照/O2.txt",
+    "sha256_download": "39a7b2301b7e3cd092426f0063f6c9d81fddfe323d3acf097dbc76dc9c772f2c",
+    "matched_patterns": [
+      "split",
+      "NMS",
+      "conf"
+    ]
+  },
+  {
+    "id": "O3",
+    "title": "Ultralytics Model Training",
+    "url": "https://docs.ultralytics.com/modes/train/",
+    "locator": "训练参数与断点恢复的一般接口",
+    "checked": "2026-10-14",
+    "status": "相关正文与指定版本源码已核对",
+    "http_status": 200,
+    "resolved_url": "https://docs.ultralytics.com/modes/train",
+    "snapshot": "官方核查快照/O3.txt",
+    "sha256_download": "f71f5fc3ddcbf7ff3b7a7404dfc804361848deedbb852fd7f1bd0a5d2e821848",
+    "matched_patterns": [
+      "resume",
+      "batch",
+      "optimizer"
+    ]
+  },
+  {
+    "id": "O4",
+    "title": "MMDetection 3.3.0 Customize Datasets",
+    "url": "https://mmdetection.readthedocs.io/en/v3.3.0/advanced_guides/customize_dataset.html",
+    "locator": "类别映射与num_classes一致性",
+    "checked": "2026-10-14",
+    "status": "相关正文与指定版本源码已核对",
+    "http_status": 200,
+    "resolved_url": "https://mmdetection.readthedocs.io/en/v3.3.0/advanced_guides/customize_dataset.html",
+    "snapshot": "官方核查快照/O4.txt",
+    "sha256_download": "41c1fac0ccefc937b3ee11e5d701a263858bb8c542c4aaaab912106bb2e0cb2c",
+    "matched_patterns": [
+      "num_classes",
+      "categories"
+    ]
+  },
+  {
+    "id": "O5",
+    "title": "MMDetection 3.3.0 Test existing models",
+    "url": "https://mmdetection.readthedocs.io/en/v3.3.0/user_guides/test.html",
+    "locator": "tools/test.py与配置/权重参数",
+    "checked": "2026-10-14",
+    "status": "相关正文与指定版本源码已核对",
+    "http_status": 200,
+    "resolved_url": "https://mmdetection.readthedocs.io/en/v3.3.0/user_guides/test.html",
+    "snapshot": "官方核查快照/O5.txt",
+    "sha256_download": "48484757cbbf73f16fbba8d7af2051f4b11661eb36fb4cd45d8661684390c26e",
+    "matched_patterns": [
+      "tools/test.py",
+      "checkpoint"
+    ]
+  },
+  {
+    "id": "O6",
+    "title": "MMDetection v3.3.0 RetinaNet config",
+    "url": "https://github.com/open-mmlab/mmdetection/blob/v3.3.0/configs/_base_/models/retinanet_r50_fpn.py",
+    "locator": "FocalLoss、test_cfg；官方基础配置不等于历史有效配置",
+    "checked": "2026-10-14",
+    "status": "相关正文与指定版本源码已核对",
+    "http_status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/open-mmlab/mmdetection/v3.3.0/configs/_base_/models/retinanet_r50_fpn.py",
+    "snapshot": "官方核查快照/O6.txt",
+    "sha256_download": "7fa599ca882f19f48ec805d53cca3d863c5d407b86329375e3f1443df40e00d2",
+    "matched_patterns": [
+      "FocalLoss",
+      "max_per_img",
+      "nms"
+    ]
+  },
+  {
+    "id": "O7",
+    "title": "Ultralytics v8.4.92 metrics.py",
+    "url": "https://github.com/ultralytics/ultralytics/blob/v8.4.92/ultralytics/utils/metrics.py",
+    "locator": "Metric.fitness L1009–1012；ap_per_class L885–886",
+    "checked": "2026-10-14",
+    "status": "相关正文与指定版本源码已核对",
+    "http_status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/utils/metrics.py",
+    "snapshot": "官方核查快照/O7.txt",
+    "sha256_download": "56578b6b3fc83b8d87fed64c8895431f17adcb3e45b79199685cc4e45fe0037c",
+    "matched_patterns": [
+      "def fitness",
+      "w = [0.0",
+      "argmax"
+    ]
+  },
+  {
+    "id": "O8",
+    "title": "Ultralytics v8.4.92 trainer.py",
+    "url": "https://github.com/ultralytics/ultralytics/blob/v8.4.92/ultralytics/engine/trainer.py",
+    "locator": "save_model L712–714；validate L814–817",
+    "checked": "2026-10-14",
+    "status": "相关正文与指定版本源码已核对",
+    "http_status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/engine/trainer.py",
+    "snapshot": "官方核查快照/O8.txt",
+    "sha256_download": "c9a995de067fc8cc291de18739a4519781070d348f74fa7ee4b3d67c3d86d008",
+    "matched_patterns": [
+      "best_fitness == self.fitness",
+      "best_fitness < fitness"
+    ]
+  },
+  {
+    "id": "O9",
+    "title": "COCO evaluation source",
+    "url": "https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocotools/cocoeval.py",
+    "locator": "Params.setDetParams；IoU与maxDets",
+    "checked": "2026-10-14",
+    "status": "相关正文与指定版本源码已核对",
+    "http_status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/cocodataset/cocoapi/master/PythonAPI/pycocotools/cocoeval.py",
+    "snapshot": "官方核查快照/O9.txt",
+    "sha256_download": "e514af401848d5a4cc5d3512bd93d2c317f92272c6d30f218e0f00b7b4110534",
+    "matched_patterns": [
+      "self.iouThrs",
+      "self.maxDets"
+    ]
+  },
+  {
+    "id": "O10",
+    "title": "Lin et al. Focal Loss for Dense Object Detection, ICCV 2017",
+    "url": "https://arxiv.org/abs/1708.02002",
+    "locator": "§3 Focal Loss；§4 RetinaNet；原论文而非牛只实验",
+    "checked": "2026-10-14",
+    "status": "相关正文与指定版本源码已核对",
+    "http_status": 200,
+    "resolved_url": "https://ar5iv.labs.arxiv.org/html/1708.02002",
+    "snapshot": "官方核查快照/O10.txt",
+    "sha256_download": "790aa845837e8d5a9e236ffa5d5260cc1b53d246c394d1f77896c89b5fae73dc",
+    "matched_patterns": [
+      "Focal Loss",
+      "RetinaNet",
+      "easy",
+      "modulating"
+    ]
+  }
+]

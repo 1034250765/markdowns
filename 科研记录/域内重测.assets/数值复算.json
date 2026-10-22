@@ -1,0 +1,507 @@
+{
+  "scope": "本地Markdown显示精度复算，不是远程原始CSV；source字段保存出处",
+  "date": "2026-10-14",
+  "source": "C:\\Users\\LYX10\\Downloads\\Typora\\牛只数据集\\域内重测-10月.md",
+  "lodo_source": "C:\\Users\\LYX10\\Downloads\\Typora\\牛只数据集\\LODO测试-9月.md",
+  "test_images_total": 3124,
+  "domains": 14,
+  "main_macros": {
+    "AP50": 0.9168214285714286,
+    "AP": 0.7214,
+    "P": 0.9169214285714286,
+    "R": 0.8838428571428572
+  },
+  "es_macros_from_4dp": [
+    0.7186428571428571,
+    0.7215285714285714,
+    0.7212714285714286
+  ],
+  "es_macro_mean_from_4dp": 0.7204809523809523,
+  "es_macro_sample_SD_from_4dp": 0.0015970210363286297,
+  "es_macro_reported": {
+    "per_seed": [
+      0.71865,
+      0.72153,
+      0.72127
+    ],
+    "mean": 0.72049,
+    "sample_SD": 0.00159
+  },
+  "lodo_macros_from_4dp": [
+    0.5055928571428572,
+    0.50085,
+    0.5033571428571428
+  ],
+  "lodo_macro_mean_from_4dp": 0.5032666666666666,
+  "lodo_macro_population_SD_from_4dp": 0.001937319957255401,
+  "lodo_macro_sample_SD_from_4dp": 0.002372722681893125,
+  "R_target_macro_from_reported_means": 0.7327588405372948,
+  "ratio_of_AP_macros": 0.697621687987643,
+  "stock_noise_ranges": {
+    "CBPD_ODD": 0.008319999999999994,
+    "COLO": 0.003110000000000057,
+    "HCRD": 0.009240000000000026
+  },
+  "HCRD_four_run_range": 0.018340000000000023,
+  "old_macro": 0.7389714285714286,
+  "AP50_AP_gap": {
+    "HCRD": 0.047700000000000076,
+    "CBPD_ODD": 0.07789999999999997,
+    "diarycow": 0.10330000000000006,
+    "Cows2021": 0.10409999999999997,
+    "CID": 0.12019999999999997,
+    "XGain": 0.1643,
+    "NWAFU_CD": 0.16749999999999998,
+    "MooTrack360": 0.2965,
+    "animals_10": 0.18600000000000005,
+    "COLO": 0.3033,
+    "8-calves": 0.4013,
+    "COCO": 0.24969999999999992,
+    "CImage": 0.21810000000000002,
+    "Google_Open_Images": 0.296
+  },
+  "es_SD_rounding": {
+    "reported_median": 0.00325,
+    "from_displayed_values_median": 0.003268512977020116,
+    "reported_count_le_0_004": 10,
+    "recomputed_count_le_0_004": 9
+  },
+  "selection_epochs": {
+    "HCRD": 87,
+    "CBPD_ODD": 97,
+    "diarycow": 100,
+    "Cows2021": 91,
+    "CID": 75,
+    "XGain": 96,
+    "NWAFU_CD": 97,
+    "MooTrack360": 90,
+    "animals_10": 96,
+    "COLO": 90,
+    "8-calves": 63,
+    "COCO": 93,
+    "CImage": 95,
+    "Google_Open_Images": 83
+  },
+  "per_domain": {
+    "HCRD": {
+      "test_images": 106,
+      "AP50": 0.9945,
+      "AP": 0.9468,
+      "P": 0.993,
+      "R": 0.9877,
+      "repeat": "噪声域（0.9376–0.9468）",
+      "selected_epoch": 87,
+      "es": {
+        "values": [
+          0.9361,
+          0.9409,
+          0.9439
+        ],
+        "reported_mean": 0.9403,
+        "reported_SD": 0.004,
+        "recomputed_mean": 0.9403,
+        "recomputed_SD": 0.003934463114581156
+      },
+      "lodo": {
+        "values": [
+          0.2898,
+          0.2951,
+          0.2882
+        ],
+        "reported_mean": 0.291,
+        "reported_SD": 0.003
+      },
+      "R_target": 0.3073510773130545
+    },
+    "CBPD_ODD": {
+      "test_images": 36,
+      "AP50": 0.986,
+      "AP": 0.9081,
+      "P": 0.9399,
+      "R": 0.9772,
+      "repeat": "噪声域（0.9081–0.9164）",
+      "selected_epoch": 97,
+      "es": {
+        "values": [
+          0.9122,
+          0.907,
+          0.9094
+        ],
+        "reported_mean": 0.9095,
+        "reported_SD": 0.0026,
+        "recomputed_mean": 0.9095333333333333,
+        "recomputed_SD": 0.0026025628394590766
+      },
+      "lodo": {
+        "values": [
+          0.9189,
+          0.8925,
+          0.8969
+        ],
+        "reported_mean": 0.9028,
+        "reported_SD": 0.0115
+      },
+      "R_target": 0.9941636383658188
+    },
+    "diarycow": {
+      "test_images": 408,
+      "AP50": 0.9948,
+      "AP": 0.8915,
+      "P": 0.9942,
+      "R": 1.0,
+      "repeat": "逐位一致",
+      "selected_epoch": 100,
+      "es": {
+        "values": [
+          0.892,
+          0.8891,
+          0.8909
+        ],
+        "reported_mean": 0.8907,
+        "reported_SD": 0.0015,
+        "recomputed_mean": 0.8906666666666667,
+        "recomputed_SD": 0.0014640127503998581
+      },
+      "lodo": {
+        "values": [
+          0.6231,
+          0.6237,
+          0.617
+        ],
+        "reported_mean": 0.6213,
+        "reported_SD": 0.003
+      },
+      "R_target": 0.6969153112731351
+    },
+    "Cows2021": {
+      "test_images": 1040,
+      "AP50": 0.9922,
+      "AP": 0.8881,
+      "P": 0.9779,
+      "R": 0.9818,
+      "repeat": "逐位一致",
+      "selected_epoch": 91,
+      "es": {
+        "values": [
+          0.8902,
+          0.8889,
+          0.8908
+        ],
+        "reported_mean": 0.89,
+        "reported_SD": 0.0009,
+        "recomputed_mean": 0.8899666666666667,
+        "recomputed_SD": 0.0009712534856222327
+      },
+      "lodo": {
+        "values": [
+          0.2753,
+          0.2638,
+          0.2612
+        ],
+        "reported_mean": 0.2668,
+        "reported_SD": 0.0061
+      },
+      "R_target": 0.30041661975002815
+    },
+    "CID": {
+      "test_images": 205,
+      "AP50": 0.9878,
+      "AP": 0.8676,
+      "P": 0.9603,
+      "R": 0.9635,
+      "repeat": "逐位一致",
+      "selected_epoch": 75,
+      "es": {
+        "values": [
+          0.8662,
+          0.8686,
+          0.8675
+        ],
+        "reported_mean": 0.8674,
+        "reported_SD": 0.0012,
+        "recomputed_mean": 0.8674333333333334,
+        "recomputed_SD": 0.0012013880860627089
+      },
+      "lodo": {
+        "values": [
+          0.7416,
+          0.7315,
+          0.7222
+        ],
+        "reported_mean": 0.7318,
+        "reported_SD": 0.0079
+      },
+      "R_target": 0.8434762563393269
+    },
+    "XGain": {
+      "test_images": 163,
+      "AP50": 0.9944,
+      "AP": 0.8301,
+      "P": 0.9843,
+      "R": 0.9843,
+      "repeat": "逐位一致",
+      "selected_epoch": 96,
+      "es": {
+        "values": [
+          0.8255,
+          0.826,
+          0.8279
+        ],
+        "reported_mean": 0.8265,
+        "reported_SD": 0.0013,
+        "recomputed_mean": 0.8264666666666667,
+        "recomputed_SD": 0.0012662279942148248
+      },
+      "lodo": {
+        "values": [
+          0.561,
+          0.5572,
+          0.557
+        ],
+        "reported_mean": 0.5584,
+        "reported_SD": 0.0018
+      },
+      "R_target": 0.6726900373448983
+    },
+    "NWAFU_CD": {
+      "test_images": 185,
+      "AP50": 0.9127,
+      "AP": 0.7452,
+      "P": 0.896,
+      "R": 0.8407,
+      "repeat": "逐位一致",
+      "selected_epoch": 97,
+      "es": {
+        "values": [
+          0.7441,
+          0.7484,
+          0.7457
+        ],
+        "reported_mean": 0.7461,
+        "reported_SD": 0.0022,
+        "recomputed_mean": 0.7460666666666667,
+        "recomputed_SD": 0.0021733231083603853
+      },
+      "lodo": {
+        "values": [
+          0.5094,
+          0.509,
+          0.4987
+        ],
+        "reported_mean": 0.5057,
+        "reported_SD": 0.005
+      },
+      "R_target": 0.6786097691894795
+    },
+    "MooTrack360": {
+      "test_images": 150,
+      "AP50": 0.9668,
+      "AP": 0.6703,
+      "P": 0.9519,
+      "R": 0.9093,
+      "repeat": "逐位一致",
+      "selected_epoch": 90,
+      "es": {
+        "values": [
+          0.6679,
+          0.6682,
+          0.6697
+        ],
+        "reported_mean": 0.6686,
+        "reported_SD": 0.001,
+        "recomputed_mean": 0.6686,
+        "recomputed_SD": 0.0009643650760992526
+      },
+      "lodo": {
+        "values": [
+          0.1413,
+          0.1363,
+          0.1407
+        ],
+        "reported_mean": 0.1394,
+        "reported_SD": 0.0022
+      },
+      "R_target": 0.20796658212740562
+    },
+    "animals_10": {
+      "test_images": 161,
+      "AP50": 0.8524,
+      "AP": 0.6664,
+      "P": 0.8751,
+      "R": 0.7781,
+      "repeat": "逐位一致",
+      "selected_epoch": 96,
+      "es": {
+        "values": [
+          0.668,
+          0.6737,
+          0.6756
+        ],
+        "reported_mean": 0.6725,
+        "reported_SD": 0.0039,
+        "recomputed_mean": 0.6724333333333333,
+        "recomputed_SD": 0.003955165398985616
+      },
+      "lodo": {
+        "values": [
+          0.6575,
+          0.6593,
+          0.6694
+        ],
+        "reported_mean": 0.6621,
+        "reported_SD": 0.0052
+      },
+      "R_target": 0.993547418967587
+    },
+    "COLO": {
+      "test_images": 100,
+      "AP50": 0.955,
+      "AP": 0.6517,
+      "P": 0.932,
+      "R": 0.9035,
+      "repeat": "噪声域（0.6517–0.6548）",
+      "selected_epoch": 90,
+      "es": {
+        "values": [
+          0.6524,
+          0.6539,
+          0.6461
+        ],
+        "reported_mean": 0.6508,
+        "reported_SD": 0.0042,
+        "recomputed_mean": 0.6508,
+        "recomputed_SD": 0.004138840417314981
+      },
+      "lodo": {
+        "values": [
+          0.3911,
+          0.374,
+          0.3811
+        ],
+        "reported_mean": 0.382,
+        "reported_SD": 0.007
+      },
+      "R_target": 0.5861592757403714
+    },
+    "8-calves": {
+      "test_images": 90,
+      "AP50": 0.9786,
+      "AP": 0.5773,
+      "P": 0.9687,
+      "R": 0.9657,
+      "repeat": "逐位一致",
+      "selected_epoch": 63,
+      "es": {
+        "values": [
+          0.5654,
+          0.5729,
+          0.5763
+        ],
+        "reported_mean": 0.5716,
+        "reported_SD": 0.0056,
+        "recomputed_mean": 0.5715333333333333,
+        "recomputed_SD": 0.005577036249956904
+      },
+      "lodo": {
+        "values": [
+          0.3529,
+          0.3237,
+          0.342
+        ],
+        "reported_mean": 0.3395,
+        "reported_SD": 0.012
+      },
+      "R_target": 0.5880824527975056
+    },
+    "COCO": {
+      "test_images": 172,
+      "AP50": 0.7675,
+      "AP": 0.5178,
+      "P": 0.8061,
+      "R": 0.6792,
+      "repeat": "逐位一致",
+      "selected_epoch": 93,
+      "es": {
+        "values": [
+          0.5189,
+          0.517,
+          0.5112
+        ],
+        "reported_mean": 0.5157,
+        "reported_SD": 0.004,
+        "recomputed_mean": 0.5157,
+        "recomputed_SD": 0.004011234224026336
+      },
+      "lodo": {
+        "values": [
+          0.4953,
+          0.5067,
+          0.5046
+        ],
+        "reported_mean": 0.5022,
+        "reported_SD": 0.005
+      },
+      "R_target": 0.9698725376593278
+    },
+    "CImage": {
+      "test_images": 17,
+      "AP50": 0.7004,
+      "AP": 0.4823,
+      "P": 0.7928,
+      "R": 0.6958,
+      "repeat": "逐位一致",
+      "selected_epoch": 95,
+      "es": {
+        "values": [
+          0.464,
+          0.4896,
+          0.4993
+        ],
+        "reported_mean": 0.4843,
+        "reported_SD": 0.0182,
+        "recomputed_mean": 0.4843,
+        "recomputed_SD": 0.01823705020007347
+      },
+      "lodo": {
+        "values": [
+          0.6922,
+          0.7157,
+          0.7429
+        ],
+        "reported_mean": 0.7169,
+        "reported_SD": 0.0207
+      },
+      "R_target": 1.4864192411362223
+    },
+    "Google_Open_Images": {
+      "test_images": 291,
+      "AP50": 0.7524,
+      "AP": 0.4564,
+      "P": 0.7647,
+      "R": 0.707,
+      "repeat": "逐位一致",
+      "selected_epoch": 83,
+      "es": {
+        "values": [
+          0.4581,
+          0.4572,
+          0.4435
+        ],
+        "reported_mean": 0.4529,
+        "reported_SD": 0.0082,
+        "recomputed_mean": 0.45293333333333335,
+        "recomputed_SD": 0.008181890572070328
+      },
+      "lodo": {
+        "values": [
+          0.4289,
+          0.4234,
+          0.4251
+        ],
+        "reported_mean": 0.4258,
+        "reported_SD": 0.0023
+      },
+      "R_target": 0.9329535495179668
+    }
+  }
+}

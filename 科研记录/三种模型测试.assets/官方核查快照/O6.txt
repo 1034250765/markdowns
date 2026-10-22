@@ -1,0 +1,8 @@
+核查摘记（非网页或论文全文）
+来源：MMDetection v3.3.0 RetinaNet config
+原始URL：https://github.com/open-mmlab/mmdetection/blob/v3.3.0/configs/_base_/models/retinanet_r50_fpn.py
+本次读取URL：https://raw.githubusercontent.com/open-mmlab/mmdetection/v3.3.0/configs/_base_/models/retinanet_r50_fpn.py
+核查日期：2026-10-14
+下载内容SHA-256：7fa599ca882f19f48ec805d53cca3d863c5d407b86329375e3f1443df40e00d2
+定位：FocalLoss、test_cfg；官方基础配置不等于历史有效配置
+摘记：指定版本基础配置的backbone.depth=50、neck.type=FPN、loss_cls.type=FocalLoss；test_cfg包含score_thr=0.05、NMS阈值0.5及max_per_img=100。它不是项目已核对的有效配置。

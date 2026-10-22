@@ -1,0 +1,20 @@
+{
+  "documentWidth": 1280,
+  "viewportWidth": 1280,
+  "imageCount": 15,
+  "failedImages": [],
+  "mathCount": 26,
+  "mainHeight": 26180,
+  "headings": [
+    "1. 实验目的（Objective）",
+    "2. 实验原理与参考依据（Principle & References）",
+    "3. 数据、软件与计算资源（Materials & Environment）",
+    "4. 实验步骤与过程记录（Procedures）",
+    "5. 原始记录摘录与过程现象（Raw Data & Observations）",
+    "6. 结果与数据分析（Results & Analysis）",
+    "7. 讨论、后续计划与阶段结论（Discussion & Next Steps）",
+    "附录 A. 来源、文献与定位",
+    "附录 B. 图表、复算与审核说明"
+  ],
+  "status": "passed"
+}

@@ -1,0 +1,33 @@
+{
+  "checked_date": "2026-10-13",
+  "timezone": "Asia/Shanghai",
+  "status": "passed",
+  "checks": {
+    "local_links": 52,
+    "unchanged_source_hashes": 6,
+    "tables": 6,
+    "table_data_rows": 49,
+    "table_text_png_json_agreement": true,
+    "test_images_total": 3124,
+    "test_datasets": 14,
+    "test_counts_match_local_october_record": true,
+    "frontmatter_sources": 23,
+    "new_index_entry_matches_frontmatter": true,
+    "wiki_unique_ids": 8,
+    "body_images_relative": 8,
+    "manifest_template_fields": 32,
+    "python_scripts_syntax": true,
+    "external_sources_listed": 15,
+    "external_sources_readable": 12,
+    "raw_research_fulltext_not_distributed": true
+  },
+  "errors": [],
+  "not_run": [
+    "真实图像逐图审核",
+    "远程数据计数",
+    "视频抽帧与相机标定",
+    "模型训练与评估",
+    "场景比例与统计推断",
+    "SQLite/向量索引同步"
+  ]
+}

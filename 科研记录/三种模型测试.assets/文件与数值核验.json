@@ -1,0 +1,77 @@
+{
+  "local_markdown_links_checked": 52,
+  "body_images": {
+    "count": 13,
+    "figures": 5,
+    "tables": 8,
+    "width_px": 2400,
+    "dpi": 300
+  },
+  "wiki_index": {
+    "required_fields": "pass",
+    "unique_sources": 15,
+    "entry_consistency": "pass",
+    "section_order": "pass",
+    "unique_wiki_ids": 10
+  },
+  "unchanged_local_source_hashes": 5,
+  "machine_data": {
+    "unique_model_dataset_pairs": 42,
+    "csv_json_agree": true
+  },
+  "data_tables_and_arithmetic": "pass",
+  "external_sources": [
+    {
+      "id": "O1",
+      "status": "相关正文与指定版本源码已核对"
+    },
+    {
+      "id": "O2",
+      "status": "相关正文与指定版本源码已核对"
+    },
+    {
+      "id": "O3",
+      "status": "相关正文与指定版本源码已核对"
+    },
+    {
+      "id": "O4",
+      "status": "相关正文与指定版本源码已核对"
+    },
+    {
+      "id": "O5",
+      "status": "相关正文与指定版本源码已核对"
+    },
+    {
+      "id": "O6",
+      "status": "相关正文与指定版本源码已核对"
+    },
+    {
+      "id": "O7",
+      "status": "相关正文与指定版本源码已核对"
+    },
+    {
+      "id": "O8",
+      "status": "相关正文与指定版本源码已核对"
+    },
+    {
+      "id": "O9",
+      "status": "相关正文与指定版本源码已核对"
+    },
+    {
+      "id": "O10",
+      "status": "相关正文与指定版本源码已核对"
+    }
+  ],
+  "python_syntax": "pass",
+  "visual_review": "目视查看图表总览、表3、表7及图5；未见文字裁切和数据区域重叠",
+  "not_run": [
+    "远程训练",
+    "推理",
+    "历史checkpoint身份核查",
+    "成员级重复审计复现",
+    "多seed统计显著性",
+    "SQLite与向量索引同步"
+  ],
+  "errors": [],
+  "status": "pass"
+}

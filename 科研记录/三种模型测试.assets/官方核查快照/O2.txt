@@ -1,0 +1,8 @@
+核查摘记（非网页或论文全文）
+来源：Ultralytics Model Validation
+原始URL：https://docs.ultralytics.com/modes/val/
+本次读取URL：https://docs.ultralytics.com/modes/val
+核查日期：2026-10-14
+下载内容SHA-256：39a7b2301b7e3cd092426f0063f6c9d81fddfe323d3acf097dbc76dc9c772f2c
+定位：model.val、split、conf、iou；当前文档不反证历史默认值
+摘记：Arguments中split可取val/test/train；iou解释为NMS阈值；conf是预测最低分数；当前文档说明汇总P/R取max-F1工作点。当前默认值及新增功能不反推历史run。

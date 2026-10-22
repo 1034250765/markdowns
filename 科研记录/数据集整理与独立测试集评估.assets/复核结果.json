@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "checked_local_links": 36,
+  "embedded_images": 9,
+  "tables": 6,
+  "unique_wiki_sources": 19,
+  "source_files_unchanged": 8,
+  "python_example_syntax_checked": 1,
+  "wiki_ids_unique": true,
+  "remote_training_evaluation": "not_run",
+  "database_vector_sync": "not_run"
+}

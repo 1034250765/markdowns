@@ -1,0 +1,8 @@
+核查摘记（非网页或论文全文）
+来源：Lin et al. Focal Loss for Dense Object Detection, ICCV 2017
+原始URL：https://arxiv.org/abs/1708.02002
+本次读取URL：https://ar5iv.labs.arxiv.org/html/1708.02002
+核查日期：2026-10-14
+下载内容SHA-256：790aa845837e8d5a9e236ffa5d5260cc1b53d246c394d1f77896c89b5fae73dc
+定位：§3 Focal Loss；§4 RetinaNet；原论文而非牛只实验
+摘记：核查原论文ar5iv HTML呈现的§3.2、式(5)与§4：带alpha权重的Focal Loss降低易样本贡献；RetinaNet由ResNet/FPN及分类、框回归子网络构成。通用检测论文不证明本项目牛只性能。

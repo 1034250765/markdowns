@@ -1,0 +1,8 @@
+核查摘记（非网页或论文全文）
+来源：MMDetection 3.3.0 Customize Datasets
+原始URL：https://mmdetection.readthedocs.io/en/v3.3.0/advanced_guides/customize_dataset.html
+本次读取URL：https://mmdetection.readthedocs.io/en/v3.3.0/advanced_guides/customize_dataset.html
+核查日期：2026-10-14
+下载内容SHA-256：41c1fac0ccefc937b3ee11e5d701a263858bb8c542c4aaaab912106bb2e0cb2c
+定位：类别映射与num_classes一致性
+摘记：自定义数据指南要求metainfo中的classes、标注categories和num_classes一致；category_id须有效。指南说明可将非连续类别ID映射到连续标签。

@@ -1,0 +1,8 @@
+核查摘记（非网页或论文全文）
+来源：MMDetection 3.3.0 Test existing models
+原始URL：https://mmdetection.readthedocs.io/en/v3.3.0/user_guides/test.html
+本次读取URL：https://mmdetection.readthedocs.io/en/v3.3.0/user_guides/test.html
+核查日期：2026-10-14
+下载内容SHA-256：48484757cbbf73f16fbba8d7af2051f4b11661eb36fb4cd45d8661684390c26e
+定位：tools/test.py与配置/权重参数
+摘记：官方测试接口接受CONFIG_FILE与CHECKPOINT_FILE，示例使用tools/test.py；实际评估划分由配置决定，命令名不证明测试独立性。

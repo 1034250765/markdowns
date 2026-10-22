@@ -1,0 +1,32 @@
+[
+  {
+    "id": "L1",
+    "path": "牛只数据集/Retinanet测试.md",
+    "locator": "§1–6",
+    "sha256": "0cf93535eee8ae3fad6e989f8f96d206b4dfca8647182c882a14e0aab51fd2e0"
+  },
+  {
+    "id": "L2",
+    "path": "牛只数据集/yolo11SL.md",
+    "locator": "§1–9",
+    "sha256": "ee6811b9bf1734b86eedba1b5e0d7d3e990bab09546752e617161d4d45cca4f2"
+  },
+  {
+    "id": "L3",
+    "path": "牛只数据集/_效率数据_远程日志提取_20260908.md",
+    "locator": "训练时间线、batch补证；不采用推理排行榜",
+    "sha256": "03ef7e15eda0e3a8fdb4b9dbbdc117f10169ac6f71fc77629b677c198c4a050a"
+  },
+  {
+    "id": "L4",
+    "path": "牛只数据集/7月工作.md",
+    "locator": "§13.6–13.7，跨划分重复审计",
+    "sha256": "9d0a753414c1e17275679b22511329f45af67e8f0cb85f2f80fe6b900cf04ec6"
+  },
+  {
+    "id": "L5",
+    "path": "科研记录/实验记录格式参考.md",
+    "locator": "实验记录七项结构",
+    "sha256": "175ecbe30615e8fb2fb274cfedd83bfaca39403b6a122295822cef922bb205f3"
+  }
+]

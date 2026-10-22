@@ -1,0 +1,1 @@
+dataset,image_relpath,sha256,source_url,split,split_version,annotation_version,site_id,environment,source_type,camera_id,viewpoint,height_m,lens_model,lighting,modality,video_id,time_block,cow_id,derivative_group,source_group,image_width,image_height,cow_count,occlusion,truncation,box_geometry,target_extent,occluded_extent_rule,evidence_kind,evidence_ref,review_status

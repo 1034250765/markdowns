@@ -1,0 +1,142 @@
+[
+  {
+    "url": "https://docs.ultralytics.com/models/yolo11/",
+    "fetched_url": "https://docs.ultralytics.com/models/yolo11/",
+    "status": "opened",
+    "bytes": 426388,
+    "sha256": "2d03996785a874d53059b9d7ef990cbe6dec28de284edab036ea4fd8813873bd",
+    "title": "Ultralytics YOLO11",
+    "inspection_excerpts": []
+  },
+  {
+    "url": "https://arxiv.org/abs/2304.08069",
+    "fetched_url": "https://arxiv.org/abs/2304.08069",
+    "status": "opened",
+    "bytes": 43612,
+    "sha256": "1370a241a9d3e25347eab1e9de34fbeaeebbe94a5e275c3c51e8f3d3ebbc2bc9",
+    "title": "[2304.08069] DETRs Beat YOLOs on Real-time Object Detection",
+    "inspection_excerpts": []
+  },
+  {
+    "url": "https://arxiv.org/abs/1506.01497",
+    "fetched_url": "https://arxiv.org/abs/1506.01497",
+    "status": "opened",
+    "bytes": 43324,
+    "sha256": "357fc1d0a962281ca6b24321dd6302930c5f76f78f0bd77dc7a94e37ff4f7587",
+    "title": "[1506.01497] Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks",
+    "inspection_excerpts": []
+  },
+  {
+    "url": "https://arxiv.org/abs/1708.02002",
+    "fetched_url": "https://arxiv.org/abs/1708.02002",
+    "status": "opened",
+    "bytes": 42803,
+    "sha256": "b5f4985920d697cde7a7b86fffcf7ebee1bd4502198016545d28087a2e8b0402",
+    "title": "[1708.02002] Focal Loss for Dense Object Detection",
+    "inspection_excerpts": []
+  },
+  {
+    "url": "https://mmdetection.readthedocs.io/en/v3.3.0/advanced_guides/customize_dataset.html",
+    "fetched_url": "https://mmdetection.readthedocs.io/en/v3.3.0/advanced_guides/customize_dataset.html",
+    "status": "opened",
+    "bytes": 73167,
+    "sha256": "41c1fac0ccefc937b3ee11e5d701a263858bb8c542c4aaaab912106bb2e0cb2c",
+    "title": "Customize Datasets &mdash; MMDetection 3.3.0 documentation",
+    "inspection_excerpts": []
+  },
+  {
+    "url": "https://mmengine.readthedocs.io/en/latest/api/generated/mmengine.optim.OptimWrapper.html",
+    "fetched_url": "https://mmengine.readthedocs.io/en/latest/api/generated/mmengine.optim.OptimWrapper.html",
+    "status": "opened",
+    "bytes": 64619,
+    "sha256": "a54ca83613918bf54f3d81d595ebbd938fd7f7dfef81c636a1ad66c6836cc9ca",
+    "title": "OptimWrapper &mdash; mmengine 0.11.0rc3 documentation",
+    "inspection_excerpts": []
+  },
+  {
+    "url": "https://mmengine.readthedocs.io/en/latest/api/generated/mmengine.hooks.CheckpointHook.html",
+    "fetched_url": "https://mmengine.readthedocs.io/en/latest/api/generated/mmengine.hooks.CheckpointHook.html",
+    "status": "opened",
+    "bytes": 55084,
+    "sha256": "c8eb8c5a9f3bcdfc40f703457aafb211e6f5700a79ae318d97b2d474b0a3e7a2",
+    "title": "CheckpointHook &mdash; mmengine 0.11.0rc3 documentation",
+    "inspection_excerpts": []
+  },
+  {
+    "url": "https://github.com/ultralytics/ultralytics/blob/v8.4.92/ultralytics/utils/metrics.py",
+    "fetched_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/utils/metrics.py",
+    "status": "opened",
+    "bytes": 82902,
+    "sha256": "56578b6b3fc83b8d87fed64c8895431f17adcb3e45b79199685cc4e45fe0037c",
+    "title": "metrics.py",
+    "inspection_excerpts": [
+      "def fitness(self) -> float:\n        \"\"\"Return model fitness as a weighted combination of metrics.\"\"\"\n        w = [0.0, 0.0, 0.0, 1.0]  # weights for [P, R, mAP@0.5, mAP@0.5:0.95]\n        return float((np.nan_to_num(np.array(self.mean_results())) * w).sum())\n\n    def update(self, results: tuple):\n        \"\"\"Update the evaluation metrics with a new set of results.\n\n        Args:\n            results (tuple): A tuple containing evaluation metrics:\n                - p (list): Precision for each class.\n                - r (list): Recall for each class.\n                - f1 (list): F1 score for each class.\n                - all_ap (list): AP scores ",
+      "def ap_per_class(\n    tp: np.ndarray,\n    conf: np.ndarray,\n    pred_cls: np.ndarray,\n    target_cls: np.ndarray,\n    plot: bool = False,\n    on_plot=None,\n    save_dir: Path = Path(),\n    names: dict[int, str] | None = None,\n    eps: float = 1e-16,\n    prefix: str = \"\",\n) -> tuple:\n    \"\"\"Compute the average precision per class for object detection evaluation.\n\n    Args:\n        tp (np.ndarray): Binary array indicating whether the detection is correct (True) or not (False).\n        conf (np.ndarray): Array of confidence scores of the detections.\n        pred_cls (np.ndarray): Array of predicted classes of the detections.\n        target_cls ("
+    ]
+  },
+  {
+    "url": "https://github.com/ultralytics/ultralytics/blob/v8.4.92/ultralytics/models/rtdetr/predict.py",
+    "fetched_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/models/rtdetr/predict.py",
+    "status": "opened",
+    "bytes": 3969,
+    "sha256": "494e543e8cb12e614267622c49a61beafbb1f1bb2bc3dd0aefd15a8c50dd97cd",
+    "title": "predict.py",
+    "inspection_excerpts": [
+      "el inference.\n        \"\"\"\n        letterbox = LetterBox(self.imgsz, auto=False, scale_fill=True)\n        return [letterbox(image=x) for x in im]\n",
+      "TDETRPredictor(overrides=args)\n        >>> predictor.predict_cli()\n    \"\"\"\n\n    def postprocess(self, preds, img, orig_imgs):\n        \"\"\"Postprocess the raw predictions from the model to generate bounding boxes and confidence scores.\n\n        The method filters detections based on confidence and class if specified in `self.args`. It converts model\n        predictions (already top-k selected by the",
+      "s://ultralytics.com/license\n\nimport torch\n\nfrom ultralytics.data.augment import LetterBox\nfrom ultralytics.engine.predictor import BasePredictor\nfrom ultralytics.engine.results import Results\nfrom ultralytics.utils import ops\n\n\nclass RTDETRPredictor(BasePredictor):\n    \"\"\"RT-DETR (Real-Time Detection Transformer) Predictor extending the BasePredictor class for making predictions.\n\n    This class l"
+    ]
+  },
+  {
+    "url": "https://github.com/ultralytics/ultralytics/blob/v8.4.92/ultralytics/models/rtdetr/val.py",
+    "fetched_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/models/rtdetr/val.py",
+    "status": "opened",
+    "bytes": 7701,
+    "sha256": "2909476136f97530074ced4949f5fadfca9088629e6f14eca29e5c00d8954cd1",
+    "title": "val.py",
+    "inspection_excerpts": [
+      "nged as RT-DETR handles scaling in postprocessing.\"\"\"\n        return predn\n\n    def postprocess(\n        self, preds: torch.Tensor | list[torch.Tensor] | tuple[torch.Tensor]\n    ) -> list[dict[str, torch.Tensor]]:\n        \"\"\"Apply post-processing to prediction outputs.\n\n        Top-k selection is already performed inside the decoder head. This method converts normalized xywh\n        coordinates to"
+    ]
+  },
+  {
+    "url": "https://github.com/ultralytics/ultralytics/blob/v8.4.92/ultralytics/engine/trainer.py",
+    "fetched_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/engine/trainer.py",
+    "status": "opened",
+    "bytes": 63749,
+    "sha256": "c9a995de067fc8cc291de18739a4519781070d348f74fa7ee4b3d67c3d86d008",
+    "title": "trainer.py",
+    "inspection_excerpts": [
+      " rank=LOCAL_RANK,\n            mode=\"val\",\n        )\n        self.accumulate = max(round(self.args.nbs / self.batch_size), 1)  # accumulate loss before optimizing\n        weight_decay = self.args.weight_decay * self.batch_size * self.accumulate / self.args.nbs  # scale weight_decay\n        iterations = math.ceil(len(self.train_loader.dataset) / max(self.batch_size, self.args.nbs)) * self.epochs\n        self.optimizer = self.build_optimizer(\n            mode",
+      " restart epoch loop with reduced batch size\n                if ni - last_opt_step >= self.accumulate:\n                    self.optimizer_step()\n                    last_opt_step = ni\n\n                    # Timed stopping\n                    if self.args.time:\n                        self.stop = (time.time() - self.train_time_start) > (self.args.time * 3600)\n                        if RANK != -1:  # if DDP training\n                            broadcast_list"
+    ]
+  },
+  {
+    "url": "https://arxiv.org/abs/1612.03144",
+    "fetched_url": "https://arxiv.org/abs/1612.03144",
+    "status": "opened",
+    "bytes": 42446,
+    "sha256": "4dda0d8b07ec9c44261d4d4ee2ddc9acf2efad2234319935cba8a9c53a7b3f66",
+    "title": "[1612.03144] Feature Pyramid Networks for Object Detection",
+    "inspection_excerpts": []
+  },
+  {
+    "url": "https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocotools/cocoeval.py",
+    "fetched_url": "https://raw.githubusercontent.com/cocodataset/cocoapi/master/PythonAPI/pycocotools/cocoeval.py",
+    "status": "opened",
+    "bytes": 24143,
+    "sha256": "e514af401848d5a4cc5d3512bd93d2c317f92272c6d30f218e0f00b7b4110534",
+    "title": "cocoeval.py",
+    "inspection_excerpts": [
+      "  self.recThrs = np.linspace(.0, 1.00, int(np.round((1.00 - .0) / .01)) + 1, endpoint=True)\n        self.maxDets = [1, 10, 100]\n        self.areaRng = [[0 ** 2, 1e5 ** 2], [0 ** 2, 32 ** 2], [32 ** 2, 96 ** 2], [96 ** 2, 1e5 ** 2]]\n        self.areaRngLbl = ['all', 'small', 'medium', 'large']\n        self.useCats = 1\n\n    def setKpParams(self):\n        self.imgIds = []\n        self.catIds = []\n        # np.arange causes trouble.  the data point on arange is slightly larger than the true value\n  "
+    ]
+  },
+  {
+    "url": "https://docs.ultralytics.com/modes/val/",
+    "fetched_url": "https://docs.ultralytics.com/modes/val/",
+    "status": "opened",
+    "bytes": 406533,
+    "sha256": "226d8d02961020a460e6db02304de72535c3346d508709eb897e5d06c80ea42a",
+    "title": "Model Validation with Ultralytics YOLO",
+    "inspection_excerpts": []
+  }
+]

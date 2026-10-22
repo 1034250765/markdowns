@@ -1,0 +1,57 @@
+[
+  {
+    "path": "C:\\Users\\LYX10\\Downloads\\Typora\\牛只数据集\\10月域内重测计划.md",
+    "sha256": "7223b8b7457c71bd0827ee4ed086f8308d086299b58327596d700a5fff7540df",
+    "bytes": 13159
+  },
+  {
+    "path": "C:\\Users\\LYX10\\Downloads\\Typora\\牛只数据集\\域内重测-10月.md",
+    "sha256": "26499babb994fb72d558cf6d6f09c30d33eba59794131393d121adea1681d75c",
+    "bytes": 30597
+  },
+  {
+    "path": "C:\\Users\\LYX10\\Downloads\\Typora\\科研记录\\实验记录格式参考.md",
+    "sha256": "175ecbe30615e8fb2fb274cfedd83bfaca39403b6a122295822cef922bb205f3",
+    "bytes": 6551
+  },
+  {
+    "path": "C:\\Users\\LYX10\\Downloads\\Typora\\牛只数据集\\LODO测试-9月.md",
+    "sha256": "c35de91624931f718f2b1cd80ec490a676d8173a1ac74c229bd5a0789966bd38",
+    "bytes": 22232
+  },
+  {
+    "path": "D:\\牛只数据集实验\\indomain_protocol.yaml",
+    "sha256": "95ffbfda25513df8391979088140030f746c420777dff20f6ad52c5c1f6f9363",
+    "bytes": 2450
+  },
+  {
+    "path": "D:\\牛只数据集实验\\indomain_train.py",
+    "sha256": "38a686da547641bd241cc1b2729814096a8e1f6e0f5554c3896d20befd19bb30",
+    "bytes": 18442
+  },
+  {
+    "path": "D:\\牛只数据集实验\\indomain_select_checkpoint.py",
+    "sha256": "9ec54fd230ea8c6ea9df27771611ca5e1a300a8b1e1be86636b715d42dbad67a",
+    "bytes": 6055
+  },
+  {
+    "path": "D:\\牛只数据集实验\\indomain_eval_test.py",
+    "sha256": "a42ab45c58f3ac19cb0e69a51f54d1ffbaa56a00038999ddcea88383102568f9",
+    "bytes": 5925
+  },
+  {
+    "path": "D:\\牛只数据集实验\\indomain_compare_lodo.py",
+    "sha256": "e6a03ae80041dfcf5f6f017fbdaa7ce7b856a97a8a9e55ae117c021cea97bd7f",
+    "bytes": 14421
+  },
+  {
+    "path": "D:\\牛只数据集实验\\run_indomain_all.sh",
+    "sha256": "7741d9a9a6521c5400ca05704b219cd8d2226181d2b9138902853671b5a72266",
+    "bytes": 3554
+  },
+  {
+    "path": "D:\\牛只数据集实验\\indomain_seed_patch_test.py",
+    "sha256": "1496e69a2dfdb833e61b63afdbec5f6a8cfd9eb160f92f828f8a4aa431950172",
+    "bytes": 5756
+  }
+]

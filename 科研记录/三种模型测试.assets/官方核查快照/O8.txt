@@ -1,0 +1,8 @@
+核查摘记（非网页或论文全文）
+来源：Ultralytics v8.4.92 trainer.py
+原始URL：https://github.com/ultralytics/ultralytics/blob/v8.4.92/ultralytics/engine/trainer.py
+本次读取URL：https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/engine/trainer.py
+核查日期：2026-10-14
+下载内容SHA-256：c9a995de067fc8cc291de18739a4519781070d348f74fa7ee4b3d67c3d86d008
+定位：save_model L712–714；validate L814–817
+摘记：raw第712–714行在best_fitness与本轮fitness相等时写best.pt；第814–817行从指标取fitness并更新最佳值。不能据此直接认定具体历史checkpoint epoch。

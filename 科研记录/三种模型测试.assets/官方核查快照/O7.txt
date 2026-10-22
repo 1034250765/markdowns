@@ -1,0 +1,8 @@
+核查摘记（非网页或论文全文）
+来源：Ultralytics v8.4.92 metrics.py
+原始URL：https://github.com/ultralytics/ultralytics/blob/v8.4.92/ultralytics/utils/metrics.py
+本次读取URL：https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/utils/metrics.py
+核查日期：2026-10-14
+下载内容SHA-256：56578b6b3fc83b8d87fed64c8895431f17adcb3e45b79199685cc4e45fe0037c
+定位：Metric.fitness L1009–1012；ap_per_class L885–886
+摘记：raw第1009–1012行Metric.fitness采用权重[0,0,0,1]，只用mAP50–95；第885–886行用平滑平均F1曲线的最大位置读取P/R。代码tag不证明历史安装文件未被修改。

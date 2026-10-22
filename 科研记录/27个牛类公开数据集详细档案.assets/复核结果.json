@@ -1,0 +1,344 @@
+{
+  "checked_at": "2026-10-13T21:34:55.532189+08:00",
+  "result": "passed",
+  "dataset_cards": 27,
+  "tables": [
+    {
+      "id": "表1",
+      "rows": 5,
+      "image": "表1-资料分类与计数边界.png",
+      "pixels": [
+        2600,
+        1084
+      ]
+    },
+    {
+      "id": "表2",
+      "rows": 5,
+      "image": "表2-A组目录.png",
+      "pixels": [
+        2600,
+        1338
+      ]
+    },
+    {
+      "id": "表3",
+      "rows": 5,
+      "image": "表3-B组目录.png",
+      "pixels": [
+        2600,
+        1338
+      ]
+    },
+    {
+      "id": "表4",
+      "rows": 6,
+      "image": "表4-C组目录.png",
+      "pixels": [
+        2600,
+        1426
+      ]
+    },
+    {
+      "id": "表5",
+      "rows": 5,
+      "image": "表5-D组目录.png",
+      "pixels": [
+        2600,
+        1284
+      ]
+    },
+    {
+      "id": "表6",
+      "rows": 6,
+      "image": "表6-E组目录.png",
+      "pixels": [
+        2600,
+        1534
+      ]
+    },
+    {
+      "id": "表7",
+      "rows": 9,
+      "image": "表7-冲突与修正.png",
+      "pixels": [
+        2600,
+        1652
+      ]
+    },
+    {
+      "id": "表8",
+      "rows": 6,
+      "image": "表8-数据准入与验收.png",
+      "pixels": [
+        2600,
+        1426
+      ]
+    },
+    {
+      "id": "表9",
+      "rows": 6,
+      "image": "表9-条件性决策.png",
+      "pixels": [
+        2600,
+        1346
+      ]
+    },
+    {
+      "id": "表10",
+      "rows": 6,
+      "image": "表10-阶段产物与后续计划.png",
+      "pixels": [
+        2600,
+        1226
+      ]
+    }
+  ],
+  "table_total_rows": 59,
+  "document_images": 13,
+  "checked_local_links": 48,
+  "local_links": [
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/图1-牛只视觉数据模态示意-排版.png"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/表1-资料分类与计数边界.png"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/表格可编辑底稿.md#table-1"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/图2-数据集准入流程示意-排版.png"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/表8-数据准入与验收.png"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/表格可编辑底稿.md#table-8"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/表2-A组目录.png"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/表格可编辑底稿.md#table-2"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/表3-B组目录.png"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/表格可编辑底稿.md#table-3"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/表4-C组目录.png"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/表格可编辑底稿.md#table-4"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/表5-D组目录.png"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/表格可编辑底稿.md#table-5"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/表6-E组目录.png"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/表格可编辑底稿.md#table-6"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/图3-主要模态条目分布.png"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/表7-冲突与修正.png"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/表格可编辑底稿.md#table-7"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/表9-条件性决策.png"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/表格可编辑底稿.md#table-9"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/表10-阶段产物与后续计划.png"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/表格可编辑底稿.md#table-10"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "../牛只数据集/27个牛类公开数据集详细档案.md"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "../牛只数据集/精准畜牧养殖公开计算机视觉数据集系统综述 (Comput Electron Agric 2025).md"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "../牛只数据集/开放数据集与AI-GenAI驱动的精准畜牧计算机视觉双向综述 (Comput Electron Agric 2026).md"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "../牛只数据集/CowCV 候选数据集评估（边界框类）.md"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "../牛只数据集/拍摄环境与场景.md"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "../牛只数据集/数据集融合方法Fusion or Confusion (CVPR 2025 Workshop).md"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "实验记录格式参考.md"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "数据集整理与独立测试集评估.md"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/表格可编辑底稿.md"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/档案与图表数据.json"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/编制记录与图表.py"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/本地来源校验.json"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/补充来源核查.json"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/复核结果.json"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "27个牛类公开数据集详细档案.assets/复核记录.py"
+    },
+    {
+      "from": "科研记录\\27个牛类公开数据集详细档案.md",
+      "target": "../wiki/sources/cattle27-public-dataset-evidence.md"
+    },
+    {
+      "from": "wiki\\sources\\cattle27-public-dataset-evidence.md",
+      "target": "../../牛只数据集/27个牛类公开数据集详细档案.md"
+    },
+    {
+      "from": "wiki\\sources\\cattle27-public-dataset-evidence.md",
+      "target": "../../科研记录/27个牛类公开数据集详细档案.md"
+    },
+    {
+      "from": "wiki\\sources\\cattle27-public-dataset-evidence.md",
+      "target": "../../科研记录/27个牛类公开数据集详细档案.assets/表格可编辑底稿.md"
+    },
+    {
+      "from": "wiki\\sources\\cattle27-public-dataset-evidence.md",
+      "target": "../../科研记录/27个牛类公开数据集详细档案.assets/档案与图表数据.json"
+    },
+    {
+      "from": "wiki\\sources\\cattle27-public-dataset-evidence.md",
+      "target": "../../牛只数据集/CowCV 候选数据集评估（边界框类）.md"
+    },
+    {
+      "from": "wiki\\sources\\cattle27-public-dataset-evidence.md",
+      "target": "../../牛只数据集/数据集融合方法Fusion or Confusion (CVPR 2025 Workshop).md"
+    },
+    {
+      "from": "wiki\\sources\\cattle27-public-dataset-evidence.md",
+      "target": "../../科研记录/27个牛类公开数据集详细档案.assets/补充来源核查.json"
+    },
+    {
+      "from": "wiki\\sources\\cattle27-public-dataset-evidence.md",
+      "target": "../../科研记录/27个牛类公开数据集详细档案.assets/本地来源校验.json"
+    },
+    {
+      "from": "wiki\\sources\\cattle27-public-dataset-evidence.md",
+      "target": "cowcv-dataset-test-evaluation-evidence.md"
+    }
+  ],
+  "local_source_hashes": [
+    {
+      "path": "牛只数据集/27个牛类公开数据集详细档案.md",
+      "unchanged": true
+    },
+    {
+      "path": "牛只数据集/精准畜牧养殖公开计算机视觉数据集系统综述 (Comput Electron Agric 2025).md",
+      "unchanged": true
+    },
+    {
+      "path": "牛只数据集/开放数据集与AI-GenAI驱动的精准畜牧计算机视觉双向综述 (Comput Electron Agric 2026).md",
+      "unchanged": true
+    },
+    {
+      "path": "牛只数据集/CowCV 候选数据集评估（边界框类）.md",
+      "unchanged": true
+    },
+    {
+      "path": "牛只数据集/拍摄环境与场景.md",
+      "unchanged": true
+    },
+    {
+      "path": "牛只数据集/数据集融合方法Fusion or Confusion (CVPR 2025 Workshop).md",
+      "unchanged": true
+    },
+    {
+      "path": "科研记录/实验记录格式参考.md",
+      "unchanged": true
+    },
+    {
+      "path": "科研记录/数据集整理与独立测试集评估.md",
+      "unchanged": true
+    }
+  ],
+  "wiki_sources": 28,
+  "wiki_id_unique": true,
+  "index_entry_unique": true,
+  "visual_qa": "已人工查看原示意、表格母版、全部表格总览和重点放大图；修改文字换行和图片标签坐标后再次查看。",
+  "not_run": [
+    "全量数据包下载与解压",
+    "原图逐图审查",
+    "原包标签转换",
+    "数据包级重复审计",
+    "实际分组划分",
+    "远程状态核查",
+    "模型训练与评估",
+    "统计显著性检验",
+    "SQLite/Qdrant/向量索引同步"
+  ],
+  "errors": []
+}

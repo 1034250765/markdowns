@@ -1,5 +1,6 @@
 {
   "attachmentFolderPath": "附件",
   "spellcheck": false,
-  "promptDelete": false
+  "promptDelete": false,
+  "alwaysUpdateLinks": true
 }

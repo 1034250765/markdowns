@@ -1,0 +1,42 @@
+[
+  {
+    "path": "牛只数据集/27个牛类公开数据集详细档案.md",
+    "bytes": 32756,
+    "sha256": "0efda4cb65639d3e161976b873c2c04bf5e09c14c8bcf70d8978039b72b2fa69"
+  },
+  {
+    "path": "牛只数据集/精准畜牧养殖公开计算机视觉数据集系统综述 (Comput Electron Agric 2025).md",
+    "bytes": 66730,
+    "sha256": "65a8df258a02025050596f06476afc326fab5a45e9c7b597ab11390551c25ef3"
+  },
+  {
+    "path": "牛只数据集/开放数据集与AI-GenAI驱动的精准畜牧计算机视觉双向综述 (Comput Electron Agric 2026).md",
+    "bytes": 40859,
+    "sha256": "41352dd2322c4877d6c4a4915156ff5aa108bd2eadba824630a8419ab51e061d"
+  },
+  {
+    "path": "牛只数据集/CowCV 候选数据集评估（边界框类）.md",
+    "bytes": 18686,
+    "sha256": "97c69cbffb06efdc4b5738d284035bc5fd92d52343f0ba03a9008f206312798c"
+  },
+  {
+    "path": "牛只数据集/拍摄环境与场景.md",
+    "bytes": 26406,
+    "sha256": "8ef866013e3acf7b6492c46e1246bbb01ff2c90a9dea703e1aa84cc4f01ff22e"
+  },
+  {
+    "path": "牛只数据集/数据集融合方法Fusion or Confusion (CVPR 2025 Workshop).md",
+    "bytes": 15009,
+    "sha256": "74276a9d139c630eaa0afee62e4bd188c6a3400bee08755c677e7adb998e3027"
+  },
+  {
+    "path": "科研记录/实验记录格式参考.md",
+    "bytes": 6551,
+    "sha256": "175ecbe30615e8fb2fb274cfedd83bfaca39403b6a122295822cef922bb205f3"
+  },
+  {
+    "path": "科研记录/数据集整理与独立测试集评估.md",
+    "bytes": 38223,
+    "sha256": "7697b348ee2837d56b7d250fa670a1306ed79045660fd2c7b96902e77c10a146"
+  }
+]

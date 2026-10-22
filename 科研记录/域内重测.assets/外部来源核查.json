@@ -1,0 +1,494 @@
+[
+  {
+    "id": "R1",
+    "title": "Ultralytics Train 官方指南",
+    "url": "https://docs.ultralytics.com/modes/train/",
+    "status": 200,
+    "resolved_url": "https://docs.ultralytics.com/modes/train",
+    "bytes": 613813,
+    "sha256": "f71f5fc3ddcbf7ff3b7a7404dfc804361848deedbb852fd7f1bd0a5d2e821848",
+    "matches": [
+      {
+        "key": "nbs",
+        "hits": 1,
+        "excerpts": [
+          "ls, penalizing errors in depth edges and encouraging sharper surface boundaries. \n dlam float 1.0 Variance-focus factor of the SILog loss in depth estimation models. 1.0 makes the loss fully scale-invariant, while 0.0 reduces it to plain log-RMSE. \n nbs int 64 Nominal batch size for normalization of loss. \n overlap_mask bool True Determines whether object masks should be merged into a single mask for training, or kept separate for each object. In case of overlap, the smaller mask is overlaid on top of the larger mask during merge. \n mask_ratio int 4 Downsample ratio for segmentation masks, affecting the resolution of masks used during training. Does not change the resolution of predicted masks. \n dropout float 0.0 Dropout rate for regularization in classification tasks, preventing overfitting by randomly omitting units during training. \n val"
+        ]
+      },
+      {
+        "key": "deterministic",
+        "hits": 3,
+        "excerpts": [
+          "RMSProp , or auto to pick AdamW or MuSGD from the number of training iterations. Affects convergence speed and stability. \n seed int 0 Sets the random seed for training, ensuring reproducibility of results across runs with the same configurations. \n deterministic bool True Forces deterministic algorithm use, ensuring reproducibility but may affect performance and speed due to the restriction on non-deterministic algorithms. \n verbose bool True Enables verbose output during training, displaying progress bars, per-epoch metrics, and additional training information in the console. \n single_cls bool False Treats all classes in multi-class datasets as a single class during training. Useful for binary classification tasks or when focusing on object presence rather than classification. \n classes list[int] None Specifies a list of class IDs to train on. Usefu",
+          " or MuSGD from the number of training iterations. Affects convergence speed and stability. \n seed int 0 Sets the random seed for training, ensuring reproducibility of results across runs with the same configurations. \n deterministic bool True Forces deterministic algorithm use, ensuring reproducibility but may affect performance and speed due to the restriction on non-deterministic algorithms. \n verbose bool True Enables verbose output during training, displaying progress bars, per-epoch metrics, and additional training information in the console. \n single_cls bool False Treats all classes in multi-class datasets as a single class during training. Useful for binary classification tasks or when focusing on object presence rather than classification. \n classes list[int] None Specifies a list of class IDs to train on. Useful for filtering out and focusin"
+        ]
+      },
+      {
+        "key": "optimizer",
+        "hits": 19,
+        "excerpts": [
+          "en the training process has been unexpectedly interrupted, or when you wish to continue training a model with new data or for more epochs.\n\n When training is resumed, Ultralytics YOLO loads the weights from the last saved model and also restores the optimizer state, learning rate scheduler, epoch number, and dataset. This allows you to continue the training process seamlessly from where it was left off. Pass an explicit data= alongside resume to continue on a different dataset instead of the checkpoint's.\n\n You can easily resume training in Ultralytics YOLO by setting the resume argument to True when calling the train method, and specifying the path to the .pt file containing the partially trained model weights.\n\n Below is an example of how to resume an interrupted training using Python and via the command line:\n Resume Training Example \n Python C",
+          "rparameters and configurations used during the training process. These settings influence the model's performance, speed, and accuracy . Key training settings include batch size, learning rate, momentum, and weight decay. Additionally, the choice of optimizer, loss function , and training dataset composition can impact the training process. Careful tuning and experimentation with these settings are crucial for optimizing performance.\n\n MuSGD Optimizer # \n\n In YOLO26, MuSGD is a hybrid optimizer that combines standard SGD updates with Muon-style orthogonalized updates .\n\n It is recommended for longer YOLO26 training runs and larger datasets , where orthogonalized Muon updates can help stabilize optimization.\n\n Only 2D linear weights and 4D convolutional filters (reshaped to 2D) receive the Muon style update together with SGD, while all other parame"
+        ]
+      },
+      {
+        "key": "close_mosaic",
+        "hits": 1,
+        "excerpts": [
+          " to model stride multiples; 0.0 disables multi-scale training. \n cos_lr bool False Utilizes a cosine learning rate scheduler, adjusting the learning rate following a cosine curve over epochs. Helps in managing learning rate for better convergence. \n close_mosaic int 10 Disables mosaic data augmentation in the last N epochs to stabilize training before completion. Setting to 0 disables this feature. \n resume bool False Resumes training from the last saved checkpoint. Automatically loads model weights, optimizer state, and epoch count, continuing training seamlessly. \n amp bool or str True Sets training precision: True or \"fp16\" uses FP16, \"bf16\" uses BF16 on supported CUDA devices, and False or \"fp32\" uses FP32. \n quantize int or str None Set to 8 (or \"int8\" ) for INT8 quantization-aware training (QAT), which fine-tunes with fake-quantization in the l"
+        ]
+      }
+    ],
+    "accessed": "2026-10-14T12:03:45.030227+08:00"
+  },
+  {
+    "id": "R2",
+    "title": "Ultralytics Val 官方指南",
+    "url": "https://docs.ultralytics.com/modes/val/",
+    "status": 200,
+    "resolved_url": "https://docs.ultralytics.com/modes/val",
+    "bytes": 412892,
+    "sha256": "39a7b2301b7e3cd092426f0063f6c9d81fddfe323d3acf097dbc76dc9c772f2c",
+    "matches": [
+      {
+        "key": "split",
+        "hits": 9,
+        "excerpts": [
+          "n-Maximum Suppression . Controls duplicate detection elimination. \n max_det int 300 Limits the maximum number of detections per image. For detect, segment, pose, and OBB, left at 300 it is raised to the largest labelled-object count in the validated split when an image exceeds it, with a warning; any other value is kept, with a warning that recall may be capped when an image exceeds it. \n quantize int or str None Validation precision: 16 / \"fp16\" and 32 / \"fp32\" /unset select FP16 or FP32 compute for PyTorch and TorchScript models (FP32 on CPU); other formats use the precision their artifact and runtime select. At 16 OpenVINO still FP16-rounds the input on the client and widens it back to FP32, without changing the runtime precision. INT8/PTQ quantization is configured during export , then used by validating the exported model. Replaces the de",
+          "h stride 32, a 640×640 image at imgsz=640 becomes 672×672 with a 16 px offset, while predict uses 640×640, so metrics can differ. rect=False matches predict for square images. Ignored for depth and RT-DETR, which stretch images to an imgsz square. \n split str 'val' Determines the dataset split to use for validation ( val , test , or train ). Allows flexibility in choosing the data segment for performance evaluation. \n fraction float , int , or list 1.0 Subset of the validated split. With a [train, val, test] list, the entry matching split applies ( 1 = full split, integers above 1 = image counts; omitted entries are full). A scalar applies only with split=train ; val and test then use the full split. \n project str None Name of the project directory where validation outputs are saved. Helps organize results from different experiments or models."
+        ]
+      },
+      {
+        "key": "conf",
+        "hits": 18,
+        "excerpts": [
+          "perparameter Tuning : Use validation metrics to fine-tune your model for better performance.\n\n \n Key Features of Val Mode # \n\n These are the notable functionalities offered by YOLO26's Val mode:\n\n \n Automated Settings: Models remember their training configurations for straightforward validation.\n\n Multi-Metric Support: Evaluate your model based on a range of accuracy metrics.\n\n CLI and Python API: Choose from command-line interface or Python API based on your preference for validation.\n\n Data Compatibility: Works seamlessly with datasets used during the training phase as well as custom datasets.\n\n Tip \n \n YOLO26 models automatically remember their training settings, so yolo val model=path/to/best.pt or YOLO(\"path/to/best.pt\").val() validates at the training image size on the original dataset. Official weights fall back to the task default dat",
+          "CO. On detection datasets it also evaluates the predictions with faster-coco-eval and reports small-, medium-, and large-object mAP, logged during training as metrics/mAP_small(B) , metrics/mAP_medium(B) , and metrics/mAP_large(B) in results.csv . \n conf float 0.001 Sets the minimum confidence threshold for detections. Lower values increase recall but may introduce more false positives. Precision-recall curves, mAP, and detection confusion matrices all use this value; a higher conf , such as 0.25 , gives a matrix closer to prediction output but can lower mAP. Summary precision and recall use the max-F1 confidence, so they may differ from values derived from confusion_matrix.png . Defaults to 0.01 for OBB validation to reduce memory usage. \n iou float 0.7 Sets the Intersection Over Union threshold for Non-Maximum Suppression . Controls duplica"
+        ]
+      },
+      {
+        "key": "iou",
+        "hits": 10,
+        "excerpts": [
+          " , gives a matrix closer to prediction output but can lower mAP. Summary precision and recall use the max-F1 confidence, so they may differ from values derived from confusion_matrix.png . Defaults to 0.01 for OBB validation to reduce memory usage. \n iou float 0.7 Sets the Intersection Over Union threshold for Non-Maximum Suppression . Controls duplicate detection elimination. \n max_det int 300 Limits the maximum number of detections per image. For detect, segment, pose, and OBB, left at 300 it is raised to the largest labelled-object count in the validated split when an image exceeds it, with a warning; any other value is kept, with a warning that recall may be capped when an image exceeds it. \n quantize int or str None Validation precision: 16 / \"fp16\" and 32 / \"fp32\" /unset select FP16 or FP32 compute for PyTorch and TorchScript models (FP",
+          "ower-scoring overlapping boxes regardless of their predicted class. Useful for instance-focused applications. With NMS-free inference ( nms=False on YOLO26 or YOLOv10), this only prevents the same detection from appearing with multiple class labels (IoU=1.0 duplicates) and does not perform IoU-threshold-based suppression between distinct boxes. \n single_cls bool False Treats all classes as a single class during validation. Useful for evaluating model performance on binary detection tasks or when class distinctions aren't important. \n visualize bool False Visualizes the ground truths, true positives, false positives, and false negatives for each image. Useful for debugging and model interpretation. \n show_labels bool True Displays class labels in validation visualizations when visualize=True . Set to False for a cleaner view of matches and er"
+        ]
+      }
+    ],
+    "accessed": "2026-10-14T12:03:44.696839+08:00"
+  },
+  {
+    "id": "R3",
+    "title": "Ultralytics v8.4.92 data/build.py",
+    "url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/data/build.py",
+    "status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/data/build.py",
+    "bytes": 18528,
+    "sha256": "80264b44c8c3c5049699e6548a9dcd8a5a9f5b2c66d9ec8bff58132f9498d5ab",
+    "matches": [
+      {
+        "key": "6148914691236517205",
+        "hits": 1,
+        "excerpts": [
+          "rker pools that add overhead and can stall tiny datasets while holding CUDA context.\n    nw = min(os.cpu_count() // max(nd, 1), workers, 0 if batches <= 1 else batches)  # number of workers\n    generator = torch.Generator()\n    generator.manual_seed(6148914691236517205 + RANK)\n    return InfiniteDataLoader(\n        dataset=dataset,\n        batch_size=batch,\n        shuffle=shuffle and sampler is None,\n        num_workers=nw,\n        sampler=sampler,\n        prefetch_factor=4 if nw > 0 else None,  # increase over default 2\n        pin_memory=nd > 0 and pin_memory,\n        collate_fn=getattr(dataset, \"collate_fn\", None),\n        worker_init_fn=seed_worker,\n        generator=generator,\n        drop_last=drop_last,\n    )\n\n\ndef check_source(\n    source: str | int | Path | list | tuple | np.ndarray | Image.Image | torch.Tensor,\n) -> tuple[Any, bool, bool, bool, b"
+        ]
+      },
+      {
+        "key": "seed_worker",
+        "hits": 2,
+        "excerpts": [
+          " int) -> None:\n        \"\"\"Set the epoch for this sampler to ensure different shuffling patterns across epochs.\n\n        Args:\n            epoch (int): Epoch number to use as the random seed for shuffling.\n        \"\"\"\n        self.epoch = epoch\n\n\ndef seed_worker(worker_id: int) -> None:\n    \"\"\"Set dataloader worker seed for reproducibility across worker processes.\"\"\"\n    worker_seed = torch.initial_seed() % 2**32\n    np.random.seed(worker_seed)\n    random.seed(worker_seed)\n\n\ndef build_yolo_dataset(\n    cfg: IterableSimpleNamespace,\n    img_path: str,\n    batch: int,\n    data: dict[str, Any],\n    mode: str = \"train\",\n    rect: bool = False,\n    stride: int = 32,\n    multi_modal: bool = False,\n    fraction: float | None = None,\n) -> Dataset:\n    \"\"\"Build and return a YOLO dataset based on configuration parameters.\"\"\"\n    pad = 0.0 if mode == \"train\" el",
+          "one,\n        num_workers=nw,\n        sampler=sampler,\n        prefetch_factor=4 if nw > 0 else None,  # increase over default 2\n        pin_memory=nd > 0 and pin_memory,\n        collate_fn=getattr(dataset, \"collate_fn\", None),\n        worker_init_fn=seed_worker,\n        generator=generator,\n        drop_last=drop_last,\n    )\n\n\ndef check_source(\n    source: str | int | Path | list | tuple | np.ndarray | Image.Image | torch.Tensor,\n) -> tuple[Any, bool, bool, bool, bool, bool]:\n    \"\"\"Check the type of input source and return corresponding flag values.\n\n    Args:\n        source (str | int | Path | list | tuple | np.ndarray | PIL.Image | torch.Tensor): The input source to check.\n\n    Returns:\n        source (str | int | Path | list | tuple | np.ndarray | PIL.Image | torch.Tensor): The processed source.\n        webcam (bool): Whether the source is a web"
+        ]
+      },
+      {
+        "key": "drop_last",
+        "hits": 7,
+        "excerpts": [
+          "{mode}: \"),\n        task=cfg.task,\n        classes=cfg.classes,\n        fraction=cfg.fraction if mode == \"train\" else 1.0,\n    )\n\n\ndef build_dataloader(\n    dataset,\n    batch: int,\n    workers: int,\n    shuffle: bool = True,\n    rank: int = -1,\n    drop_last: bool = False,\n    pin_memory: bool = True,\n) -> InfiniteDataLoader:\n    \"\"\"Create and return an InfiniteDataLoader for training or validation.\n\n    Args:\n        dataset (Dataset): Dataset to load data from.\n        batch (int): Batch size for the dataloader.\n        workers (int): Number of worker processes for data loading.\n        shuffle (bool, optional): Whether to shuffle the dataset.\n        rank (int, optional): Process rank in distributed training. -1 for single-GPU training.\n        drop_last (bool, optional): Whether to drop the last incomplete batch.\n        pin_memory (bool, opt",
+          "dataloader.\n        workers (int): Number of worker processes for data loading.\n        shuffle (bool, optional): Whether to shuffle the dataset.\n        rank (int, optional): Process rank in distributed training. -1 for single-GPU training.\n        drop_last (bool, optional): Whether to drop the last incomplete batch.\n        pin_memory (bool, optional): Whether to use pinned memory for dataloader.\n\n    Returns:\n        (InfiniteDataLoader): A dataloader that can be used for training or validation.\n\n    Examples:\n        Create a dataloader for training\n        >>> dataset = YOLODataset(...)\n        >>> dataloader = build_dataloader(dataset, batch=16, workers=4, shuffle=True)\n    \"\"\"\n    dataset_len = len(dataset)\n    batch = min(batch, dataset_len)\n    sampler = (\n        None\n        if rank == -1\n        else distributed.DistributedSampler(dat"
+        ]
+      }
+    ],
+    "accessed": "2026-10-14T12:03:43.859998+08:00"
+  },
+  {
+    "id": "R4",
+    "title": "Ultralytics v8.4.92 metrics.py",
+    "url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/utils/metrics.py",
+    "status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/utils/metrics.py",
+    "bytes": 82902,
+    "sha256": "56578b6b3fc83b8d87fed64c8895431f17adcb3e45b79199685cc4e45fe0037c",
+    "matches": [
+      {
+        "key": "smooth(f1_curve",
+        "hits": 1,
+        "excerpts": [
+          " on_plot=on_plot)\n        plot_mc_curve(x, p_curve, save_dir / f\"{prefix}P_curve.png\", names, ylabel=\"Precision\", on_plot=on_plot)\n        plot_mc_curve(x, r_curve, save_dir / f\"{prefix}R_curve.png\", names, ylabel=\"Recall\", on_plot=on_plot)\n\n    i = smooth(f1_curve.mean(0), 0.1).argmax()  # max F1 index\n    p, r, f1 = p_curve[:, i], r_curve[:, i], f1_curve[:, i]  # max-F1 precision, recall, F1 values\n    tp = (r * nt).round()  # true positives\n    fp = (tp / (p + eps) - tp).round()  # false positives\n    return tp, fp, p, r, f1, ap, unique_classes.astype(int), p_curve, r_curve, f1_curve, x, prec_values\n\n\nclass Metric(SimpleClass):\n    \"\"\"Class for computing evaluation metrics for Ultralytics YOLO models.\n\n    Attributes:\n        p (list): Precision for each class. Shape: (nc,).\n        r (list): Recall for each class. Shape: (nc,).\n        f1 (list): F1"
+        ]
+      },
+      {
+        "key": "w = [0.0",
+        "hits": 1,
+        "excerpts": [
+          "= np.zeros(self.nc) + self.map\n        for i, c in enumerate(self.ap_class_index):\n            maps[c] = self.ap[i]\n        return maps\n\n    def fitness(self) -> float:\n        \"\"\"Return model fitness as a weighted combination of metrics.\"\"\"\n        w = [0.0, 0.0, 0.0, 1.0]  # weights for [P, R, mAP@0.5, mAP@0.5:0.95]\n        return float((np.nan_to_num(np.array(self.mean_results())) * w).sum())\n\n    def update(self, results: tuple):\n        \"\"\"Update the evaluation metrics with a new set of results.\n\n        Args:\n            results (tuple): A tuple containing evaluation metrics:\n                - p (list): Precision for each class.\n                - r (list): Recall for each class.\n                - f1 (list): F1 score for each class.\n                - all_ap (list): AP scores for all classes and all IoU thresholds.\n                - ap_class_"
+        ]
+      },
+      {
+        "key": "nt_per_image",
+        "hits": 13,
+        "excerpts": [
+          "the detection process.\n        stats (dict[str, list]): A dictionary containing lists for true positives, confidence scores, predicted classes,\n            target classes, and target images.\n        nt_per_class: Number of targets per class.\n        nt_per_image: Number of targets per image.\n\n    Methods:\n        update_stats: Update statistics by appending new values to existing stat collections.\n        process: Process predicted results for object detection and update metrics.\n        clear_stats: Clear the stored statistics.\n        keys: Return a list of keys for accessing specific metrics.\n        mean_results: Calculate mean of detected objects & return precision, recall, mAP50, and mAP50-95.\n        class_result: Return the result of evaluating the performance of an object detection model on a specific class.\n        maps: Return mean Average",
+          "       self.box = Metric()\n        self.speed = {\"preprocess\": 0.0, \"inference\": 0.0, \"loss\": 0.0, \"postprocess\": 0.0}\n        self.stats = dict(tp=[], conf=[], pred_cls=[], target_cls=[], target_img=[])\n        self.nt_per_class = None\n        self.nt_per_image = None\n\n    def update_stats(self, stat: dict[str, Any]) -> None:\n        \"\"\"Update statistics by appending new values to existing stat collections.\n\n        Args:\n            stat (dict[str, Any]): Dictionary containing new statistical values to append. Keys should match existing\n                keys in self.stats.\n        \"\"\"\n        for k in self.stats.keys():\n            self.stats[k].append(stat[k])\n        self.box.update_image_metrics(stat[\"tp\"], stat[\"target_cls\"], stat[\"pred_cls\"], stat[\"im_name\"])\n\n    def process(self, save_dir: Path = Path(\".\"), plot: bool = False, on_plot=None) -"
+        ]
+      }
+    ],
+    "accessed": "2026-10-14T12:06:23.359382+08:00"
+  },
+  {
+    "id": "R5",
+    "title": "Ultralytics v8.4.92 trainer.py",
+    "url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/engine/trainer.py",
+    "status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/engine/trainer.py",
+    "bytes": 63749,
+    "sha256": "c9a995de067fc8cc291de18739a4519781070d348f74fa7ee4b3d67c3d86d008",
+    "matches": [
+      {
+        "key": "accumulate =",
+        "hits": 2,
+        "excerpts": [
+          "lf.get_dataloader(\n            self.data.get(\"val\") or self.data.get(\"test\"),\n            batch_size=batch_size if self.args.task in {\"obb\", \"semantic\"} else batch_size * 2,\n            rank=LOCAL_RANK,\n            mode=\"val\",\n        )\n        self.accumulate = max(round(self.args.nbs / self.batch_size), 1)  # accumulate loss before optimizing\n        weight_decay = self.args.weight_decay * self.batch_size * self.accumulate / self.args.nbs  # scale weight_decay\n        iterations = math.ceil(len(self.train_loader.dataset) / max(self.batch_size, self.args.nbs)) * self.epochs\n        self.optimizer = self.build_optimizer(\n            model=self.model,\n            name=self.args.optimizer,\n            lr=self.args.lr0,\n            momentum=self.args.momentum,\n            decay=weight_decay,\n            iterations=iterations,\n        )\n        self._set",
+          "         for i, batch in pbar:\n                self.run_callbacks(\"on_train_batch_start\")\n                # Warmup\n                ni = i + nb * epoch\n                if ni <= nw:\n                    xi = [0, nw]  # x interp\n                    self.accumulate = max(1, int(np.interp(ni, xi, [1, self.args.nbs / self.batch_size]).round()))\n                    for x in self.optimizer.param_groups:\n                        # Bias lr falls from 0.1 to lr0, all other lrs rise from 0.0 to lr0\n                        x[\"lr\"] = np.interp(\n                            ni,\n                            xi,\n                            [\n                                self.args.warmup_bias_lr if x.get(\"param_group\") == \"bias\" else 0.0,\n                                x[\"initial_lr\"] * self.lf(epoch),\n                            ],\n                        )\n         "
+        ]
+      },
+      {
+        "key": "best_fitness == self.fitness",
+        "hits": 1,
+        "excerpts": [
+          "uffer.getvalue()  # get the serialized content to save\n\n        # Save checkpoints\n        self.wdir.mkdir(parents=True, exist_ok=True)  # ensure weights directory exists\n        self.last.write_bytes(serialized_ckpt)  # save last.pt\n        if self.best_fitness == self.fitness:\n            self.best.write_bytes(serialized_ckpt)  # save best.pt\n        if (self.save_period > 0) and (self.epoch % self.save_period == 0):\n            (self.wdir / f\"epoch{self.epoch}.pt\").write_bytes(serialized_ckpt)  # save epoch, i.e. 'epoch3.pt'\n        return True\n\n    def get_dataset(self):\n        \"\"\"Get train and validation datasets from data dictionary.\n\n        Returns:\n            (dict): A dictionary containing the training/validation/test dataset and category names.\n        \"\"\"\n        try:\n            self.args.data = convert_ndjson_to_yolo_if_needed(self.args.data)\n\n      "
+        ]
+      },
+      {
+        "key": "init_seeds",
+        "hits": 2,
+        "excerpts": [
+          "es import get_latest_run\nfrom ultralytics.utils.plotting import plot_results\nfrom ultralytics.utils.torch_utils import (\n    TORCH_2_4,\n    EarlyStopping,\n    ModelEMA,\n    attempt_compile,\n    autocast,\n    convert_optimizer_state_dict_to_fp16,\n    init_seeds,\n    one_cycle,\n    parse_device,\n    select_device,\n    strip_optimizer,\n    torch_distributed_zero_first,\n    unset_deterministic,\n    unwrap_model,\n)\n\n\nclass BaseTrainer:\n    \"\"\"A base class for creating trainers.\n\n    This class provides the foundation for training YOLO models, handling the training loop, validation, checkpointing,\n    and various training utilities. It supports both single-GPU and multi-GPU distributed training.\n\n    Attributes:\n        args (SimpleNamespace): Configuration for the trainer.\n        validator (BaseValidator): Validator instance.\n        model (nn.Module):",
+          " self.args.device = parse_device(self.args.device)  # canonical string, resolves '-1' auto-selection once\n        self.device = select_device(self.args.device)\n        self.validator = None\n        self.metrics = None\n        self.plots = {}\n        init_seeds(self.args.seed + 1 + RANK, deterministic=self.args.deterministic)\n\n        # Dirs\n        self.save_dir = get_save_dir(self.args)\n        self.args.name = self.save_dir.name  # update name for loggers\n        self.wdir = self.save_dir / \"weights\"  # weights dir\n        if RANK in {-1, 0}:\n            self.wdir.mkdir(parents=True, exist_ok=True)  # make dir\n            self.args.save_dir = str(self.save_dir)\n            # Save run args, serializing augmentations as reprs for resume compatibility\n            args_dict = vars(self.args).copy()\n            if args_dict.get(\"augmentations\") is not"
+        ]
+      }
+    ],
+    "accessed": "2026-10-14T12:03:42.029110+08:00"
+  },
+  {
+    "id": "R6",
+    "title": "PyTorch v2.5.1 Randomness",
+    "url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.5.1/docs/source/notes/randomness.rst",
+    "status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.5.1/docs/source/notes/randomness.rst",
+    "bytes": 8155,
+    "sha256": "ed86e72eacbe7e6e8e667c0a32a30451936dd60eed3176747b87d14f4eb1291a",
+    "matches": [
+      {
+        "key": "Completely reproducible",
+        "hits": 1,
+        "excerpts": [
+          ".. _reproducibility:\n\nReproducibility\n===============\n\nCompletely reproducible results are not guaranteed across PyTorch releases,\nindividual commits, or different platforms. Furthermore, results may not be\nreproducible between CPU and GPU executions, even when using identical seeds.\n\nHowever, there are some steps you can take to limit the number of sources of\nnondeterministic behavior for a specific platform, device, and PyTorch release.\nFirst, you can control sources of randomness that can cause multiple executions\nof your application to behave differently. Second, you can configure PyTorch\nto avoid using nondeterministic algorithms for some operations, so that multip"
+        ]
+      },
+      {
+        "key": "DataLoader",
+        "hits": 3,
+        "excerpts": [
+          "eterministic behavior.\n\nHowever, filling uninitialized memory is detrimental to performance. So if your\nprogram is valid and does not use uninitialized memory as the input to an\noperation, then this setting can be turned off for better performance.\n\nDataLoader\n..........\n\nDataLoader will reseed workers following :ref:`data-loading-randomness` algorithm.\nUse :meth:`worker_init_fn` and `generator` to preserve reproducibility::\n\n    def seed_worker(worker_id):\n        worker_seed = torch.initial_seed() % 2**32\n        numpy.random.seed(worker_seed)\n        random.seed(worker_seed)\n\n    g = torch.Generator()\n    g.manual_seed(0)\n\n    DataLoader(\n        train_dataset,\n        batch_size=batch_size,\n        num_workers=num_workers,\n        worker_init_fn=seed_worker,\n        generator=g,\n    )\n",
+          "\nHowever, filling uninitialized memory is detrimental to performance. So if your\nprogram is valid and does not use uninitialized memory as the input to an\noperation, then this setting can be turned off for better performance.\n\nDataLoader\n..........\n\nDataLoader will reseed workers following :ref:`data-loading-randomness` algorithm.\nUse :meth:`worker_init_fn` and `generator` to preserve reproducibility::\n\n    def seed_worker(worker_id):\n        worker_seed = torch.initial_seed() % 2**32\n        numpy.random.seed(worker_seed)\n        random.seed(worker_seed)\n\n    g = torch.Generator()\n    g.manual_seed(0)\n\n    DataLoader(\n        train_dataset,\n        batch_size=batch_size,\n        num_workers=num_workers,\n        worker_init_fn=seed_worker,\n        generator=g,\n    )\n"
+        ]
+      },
+      {
+        "key": "generator",
+        "hits": 8,
+        "excerpts": [
+          "ce may decrease for your model. However, determinism may\n    save time in development by facilitating experimentation, debugging, and\n    regression testing.\n\nControlling sources of randomness\n.................................\n\nPyTorch random number generator\n-------------------------------\nYou can use :meth:`torch.manual_seed()` to seed the RNG for all devices (both\nCPU and CUDA)::\n\n    import torch\n    torch.manual_seed(0)\n\nSome PyTorch operations may use random numbers internally.\n:meth:`torch.svd_lowrank()` does this, for instance. Consequently, calling it\nmultiple times back-to-back with the same input arguments may give different\nresults. However, as long as :meth:`torch.manual_seed()` is set to a constant\nat the beginning of an application and all other sources of nondeterminism have\nbeen eliminated, the same series of random numbers will b",
+          "ration that uses\nrandom numbers by setting :meth:`torch.manual_seed()` to the same value between\nsubsequent calls.\n\nPython\n------\n\nFor custom operators, you might need to set python seed as well::\n\n    import random\n    random.seed(0)\n\nRandom number generators in other libraries\n-------------------------------------------\nIf you or any of the libraries you are using rely on NumPy, you can seed the global\nNumPy RNG with::\n\n    import numpy as np\n    np.random.seed(0)\n\nHowever, some applications and libraries may use NumPy Random Generator objects,\nnot the global RNG\n(`<https://numpy.org/doc/stable/reference/random/generator.html>`_), and those will\nneed to be seeded consistently as well.\n\nIf you are using any other libraries that use random number generators, refer to\nthe documentation for those libraries to see how to set consistent seeds for them"
+        ]
+      }
+    ],
+    "accessed": "2026-10-14T12:03:43.153418+08:00"
+  },
+  {
+    "id": "R7",
+    "title": "PyTorch v2.5.1 DataLoader 实现",
+    "url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.5.1/torch/utils/data/dataloader.py",
+    "status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.5.1/torch/utils/data/dataloader.py",
+    "bytes": 76363,
+    "sha256": "4b5a4a463eaae035af9ca4d9a6a44e27beda1ef4339dbddc83476002c7243178",
+    "matches": [
+      {
+        "key": "RandomSampler(dataset, generator=generator)",
+        "hits": 1,
+        "excerpts": [
+          "._dataset_kind == _DatasetKind.Iterable:\n                # See NOTE [ Custom Samplers and IterableDataset ]\n                sampler = _InfiniteConstantSampler()\n            else:  # map-style\n                if shuffle:\n                    sampler = RandomSampler(dataset, generator=generator)  # type: ignore[arg-type]\n                else:\n                    sampler = SequentialSampler(dataset)  # type: ignore[arg-type]\n\n        if batch_size is not None and batch_sampler is None:\n            # auto_collation without custom batch_sampler\n            batch_sampler = BatchSampler(sampler, batch_size, drop_last)\n\n        self.batch_size = batch_size\n        self.drop_last = drop_last\n        self.sampler = sampler\n        self.batch_sampler = batch_sampler\n        self.generator = generator\n\n        if collate_fn is None:\n            if self._auto_collation:\n                collate_"
+        ]
+      },
+      {
+        "key": "_base_seed",
+        "hits": 2,
+        "excerpts": [
+          "lf._pin_memory = loader.pin_memory\n            self._pin_memory_device = loader.pin_memory_device\n        self._timeout = loader.timeout\n        self._collate_fn = loader.collate_fn\n        self._sampler_iter = iter(self._index_sampler)\n        self._base_seed = (\n            torch.empty((), dtype=torch.int64)\n            .random_(generator=loader.generator)\n            .item()\n        )\n        self._persistent_workers = loader.persistent_workers\n        self._num_yielded = 0\n        self._profile_name = f\"enumerate(DataLoader)#{self.__class__.__name__}.__next__\"\n\n    def __iter__(self) -> \"_BaseDataLoaderIter\":\n        return self\n\n    def _reset(self, loader, first_iter=False):\n        self._sampler_iter = iter(self._index_sampler)\n        self._num_yielded = 0\n        self._IterableDataset_len_called = loader._IterableDataset_len_called\n       ",
+          "  index_queue,\n                    self._worker_result_queue,\n                    self._workers_done_event,\n                    self._auto_collation,\n                    self._collate_fn,\n                    self._drop_last,\n                    self._base_seed,\n                    self._worker_init_fn,\n                    i,\n                    self._num_workers,\n                    self._persistent_workers,\n                    self._shared_seed,\n                ),\n            )\n            w.daemon = True\n            # NB: Process.start() actually take some time as it needs to\n            #     start a process and pass the arguments over via a pipe.\n            #     Therefore, we only add a worker to self._workers list after\n            #     it started, so that we do not call .join() if program dies\n            #     before it starts, and __del_"
+        ]
+      },
+      {
+        "key": "generator=self.generator",
+        "hits": 0,
+        "excerpts": []
+      }
+    ],
+    "accessed": "2026-10-14T12:03:43.020356+08:00"
+  },
+  {
+    "id": "R8",
+    "title": "COCO 官方评估实现",
+    "url": "https://raw.githubusercontent.com/cocodataset/cocoapi/master/PythonAPI/pycocotools/cocoeval.py",
+    "status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/cocodataset/cocoapi/master/PythonAPI/pycocotools/cocoeval.py",
+    "bytes": 24143,
+    "sha256": "e514af401848d5a4cc5d3512bd93d2c317f92272c6d30f218e0f00b7b4110534",
+    "matches": [
+      {
+        "key": "iouThrs",
+        "hits": 10,
+        "excerpts": [
+          "mple usage see evalDemo.m and http://mscoco.org/.\n    #\n    # The evaluation parameters are as follows (defaults in brackets):\n    #  imgIds     - [all] N img ids to use for evaluation\n    #  catIds     - [all] K cat ids to use for evaluation\n    #  iouThrs    - [.5:.05:.95] T=10 IoU thresholds for evaluation\n    #  recThrs    - [0:.01:1] R=101 recall thresholds for evaluation\n    #  areaRng    - [...] A=4 object area ranges for evaluation\n    #  maxDets    - [1 10 100] M=3 thresholds on max detections per image\n    #  iouType    - ['segm'] set iouType to 'segm', 'bbox' or 'keypoints'\n    #  iouType replaced the now DEPRECATED useSegm parameter.\n    #  useCats    - [1] if true use category labels for evaluation\n    # Note: if useCats=0 category labels are ignored as in proposal scoring.\n    # Note: multiple areaRngs [Ax2] and maxDets [Mx1] can b",
+          "dt = [dt[i] for i in dtind[0:maxDet]]\n        iscrowd = [int(o['iscrowd']) for o in gt]\n        # load computed ious\n        ious = self.ious[imgId, catId][:, gtind] if len(self.ious[imgId, catId]) > 0 else self.ious[imgId, catId]\n\n        T = len(p.iouThrs)\n        G = len(gt)\n        D = len(dt)\n        gtm  = np.zeros((T,G))\n        dtm  = np.zeros((T,D))\n        gtIg = np.array([g['_ignore'] for g in gt])\n        dtIg = np.zeros((T,D))\n        if not len(ious)==0:\n            for tind, t in enumerate(p.iouThrs):\n                for dind, d in enumerate(dt):\n                    # information about best match so far (m=-1 -> unmatched)\n                    iou = min([t,1-1e-10])\n                    m   = -1\n                    for gind, g in enumerate(gt):\n                        # if this gt already matched, and not a crowd, continue\n         "
+        ]
+      },
+      {
+        "key": "recThrs",
+        "hits": 6,
+        "excerpts": [
+          "for evaluating detection on the Microsoft COCO dataset.\n    #\n    # The usage for CocoEval is as follows:\n    #  cocoGt=..., cocoDt=...       # load dataset and results\n    #  E = CocoEval(cocoGt,cocoDt); # initialize CocoEval object\n    #  E.params.recThrs = ...;      # set parameters as desired\n    #  E.evaluate();                # run per image evaluation\n    #  E.accumulate();              # accumulate per image results\n    #  E.summarize();               # display summary metrics of results\n    # For example usage see evalDemo.m and http://mscoco.org/.\n    #\n    # The evaluation parameters are as follows (defaults in brackets):\n    #  imgIds     - [all] N img ids to use for evaluation\n    #  catIds     - [all] K cat ids to use for evaluation\n    #  iouThrs    - [.5:.05:.95] T=10 IoU thresholds for evaluation\n    #  recThrs    - [0:.01:1] R=",
+          "aluation parameters are as follows (defaults in brackets):\n    #  imgIds     - [all] N img ids to use for evaluation\n    #  catIds     - [all] K cat ids to use for evaluation\n    #  iouThrs    - [.5:.05:.95] T=10 IoU thresholds for evaluation\n    #  recThrs    - [0:.01:1] R=101 recall thresholds for evaluation\n    #  areaRng    - [...] A=4 object area ranges for evaluation\n    #  maxDets    - [1 10 100] M=3 thresholds on max detections per image\n    #  iouType    - ['segm'] set iouType to 'segm', 'bbox' or 'keypoints'\n    #  iouType replaced the now DEPRECATED useSegm parameter.\n    #  useCats    - [1] if true use category labels for evaluation\n    # Note: if useCats=0 category labels are ignored as in proposal scoring.\n    # Note: multiple areaRngs [Ax2] and maxDets [Mx1] can be specified.\n    #\n    # evaluate(): evaluates detections on every i"
+        ]
+      },
+      {
+        "key": "maxDets",
+        "hits": 51,
+        "excerpts": [
+          "  - [all] K cat ids to use for evaluation\n    #  iouThrs    - [.5:.05:.95] T=10 IoU thresholds for evaluation\n    #  recThrs    - [0:.01:1] R=101 recall thresholds for evaluation\n    #  areaRng    - [...] A=4 object area ranges for evaluation\n    #  maxDets    - [1 10 100] M=3 thresholds on max detections per image\n    #  iouType    - ['segm'] set iouType to 'segm', 'bbox' or 'keypoints'\n    #  iouType replaced the now DEPRECATED useSegm parameter.\n    #  useCats    - [1] if true use category labels for evaluation\n    # Note: if useCats=0 category labels are ignored as in proposal scoring.\n    # Note: multiple areaRngs [Ax2] and maxDets [Mx1] can be specified.\n    #\n    # evaluate(): evaluates detections on every image and every category and\n    # concats the results into the \"evalImgs\" with fields:\n    #  dtIds      - [1xD] id for each of the D",
+          "ts'\n    #  iouType replaced the now DEPRECATED useSegm parameter.\n    #  useCats    - [1] if true use category labels for evaluation\n    # Note: if useCats=0 category labels are ignored as in proposal scoring.\n    # Note: multiple areaRngs [Ax2] and maxDets [Mx1] can be specified.\n    #\n    # evaluate(): evaluates detections on every image and every category and\n    # concats the results into the \"evalImgs\" with fields:\n    #  dtIds      - [1xD] id for each of the D detections (dt)\n    #  gtIds      - [1xG] id for each of the G ground truths (gt)\n    #  dtMatches  - [TxD] matching gt id at each IoU or 0\n    #  gtMatches  - [TxG] matching dt id at each IoU or 0\n    #  dtScores   - [1xD] confidence of each dt\n    #  gtIgnore   - [1xG] ignore flag for each gt\n    #  dtIgnore   - [TxD] ignore flag for each dt at each IoU\n    #\n    # accumulate(): ac"
+        ]
+      }
+    ],
+    "accessed": "2026-10-14T12:03:43.973243+08:00"
+  },
+  {
+    "id": "R9",
+    "title": "Gulrajani & Lopez-Paz：DomainBed",
+    "url": "https://arxiv.org/abs/2007.01434",
+    "status": 200,
+    "resolved_url": "https://arxiv.org/abs/2007.01434",
+    "bytes": 42128,
+    "sha256": "0fd7ec4e595287fc66990558aeacfb170036724b7342e36d3d9b6796a114f2f5",
+    "matches": [
+      {
+        "key": "model selection",
+        "hits": 4,
+        "excerpts": [
+          "l of domain generalization algorithms is to predict well on distributions different from those seen during training. While a myriad of domain generalization algorithms exist, inconsistencies in experimental conditions -- datasets, architectures, and model selection criteria -- render fair and realistic comparisons difficult. In this paper, we are interested in understanding how useful domain generalization algorithms are in realistic settings. As a first step, we realize that model selection is non-trivial for domain generalization tasks. Contrary to prior work, we argue that domain generalization algorithms without a model selection strategy should be regarded as incomplete. Next, we implement DomainBed, a testbed for domain generalization including seven multi-domain datasets, nine baseline algorithms, and three model selection criteria. We conduct ex",
+          "architectures, and model selection criteria -- render fair and realistic comparisons difficult. In this paper, we are interested in understanding how useful domain generalization algorithms are in realistic settings. As a first step, we realize that model selection is non-trivial for domain generalization tasks. Contrary to prior work, we argue that domain generalization algorithms without a model selection strategy should be regarded as incomplete. Next, we implement DomainBed, a testbed for domain generalization including seven multi-domain datasets, nine baseline algorithms, and three model selection criteria. We conduct extensive experiments using DomainBed and find that, when carefully implemented, empirical risk minimization shows state-of-the-art performance across all datasets. Looking forward, we hope that the release of DomainBed, along with c"
+        ]
+      },
+      {
+        "key": "Abstract",
+        "hits": 1,
+        "excerpts": [
+          "\n\n Title: In Search of Lost Domain Generalization\n\n Authors: Ishaan Gulrajani , David Lopez-Paz \n View a PDF of the paper titled In Search of Lost Domain Generalization, by Ishaan Gulrajani and 1 other authors\n\n View PDF \n HTML (experimental) \n\n\n\n \n Abstract: The goal of domain generalization algorithms is to predict well on distributions different from those seen during training. While a myriad of domain generalization algorithms exist, inconsistencies in experimental conditions -- datasets, architectures, and model selection criteria -- render fair and realistic comparisons difficult. In this paper, we are interested in understanding how useful domain generalization algorithms are in realistic settings. As a first step, we realize that model selection is non-trivial for domain generalization tasks. Contrary to prior work, we argue that domain g"
+        ]
+      },
+      {
+        "key": "ICLR",
+        "hits": 0,
+        "excerpts": []
+      }
+    ],
+    "accessed": "2026-10-14T12:03:48.936814+08:00"
+  },
+  {
+    "id": "R10",
+    "title": "Beery et al.：Recognition in Terra Incognita",
+    "url": "https://arxiv.org/abs/1807.04975",
+    "status": 200,
+    "resolved_url": "https://arxiv.org/abs/1807.04975",
+    "bytes": 41162,
+    "sha256": "f447a387a911e93fabbe0c5620198f77c374f2b58e92441648c1d7d9573d4980",
+    "matches": [
+      {
+        "key": "Abstract",
+        "hits": 1,
+        "excerpts": [
+          "s version, v2)]\n\n Title: Recognition in Terra Incognita\n\n Authors: Sara Beery , Grant van Horn , Pietro Perona \n View a PDF of the paper titled Recognition in Terra Incognita, by Sara Beery and 2 other authors\n\n View PDF \n HTML (experimental) \n\n\n\n \n Abstract: It is desirable for detection and classification algorithms to generalize to unfamiliar environments, but suitable benchmarks for quantitatively studying this phenomenon are not yet available. We present a dataset designed to measure recognition generalization to novel environments. The images in our dataset are harvested from twenty camera traps deployed to monitor animal populations. Camera traps are fixed at one location, hence the background changes little across images; capture is triggered automatically, hence there is no human bias. The challenge is learning recognition in a handful o"
+        ]
+      },
+      {
+        "key": "location",
+        "hits": 5,
+        "excerpts": [
+          " are not yet available. We present a dataset designed to measure recognition generalization to novel environments. The images in our dataset are harvested from twenty camera traps deployed to monitor animal populations. Camera traps are fixed at one location, hence the background changes little across images; capture is triggered automatically, hence there is no human bias. The challenge is learning recognition in a handful of locations, and generalizing animal detection and classification to new locations where no training data is available. In our experiments state-of-the-art algorithms show excellent performance when tested at the same location where they were trained. However, we find that generalization to new locations is poor, especially for classification systems.\n \n\n \n \n \n Comments: \n Accepted to ECCV 2018 \n \n\n \n Subjects: \n \n Computer V",
+          "eployed to monitor animal populations. Camera traps are fixed at one location, hence the background changes little across images; capture is triggered automatically, hence there is no human bias. The challenge is learning recognition in a handful of locations, and generalizing animal detection and classification to new locations where no training data is available. In our experiments state-of-the-art algorithms show excellent performance when tested at the same location where they were trained. However, we find that generalization to new locations is poor, especially for classification systems.\n \n\n \n \n \n Comments: \n Accepted to ECCV 2018 \n \n\n \n Subjects: \n \n Computer Vision and Pattern Recognition (cs.CV) ; Populations and Evolution (q-bio.PE) \n \n \n Cite as: \n arXiv:1807.04975 [cs.CV] \n \n\n \n   \n (or \n arXiv:1807.04975v2 [cs.CV] for this version)\n"
+        ]
+      },
+      {
+        "key": "ECCV",
+        "hits": 1,
+        "excerpts": [
+          " state-of-the-art algorithms show excellent performance when tested at the same location where they were trained. However, we find that generalization to new locations is poor, especially for classification systems.\n \n\n \n \n \n Comments: \n Accepted to ECCV 2018 \n \n\n \n Subjects: \n \n Computer Vision and Pattern Recognition (cs.CV) ; Populations and Evolution (q-bio.PE) \n \n \n Cite as: \n arXiv:1807.04975 [cs.CV] \n \n\n \n   \n (or \n arXiv:1807.04975v2 [cs.CV] for this version)\n \n \n\n \n   \n https://doi.org/10.48550/arXiv.1807.04975 \n \n \n Focus to learn more \n \n \n \n arXiv-issued DOI via DataCite\n\n \n\n \n \n \n \n\n \n\n\n\n \n Submission history\n From: Sara Beery [ view email ] [v1] \n Fri, 13 Jul 2018 08:47:59 UTC (7,303 KB) \n [v2] \n Wed, 25 Jul 2018 01:59:00 UTC (7,452 KB) \n\n\n \n\n \n \n \n Full-text links: \n Access Paper:\n\n \n \nView a PDF of the paper titled Recognition"
+        ]
+      }
+    ],
+    "accessed": "2026-10-14T12:03:44.723540+08:00"
+  },
+  {
+    "id": "R11",
+    "title": "Ultralytics v8.4.92 tasks.py",
+    "url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/nn/tasks.py",
+    "status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/nn/tasks.py",
+    "bytes": 88441,
+    "sha256": "aaa8169ced8acc98880e37079c5ead405a26683f4ec0b0cc221cf575a913b7d6",
+    "matches": [
+      {
+        "key": "cls_remap",
+        "hits": 2,
+        "excerpts": [
+          "weights, dict) else weights  # torchvision models are not dicts\n        csd = model.float().state_dict()  # checkpoint state_dict as FP32\n\n        # Remap classification head rows by class-name when nc differs (e.g. Obj365 -> COCO fine-tune)\n        cls_remapped = self._remap_cls_by_names(csd, model, verbose=verbose)\n\n        updated_csd = intersect_dicts(csd, self.state_dict())  # intersect\n        self.load_state_dict(updated_csd, strict=False)  # load\n        len_updated_csd = len(updated_csd) + cls_remapped\n        first_conv = \"model.0.conv.weight\"  # hard-coded to yolo models for now\n        # mostly used to boost multi-channel training\n        state_dict = self.state_dict()\n        if first_conv not in updated_csd and first_conv in state_dict:\n            c1, c2, h, w = state_dict[first_conv].shape\n            cc1, cc2, ch, cw = csd[first_c",
+          "remapped = self._remap_cls_by_names(csd, model, verbose=verbose)\n\n        updated_csd = intersect_dicts(csd, self.state_dict())  # intersect\n        self.load_state_dict(updated_csd, strict=False)  # load\n        len_updated_csd = len(updated_csd) + cls_remapped\n        first_conv = \"model.0.conv.weight\"  # hard-coded to yolo models for now\n        # mostly used to boost multi-channel training\n        state_dict = self.state_dict()\n        if first_conv not in updated_csd and first_conv in state_dict:\n            c1, c2, h, w = state_dict[first_conv].shape\n            cc1, cc2, ch, cw = csd[first_conv].shape\n            if ch == h and cw == w:\n                c1, c2 = min(c1, cc1), min(c2, cc2)\n                state_dict[first_conv][:c1, :c2] = csd[first_conv][:c1, :c2]\n                len_updated_csd += 1\n        if verbose:\n            LOGGER.in"
+        ]
+      },
+      {
+        "key": "Transferred",
+        "hits": 2,
+        "excerpts": [
+          "e\n            if ch == h and cw == w:\n                c1, c2 = min(c1, cc1), min(c2, cc2)\n                state_dict[first_conv][:c1, :c2] = csd[first_conv][:c1, :c2]\n                len_updated_csd += 1\n        if verbose:\n            LOGGER.info(f\"Transferred {len_updated_csd}/{len(self.model.state_dict())} items from pretrained weights\")\n\n    def _remap_cls_by_names(self, csd, src_model, verbose=True):\n        \"\"\"Remap pretrained classification head rows to current class order by name.\n\n        Copies rows from pretrained cls layers into the current model's state_dict where the destination class name\n        matches a source class name (case-insensitive, whitespace-stripped). Useful when fine-tuning across datasets\n        with overlapping classes, whether the class counts differ (e.g. Objects365 -> COCO) or match but the class\n        order diff",
+          "ict (will be mutated).\n            src_model (torch.nn.Module): Pretrained module, used to read `.names` and `.nc`.\n            verbose (bool): Log mapping summary.\n\n        Returns:\n            (int): Number of cls tensors remapped (counted toward \"Transferred\" log line).\n        \"\"\"\n        src_names = getattr(src_model, \"names\", None)\n        tgt_names = getattr(self, \"names\", None)\n        if not (isinstance(src_names, dict) and isinstance(tgt_names, dict)):\n            return 0\n        src_nc, tgt_nc = len(src_names), len(tgt_names)\n\n        def _norm(s):\n            return str(s).strip().lower()\n\n        # Skip default placeholder names {0:\"0\", 1:\"1\", ...} (also catches empty dicts) — nothing to match on\n        if any(all(str(k) == str(v) for k, v in n.items()) for n in (src_names, tgt_names)):\n            return 0\n\n        src_lookup = {_nor"
+        ]
+      }
+    ],
+    "accessed": "2026-10-14T12:03:48.371068+08:00"
+  },
+  {
+    "id": "R12",
+    "title": "Ultralytics v8.4.92 torch_utils.py",
+    "url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/utils/torch_utils.py",
+    "status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/utils/torch_utils.py",
+    "bytes": 46434,
+    "sha256": "3c1a95bdcc98379a4506ffdbf7bc84f1475aa1a3b618aa2676fa81ae7707c807",
+    "matches": [
+      {
+        "key": "warn_only=True",
+        "hits": 1,
+        "excerpts": [
+          "eed)  # for Multi-GPU, exception safe\n    # torch.backends.cudnn.benchmark = True  # AutoBatch problem https://github.com/ultralytics/yolov5/issues/9287\n    if deterministic:\n        if TORCH_2_0:\n            torch.use_deterministic_algorithms(True, warn_only=True)  # warn if deterministic is not possible\n            torch.backends.cudnn.deterministic = True\n            os.environ[\"CUBLAS_WORKSPACE_CONFIG\"] = \":4096:8\"\n            os.environ[\"PYTHONHASHSEED\"] = str(seed)\n        else:\n            LOGGER.warning(\"Upgrade to torch>=2.0.0 for deterministic training.\")\n    else:\n        unset_deterministic()\n\n\ndef unset_deterministic():\n    \"\"\"Unset all the configurations applied for deterministic training.\"\"\"\n    torch.use_deterministic_algorithms(False)\n    torch.backends.cudnn.deterministic = False\n    os.environ.pop(\"CUBLAS_WORKSPACE_CONFIG\", None)\n   "
+        ]
+      },
+      {
+        "key": "x[\"epoch\"] = -1",
+        "hits": 1,
+        "excerpts": [
+          "].parameters():\n        p.requires_grad = False\n\n    # Update other keys\n    args = {**DEFAULT_CFG_DICT, **x.get(\"train_args\", {})}  # combine args\n    for k in \"optimizer\", \"best_fitness\", \"ema\", \"updates\", \"scaler\":  # keys\n        x[k] = None\n    x[\"epoch\"] = -1\n    x[\"train_args\"] = {k: v for k, v in args.items() if k in DEFAULT_CFG_KEYS}  # strip non-default keys\n    # x['model'].args = x['train_args']\n\n    # Save\n    combined = {**metadata, **x, **(updates or {})}\n    torch.save(combined, s or f)  # combine dicts (prefer to the right)\n    mb = os.path.getsize(s or f) / 1e6  # file size\n    LOGGER.info(f\"Optimizer stripped from {f},{f' saved as {s},' if s else ''} {mb:.1f}MB\")\n    return combined\n\n\ndef convert_optimizer_state_dict_to_fp16(state_dict):\n    \"\"\"Convert the state_dict of a given optimizer to FP16, focusing on the 'state' key for tensor"
+        ]
+      },
+      {
+        "key": "strip_optimizer",
+        "hits": 3,
+        "excerpts": [
+          " to copy attributes from.\n            include (tuple, optional): Attributes to include.\n            exclude (tuple, optional): Attributes to exclude.\n        \"\"\"\n        if self.enabled:\n            copy_attr(self.ema, model, include, exclude)\n\n\ndef strip_optimizer(f: str | Path = \"best.pt\", s: str = \"\", updates: dict[str, Any] | None = None) -> dict[str, Any]:\n    \"\"\"Strip optimizer from 'f' to finalize training, optionally save as 's'.\n\n    Args:\n        f (str | Path): File path to model to strip the optimizer from.\n        s (str, optional): File path to save the model with stripped optimizer to. If not provided, 'f' will be\n            overwritten.\n        updates (dict, optional): A dictionary of updates to overlay onto the checkpoint before saving.\n\n    Returns:\n        (dict): The combined checkpoint dictionary.\n\n    Examples:\n        >>> from p",
+          "ional): A dictionary of updates to overlay onto the checkpoint before saving.\n\n    Returns:\n        (dict): The combined checkpoint dictionary.\n\n    Examples:\n        >>> from pathlib import Path\n        >>> from ultralytics.utils.torch_utils import strip_optimizer\n        >>> for f in Path(\"path/to/model/checkpoints\").rglob(\"*.pt\"):\n        ...     strip_optimizer(f)\n    \"\"\"\n    try:\n        x = torch_load(f, map_location=torch.device(\"cpu\"))\n        assert isinstance(x, dict), \"checkpoint is not a Python dictionary\"\n        assert \"model\" in x, \"'model' missing from checkpoint\"\n    except Exception as e:\n        LOGGER.warning(f\"Skipping {f}, not a valid Ultralytics model: {e}\")\n        return {}\n\n    metadata = {\n        \"date\": datetime.now().isoformat(),\n        \"version\": __version__,\n        \"license\": \"AGPL-3.0 License (https://ultralytics.com/l"
+        ]
+      }
+    ],
+    "accessed": "2026-10-14T12:03:47.358706+08:00"
+  },
+  {
+    "id": "R13",
+    "title": "Ultralytics v8.4.92 default.yaml",
+    "url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/cfg/default.yaml",
+    "status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/cfg/default.yaml",
+    "bytes": 9800,
+    "sha256": "92575b9e657cf755be5c568ced19d0b95f75af1585e2826e1e62681818c5fed9",
+    "matches": [
+      {
+        "key": "conf:",
+        "hits": 3,
+        "excerpts": [
+          "al: True # (bool) run validation/testing during training\nsplit: val # (str) dataset split to evaluate: 'val', 'test' or 'train'\nsave_json: False # (bool) save results to COCO JSON (detect/segment/pose) or PNG masks (semantic) for external evaluation\nconf: # (float, optional) confidence threshold; defaults: predict=0.25, val=0.001\niou: 0.7 # (float) IoU threshold used for NMS\nmax_det: 300 # (int) maximum number of detections per image\nquantize: # (int|str, optional) precision: predict/val use 16/fp16 for FP16 or 32/fp32/None for FP32; export also supports 8/int8 and w8a8|w16a16|w8a16|w8a32; replaces deprecated half/int8 args\ndnn: False # (bool) use OpenCV DNN for ONNX inference\nplots: True # (bool) save plots and images during train/val\nend2end: # (bool, optional) whether to use end2end head (YOLO26, YOLOv10) for predict/val/export\n\n# Predict s",
+          "---------------------------------------\nshow: False # (bool) show images/videos in a window if supported\nsave_frames: False # (bool) save individual frames from video predictions\nsave_txt: False # (bool) save results as .txt files (xywh format)\nsave_conf: False # (bool) save confidence scores with results\nsave_crop: False # (bool) save cropped prediction regions to files\nshow_labels: True # (bool) draw class labels on images, e.g. 'person'\nshow_conf: True # (bool) draw confidence values on images, e.g. '0.99'\nshow_boxes: True # (bool) draw bounding boxes on images\nline_width: # (int, optional) line width of boxes; auto-scales with image size if not set\n\n# Export settings ------------------------------------------------------------------------------------------------------\nformat: torchscript # (str) target format, e.g. torchscript|onnx|openvin"
+        ]
+      },
+      {
+        "key": "iou:",
+        "hits": 1,
+        "excerpts": [
+          "t split to evaluate: 'val', 'test' or 'train'\nsave_json: False # (bool) save results to COCO JSON (detect/segment/pose) or PNG masks (semantic) for external evaluation\nconf: # (float, optional) confidence threshold; defaults: predict=0.25, val=0.001\niou: 0.7 # (float) IoU threshold used for NMS\nmax_det: 300 # (int) maximum number of detections per image\nquantize: # (int|str, optional) precision: predict/val use 16/fp16 for FP16 or 32/fp32/None for FP32; export also supports 8/int8 and w8a8|w16a16|w8a16|w8a32; replaces deprecated half/int8 args\ndnn: False # (bool) use OpenCV DNN for ONNX inference\nplots: True # (bool) save plots and images during train/val\nend2end: # (bool, optional) whether to use end2end head (YOLO26, YOLOv10) for predict/val/export\n\n# Predict settings -------------------------------------------------------------------------"
+        ]
+      },
+      {
+        "key": "max_det:",
+        "hits": 1,
+        "excerpts": [
+          "save_json: False # (bool) save results to COCO JSON (detect/segment/pose) or PNG masks (semantic) for external evaluation\nconf: # (float, optional) confidence threshold; defaults: predict=0.25, val=0.001\niou: 0.7 # (float) IoU threshold used for NMS\nmax_det: 300 # (int) maximum number of detections per image\nquantize: # (int|str, optional) precision: predict/val use 16/fp16 for FP16 or 32/fp32/None for FP32; export also supports 8/int8 and w8a8|w16a16|w8a16|w8a32; replaces deprecated half/int8 args\ndnn: False # (bool) use OpenCV DNN for ONNX inference\nplots: True # (bool) save plots and images during train/val\nend2end: # (bool, optional) whether to use end2end head (YOLO26, YOLOv10) for predict/val/export\n\n# Predict settings -----------------------------------------------------------------------------------------------------\nsource: # (str, optio"
+        ]
+      }
+    ],
+    "accessed": "2026-10-14T12:06:19.131223+08:00"
+  },
+  {
+    "id": "R14",
+    "title": "Ultralytics v8.4.92 detect/train.py",
+    "url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/models/yolo/detect/train.py",
+    "status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/models/yolo/detect/train.py",
+    "bytes": 12903,
+    "sha256": "257f81fcbce922e9032f6d3908378f6e1d1b0648169d72f4a37f1448d2afb81e",
+    "matches": [
+      {
+        "key": "drop_last=self.args.compile",
+        "hits": 1,
+        "excerpts": [
+          " shuffle = False\n        return build_dataloader(\n            dataset,\n            batch=batch_size,\n            workers=self.args.workers if mode == \"train\" else self.args.workers * 2,\n            shuffle=shuffle,\n            rank=rank,\n            drop_last=self.args.compile and mode == \"train\",\n        )\n\n    def preprocess_batch(self, batch: dict) -> dict:\n        \"\"\"Preprocess a batch of images by scaling and converting to float.\n\n        Args:\n            batch (dict): Dictionary containing batch data with 'img' tensor.\n\n        Returns:\n            (dict): Preprocessed batch with normalized images.\n        \"\"\"\n        for k, v in batch.items():\n            if isinstance(v, torch.Tensor):\n                batch[k] = v.to(self.device, non_blocking=self.device.type == \"cuda\")\n        batch[\"img\"] = batch[\"img\"].float() / 255\n        if self.args.multi_scale > 0."
+        ]
+      }
+    ],
+    "accessed": "2026-10-14T12:06:26.176918+08:00"
+  },
+  {
+    "id": "R15",
+    "title": "Ultralytics v8.4.92 detect/val.py",
+    "url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/models/yolo/detect/val.py",
+    "status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/models/yolo/detect/val.py",
+    "bytes": 24109,
+    "sha256": "55068be1bd32ddc3491cfe3b0bf5149ceb46fd301abf0026e6699264f696456a",
+    "matches": [
+      {
+        "key": "\"target_img\": np.unique(cls)",
+        "hits": 1,
+        "excerpts": [
+          "batch[\"cls\"].cpu().numpy()\n            no_pred = predn[\"cls\"].shape[0] == 0\n            self.metrics.update_stats(\n                {\n                    **self._process_batch(predn, pbatch),\n                    \"target_cls\": cls,\n                    \"target_img\": np.unique(cls),\n                    \"conf\": np.zeros(0) if no_pred else predn[\"conf\"].cpu().numpy(),\n                    \"pred_cls\": np.zeros(0) if no_pred else predn[\"cls\"].cpu().numpy(),\n                    \"im_name\": Path(pbatch[\"im_file\"]).name,\n                }\n            )\n            # Evaluate\n            if self.args.plots:\n                self.confusion_matrix.process_batch(predn, pbatch, conf=self.args.conf)\n                if self.args.visualize:\n                    self.confusion_matrix.plot_matches(\n                        batch[\"img\"][si],\n                        pbatch[\"im_file\"],\n        "
+        ]
+      },
+      {
+        "key": "torch.linspace(0.5, 0.95, 10)",
+        "hits": 1,
+        "excerpts": [
+          "tionary of callback functions.\n        \"\"\"\n        super().__init__(dataloader, save_dir, args, _callbacks)\n        self.is_coco = False\n        self.is_lvis = False\n        self.class_map = None\n        self.args.task = \"detect\"\n        self.iouv = torch.linspace(0.5, 0.95, 10)  # IoU vector for mAP@0.5:0.95\n        self.niou = self.iouv.numel()\n        self.metrics = DetMetrics()\n\n    def preprocess(self, batch: dict[str, Any]) -> dict[str, Any]:\n        \"\"\"Preprocess batch of images for YOLO validation.\n\n        Args:\n            batch (dict[str, Any]): Batch containing images and annotations.\n\n        Returns:\n            (dict[str, Any]): Preprocessed batch.\n        \"\"\"\n        for k, v in batch.items():\n            if isinstance(v, torch.Tensor):\n                batch[k] = v.to(self.device, non_blocking=self.device.type == \"cuda\")\n        batch[\"img\"] = (batch["
+        ]
+      }
+    ],
+    "accessed": "2026-10-14T12:06:24.663268+08:00"
+  }
+]

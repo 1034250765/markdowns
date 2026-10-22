@@ -1,0 +1,37 @@
+[
+  {
+    "path": "牛只数据集/域内模型与架构比较.md",
+    "sha256": "f95bc8bbd5bf7ca3e04dbe9792e9a55e92ecd59eded2b18c396ebb9280a89a76",
+    "bytes": 21288
+  },
+  {
+    "path": "牛只数据集/文章初稿.md",
+    "sha256": "6211c2c32affd2388a9ae1ca36e80bd4501348f589137369ac3d2f89b7cea4ea",
+    "bytes": 133784
+  },
+  {
+    "path": "科研记录/实验记录格式参考.md",
+    "sha256": "175ecbe30615e8fb2fb274cfedd83bfaca39403b6a122295822cef922bb205f3",
+    "bytes": 6551
+  },
+  {
+    "path": "牛只数据集/10月域内重测计划.md",
+    "sha256": "7223b8b7457c71bd0827ee4ed086f8308d086299b58327596d700a5fff7540df",
+    "bytes": 13159
+  },
+  {
+    "path": "牛只数据集/域内重测-10月.md",
+    "sha256": "26499babb994fb72d558cf6d6f09c30d33eba59794131393d121adea1681d75c",
+    "bytes": 30597
+  },
+  {
+    "path": "牛只数据集/9月LODO泛化测试计划.md",
+    "sha256": "bdebb0ca27a44b75d40c5cd34a1ac2a763392e992ddf0b8e999fbcefde19af8f",
+    "bytes": 20285
+  },
+  {
+    "path": "牛只数据集/LODO测试-9月.md",
+    "sha256": "c35de91624931f718f2b1cd80ec490a676d8173a1ac74c229bd5a0789966bd38",
+    "bytes": 22232
+  }
+]

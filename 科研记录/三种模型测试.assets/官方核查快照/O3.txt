@@ -1,0 +1,8 @@
+核查摘记（非网页或论文全文）
+来源：Ultralytics Model Training
+原始URL：https://docs.ultralytics.com/modes/train/
+本次读取URL：https://docs.ultralytics.com/modes/train
+核查日期：2026-10-14
+下载内容SHA-256：f71f5fc3ddcbf7ff3b7a7404dfc804361848deedbb852fd7f1bd0a5d2e821848
+定位：训练参数与断点恢复的一般接口
+摘记：训练指南列出batch与优化器等参数，并说明resume可恢复已有训练状态。本项目实际args与完整中断条件仍需历史文件。

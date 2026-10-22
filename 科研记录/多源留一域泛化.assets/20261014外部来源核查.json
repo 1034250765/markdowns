@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-14",
+  "timezone": "Asia/Shanghai",
+  "method": "web.run实际打开官方文档、论文页面和版本源码；不声称全文精读。",
+  "sources": [
+    {"id":"W1","url":"https://docs.ultralytics.com/models/yolo11/","title":"Ultralytics YOLO11","status":"opened","scope":"模型定位及训练／验证接口"},
+    {"id":"W2","url":"https://arxiv.org/abs/2304.08069","title":"DETRs Beat YOLOs on Real-time Object Detection","status":"opened","scope":"摘要中的混合编码器、查询选择及端到端检测"},
+    {"id":"W3","url":"https://arxiv.org/abs/1506.01497","title":"Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks","status":"opened","scope":"RPN、共享卷积特征与两阶段检测"},
+    {"id":"W4","url":"https://arxiv.org/abs/1708.02002","title":"Focal Loss for Dense Object Detection","status":"opened","scope":"训练前背景不平衡与难样本损失"},
+    {"id":"W5","url":"https://mmdetection.readthedocs.io/en/v3.3.0/advanced_guides/customize_dataset.html","title":"Customize Datasets — MMDetection 3.3.0","status":"opened","scope":"类别元信息、num_classes及单类别配置"},
+    {"id":"W6","url":"https://mmengine.readthedocs.io/en/latest/api/generated/mmengine.optim.OptimWrapper.html","title":"OptimWrapper","status":"opened","scope":"accumulative_counts；动态文档不替代历史配置"},
+    {"id":"W7","url":"https://mmengine.readthedocs.io/en/latest/api/generated/mmengine.hooks.CheckpointHook.html","title":"CheckpointHook","status":"opened","scope":"save_best与rule"},
+    {"id":"W8","url":"https://github.com/ultralytics/ultralytics/blob/v8.4.92/ultralytics/utils/metrics.py","opened_url":"https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/utils/metrics.py","title":"Ultralytics v8.4.92 metrics.py","status":"opened","scope":"ap_per_class：L724–810，平滑F1峰值、汇总P/R；Metric.fitness：L920–923"},
+    {"id":"W9","url":"https://github.com/ultralytics/ultralytics/blob/v8.4.92/ultralytics/models/rtdetr/predict.py","opened_url":"https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/models/rtdetr/predict.py","title":"RTDETRPredictor","status":"opened","scope":"L31–74，专属后处理和scale_fill=True"},
+    {"id":"W10","url":"https://github.com/ultralytics/ultralytics/blob/v8.4.92/ultralytics/models/rtdetr/val.py","opened_url":"https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/models/rtdetr/val.py","title":"RTDETRValidator","status":"opened","scope":"专属输入及后处理路径"},
+    {"id":"W11","url":"https://github.com/ultralytics/ultralytics/blob/v8.4.92/ultralytics/engine/trainer.py","opened_url":"https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.92/ultralytics/engine/trainer.py","title":"Ultralytics BaseTrainer","status":"opened","scope":"save_model同分保存：L657–663；warmup、累积和step关系"},
+    {"id":"W12","url":"https://arxiv.org/abs/1612.03144","title":"Feature Pyramid Networks for Object Detection","status":"opened","scope":"原论文摘要的多尺度特征机制"},
+    {"id":"W13","url":"https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocotools/cocoeval.py","opened_url":"https://raw.githubusercontent.com/cocodataset/cocoapi/master/PythonAPI/pycocotools/cocoeval.py","title":"COCOeval","status":"opened","scope":"IoU阈值扫描、maxDets、匹配与汇总参数；master未冻结commit"},
+    {"id":"W14","url":"https://docs.ultralytics.com/modes/val/","title":"Model Validation with Ultralytics YOLO","status":"opened","scope":"split、conf、iou、rect及汇总指标；动态当前文档不倒填历史参数"},
+    {"id":"W15","url":"https://arxiv.org/html/2007.01434v1","title":"In Search of Lost Domain Generalization","status":"opened","scope":"§3、Recommendations 1–2；模型选择与限制目标域访问"},
+    {"id":"W16","url":"https://github.com/pytorch/pytorch/blob/v2.5.1/docs/source/data.rst","opened_url":"https://raw.githubusercontent.com/pytorch/pytorch/v2.5.1/docs/source/data.rst","title":"PyTorch v2.5.1 DataLoader documentation source","status":"opened","scope":"多进程数据集副本、generator、worker、persistent_workers和drop_last"},
+    {"id":"W17","url":"https://github.com/pytorch/pytorch/blob/v2.5.1/docs/source/notes/randomness.rst","opened_url":"https://raw.githubusercontent.com/pytorch/pytorch/v2.5.1/docs/source/notes/randomness.rst","title":"PyTorch v2.5.1 Reproducibility documentation source","status":"opened","scope":"随机库、DataLoader worker、generator与可复现性限制"}
+  ],
+  "unreadable_attempts": [
+    {"url":"https://docs.pytorch.org/docs/stable/data.html","result":"返回重定向占位，未得可读正文"},
+    {"url":"https://docs.pytorch.org/docs/stable/notes/randomness.html","result":"返回重定向占位，未得可读正文"},
+    {"url":"https://docs.pytorch.org/docs/2.5/data.html","result":"工具返回Internal Error，改读官方版本文档源码"},
+    {"url":"https://docs.pytorch.org/docs/2.5/notes/randomness.html","result":"工具返回Internal Error，改读官方版本文档源码"}
+  ],
+  "image_generation": [
+    {"plugin":"Study Image","status":"success","path":"图5-域内与泛化证据链-Study原图-20261014.png","size_bytes":1269923},
+    {"plugin":"Study Image","status":"success","path":"LODO科研表格版式母图-Study-20261014.png","size_bytes":820792}
+  ]
+}

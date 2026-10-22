@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "record_sections": 7,
+  "record_images": 13,
+  "scientific_tables": 9,
+  "local_link_occurrences": 43,
+  "external_reference_urls": 14,
+  "datasets": 14,
+  "model_dataset_rows": 56,
+  "image_counts": [
+    23851,
+    4971,
+    2551,
+    31373
+  ],
+  "sources": 19,
+  "official_sources_opened": 14,
+  "source_hashes_unchanged": 5,
+  "wiki_unique_ids_checked": 8,
+  "index_entry": "- [牛只域内模型与架构比较：历史验证记录及方法核查](wiki/sources/cowcv-indomain-architecture-evidence.md) | `source` | `draft` | 更新：2026-10-13 | 来源：19 — 整理四模型在14域的历史验证、评测排障和描述性复算，保留选模及RT-DETR实现冲突并关联科研记录。",
+  "source_title_sorting": "passed",
+  "csv_and_table_numeric_consistency": "passed",
+  "python_syntax": "passed",
+  "visual_review": "已查看全部图表总览、流程图及训练配置、AP主表、验收表和机制图的放大图",
+  "not_run": [
+    "远程训练与推理",
+    "远程产物当前存在性",
+    "历史安装源码与checkpoint身份复核",
+    "逐图误差审核",
+    "显著性检验",
+    "数据库与向量索引同步"
+  ]
+}

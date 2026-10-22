@@ -1,0 +1,8 @@
+核查摘记（非网页或论文全文）
+来源：Ultralytics YOLO11
+原始URL：https://docs.ultralytics.com/models/yolo11/
+本次读取URL：https://docs.ultralytics.com/models/yolo11
+核查日期：2026-10-14
+下载内容SHA-256：29c1ad75f721eca64fe567dca1d4173acc04b4ce0e9d4ce88437812210edc95a
+定位：模型系列与官方任务范围
+摘记：模型表明确列出yolo11s.pt与yolo11l.pt，支持Detection的训练、验证、推理和导出。未将其官方COCO数值复制为本项目成绩。
