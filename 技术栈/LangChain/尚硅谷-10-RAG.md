@@ -50,15 +50,15 @@ RAG（Retrieval-Augmented Generation，检索增强生成）是一种结合信�
 
 **典型的检索流程如下：（官方）**
 
-![尚硅谷-10-RAG-配图](10-p02-1.png)
+![尚硅谷-10-RAG-配图](images/10-p02-1.png)
 
 即：
 
-![尚硅谷-10-RAG-配图](10-p02-2.png)
+![尚硅谷-10-RAG-配图](images/10-p02-2.png)
 
 **简单举例：**
 
-![尚硅谷-10-RAG-配图](10-p02-3.png)
+![尚硅谷-10-RAG-配图](images/10-p02-3.png)
 
 如果说LangChain相当于给LLM这个“大脑”安装了“四肢和躯干”，RAG则是为LLM提供了接入“人类知识图书馆”的能力。
 
@@ -66,11 +66,11 @@ RAG（Retrieval-Augmented Generation，检索增强生成）是一种结合信�
 
 目前，已经出现了非常多的产品几乎完全建立在 RAG 之上，包括客服系统、基于大模型的数据分析，以及成千上万的数据驱动聊天应用，应用场景五花八门。
 
-![尚硅谷-10-RAG-配图](10-p03-1.png)
+![尚硅谷-10-RAG-配图](images/10-p03-1.png)
 
-![尚硅谷-10-RAG-配图](10-p03-2.png)
+![尚硅谷-10-RAG-配图](images/10-p03-2.png)
 
-![尚硅谷-10-RAG-配图](10-p03-3.jpeg)
+![尚硅谷-10-RAG-配图](images/10-p03-3.jpeg)
 
 ### 1.3 RAG优缺点
 
@@ -90,7 +90,7 @@ RAG（Retrieval-Augmented Generation，检索增强生成）是一种结合信�
 
 ### 1.4 RAG工作流程
 
-![尚硅谷-10-RAG-配图](10-p04-1.jpeg)
+![尚硅谷-10-RAG-配图](images/10-p04-1.jpeg)
 
 **环节1：Source（数据源）**
 
@@ -108,7 +108,7 @@ RAG（Retrieval-Augmented Generation，检索增强生成）是一种结合信�
 
 文档对象包含文档内容和相关元数据信息，例如TXT、CSV、HTML、JSON、Markdown、PDF，甚至 YouTube 视频转录等。
 
-![尚硅谷-10-RAG-配图](10-p05-1.png)
+![尚硅谷-10-RAG-配图](images/10-p05-1.png)
 
 文档加载器还支持“ 延迟加载”模式，以缓解处理大文件时的内存压力。
 
@@ -151,12 +151,12 @@ print(loader.load())
 
 文档嵌入模型（Text Embedding Models）负责将文本转换为向量表示，即**模型赋予了文本计算机可理解的数值表示**，使文本可用于向量空间中的各种运算，大大拓展了文本分析的可能性，是自然语言处理领域非常重要的技术。
 
-![尚硅谷-10-RAG-配图](10-p06-1.png)
+![尚硅谷-10-RAG-配图](images/10-p06-1.png)
 
 - 实现原理：通过特定算法（如Word2Vec）将语义信息编码为固定维度的向量，具体算法细节需后续深入。
 - 关键特性：**相似的词在向量空间中距离相近**，例如"猫"和"犬"的向量夹角小于"猫"和"汽车"。
 
-![尚硅谷-10-RAG-配图](10-p06-2.jpeg)
+![尚硅谷-10-RAG-配图](images/10-p06-2.jpeg)
 
 文本嵌入为 LangChain 中的问答、检索、推荐等功能提供了重要支持。具体为：
 
@@ -170,7 +170,7 @@ print(loader.load())
 
 LangChain 还支持把文本嵌入存储到向量存储或临时缓存，以避免需要重新计算它们。这里就出现了数据库，支持这些嵌入的高效存储和搜索的需求。
 
-![尚硅谷-10-RAG-配图](10-p07-1.png)
+![尚硅谷-10-RAG-配图](images/10-p07-1.png)
 
 **环节6：Retrieve（检索）**
 
@@ -1216,7 +1216,7 @@ LangChain提供了许多不同类型的文档切分器
 - separator ：分割使用的分隔符，默认值为"\n\n"。
 - length_function ：用于计算切块长度的方法。默认赋值为父类TextSplitter的len函数。
 
-![尚硅谷-10-RAG-配图](10-p28-1.png)
+![尚硅谷-10-RAG-配图](images/10-p28-1.png)
 
 举例1：字符串文本的分割
 
@@ -1704,7 +1704,7 @@ text_splitter = RecursiveCharacterTextSplitter(
 
 流程如下
 
-![尚硅谷-10-RAG-配图](10-p37-1.png)
+![尚硅谷-10-RAG-配图](images/10-p37-1.png)
 
 **③ TokenTextSplitter/CharacterTextSplitter：Split by tokens**
 
@@ -2159,7 +2159,7 @@ for i, doc in enumerate(docs):
 
 **Text Embedding Models**：文档嵌入模型，提供将文本编码为向量的能力，即文档向量化。文档写入和用户查询匹配前都会先执行文档嵌入编码，即向量化。
 
-![尚硅谷-10-RAG-配图](10-p47-1.png)
+![尚硅谷-10-RAG-配图](images/10-p47-1.png)
 
 常用嵌入模型：
 
@@ -2178,7 +2178,7 @@ LangChain中针对向量化模型的封装提供了两种接口，一种针对�
 
 **选型1：使用CloseAI平台提供的嵌入模型**
 
-![尚硅谷-10-RAG-配图](10-p48-1.png)
+![尚硅谷-10-RAG-配图](images/10-p48-1.png)
 
 初始化方式：
 
@@ -2209,7 +2209,7 @@ CLOSEAI_BASE_URL=https://api.openai-proxy.org/v1
 
 选择**bge-m3** 作为嵌入模型，可以通过硅基流动调用，该模型可以免费调用，如果追求更低的延迟、更稳定的服务，也可以充值后选择带有**pro** 前缀的模型，如下所示
 
-![尚硅谷-10-RAG-配图](10-p49-1.png)
+![尚硅谷-10-RAG-配图](images/10-p49-1.png)
 
 这两款产品的模型是一样的，区别只在于资费和服务保障。
 

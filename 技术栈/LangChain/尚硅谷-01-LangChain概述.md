@@ -11,11 +11,11 @@
 
 ### 1.1 从传统应用到智能体时代
 
-![从传统应用到智能体时代](p01_x8.png)
+![从传统应用到智能体时代](images/p01_x8.png)
 
 ### 1.2 单一的大语言模型的局限性
 
-![单一的大语言模型的局限性](p01_x9.png)
+![单一的大语言模型的局限性](images/p01_x9.png)
 
 所以要构建真正实用的AI应用，必须将大语言模型与外部工具、数据源和记忆机制有机结合，从而催生了LangChain框架的设计理念。
 
@@ -23,7 +23,7 @@ LangChain，是当前构建生产级 AI 智能体系统的**首选**。
 
 ### 1.3 LangChain框架的定位
 
-![LangChain框架的定位](p02_x19.png)
+![LangChain框架的定位](images/p02_x19.png)
 
 LangChain 作为大模型与应用间的中间层，可统一调用各类大模型、管理提示词与上下文，还能集成外部工具和数据源，快速搭建具备推理、行动能力的智能体。
 
@@ -35,7 +35,7 @@ LangChain 作为大模型与应用间的中间层，可统一调用各类大模�
 
 ### 1.4 LangChain的应用场景
 
-![LangChain的应用场景](p02_x20.png)
+![LangChain的应用场景](images/p02_x20.png)
 
 **1. 检索增强生成 (RAG)**
 
@@ -69,11 +69,11 @@ LangChain 作为大模型与应用间的中间层，可统一调用各类大模�
 
 ### 1.5 大模型相关岗位介绍
 
-![大模型相关岗位介绍](p03_x27.png)
+![大模型相关岗位介绍](images/p03_x27.png)
 
 应用开发是大模型最值得关注的方向：**应用为王！**
 
-![应用为王](p03_x28.png)
+![应用为王](images/p03_x28.png)
 
 学习LangChain框架，高效开发大模型应用。
 
@@ -83,7 +83,7 @@ LangChain 作为大模型与应用间的中间层，可统一调用各类大模�
 
 ### 2.1 LangChain的发展时间线
 
-![LangChain的发展时间线](p04_x34.png)
+![LangChain的发展时间线](images/p04_x34.png)
 
 **第1阶段：诞生（2022年10月）**
 
@@ -119,7 +119,7 @@ LangGraph 与LangServe 的发布是这一阶段的标志。LangGraph 为工作�
 
 此时，很多开发者的整体使用感受：
 
-![LangChain v0.3 使用感受](p05_x42.png)
+![LangChain v0.3 使用感受](images/p05_x42.png)
 
 这个阶段，LangChain的开发者大规模流失。
 
@@ -151,14 +151,14 @@ LangGraph 与LangServe 的发布是这一阶段的标志。LangGraph 为工作�
 
 ### 2.3 LangChain v1.2的主要模块
 
-![LangChain v1.2 主要模块](p07_x51.png)
+![LangChain v1.2 主要模块](images/p07_x51.png)
 
 - **`langchain-core`**：官方推荐的核心API。比如 Runnable, BaseMessage等
 - **`langchain-classic`**：冗余代码移或不推荐使用的经典API移到此。比如0.x中常用而1.x移除的API都在这里。
 - **`langchain-community`**：第三方集成，比如：合作伙伴包 `langchain-openai`，`langchain-anthropic`等，按需安装、避免臃肿。
 - **`langgraph`**：深度整合 LangGraph 1.0，协调多个Chain，Agent，Tools完成更复杂的任务，并且还支持循环调用，是langchain图形化的增强版
 
-![官方模块总览](p08_x55.png)
+![官方模块总览](images/p08_x55.png)
 
 来自：https://reference.langchain.com/python/langchain/overview
 
@@ -180,7 +180,7 @@ LangGraph 与LangServe 的发布是这一阶段的标志。LangGraph 为工作�
 
 截至2025年11月，LangChain 已从一个独立的开发框架，成长为一个覆盖智能体系统全生命周期的技术生态。该生态由四大核心支柱构成：LangChain、LangGraph、Deep Agent 与LangSmith。
 
-![LangChain 家族四大支柱](p09_x68.png)
+![LangChain 家族四大支柱](images/p09_x68.png)
 
 它们分别对应基础能力层、运行时编排层、智能体抽象层、监控与评估层，共同构建了一个从技术验证到生产部署、从单体智能到复杂协作的项目闭环。
 
@@ -216,7 +216,7 @@ LangChain 是整个生态的核心与起点，为开发者提供了模型调用�
 
 **通俗理解：**
 
-![LangChain 与 LangGraph 的分工](p10_x77.png)
+![LangChain 与 LangGraph 的分工](images/p10_x77.png)
 
 - LangChain = 能力抽象层（LLM / Tool / Message 标准化），负责“有什么能力”
 - LangGraph = 执行与编排层（状态机 / 工作流 / 多Agent系统），负责“怎么跑”
@@ -237,13 +237,13 @@ Deep Agent 的核心能力如下：
 
 官方文档（三者对比）：https://docs.langchain.com/oss/python/langchain/overview
 
-![三者对比](p11_x84.png)
+![三者对比](images/p11_x84.png)
 
 三个框架不是竞争关系，并非互斥，复杂项目完全可以同时用到这三层。
 
 **基于LLM的应用开发体系图：**
 
-![基于LLM的应用开发体系图](p11_x86.png)
+![基于LLM的应用开发体系图](images/p11_x86.png)
 
 从 LangChain 快速搭建，用 LangGraph 打磨生产稳定性，再用 Deep Agents 赋予 Agent 更强的自主能力——这才是完整的 LangChain 生态玩法。
 
@@ -253,7 +253,7 @@ Deep Agent 的核心能力如下：
 
 LangSmith 是 LangChain 官方推出的**可视化监控与测试平台**，**用于跟踪、记录和分析智能体在运行过程中的完整调用链路**，让智能体的内部运行过程变得透明和可评估。
 
-![LangSmith](p12_x92.png)
+![LangSmith](images/p12_x92.png)
 
 LangSmith 的核心目标如下：
 
@@ -292,7 +292,7 @@ LangChain 生态支持包括 Python 和 JavaScript 语言实现。其中，Pytho
 
 相较于**全局环境（系统环境）**，各个**虚拟环境**都有自己独立的一套：Python 解释器、pip 命令、第三方依赖包，不和其它项目产生干扰。
 
-![全局环境与虚拟环境](p13_x101.png)
+![全局环境与虚拟环境](images/p13_x101.png)
 
 虚拟环境的设置方案：
 
@@ -449,21 +449,21 @@ pip list
 conda list   # Conda 安装的包显示频道，pip 安装的显示 `pypi`
 ```
 
-![包安装示意](p16_x121.png)
+![包安装示意](images/p16_x121.png)
 
 #### 4.2.4 PyCharm开发环境
 
 PyCharm作为专业的Python IDE，具有强大的代码编辑、调试和版本控制功能。
 
-![PyCharm 下载](p16_x122.png)
+![PyCharm 下载](images/p16_x122.png)
 
 https://www.jetbrains.com/pycharm/download/other/#releases-2025
 
-![PyCharm 下载页](p17_x127.png)
+![PyCharm 下载页](images/p17_x127.png)
 
 创建新的工程，并设置Python解释器（选择Anaconda环境）。
 
-![设置 Python 解释器](p17_x128.png)
+![设置 Python 解释器](images/p17_x128.png)
 
 ```python
 import langchain
@@ -489,7 +489,7 @@ print(langchain.__version__)
 
 LLM在考试的时候面对陌生的领域，答复能力有限，然后就准备放飞自我了，而此时RAG给了一些提示和思路，让LLM懂了开始往这个提示的方向做，最终考试的正确率从60%到了90%！
 
-![RAG 举例](p18_x136.png)
+![RAG 举例](images/p18_x136.png)
 
 **3）何为RAG？**
 
@@ -497,15 +497,15 @@ Retrieval-Augmented Generation（检索增强生成）
 
 图1：
 
-![RAG 图1](p18_x137.png)
+![RAG 图1](images/p18_x137.png)
 
 图2：
 
-![RAG 检索-增强-生成流程](p19_flowchart.png)
+![RAG 检索-增强-生成流程](images/p19_flowchart.png)
 
 检索-增强-生成过程：检索可以理解为第10步，增强理解为第13步（这里的提示词包含检索到的数据），生成理解为第15步。
 
-![RAG 流程细节](p19_x148.png)
+![RAG 流程细节](images/p19_x148.png)
 
 这些过程中的难点：1、文件解析　2、文件切割　3、知识检索　4、知识重排序
 
@@ -525,11 +525,11 @@ Retrieval-Augmented Generation（检索增强生成）
 
 类比举例：
 
-![Agent 类比举例](p20_x154.png)
+![Agent 类比举例](images/p20_x154.png)
 
 OpenAI的元老翁丽莲(Lilian Weng)于2023年6月在个人博客（https://lilianweng.github.io/posts/2023-06-23-agent/）首次提出了现代AI Agent架构。
 
-![现代 AI Agent 架构](p20_x155.png)
+![现代 AI Agent 架构](images/p20_x155.png)
 
 一个数学公式来表示：
 
@@ -549,15 +549,15 @@ OpenAI的元老翁丽莲(Lilian Weng)于2023年6月在个人博客（https://lil
 
 大脑主要由一个大型语言模型 LLM 组成，承担着信息处理和决策等功能，并可以呈现推理和规划的过程，能很好地应对未知任务。
 
-![LLM 作为大脑](p21_x160.png)
+![LLM 作为大脑](images/p21_x160.png)
 
-![规划决策](p21_x161.png)
+![规划决策](images/p21_x161.png)
 
 **2、规划决策（Planning）**：通过任务分解、反思与自省框架实现复杂任务处理。例如，利用思维链（Chain of Thought）将目标拆解为子任务，并通过反馈优化策略。
 
 **3、工具使用（Tool Use）**：调用外部工具（如API、数据库）扩展能力边界。
 
-![工具使用](p21_x164.png)
+![工具使用](images/p21_x164.png)
 
 **4、记忆（Memory）**
 
@@ -565,7 +565,7 @@ OpenAI的元老翁丽莲(Lilian Weng)于2023年6月在个人博客（https://lil
 
 - **短期记忆**：存储单次对话周期的上下文信息，属于临时信息存储机制。受限于模型的上下文窗口长度。
 
-![记忆机制](p22_x169.png)
+![记忆机制](images/p22_x169.png)
 
 ChatGPT：支持约8k token的上下文
 
@@ -589,7 +589,7 @@ Prompt是操作大模型的唯一接口
 
 当人看：你说一句，ta回一句，你再说一句，ta再回一句...
 
-![纯 Prompt](p23_x174.png)
+![纯 Prompt](images/p23_x174.png)
 
 **场景2：Agent + Function Calling**
 
@@ -597,7 +597,7 @@ Prompt是操作大模型的唯一接口
 - Function Calling：需要对接外部系统时，AI 要求执行某个函数
 - 当人看：你问 ta「我明天去杭州出差，要带伞吗？」，ta 让你先看天气预报，你看了告诉ta，ta 再告诉你要不要带伞
 
-![Agent + Function Calling](p24_x180.png)
+![Agent + Function Calling](images/p24_x180.png)
 
 **场景3：RAG (Retrieval-Augmented Generation)**
 
@@ -609,13 +609,13 @@ RAG：需要补充领域知识时使用
 
 举例：考试答题时，到书上找相关内容，再结合题目组成答案
 
-![RAG 场景](p24_x183.png)
+![RAG 场景](images/p24_x183.png)
 
 这个在智能客服上用的最广泛。
 
 **场景4：Fine-tuning(精调/微调)**
 
-![Fine-tuning](p25_x188.png)
+![Fine-tuning](images/p25_x188.png)
 
 举例：努力学习考试内容，长期记住，活学活用。
 
@@ -625,4 +625,4 @@ RAG：需要补充领域知识时使用
 
 面对一个需求，如何开始，如何选择技术方案？下面是个常用思路：
 
-![技术方案选择思路](p25_x190.png)
+![技术方案选择思路](images/p25_x190.png)

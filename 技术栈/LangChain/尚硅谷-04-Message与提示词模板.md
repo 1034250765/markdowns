@@ -11,7 +11,7 @@
 
 大模型没有记忆，它的输出只和输入模型的内容有关（上下文）。很多大模型API服务也没有在服务端维护会话历史，是“ 无状态”的。因此，**如果应用需要“记住”对话历史，需要在程序中维护消息列表。**
 
-![尚硅谷-04-Message与提示词模板-配图](04-p01-1.png)
+![尚硅谷-04-Message与提示词模板-配图](images/04-p01-1.png)
 
 **在 LangChain 中，Message（消息）是模型交互的最基本单元。**它既代表模型接收到的输入（Input），也代表模型生成的输出（Output）。
 
@@ -380,7 +380,7 @@ name 和id 都属于元数据字段，当消息类型相同，对消息进行区
 
 - OpenAI的API手册告诉我们，HumanMessage支持name 作为元数据字段，如下图所示。而DeepSeek的API官方文档明确支持name 作为元数据，但实测发现模型无法识别。
 
-![尚硅谷-04-Message与提示词模板-配图](04-p08-1.png)
+![尚硅谷-04-Message与提示词模板-配图](images/04-p08-1.png)
 
 **举例：**
 
@@ -629,7 +629,7 @@ rprint(response.usage_metadata)
 
 返回的内容分析：
 
-![尚硅谷-04-Message与提示词模板-配图](04-p12-1.png)
+![尚硅谷-04-Message与提示词模板-配图](images/04-p12-1.png)
 
 #### 1.5.4 ToolMessage参数列表(拓展)
 
@@ -1033,11 +1033,11 @@ print(msg2)
 
 参考官方文档：https://developers.openai.com/api/reference/python/resources/chat/subresources/completions/methods/create
 
-![尚硅谷-04-Message与提示词模板-配图](04-p20-1.png)
+![尚硅谷-04-Message与提示词模板-配图](images/04-p20-1.png)
 
 将下图置于代码所在的目录下（比如chapter04_message_prompt），命名为image_test.png
 
-![尚硅谷-04-Message与提示词模板-配图](04-p20-2.png)
+![尚硅谷-04-Message与提示词模板-配图](images/04-p20-2.png)
 
 测试代码如下
 
@@ -1237,7 +1237,7 @@ print(response.content)
 
 content_blocks 还可用于`输出格式化`，以deepseek官网的deepseek-v4-flash 为例，其输出包含思考内容，后者位于additional_kwargs 的reasoning_content 字段下。比如：
 
-![尚硅谷-04-Message与提示词模板-配图](04-p24-1.png)
+![尚硅谷-04-Message与提示词模板-配图](images/04-p24-1.png)
 
 不同的模型其输出格式可能不同，仅为提取思考内容，切换模型都可能需要更改代码，非常不方便。
 

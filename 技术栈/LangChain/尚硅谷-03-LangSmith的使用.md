@@ -20,7 +20,7 @@ LangSmith 是 LangChain 生态系统中专门用于 LLM（大语言模型）应�
 
 主界面：
 
-![尚硅谷-03-LangSmith的使用-配图](03-p01-1.png)
+![尚硅谷-03-LangSmith的使用-配图](images/03-p01-1.png)
 
 ### 1.2 具体功能
 
@@ -96,41 +96,41 @@ LangSmith 是 LangChain 生态系统中专门用于 LLM（大语言模型）应�
 
 访问Langsmith官网：https://smith.LangChain.com/
 
-![尚硅谷-03-LangSmith的使用-配图](03-p03-1.png)
+![尚硅谷-03-LangSmith的使用-配图](images/03-p03-1.png)
 
 步骤2：自由选择注册或登录方式
 
 步骤3：登录成功
 
-![尚硅谷-03-LangSmith的使用-配图](03-p03-2.png)
+![尚硅谷-03-LangSmith的使用-配图](images/03-p03-2.png)
 
 ### 2.2 获取API_KEY
 
 **步骤1：打开设置**
 
-![尚硅谷-03-LangSmith的使用-配图](03-p04-1.png)
+![尚硅谷-03-LangSmith的使用-配图](images/03-p04-1.png)
 
 **步骤2：创建API_KEY**
 
-![尚硅谷-03-LangSmith的使用-配图](03-p04-2.png)
+![尚硅谷-03-LangSmith的使用-配图](images/03-p04-2.png)
 
-![尚硅谷-03-LangSmith的使用-配图](03-p04-3.png)
+![尚硅谷-03-LangSmith的使用-配图](images/03-p04-3.png)
 
 **步骤3：保存KEY**
 
-![尚硅谷-03-LangSmith的使用-配图](03-p05-1.png)
+![尚硅谷-03-LangSmith的使用-配图](images/03-p05-1.png)
 
 注意：点击copy 将API_KEY保存到剪贴板并关闭弹窗，API_KEY只在上述窗口出现一次，关闭弹窗后回到设置页面，此后就无法在官网查看API_KEY的内容了，请妥善保存。
 
-![尚硅谷-03-LangSmith的使用-配图](03-p05-2.png)
+![尚硅谷-03-LangSmith的使用-配图](images/03-p05-2.png)
 
 **步骤4（可选）：按需删除**
 
 如果需要删除KEY，点击右侧图标即可。
 
-![尚硅谷-03-LangSmith的使用-配图](03-p05-3.png)
+![尚硅谷-03-LangSmith的使用-配图](images/03-p05-3.png)
 
-![尚硅谷-03-LangSmith的使用-配图](03-p06-1.png)
+![尚硅谷-03-LangSmith的使用-配图](images/03-p06-1.png)
 
 ### 2.3 新增环境变量
 
@@ -253,7 +253,7 @@ rprint(response)
 
 **步骤2：打开监控界面**
 
-![尚硅谷-03-LangSmith的使用-配图](03-p08-1.png)
+![尚硅谷-03-LangSmith的使用-配图](images/03-p08-1.png)
 
 此时在LangSmith官方WebUI的Tracing界面下，可以看到按照LANGSMITH_PROJECT 命名的项目。
 
@@ -261,20 +261,20 @@ rprint(response)
 
 点击条目任意位置可以进入详情页面
 
-![尚硅谷-03-LangSmith的使用-配图](03-p08-2.png)
+![尚硅谷-03-LangSmith的使用-配图](images/03-p08-2.png)
 
 此处列出了详细的运行指标，点击某次运行记录，可以查看更详细的信息，自行探索。
 
 **步骤4：查看运行报表**
 
-![尚硅谷-03-LangSmith的使用-配图](03-p09-1.png)
+![尚硅谷-03-LangSmith的使用-配图](images/03-p09-1.png)
 
 此处提供了大量指标的报表
 
-![尚硅谷-03-LangSmith的使用-配图](03-p09-2.png)
+![尚硅谷-03-LangSmith的使用-配图](images/03-p09-2.png)
 
 点击上述标签或下滑页面可以切换指标。
 
-![尚硅谷-03-LangSmith的使用-配图](03-p09-3.png)
+![尚硅谷-03-LangSmith的使用-配图](images/03-p09-3.png)
 
 自行探索。

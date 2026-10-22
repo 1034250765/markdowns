@@ -54,13 +54,13 @@ DL 推动的 AI 进步重塑了 CV 领域。ImageNet（ILSVRC）等大规模开�
 
 检索词："livestock dataset"、"public livestock dataset"、"image dataset"、"livestock monitoring"、"cow/cattle monitoring"、"pig/swine monitoring"、"poultry/chicken monitoring"、"sheep monitoring" 等及其组合，在主流数据库高级检索。
 
-![PRISMA 筛选流程](images/compag2025_fig1_prisma.png)
+![PRISMA 筛选流程](../images/compag2025_fig1_prisma.png)
 
 流程数字：六大库初检 6,271 篇（Google Scholar 3,515 / ScienceDirect 1,458 / Springer 873 / MDPI 320 / arXiv 71 / IEEE 34）→ 去重与标题过滤剔除 6,012 → 粗筛 259 → 资格评估后剩 50；另从引文追溯与网站补充 8 篇 → 6 篇。**最终纳入 56 篇**（arXiv 版），详述 58 个数据集。
 
 ### 3.3 十年发表趋势
 
-![数据集发表趋势](images/compag2025_fig2_trend.png)
+![数据集发表趋势](../images/compag2025_fig2_trend.png)
 
 2015-2017 年几乎空白（各 0-1 个），2019 年起明显加速，2021 年达到峰值（15 个）——说明这是个正在爆发但基数仍很小的领域。
 
@@ -188,7 +188,7 @@ DL 推动的 AI 进步重塑了 CV 领域。ImageNet（ILSVRC）等大规模开�
 
 ### 5.1 按应用分类的统计
 
-![应用类型统计](images/compag2025_fig7_application.png)
+![应用类型统计](../images/compag2025_fig7_application.png)
 
 **动物检测一骑绝尘**，其后依次为行为检测、个体脸/鼻纹识别、跟踪、姿态、品种、体尺。四大家族：
 
@@ -201,7 +201,7 @@ DL 推动的 AI 进步重塑了 CV 领域。ImageNet（ILSVRC）等大规模开�
 
 ### 5.2 成像模态统计
 
-![成像模态统计](images/compag2025_fig8_modality.png)
+![成像模态统计](../images/compag2025_fig8_modality.png)
 
 - **RGB 绝对主导**（牛 19 / 猪 14 / 禽 5 / 其他 8）：简单、易得、便宜、高效；
 - **RGB-D 第二**（牛 7 / 猪 2 / 其他 1）：3D 相机与点云在体积测量、体重与姿态估计上兴起；

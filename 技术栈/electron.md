@@ -81,7 +81,7 @@ const text = await window.api.readFile('C:/notes/a.md')
 
 
 
-![image-20260916154644287](image-20260916154644287.png)
+![image-20260916154644287](images/image-20260916154644287.png)
 
 
 

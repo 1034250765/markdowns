@@ -8,9 +8,9 @@
 
 FastApi是一个基于python的高性能web框架，专门用于快速构建API接口服务。
 
-![image-20260316155323274](image-20260316155323274.png)
+![image-20260316155323274](images/image-20260316155323274.png)
 
-![image-20260316155425986](image-20260316155425986.png)
+![image-20260316155425986](images/image-20260316155425986.png)
 
 
 
@@ -58,7 +58,7 @@ async def root():    # sync同步 async异步
 
 ## URL传参--路径参数
 
-![image-20260316192632542](image-20260316192632542.png)
+![image-20260316192632542](images/image-20260316192632542.png)
 
 ```python
 #路径参数
@@ -82,11 +82,11 @@ async def say_word_hello(name: str, age: int = Path(..., ge=1, le=100,descriptio
     return {"message": f"Hello {name}, your age is {age}"}  
 ```
 
-![image-20260316202935632](image-20260316202935632.png)
+![image-20260316202935632](images/image-20260316202935632.png)
 
 ## 查询参数
 
-![image-20260316203439232](image-20260316203439232.png)
+![image-20260316203439232](images/image-20260316203439232.png)
 
 ```python
 @app.get("/word_hello_world/")
@@ -97,7 +97,7 @@ async def say_word_hello_world(name: str = Query(...,description="姓名",min_le
 
 ## 请求体参数
 
-![image-20260317151111348](image-20260317151111348.png)
+![image-20260317151111348](images/image-20260317151111348.png)
 
 ```python
 from fastapi import FastAPI, Path, Query
@@ -432,13 +432,13 @@ CROW_ROUTE(app, "/items/<int>")      // 宏展开时就把路由登记好
 
 ## JSON响应格式
 
-![image-20260317153244230](image-20260317153244230.png)
+![image-20260317153244230](images/image-20260317153244230.png)
 
 **默认响应json格式。**
 
 ## HTML响应格式与文件响应格式
 
-![image-20260317153625700](image-20260317153625700.png)
+![image-20260317153625700](images/image-20260317153625700.png)
 
 ```python
 # 装饰器指定响应类
@@ -626,7 +626,7 @@ async def get_id_num(user_id: int):
 
 中间件是一个函数，在每次请求进入fastAPI应用时都会执行。
 
-![在这里插入图片描述](cf5ff0a30d766d22859aaace651906b5.png)
+![在这里插入图片描述](images/cf5ff0a30d766d22859aaace651906b5.png)
 
 ```python
 from fastapi import Request, Response, FastAPI
@@ -661,7 +661,7 @@ Middleware2 ended
 
 ## 依赖注入
 
-![image-20260318134851425](image-20260318134851425.png)
+![image-20260318134851425](images/image-20260318134851425.png)
 
 依赖性，是可以重复使用的组件。注入，FASTapi自动帮助你调用依赖性，并将`结果`注入到路径操作函数中。
 
