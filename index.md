@@ -1,6 +1,6 @@
 # 知识库索引
 
-> 最后更新：2026-10-14
+> 最后更新：2026-10-26
 
 ## 来源摘要
 
@@ -16,7 +16,7 @@
 
 ## 概念与方法
 
-暂无
+- [用 playwriter 驱动已登录 Chrome 完成麦课微课（weiban.mycourse.cn）](wiki/concepts/playwriter-weiban-course-automation.md) | `concept` | `draft` | 更新：2026-10-26 | 来源：2 — 记录复用已登录 Chrome 跑完微课逐页交互的方法：iframe 缩放容器坐标校正、jQuery 翻页事件、各类热区页处理与考试页跳题。
 
 ## 实体
 
