@@ -5,10 +5,10 @@ status: draft
 created: 2026-10-13
 updated: 2026-10-13
 sources:
-  - 牛只数据集/27个牛类公开数据集详细档案.md
-  - 牛只数据集/精准畜牧养殖公开计算机视觉数据集系统综述 (Comput Electron Agric 2025).md
-  - 牛只数据集/开放数据集与AI-GenAI驱动的精准畜牧计算机视觉双向综述 (Comput Electron Agric 2026).md
-  - 牛只数据集/CowCV 候选数据集评估（边界框类）.md
+  - 牛只数据集/134个数据集信息收集/27个牛类公开数据集详细档案.md
+  - 牛只数据集/134个数据集信息收集/精准畜牧养殖公开计算机视觉数据集系统综述 (Comput Electron Agric 2025).md
+  - 牛只数据集/134个数据集信息收集/开放数据集与AI-GenAI驱动的精准畜牧计算机视觉双向综述 (Comput Electron Agric 2026).md
+  - 牛只数据集/134个数据集信息收集/CowCV 候选数据集评估（边界框类）.md
   - 牛只数据集/拍摄环境与场景.md
   - 牛只数据集/数据集融合方法Fusion or Confusion (CVPR 2025 Workshop).md
   - https://arxiv.org/abs/2406.10628v1
