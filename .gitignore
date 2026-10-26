@@ -14,5 +14,6 @@ _remote_step_verify.py
 .cache/
 牛只数据集/.build/
 ~$*.pptx
+~$*.xlsx
 牛只数据集/ppt_material/
 牛只数据集/2601.09497.pdf

@@ -138,12 +138,12 @@ func main() {
 
 ## Go 语言数据类型
 
-|序号|类型和描述|
-|---|---|
-|1|**布尔型**  <br>布尔型的值只可以是常量 true 或者 false。一个简单的例子：var b bool = true。|
-|2|**数字类型**  <br>整型 int 和浮点型 float32、float64，Go 语言支持整型和浮点型数字，并且支持复数，其中位的运算采用补码。|
-|3|**字符串类型:**  <br>字符串就是一串固定长度的字符连接起来的字符序列。Go 的字符串是由单个字节连接起来的。Go 语言的字符串的字节使用 UTF-8 编码标识 Unicode 文本。|
-|4|**派生类型:**  <br>包括：<br><br>- (a) 指针类型（Pointer）<br>- (b) 数组类型<br>- (c) 结构化类型(struct)<br>- (d) Channel 类型<br>- (e) 函数类型<br>- (f) 切片类型<br>- (g) 接口类型（interface）<br>- (h) Map 类型|
+| 序号  | 类型和描述                                                                                                                                                                       |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | **布尔型**  <br>布尔型的值只可以是常量 true 或者 false。一个简单的例子：var b bool = true。                                                                                                           |
+| 2   | **数字类型**  <br>整型 int 和浮点型 float32、float64，Go 语言支持整型和浮点型数字，并且支持复数，其中位的运算采用补码。                                                                                                |
+| 3   | **字符串类型:**  <br>字符串就是一串固定长度的字符连接起来的字符序列。Go 的字符串是由单个字节连接起来的。Go 语言的字符串的字节使用 UTF-8 编码标识 Unicode 文本。                                                                            |
+| 4   | **派生类型:**  <br>包括：<br><br>- (a) 指针类型（Pointer）<br>- (b) 数组类型<br>- (c) 结构化类型(struct)<br>- (d) Channel 类型<br>- (e) 函数类型<br>- (f) 切片类型<br>- (g) 接口类型（interface）<br>- (h) Map 类型 |
 
 ## Go 语言变量
 
@@ -689,3 +689,696 @@ func main() {
 
 如果要访问结构体成员，需要使用点号 . 操作符，格式为：
 结构体.成员名
+
+Go 通过**接收者（receiver）**把方法绑定到结构体类型上。接收者写在 `func` 和方法名之间：
+
+```go
+
+type Person struct {
+    Name string
+}
+
+// 值接收者
+func (p Person) SayHello() {
+    fmt.Println("你好，我是", p.Name)
+}
+
+// 指针接收者：可以修改原结构体
+func (p *Person) Rename(name string) {
+    p.Name = name
+}
+
+func main() {
+    p := Person{Name: "小明"}
+    p.SayHello()
+    p.Rename("小红")
+}
+```
+
+##  Go 语言切片(Slice)
+
+Go 语言切片是对数组的抽象。
+
+Go 数组的长度不可改变，在特定场景中这样的集合就不太适用，Go 中提供了一种灵活，功能强悍的内置类型切片("动态数组")，与数组相比切片的长度是不固定的，可以追加元素，在追加时可能使切片的容量增大。
+
+你可以声明一个未指定大小的数组来定义切片：
+
+```go
+var identifier []type
+```
+
+切片不需要说明长度。
+
+或使用 **make()** 函数来创建切片:
+
+### 切片初始化
+
+s :=[] int {1,2,3 } 
+
+make([]T, length, capacity)
+
+初始化切片 **s**，是数组 arr 的引用。
+
+s := arr[startIndex:endIndex]
+
+将 arr 中从下标 startIndex 到 endIndex-1 下的元素创建为一个新的切片。
+
+s := arr[startIndex:] 
+
+### len() 和 cap() 函数
+
+切片是可索引的，并且可以由 len() 方法获取长度。
+
+切片提供了计算容量的方法 cap() 可以测量切片最长可以达到多少。
+
+以下为具体实例：
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+   var numbers = make([]int,3,5)
+
+   printSlice(numbers)
+}
+
+func printSlice(x []int){
+   fmt.Printf("len=%d cap=%d slice=%v\n",len(x),cap(x),x)
+}
+```
+
+### 可以通过设置下限及上限来设置截取切片
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+   /* 创建切片 */
+   numbers := []int{0,1,2,3,4,5,6,7,8}   
+   printSlice(numbers)
+
+   /* 打印原始切片 */
+   fmt.Println("numbers ==", numbers)
+
+   /* 打印子切片从索引1(包含) 到索引4(不包含)*/
+   fmt.Println("numbers[1:4] ==", numbers[1:4])
+
+   /* 默认下限为 0*/
+   fmt.Println("numbers[:3] ==", numbers[:3])
+
+   /* 默认上限为 len(s)*/
+   fmt.Println("numbers[4:] ==", numbers[4:])
+
+   numbers1 := make([]int,0,5)
+   printSlice(numbers1)
+
+   /* 打印子切片从索引  0(包含) 到索引 2(不包含) */
+   number2 := numbers[:2]
+   printSlice(number2)
+
+   /* 打印子切片从索引 2(包含) 到索引 5(不包含) */
+   number3 := numbers[2:5]
+   printSlice(number3)
+
+}
+
+func printSlice(x []int){
+   fmt.Printf("len=%d cap=%d slice=%v\n",len(x),cap(x),x)
+}
+```
+
+###  append() 和 copy() 函数
+
+如果想增加切片的容量，我们必须创建一个新的更大的切片并把原分片的内容都拷贝过来。
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+   var numbers []int
+   printSlice(numbers)
+
+   /* 允许追加空切片 */
+   numbers = append(numbers, 0)
+   printSlice(numbers)
+
+   /* 向切片添加一个元素 */
+   numbers = append(numbers, 1)
+   printSlice(numbers)
+
+   /* 同时添加多个元素 */
+   numbers = append(numbers, 2,3,4)
+   printSlice(numbers)
+
+   /* 创建切片 numbers1 是之前切片的两倍容量*/
+   numbers1 := make([]int, len(numbers), (cap(numbers))*2)
+
+   /* 拷贝 numbers 的内容到 numbers1 */
+   copy(numbers1,numbers)
+   printSlice(numbers1)   
+}
+
+func printSlice(x []int){
+   fmt.Printf("len=%d cap=%d slice=%v\n",len(x),cap(x),x)
+}
+
+
+```
+
+## Go 语言范围(Range)
+
+Go 语言中 range 关键字用于 for 循环中迭代数组(array)、切片(slice)、通道(channel)或集合(map)的元素。在数组和切片中它返回元素的索引和索引对应的值，在集合中返回 key-value 对。
+
+for 循环的 range 格式可以对 slice、map、数组、字符串等进行迭代循环。格式如下：
+
+```go
+for key, value := range oldMap {
+    newMap[key] = value
+}
+
+```
+
+## Go 语言Map(集合)
+
+可以使用内建函数 make 或使用 map 关键字来定义 Map:
+
+```go
+/* 使用 make 函数 */
+map_variable := make(map[KeyType]ValueType, initialCapacity)
+```
+
+delete() 函数用于删除集合的元素, 参数为 map 和其对应的 key。
+
+## Go 语言类型转换
+
+类型转换用于将一种数据类型的变量转换为另外一种类型的变量。
+
+Go 语言类型转换基本格式如下：
+
+```go
+type_name(expression)
+
+var a int = 10  
+var b float64 = float64(a)
+```
+
+## Go 语言接口
+
+### 接口的特点
+
+**隐式实现**：
+
+- Go 中没有关键字显式声明某个类型实现了某个接口。
+- 只要一个类型实现了接口要求的所有方法，该类型就自动被认为实现了该接口。
+
+**接口类型变量**：
+
+- 接口变量可以存储实现该接口的任意值。
+- 接口变量实际上包含了两个部分：
+    - **动态类型**：存储实际的值类型。
+    - **动态值**：存储具体的值。
+
+**零值接口**：
+
+- 接口的零值是 `nil`。
+- 一个未初始化的接口变量其值为 `nil`，且不包含任何动态类型或值。
+
+**空接口**：
+
+- 定义为 `interface{}`，可以表示任何类型。Go 1.18 起也可以写成 `any`。
+### 接口的常见用法
+
+1. **多态**：不同类型实现同一接口，实现多态行为。
+2. **解耦**：通过接口定义依赖关系，降低模块之间的耦合。
+3. **泛化**：使用空接口 `interface{}` 表示任意类型。
+
+接口定义使用关键字 interface，其中包含方法声明。
+
+```go
+/* 定义接口 */
+type interface_name interface {
+   method_name1 [return_type]
+   method_name2 [return_type]
+   method_name3 [return_type]
+   ...
+   method_namen [return_type]
+}
+
+/* 定义结构体 */
+type struct_name struct {
+   /* variables */
+}
+
+/* 实现接口方法 */
+func (struct_name_variable struct_name) method_name1() [return_type] {
+   /* 方法实现 */
+}
+...
+func (struct_name_variable struct_name) method_namen() [return_type] {
+   /* 方法实现*/
+}
+```
+
+ 类型通过实现接口要求的所有方法来实现接口。
+```go
+package main
+
+import (
+        "fmt"
+        "math"
+)
+
+// 定义接口
+type Shape interface {
+        Area() float64
+        Perimeter() float64
+}
+
+// 定义一个结构体
+type Circle struct {
+        Radius float64
+}
+
+// Circle 实现 Shape 接口
+func (c Circle) Area() float64 {
+        return math.Pi * c.Radius * c.Radius
+}
+
+func (c Circle) Perimeter() float64 {
+        return 2 * math.Pi * c.Radius
+}
+
+func main() {
+        c := Circle{Radius: 5}
+        var s Shape = c // 接口变量可以存储实现了接口的类型
+        fmt.Println("Area:", s.Area())
+        fmt.Println("Perimeter:", s.Perimeter())
+}
+```
+
+空接口 `interface{}` 是 Go 的特殊接口，表示所有类型的超集。
+
+- 任意类型都实现了空接口。
+- 常用于需要存储任意类型数据的场景，如泛型容器、通用参数等。
+
+## 类型断言
+
+类型断言用于从接口类型中提取其底层值。
+
+基本语法:
+```go
+    s, ok := i.(string)  
+    if ok {  
+        fmt.Println("断言成功:", s)  
+    } else {  
+        fmt.Println("断言失败")  
+    }
+```
+
+
+
+
+
+## Go 继承
+
+
+在面向对象编程（OOP）中，继承是一种机制，允许一个类（子类）从另一个类（父类）继承属性和方法。通过继承，子类可以复用父类的代码，并且可以在不修改父类的情况下扩展或修改其行为。
+
+Go 语言并不是一种传统的面向对象编程语言，它没有类和继承的概念。
+
+Go 使用结构体（struct）和接口（interface）来实现类似的功能。
+
+Go 语言没有传统面向对象语言中的类(class)和继承(inheritance)概念，而是通过组合(composition)和接口(interface)来实现类似的功能。
+
+### 1. 组合（Composition）
+
+组合是 Go 中实现代码复用的主要方式。通过将一个结构体嵌入到另一个结构体中，子结构体可以"继承"父结构体的字段和方法。
+
+```go
+package main
+
+import "fmt"
+
+// 父结构体
+type Animal struct {
+    Name string
+}
+
+// 父结构体的方法
+func (a *Animal) Speak() {
+    fmt.Println(a.Name, "says hello!")
+}
+
+// 子结构体
+type Dog struct {
+    Animal // 嵌入 Animal 结构体
+    Breed  string
+}
+
+func main() {
+    dog := Dog{
+        Animal: Animal{Name: "Buddy"},
+        Breed:  "Golden Retriever",
+    }
+
+    dog.Speak() // 调用父结构体的方法
+    fmt.Println("Breed:", dog.Breed)
+}
+```
+
+接口是 Go 中实现多态的主要方式。通过定义接口，不同的结构体可以实现相同的方法，从而实现类似继承的多态行为。
+
+```go
+package main
+
+import "fmt"
+
+// 定义接口
+type Speaker interface {
+    Speak()
+}
+
+// 父结构体
+type Animal struct {
+    Name string
+}
+
+// 实现接口方法
+func (a *Animal) Speak() {
+    fmt.Println(a.Name, "says hello!")
+}
+
+// 子结构体
+type Dog struct {
+    Animal
+    Breed string
+}
+
+func main() {
+    var speaker Speaker
+
+    dog := Dog{
+        Animal: Animal{Name: "Buddy"},
+        Breed:  "Golden Retriever",
+    }
+
+    speaker = &dog
+    speaker.Speak() // 通过接口调用方法
+}
+
+```
+
+## go语言泛型
+
+泛型主要通过以下两个核心概念来实现：
+
+- **类型参数（Type Parameters）：**允许你在函数或类型定义中使用一个或多个类型作为参数。
+- **类型约束（Type Constraints）：**指定类型参数必须满足的条件，确保在函数内部可以安全地操作这些类型。
+
+| 概念               | 作用                         | 示例                                               |
+| ---------------- | -------------------------- | ------------------------------------------------ |
+| **类型参数**         | 在函数或类型名后声明，表示待定的类型。        | `[T any]`                                        |
+| **类型约束**         | 定义类型参数必须满足的条件（如支持的操作符或方法）。 | `int，float64，comparable，constraints.Ordered，any` |
+| **`any`**        | 约束类型参数为**任何**类型。           | `[T any]`                                        |
+| **`comparable`** | 约束类型参数为**可比较**的类型。         | `[K comparable]`                                 |
+
+在引入泛型之前，如果我们想要处理不同类型的数据，通常需要为每种类型编写重复的函数。
+
+```go
+// 处理 int 类型的函数
+func MaxInt(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
+}
+
+// 处理 float64 类型的函数
+func MaxFloat(a, b float64) float64 {
+    if a > b {
+        return a
+    }
+    return b
+}
+```
+
+
+**使用泛型的解决方案：**
+
+```go
+// 一个函数处理多种类型
+func Max[T comparable](a, b T) T {
+    if a > b {
+        return a
+    }
+    return b
+}
+```
+
+泛型函数和类型通过类型参数列表来声明，语法为 `[类型参数 约束]`。
+
+```go
+// 基本语法结构
+func 函数名[T 约束](参数 T) 返回值类型 {
+    // 函数体
+}
+
+type 类型名[T 约束] struct {
+    // 结构体字段
+}
+```
+
+- 通常使用大写字母：`T`、`K`、`V`、`E` 等
+- `T`：表示 Type（类型）
+- `K`：表示 Key（键）
+- `V`：表示 Value（值）
+- `E`：表示 Element（元素）
+
+约束定义了类型参数必须满足的条件，是泛型的核心概念。
+
+`any` 是空接口 `interface{}` 的别名，表示任何类型都可以。
+
+`comparable` 表示类型支持 `==` 和 `!=` 操作符。
+
+使用 `|` 运算符组合多个类型。
+
+### 自定义约束
+
+```go
+
+// 定义 Stringer 约束
+type Stringer interface {
+    String() string
+}
+
+func PrintString[T Stringer](value T) {
+    fmt.Println(value.String())
+}
+
+// 实现自定义类型
+type Person struct {
+    Name string
+    Age  int
+}
+
+func (p Person) String() string {
+    return fmt.Sprintf("%s (%d years old)", p.Name, p.Age)
+}
+
+// 使用示例
+person := Person{Name: "Alice", Age: 25}
+PrintString(person)  // 输出: Alice (25 years old)
+```
+
+
+## Go 错误处理
+
+Go 语言通过内置的错误接口提供了非常简单的错误处理机制。
+
+Go 语言的错误处理采用显式返回错误的方式，而非传统的异常处理机制。这种设计使代码逻辑更清晰，便于开发者在编译时或运行时明确处理错误。
+
+**Go 的错误处理主要围绕以下机制展开：**
+
+1. **`error` 接口**：标准的错误表示。
+2. **显式返回值**：通过函数的返回值返回错误。
+3. **自定义错误**：可以通过标准库或自定义的方式创建错误。
+4. **`panic` 和 `recover`**：处理不可恢复的严重错误。
+
+## error 接口
+
+Go 标准库定义了一个 error 接口，表示一个错误的抽象。
+
+error 类型是一个接口类型，这是它的定义：
+```go
+
+type error interface {
+    Error() string
+}
+```
+
+
+panic 用于处理不可恢复的错误，recover 用于从 panic 中恢复。
+
+panic:
+
+- 导致程序崩溃并输出堆栈信息。
+- 常用于程序无法继续运行的情况。
+
+recover:
+
+- 捕获 `panic`，避免程序崩溃。
+##  Go 并发
+并发是指程序同时执行多个任务的能力。
+
+Go 语言支持并发，通过 goroutines 和 channels 提供了一种简洁且高效的方式来实现并发。
+
+**Goroutines：**
+
+- Go 中的并发执行单位，类似于轻量级的线程。
+- Goroutine 的调度由 Go 运行时管理，用户无需手动分配线程。
+- 使用 `go` 关键字启动 Goroutine。
+- Goroutine 是非阻塞的，可以高效地运行成千上万个 Goroutine。
+
+**Channel：**
+
+- Go 中用于在 Goroutine 之间通信的机制。
+- 支持同步和数据共享，避免了显式的锁机制。
+- 使用 `chan` 关键字创建，通过 `<-` 操作符发送和接收数据。
+**Scheduler（调度器）：**
+
+Go 的调度器基于 GMP 模型，调度器会将 Goroutine 分配到系统线程中执行，并通过 M 和 P 的配合高效管理并发。
+
+- **G**：Goroutine。
+- **M**：系统线程（Machine）。
+- **P**：逻辑处理器（Processor）。
+
+goroutine 是轻量级线程，goroutine 的调度是由 Golang 运行时进行管理的。
+
+goroutine 语法格式：
+
+```go
+go 函数名( 参数列表 )
+go f(x, y, z)
+```
+
+Go 允许使用 go 语句开启一个新的运行期线程， 即 goroutine，以一个不同的、新创建的 goroutine 来执行一个函数。 同一个程序中的所有 goroutine 共享同一个地址空间。
+
+通道（Channel）是用于 Goroutine 之间的数据传递。
+
+通道可用于两个 goroutine 之间通过传递一个指定类型的值来同步运行和通讯。
+
+使用 `make` 函数创建一个 channel，使用 `<-` 操作符发送和接收数据。如果未指定方向，则为双向通道。
+
+声明一个通道很简单，我们使用chan关键字即可，通道在使用前必须先创建：
+```go
+ch := make(chan int)
+
+ch <- v    // 把 v 发送到通道 ch
+v := <-ch  // 从 ch 接收数据
+           // 并把值赋给 v
+```
+
+默认情况下，通道是不带缓冲区的。发送端发送数据，同时必须有接收端相应的接收数据。
+
+通道可以设置缓冲区，通过 make 的第二个参数指定缓冲区大小：
+
+```go
+ch := make(chan int, 100)
+```
+
+
+## Go Modules
+
+Go Modules 是 Go 语言的官方依赖管理工具，自 Go 1.11 版本开始引入，在 Go 1.16 版本成为默认的依赖管理模式。
+
+Go Modules 解决了 Go 语言长期以来在依赖管理方面的痛点，为开发者提供了版本控制、依赖隔离和可重复构建等核心功能。
+
+**模块（Module）**：包含 `go.mod` 文件的目录树，该文件定义了模块的路径、Go 版本要求和依赖关系。
+
+**版本（Version）**：遵循语义化版本控制（Semantic Versioning）的标识符，格式为 `vMAJOR.MINOR.PATCH`。
+
+**依赖图（Dependency Graph）**：模块及其所有传递依赖的层次结构，Go 工具会自动解析和维护。
+
+### go.mod 文件
+
+`go.mod` 是模块的定义文件，包含以下主要部分：
+
+```go
+
+module example.com/mymodule  // 模块路径
+
+go 1.21                     // Go 版本要求
+
+require (
+    github.com/gin-gonic/gin v1.9.1
+    golang.org/x/text v0.12.0
+)
+
+replace golang.org/x/text => ../local/text  // 本地替换
+
+exclude github.com/old/module v1.0.0        // 排除特定版本
+```
+
+### 模块初始化
+
+```go
+# 创建新模块
+go mod init example.com/myproject
+
+# 在现有项目中初始化
+cd /path/to/project
+go mod init
+```
+
+### 依赖管理
+
+```go
+# 添加依赖（自动选择最新版本）
+go get github.com/gin-gonic/gin
+
+# 添加特定版本
+go get github.com/gin-gonic/gin@v1.9.1
+
+# 更新到最新版本
+go get -u github.com/gin-gonic/gin
+
+# 更新所有依赖
+go get -u all
+
+# 下载依赖到本地缓存
+go mod download
+
+# 整理 go.mod 文件
+go mod tidy
+```
+
+### 依赖查询
+
+```go
+# 查看所有依赖
+go list -m all
+
+# 查看特定依赖的可用版本
+go list -m -versions github.com/gin-gonic/gin
+
+# 查看为什么需要某个依赖
+go mod why github.com/gin-gonic/gin
+```
+
+### 私有仓库支持
+
+```go
+# 配置私有仓库认证
+git config --global url."https://user:token@github.com".insteadOf "https://github.com"
+
+# 或使用环境变量
+export GOPRIVATE=github.com/mycompany/*
+```
+
+
