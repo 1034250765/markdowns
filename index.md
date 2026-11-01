@@ -1,11 +1,13 @@
 # 知识库索引
 
-> 最后更新：2026-10-26
+> 最后更新：2026-11-01
 
 ## 来源摘要
 
+- [CLIP 视频精读：字幕整理与原论文核查](wiki/sources/clip-bilibili-paper-reading.md) | `source` | `draft` | 更新：2026-10-28 | 来源：4 — 整理指定 CLIP 精读视频的中文字幕，核对图文对比训练、零样本推理、模板集成、实验口径与局限性，并关联完整笔记。
 - [HumanScore：生成视频人体运动质量基准（arXiv 2604.20157）](wiki/sources/humanscore-benchmark-paper.md) | `source` | `draft` | 更新：2026-09-18 | 来源：1 — arXiv 预印本摘要：生物力学三层六维指标评测 13 个视频生成模型的人体运动质量，含排行榜、人类偏好对齐与指标鲁棒性分析。
 - [Label Studio 标注流程：本地指南与官方文档核查](wiki/sources/label-studio-annotation-workflow-evidence.md) | `source` | `draft` | 更新：2026-10-13 | 来源：23 — 核对牛只水平框标注的本地历史配置、官方存储与预标注流程、认证及导出限制，并关联科研记录与待执行试标。
+- [ViT 视频精读：字幕整理与原论文核查](wiki/sources/vit-bilibili-paper-reading.md) | `source` | `draft` | 更新：2026-11-01 | 来源：5 — 整理指定 ViT 精读视频的完整中文字幕，核对模型维度、规模扩展、评测协议与自监督实验，并关联正文和原论文配图。
 - [牛只三模型测试：RetinaNet与YOLO11s/l历史结果核查](wiki/sources/cowcv-three-model-test-evidence.md) | `source` | `draft` | 更新：2026-10-14 | 来源：15 — 整理三模型14集历史训练与分split评估，复算容量收益和末轮回落，保留batch、选模及重复污染冲突并关联科研记录。
 - [牛只域内模型与架构比较：历史验证记录及方法核查](wiki/sources/cowcv-indomain-architecture-evidence.md) | `source` | `draft` | 更新：2026-10-14 | 来源：24 — 整理四模型14域历史验证及LODO三种子、同视图域内保持率与实施复核，保留协议和统计冲突并关联科研记录。
 - [牛只域内重测：10月统一协议、随机性审计与保持率核查](wiki/sources/cowcv-indomain-retest-october-evidence.md) | `source` | `draft` | 更新：2026-10-14 | 来源：26 — 整理YOLO11m十四域重测、stock与有效种子重复、误覆盖恢复和同视图保持率，核查镜像脚本并保留统计与来源冲突。
