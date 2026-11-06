@@ -17,3 +17,10 @@ _remote_step_verify.py
 ~$*.xlsx
 牛只数据集/ppt_material/
 牛只数据集/2601.09497.pdf
+node_modules/
+.vite/
+dist/
+dist-slides/
+论文精读/fusion_or_confusion_ppt/artifacts/
+论文精读/_paper_extract.txt
+论文精读/.cloudstudio

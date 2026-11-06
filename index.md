@@ -1,10 +1,11 @@
 # 知识库索引
 
-> 最后更新：2026-11-01
+> 最后更新：2026-11-04
 
 ## 来源摘要
 
 - [CLIP 视频精读：字幕整理与原论文核查](wiki/sources/clip-bilibili-paper-reading.md) | `source` | `draft` | 更新：2026-10-28 | 来源：4 — 整理指定 CLIP 精读视频的中文字幕，核对图文对比训练、零样本推理、模板集成、实验口径与局限性，并关联完整笔记。
+- [DETR 视频精读：字幕整理与原论文核查](wiki/sources/detr-bilibili-paper-reading.md) | `source` | `draft` | 更新：2026-11-04 | 来源：5 — 整理指定 DETR 精读视频的完整中文字幕，核查集合预测、查询槽位、匹配与损失、COCO 评测和全景分割边界，并关联正文与原论文配图。
 - [HumanScore：生成视频人体运动质量基准（arXiv 2604.20157）](wiki/sources/humanscore-benchmark-paper.md) | `source` | `draft` | 更新：2026-09-18 | 来源：1 — arXiv 预印本摘要：生物力学三层六维指标评测 13 个视频生成模型的人体运动质量，含排行榜、人类偏好对齐与指标鲁棒性分析。
 - [Label Studio 标注流程：本地指南与官方文档核查](wiki/sources/label-studio-annotation-workflow-evidence.md) | `source` | `draft` | 更新：2026-10-13 | 来源：23 — 核对牛只水平框标注的本地历史配置、官方存储与预标注流程、认证及导出限制，并关联科研记录与待执行试标。
 - [ViT 视频精读：字幕整理与原论文核查](wiki/sources/vit-bilibili-paper-reading.md) | `source` | `draft` | 更新：2026-11-01 | 来源：5 — 整理指定 ViT 精读视频的完整中文字幕，核对模型维度、规模扩展、评测协议与自监督实验，并关联正文和原论文配图。
