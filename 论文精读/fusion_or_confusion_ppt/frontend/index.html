@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fusion or Confusion? 红外目标检测中的数据集池化研究</title>
+    <!-- Font imports (dynamically inserted based on configuration) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1B3A57;
+            --accent-color-1: #B5542A;
+            --accent-color-2: #5C7C89;
+            --neutral-color: #6B7280;
+            --slide-background: #FFFFFF;
+            --font-title: 'Inter', 'Noto Sans SC', sans-serif;
+            --font-body: 'Inter', 'Noto Sans SC', sans-serif;
+        }
+    </style>
+    <style>
+        .nav-btn {
+            display: none !important;
+        }
+        .page-indicator {
+            display: none !important;
+        }
+        /* 全屏按钮：默认淡出，避免干扰演示 */
+        .fs-btn {
+            position: fixed;
+            right: 18px;
+            bottom: 16px;
+            width: 36px;
+            height: 36px;
+            border-radius: 9999px;
+            border: 1px solid #d1d5db;
+            background: rgba(255, 255, 255, 0.75);
+            color: #9ca3af;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.2s ease, color 0.2s ease;
+            z-index: 60;
+        }
+        .fs-btn:hover {
+            opacity: 1;
+            color: #1B3A57;
+        }
+        .fs-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+        :fullscreen .fs-btn {
+            opacity: 0.12;
+        }
+    </style>
+    <script>
+        // # 禁止修改
+        window.slideDataMap = new Map();
+    </script>
+</head>
+<body>
+    <!-- PPT 容器 -->
+    <div class="ppt-container">
+        <div class="ppt-viewport" id="ppt-viewport">
+            <!-- 幻灯片将由 JavaScript 动态插入 -->
+        </div>
+    </div>
+    
+    <!-- 导航按钮 -->
+    <button class="nav-btn nav-btn-prev" id="prevBtn" aria-label="上一页">
+        ←
+    </button>
+    <button class="nav-btn nav-btn-next" id="nextBtn" aria-label="下一页">
+        →
+    </button>
+    
+    <!-- 全屏按钮 -->
+    <button class="fs-btn" id="fsBtn" title="全屏播放（F）" aria-label="全屏播放">
+        <svg id="fsIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3m13-5v3a2 2 0 0 1-2 2h-3"/>
+        </svg>
+    </button>
+
+    <!-- 进度条 -->
+    <div class="progress-bar">
+        <div class="progress-bar-fill" id="progressBarFill"></div>
+    </div>
+    
+    <!-- 页码指示器 -->
+    <div class="page-indicator" id="pageIndicator">
+        1 / 1
+    </div>
+    
+    <!-- Vite Main Entry -->
+    <script type="module" src="/src/main.js"></script>
+
+    <!--  开始加载slide-N.js区域 -->
+    <script type="module" src="/src/slides/slide-1.js"></script>
+    <script type="module" src="/src/slides/slide-2.js"></script>
+    <script type="module" src="/src/slides/slide-3.js"></script>
+    <script type="module" src="/src/slides/slide-4.js"></script>
+    <script type="module" src="/src/slides/slide-5.js"></script>
+    <script type="module" src="/src/slides/slide-6.js"></script>
+    <script type="module" src="/src/slides/slide-7.js"></script>
+    <script type="module" src="/src/slides/slide-8.js"></script>
+    <script type="module" src="/src/slides/slide-9.js"></script>
+    <script type="module" src="/src/slides/slide-10.js"></script>
+    <script type="module" src="/src/slides/slide-11.js"></script>
+    <script type="module" src="/src/slides/slide-12.js"></script>
+    <script type="module" src="/src/slides/slide-13.js"></script>
+    <script type="module" src="/src/slides/slide-14.js"></script>
+    <script type="module" src="/src/slides/slide-15.js"></script>
+    <script type="module" src="/src/slides/slide-16.js"></script>
+    <script type="module" src="/src/slides/slide-17.js"></script>
+    <script type="module" src="/src/slides/slide-18.js"></script>
+    <script type="module" src="/src/slides/slide-19.js"></script>
+    <script type="module" src="/src/slides/slide-20.js"></script>
+    <script type="module" src="/src/slides/slide-21.js"></script>
+    <script type="module" src="/src/slides/slide-22.js"></script>
+    <script type="module" src="/src/slides/slide-23.js"></script>
+    <script type="module" src="/src/slides/slide-24.js"></script>
+    <script type="module" src="/src/slides/slide-25.js"></script>
+    <script type="module" src="/src/slides/slide-26.js"></script>
+    <!--  结束加载slide-N.js区域 -->
+
+    <!-- 全屏播放控制：F 键 / 双击页面 / 右下角按钮 -->
+    <script>
+        (function () {
+            const btn = document.getElementById('fsBtn');
+            const icon = document.getElementById('fsIcon');
+            const EXPAND = '<path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3m13-5v3a2 2 0 0 1-2 2h-3"/>';
+            const SHRINK = '<path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3M3 16h3a2 2 0 0 1 2 2v3m8 0v-3a2 2 0 0 1 2-2h3"/>';
+
+            function isFullscreen() {
+                return !!(document.fullscreenElement || document.webkitFullscreenElement);
+            }
+
+            function toggleFullscreen() {
+                if (!isFullscreen()) {
+                    const el = document.documentElement;
+                    const req = el.requestFullscreen || el.webkitRequestFullscreen;
+                    if (req) Promise.resolve(req.call(el)).catch(function () {});
+                } else {
+                    const exit = document.exitFullscreen || document.webkitExitFullscreen;
+                    if (exit) Promise.resolve(exit.call(document)).catch(function () {});
+                }
+            }
+
+            function syncIcon() {
+                if (icon) icon.innerHTML = isFullscreen() ? SHRINK : EXPAND;
+                if (btn) btn.title = isFullscreen() ? '退出全屏（Esc）' : '全屏播放（F）';
+                // 全屏切换后需要重新计算缩放
+                window.setTimeout(function () {
+                    window.dispatchEvent(new Event('resize'));
+                }, 120);
+            }
+
+            if (btn) {
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    toggleFullscreen();
+                });
+            }
+
+            // 点击翻页：左侧 25% 区域上一页，其余区域下一页（双击不再绑定全屏，避免冲突）
+            document.addEventListener('click', function (e) {
+                if (e.target.closest && e.target.closest('button')) return;
+                var x = e.clientX;
+                if (x < window.innerWidth * 0.25) {
+                    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft' }));
+                } else {
+                    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight' }));
+                }
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'f' || e.key === 'F') {
+                    e.preventDefault();
+                    toggleFullscreen();
+                }
+            });
+
+            document.addEventListener('fullscreenchange', syncIcon);
+            document.addEventListener('webkitfullscreenchange', syncIcon);
+        })();
+    </script>
+</body>
+</html>

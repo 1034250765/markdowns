@@ -1,0 +1,14 @@
+{
+  "slideStyle": "Minimalist",
+  "colorScheme": "Academic Minimal - Deep Navy + Brick Accent",
+  "primaryColor": "#1B3A57",
+  "accentColor1": "#B5542A",
+  "accentColor2": "#5C7C89",
+  "neutralColor": "#6B7280",
+  "background": {
+    "type": "color",
+    "value": "#FFFFFF"
+  },
+  "fontTitle": "'Inter', 'Noto Sans SC', sans-serif",
+  "fontBody": "'Inter', 'Noto Sans SC', sans-serif"
+}
