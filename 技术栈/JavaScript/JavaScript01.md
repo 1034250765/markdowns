@@ -397,7 +397,7 @@ JavaScript 字符串用于存储和处理文本。
 |toUpperCase()|把字符串转换为大写|
 |trim()|移除字符串首尾空白|
 |valueOf()|返回某个字符串对象的原始值|
-# JavaScript 模板字符串
+## JavaScript 模板字符串
 
 JavaScript 中的模板字符串是一种方便的字符串语法，允许你在字符串中嵌入表达式和变量。
 
@@ -650,5 +650,89 @@ class Runoob {
  
 let site = new Runoob("菜鸟教程",  "https://www.runoob.com");****
 ```
+
+# JavaScript 类继承
+
+JavaScript 类继承使用 extends 关键字。
+
+继承允许我们依据另一个类来定义一个类，这使得创建和维护一个应用程序变得更容易。
+
+super() 方法用于调用父类的构造函数。
+
+当创建一个类时，您不需要重新编写新的数据成员和成员函数，只需指定新建的类继承了一个已有的类的成员即可。这个已有的类称为**基类（父类）**，新建的类称为**派生类（子类）**。
+
+继承代表了 **is a** 关系。例如，哺乳动物是动物，狗是哺乳动物，因此，狗是动物，等等。
+
+```ts
+class Site {
+  constructor(name) {
+    this.sitename = name;
+  }
+  present() {
+    return '我喜欢' + this.sitename;
+  }
+}
+ 
+class Runoob extends Site {
+  constructor(name, age) {
+    super(name);
+    this.age = age;
+  }
+  show() {
+    return this.present() + ', 它创建了 ' + this.age + ' 年。';
+  }
+}
+ 
+let noob = new Runoob("菜鸟教程", 5);
+document.getElementById("demo").innerHTML = noob.show();
+```
+
+函数声明和类声明之间的一个重要区别在于, 函数声明会提升，类声明不会。
+
+你首先需要声明你的类，然后再访问它，否则类似以下的代码将抛出 ReferenceError：
+
+```ts
+// 这里不能这样使用类，因为还没有声明
+// noob = new Runoob("菜鸟教程")
+// 报错
+ 
+class Runoob {
+  constructor(name) {
+    this.sitename = name;
+  }
+}
+ 
+// 这里可以使用类了
+let noob = new Runoob("菜鸟教程")
+```
+
+## JavaScript 静态方法
+
+静态方法是使用 static 关键字修饰的方法，又叫类方法，属于类的，但不属于对象，在实例化对象之前可以通过 类名.方法名 调用静态方法。
+
+静态方法不能在对象上调用，只能在类中调用。
+
+```ts
+class Runoob {
+  constructor(name) {
+    this.name = name;
+  }
+  static hello() {
+    return "Hello!!";
+  }
+}
+ 
+let noob = new Runoob("菜鸟教程");
+ 
+// 可以在类中调用 'hello()' 方法
+document.getElementById("demo").innerHTML = Runoob.hello();
+ 
+// 不能通过实例化后的对象调用静态方法
+// document.getElementById("demo").innerHTML = noob.hello();
+// 以上代码会报错
+```
+
+
+
 
 

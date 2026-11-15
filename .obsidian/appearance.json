@@ -2,5 +2,6 @@
   "accentColor": "#fd953f",
   "theme": "moonstone",
   "cssTheme": "Typewriter",
-  "baseFontSizeAction": true
+  "baseFontSizeAction": true,
+  "showRibbon": true
 }
